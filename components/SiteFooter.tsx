@@ -14,9 +14,9 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
           {settings?.ctaUrl ? (
             <a
               href={settings.ctaUrl}
-              className="inline-flex items-center rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-85"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-foreground/10"
             >
-              {settings.ctaLabel ?? "Get in touch"}
+              {settings.ctaLabel ?? "Get in touch"} <span className="arrow">→</span>
             </a>
           ) : (
             <span className="eyebrow">Contact link not set</span>

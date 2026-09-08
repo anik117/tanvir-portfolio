@@ -98,22 +98,22 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
             href={project.externalUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-8 inline-flex items-center rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-surface"
+            className="group mt-8 inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-all hover:-translate-y-0.5 hover:bg-surface"
           >
-            {project.externalLabel ?? "Visit Website"} ↗
+            {project.externalLabel ?? "Visit Website"} <span className="arrow">↗</span>
           </a>
         )}
       </header>
 
       {project.coverImage && (
-        <div className="mt-12">
+        <Reveal className="mt-12 group">
           <AnnotatedImage
             image={project.coverImage}
             width={1600}
             sizes="(max-width: 1024px) 100vw, 1024px"
             priority
           />
-        </div>
+        </Reveal>
       )}
 
       {meta.length > 0 && (
@@ -311,7 +311,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                         image={other.coverImage}
                         width={600}
                         sizes="(max-width: 640px) 100vw, 320px"
-                        className="transition-transform duration-500 group-hover:scale-[1.03]"
+                        className="cover-img"
                       />
                     </div>
                   )}

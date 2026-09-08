@@ -11,8 +11,8 @@ export type Annotation = {
 };
 
 const toneDot: Record<string, string> = {
-  positive: "bg-emerald-500",
-  attention: "bg-amber-500",
+  positive: "bg-emerald-600",
+  attention: "bg-amber-600",
   neutral: "bg-muted",
 };
 
@@ -42,7 +42,13 @@ export function AnnotatedImage({
   return (
     <div>
       <div className="relative overflow-hidden rounded-2xl border border-border bg-surface">
-        <SanityImage image={image} width={width} sizes={sizes} priority={priority} />
+        <SanityImage
+          image={image}
+          width={width}
+          sizes={sizes}
+          priority={priority}
+          className="cover-img"
+        />
 
         {items.map((a, i) => (
           <div
@@ -55,9 +61,9 @@ export function AnnotatedImage({
               transitionDelay: `${240 + i * 110}ms`,
             }}
           >
-            <div className="flex max-w-56 items-start gap-2.5 rounded-xl border border-border bg-background/92 px-3 py-2 shadow-sm backdrop-blur">
+            <div className="annotation-card flex max-w-56 items-start gap-2.5 rounded-xl border border-border bg-background/92 px-3 py-2 shadow-sm backdrop-blur">
               <span
-                className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${toneDot[a.tone ?? "neutral"]}`}
+                className={`annotation-dot relative mt-1.5 h-2 w-2 shrink-0 rounded-full ${toneDot[a.tone ?? "neutral"]}`}
               />
               <span className="min-w-0">
                 <span className="block text-xs font-medium leading-snug">{a.label}</span>

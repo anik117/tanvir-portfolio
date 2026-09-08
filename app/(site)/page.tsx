@@ -5,6 +5,7 @@ import type { ProjectCard, SiteSettings } from "@/sanity/types";
 import { AnnotatedImage } from "@/components/AnnotatedImage";
 import { Reveal } from "@/components/Reveal";
 import { SetupBanner } from "@/components/SetupBanner";
+import { Highlight } from "@/components/Highlight";
 
 export default async function HomePage() {
   const [projects, settings] = await Promise.all([
@@ -34,7 +35,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-2xl px-6 pb-28 pt-24 text-center sm:pt-32">
         <Reveal>
           <h1 className="text-balance text-3xl font-medium leading-[1.15] tracking-tight sm:text-[2.75rem]">
-            {settings?.heroHeadline}
+            {settings?.heroHeadline && <Highlight text={settings.heroHeadline} words={3} />}
           </h1>
           {settings?.heroSupporting && (
             <p className="mx-auto mt-6 max-w-xl text-balance leading-relaxed text-muted">
@@ -45,7 +46,7 @@ export default async function HomePage() {
             {settings?.ctaUrl && (
               <a
                 href={settings.ctaUrl}
-                className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85"
+                className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-foreground/10"
               >
                 {settings.ctaLabel ?? "Book a Call"}
               </a>
@@ -53,7 +54,7 @@ export default async function HomePage() {
             {settings?.email && (
               <a
                 href={`mailto:${settings.email}`}
-                className="rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:bg-surface"
+                className="rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-all hover:-translate-y-0.5 hover:bg-surface"
               >
                 Email me
               </a>
@@ -67,7 +68,7 @@ export default async function HomePage() {
           {projects.map((project, i) => (
             <li key={project._id}>
               <Reveal>
-                <article>
+                <article className="group">
                   {project.coverImage && (
                     <Link href={`/work/${project.slug}`} className="block">
                       <AnnotatedImage
@@ -100,7 +101,7 @@ export default async function HomePage() {
                         href={`/work/${project.slug}`}
                         className="rounded-full border border-border px-4 py-2 text-sm transition-colors hover:bg-surface"
                       >
-                        Case study →
+                        Case study <span className="arrow">→</span>
                       </Link>
                     </div>
                   </div>
@@ -163,7 +164,7 @@ export default async function HomePage() {
                     {settings.processSteps.map((step) => (
                       <li
                         key={step._key ?? step.name}
-                        className="rounded-full border border-border px-3.5 py-1.5 text-sm"
+                        className="rounded-full border border-border bg-surface/60 px-3.5 py-1.5 text-sm transition-colors hover:bg-surface"
                       >
                         {step.name}
                       </li>

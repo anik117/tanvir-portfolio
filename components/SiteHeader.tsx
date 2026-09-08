@@ -9,6 +9,12 @@ const links = [
 export function SiteHeader({ name }: { name: string }) {
   return (
     <header className="sticky top-0 z-50 px-6 pt-5">
+      {/* Content scrolls under the pills; this dissolves it instead of letting
+          it collide with them — the flaw visible on the reference site. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-24 bg-gradient-to-b from-background via-background/90 to-transparent"
+      />
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <Link
           href="/"

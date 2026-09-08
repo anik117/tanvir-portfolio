@@ -76,10 +76,38 @@ Not from 3D. From four things, all cheap:
 
 | Area | Direction | Status |
 | --- | --- | --- |
-| Typography | Geist Sans, Geist Mono for eyebrows and meta | Working |
-| Color | Neutral warm greys, one accent reserved for annotation tone | Working |
+| Typography | Geist Sans; Geist Mono for eyebrows and meta | Decided |
 | Composition | Centred hero, left-aligned reading content | Decided |
 | Imagery treatment | Screenshots with annotation callouts, never bare | Decided |
+
+### Palette
+
+Light only. The reference is light-only, and a half-maintained dark mode reads worse than none.
+If dark mode is wanted later it is a deliberate piece of work, not a toggle.
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--background` | `#faf9f7` | Page ground. Warm off-white, never pure `#fff` |
+| `--surface` | `#f1efec` | Cards, hover fills |
+| `--surface-strong` | `#e9e6e1` | Pressed and secondary fills |
+| `--foreground` | `#17150f` | Text. Warm near-black, never pure `#000` |
+| `--muted` | `#726d64` | Secondary text |
+| `--border` | `#e3dfd9` | Hairlines and card edges |
+| `--highlight` | `#fde68a` | Marker swipe only. Not a general accent |
+
+Annotation tone is the only other colour: emerald for a resolved decision, amber for a flagged
+problem, muted grey for a neutral note. Nothing else in the UI is coloured.
+
+### Tactile detail
+
+One playful moment, per the interaction principles.
+
+**Built: the highlighter swipe.** The closing words of the hero get a marker stroke that draws
+in on entry. It is the same gesture as annotating a screen, turned on his own sentence — so the
+site's one flourish reinforces its signature device instead of competing with it.
+
+The reference's sticky note and lanyard badge were deliberately not copied. A warm-grey palette
+and pill shapes are common design vocabulary; those two props are that site's own identity.
 
 **Avoid:** any visual choice that reduces usability, accessibility, or clarity.
 
@@ -98,7 +126,7 @@ Not from 3D. From four things, all cheap:
 | Area | Direction | Status |
 | --- | --- | --- |
 | Motion goals | Confirm arrival and hierarchy. Never announce itself. | Decided |
-| Approved patterns | Fade-and-rise on scroll entry; subtle scale on card hover; annotation callouts settling in after their image | Decided |
+| Approved patterns | Fade-and-rise on entry; annotations drop in past their mark and settle; slow pulse on annotation dots; 1.5% cover scale and callout lift on card hover; arrows nudge; buttons rise 2px | Decided |
 | Duration and easing | 300–600ms, `cubic-bezier(0.16, 1, 0.3, 1)`. Nothing longer. | Decided |
 | Reduced-motion | Everything resolves to its final state instantly. Already enforced globally in `globals.css`. | Decided |
 | Implementation | IntersectionObserver plus CSS transitions. No animation library — the patterns above do not need one. | Decided |

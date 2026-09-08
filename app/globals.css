@@ -1,34 +1,30 @@
 @import "tailwindcss";
 
 /*
-  Working baseline, not the final design. docs/design-direction.md is still a
-  blank slate — this is a clean neutral system to build on, chosen so the
-  content is readable and the layout holds up before the real direction lands.
+  Light, warm-grey palette. Direction set in docs/design-direction.md.
+  Single theme by choice — the reference is light-only, and a half-maintained
+  dark mode reads worse than none.
 */
 
 :root {
-  --background: #fbfaf9;
-  --surface: #ffffff;
-  --foreground: #1a1917;
-  --muted: #6f6a64;
-  --border: #e6e2dd;
-  --accent: #1a1917;
-}
+  color-scheme: light;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0d0c0b;
-    --surface: #161513;
-    --foreground: #f5f3f0;
-    --muted: #9a938b;
-    --border: #2a2724;
-    --accent: #f5f3f0;
-  }
+  --background: #faf9f7;
+  --surface: #f1efec;
+  --surface-strong: #e9e6e1;
+  --foreground: #17150f;
+  --muted: #726d64;
+  --border: #e3dfd9;
+  --accent: #17150f;
+  --highlight: #fde68a;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
@@ -44,13 +40,119 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Shared type rhythm for long-form case-study prose. */
 .eyebrow {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+/* ---- Scroll-entry motion -------------------------------------------------
+   Content renders in place. The transition is additive, so nothing is hidden
+   if JS never runs. See components/Reveal.tsx. */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 520ms var(--ease),
+    transform 520ms var(--ease);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Annotation callouts -------------------------------------------------
+   They drop in slightly past their mark and settle, so they read as placed
+   rather than faded up. */
+
+.annotation {
+  transform: translate(-50%, -50%);
+}
+
+/* Only hidden when it is inside a Reveal that has not fired yet. Standalone
+   use renders visible. */
+.reveal .annotation {
+  opacity: 0;
+  transform: translate(-50%, calc(-50% - 10px)) scale(0.96);
+  transition:
+    opacity 380ms var(--ease),
+    transform 520ms var(--ease);
+}
+
+.reveal-in .annotation {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.annotation-card {
+  transition:
+    transform 260ms var(--ease),
+    box-shadow 260ms var(--ease);
+}
+
+.group:hover .annotation-card {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgb(23 21 15 / 0.18);
+}
+
+/* The dot keeps a slow pulse so the callouts read as live, not printed on. */
+.annotation-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: inherit;
+  animation: ping 2.8s var(--ease) infinite;
+}
+
+@keyframes ping {
+  0% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+/* ---- Highlighter ---------------------------------------------------------
+   A marker swipe under the closing words of the hero — the same gesture as
+   annotating a screen, applied to his own sentence. */
+
+.highlight {
+  background-image: linear-gradient(transparent 58%, var(--highlight) 58%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 760ms var(--ease) 340ms;
+}
+
+.reveal-in .highlight {
+  background-size: 100% 100%;
+}
+
+/* ---- Hover affordances --------------------------------------------------- */
+
+.arrow {
+  display: inline-block;
+  transition: transform 260ms var(--ease);
+}
+
+.group:hover .arrow {
+  transform: translateX(3px);
+}
+
+.cover-img {
+  transition: transform 700ms var(--ease);
+}
+
+.group:hover .cover-img {
+  transform: scale(1.015);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -62,45 +164,22 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
 
-/* Scroll-entry motion. Elements render in place; the transition is additive,
-   so nothing is hidden if JS never runs. See components/Reveal.tsx. */
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity 520ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-in {
-  opacity: 1;
-  transform: none;
-}
-
-.reveal .annotation {
-  opacity: 0;
-  transform: translate(-50%, calc(-50% + 6px));
-  transition:
-    opacity 420ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-in .annotation {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-}
-
-@media (prefers-reduced-motion: reduce) {
   .reveal,
-  .reveal .annotation {
+  .annotation {
     opacity: 1 !important;
     transform: none !important;
-    transition: none !important;
   }
 
-  .reveal .annotation {
+  .annotation {
     transform: translate(-50%, -50%) !important;
+  }
+
+  .highlight {
+    background-size: 100% 100% !important;
+  }
+
+  .annotation-dot::after {
+    display: none;
   }
 }
