@@ -63,3 +63,44 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Scroll-entry motion. Elements render in place; the transition is additive,
+   so nothing is hidden if JS never runs. See components/Reveal.tsx. */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal .annotation {
+  opacity: 0;
+  transform: translate(-50%, calc(-50% + 6px));
+  transition:
+    opacity 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-in .annotation {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal .annotation {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .reveal .annotation {
+    transform: translate(-50%, -50%) !important;
+  }
+}

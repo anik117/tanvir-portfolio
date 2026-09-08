@@ -135,6 +135,29 @@
    "Practitioner profile and locations",
    "Treatment results",
    "Mobile flow"
+  ],
+  "coverAnnotations": [
+   {
+    "label": "Booking CTA above the fold",
+    "note": "Users were struggling to book online",
+    "tone": "positive",
+    "x": 21,
+    "y": 31
+   },
+   {
+    "label": "All four clinics on one page",
+    "note": "Separate location pages were driving bounce",
+    "tone": "positive",
+    "x": 24,
+    "y": 74
+   },
+   {
+    "label": "Practitioners surfaced early",
+    "note": "Credibility was the deciding trust signal",
+    "tone": "neutral",
+    "x": 79,
+    "y": 70
+   }
   ]
  },
  {
@@ -271,6 +294,29 @@
    "Dua collection with references",
    "Feed",
    "Key screens"
+  ],
+  "coverAnnotations": [
+   {
+    "label": "Silent mode, no manual step",
+    "note": "Phone switches itself on mosque entry",
+    "tone": "positive",
+    "x": 21,
+    "y": 33
+   },
+   {
+    "label": "One-tap start",
+    "note": "Wide age range, so no onboarding maze",
+    "tone": "neutral",
+    "x": 50,
+    "y": 72
+   },
+   {
+    "label": "Sources on every dua",
+    "note": "Quran and Hadith references shown inline",
+    "tone": "positive",
+    "x": 80,
+    "y": 40
+   }
   ]
  },
  {
@@ -407,6 +453,29 @@
    "Homepage and job platform",
    "Job search and course detail",
    "Mobile flow"
+  ],
+  "coverAnnotations": [
+   {
+    "label": "Courses lead the page",
+    "note": "Teachers wanted to browse and buy quickly",
+    "tone": "positive",
+    "x": 22,
+    "y": 56
+   },
+   {
+    "label": "Job portal — new feature",
+    "note": "Added to connect teachers with schools",
+    "tone": "positive",
+    "x": 78,
+    "y": 29
+   },
+   {
+    "label": "Bundles made visible",
+    "note": "Client needed high-value plans pushed",
+    "tone": "neutral",
+    "x": 78,
+    "y": 78
+   }
   ]
  },
  {
@@ -546,6 +615,29 @@
    "Customer stories",
    "Team and enrolled agents",
    "Mobile flow"
+  ],
+  "coverAnnotations": [
+   {
+    "label": "One clear CTA",
+    "note": "Old conversion flows were dropping off",
+    "tone": "positive",
+    "x": 21,
+    "y": 27
+   },
+   {
+    "label": "Results lead with proof",
+    "note": "Credibility was what both personas asked for",
+    "tone": "positive",
+    "x": 23,
+    "y": 72
+   },
+   {
+    "label": "~30 screens, one style guide",
+    "note": "Inconsistency was actively reducing trust",
+    "tone": "neutral",
+    "x": 79,
+    "y": 48
+   }
   ]
  }
 ]

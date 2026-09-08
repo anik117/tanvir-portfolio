@@ -5,6 +5,8 @@ import { safeFetch } from "@/sanity/client";
 import { PROJECT_BY_SLUG_QUERY, PROJECT_SLUGS_QUERY } from "@/sanity/queries";
 import type { Project } from "@/sanity/types";
 import { SanityImage } from "@/components/SanityImage";
+import { AnnotatedImage } from "@/components/AnnotatedImage";
+import { Reveal } from "@/components/Reveal";
 
 export async function generateStaticParams() {
   const slugs = await safeFetch<string[]>(PROJECT_SLUGS_QUERY);
@@ -29,8 +31,10 @@ function Section({
 }) {
   return (
     <section id={id} className="border-t border-border py-16">
-      <h2 className="eyebrow mb-8">{title}</h2>
-      {children}
+      <Reveal>
+        <h2 className="eyebrow mb-8">{title}</h2>
+        {children}
+      </Reveal>
     </section>
   );
 }
@@ -102,8 +106,13 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
       </header>
 
       {project.coverImage && (
-        <div className="mt-12 overflow-hidden rounded-xl border border-border bg-surface">
-          <SanityImage image={project.coverImage} width={1600} sizes="(max-width: 1024px) 100vw, 1024px" priority />
+        <div className="mt-12">
+          <AnnotatedImage
+            image={project.coverImage}
+            width={1600}
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            priority
+          />
         </div>
       )}
 
@@ -129,7 +138,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               <h3 className="eyebrow mb-6">Target users</h3>
               <ul className="grid gap-8 sm:grid-cols-2">
                 {project.targetUsers.map((u) => (
-                  <li key={u._key ?? u.label} className="rounded-lg border border-border bg-surface p-6">
+                  <li key={u._key ?? u.label} className="rounded-xl border border-border bg-surface p-6">
                     <p className="font-medium">{u.label}</p>
                     <p className="mt-2 text-sm leading-relaxed text-muted">{u.description}</p>
                   </li>
@@ -166,7 +175,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
         <Section title="Personas">
           <ul className="grid gap-6 sm:grid-cols-2">
             {project.personas.map((p) => (
-              <li key={p._key ?? p.name} className="rounded-lg border border-border bg-surface p-6">
+              <li key={p._key ?? p.name} className="rounded-xl border border-border bg-surface p-6">
                 <p className="text-lg font-medium tracking-tight">{p.name}</p>
                 {p.context && <p className="eyebrow mt-1">{p.context}</p>}
                 <dl className="mt-5 space-y-3 text-sm">
@@ -228,7 +237,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               {project.gallery.map((img, i) => (
                 <li key={i}>
                   <figure>
-                    <div className="overflow-hidden rounded-xl border border-border bg-surface">
+                    <div className="overflow-hidden rounded-2xl border border-border bg-surface">
                       <SanityImage
                         image={img}
                         width={900}
@@ -297,7 +306,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               <li key={other._id}>
                 <Link href={`/work/${other.slug}`} className="group block">
                   {other.coverImage && (
-                    <div className="overflow-hidden rounded-lg border border-border bg-surface">
+                    <div className="overflow-hidden rounded-xl border border-border bg-surface">
                       <SanityImage
                         image={other.coverImage}
                         width={600}

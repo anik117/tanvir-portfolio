@@ -2,7 +2,8 @@ import { groq } from "next-sanity";
 
 const CARD = `
   _id, title, "slug": slug.current, projectType, summary,
-  industry, year, coverImage
+  industry, year,
+  coverImage { ..., annotations }
 `;
 
 export const PROJECTS_QUERY = groq`
@@ -15,7 +16,8 @@ export const PROJECT_BY_SLUG_QUERY = groq`
     platform, duration, role, externalUrl, externalLabel,
     goal, targetUsers, discoveryNote, insights, competitorAnalysis,
     personas, userFlows, wireframes, visualDirection, keyScreens,
-    expectedOutcomes, outcomes, gallery, body,
+    expectedOutcomes, outcomes, body,
+    gallery[] { ..., annotations },
     "others": *[_type == "project" && slug.current != $slug] | order(order asc)[0...3] { ${CARD} }
   }
 `;

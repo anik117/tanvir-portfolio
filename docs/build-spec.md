@@ -12,9 +12,10 @@ truth for development.
 | Runtime | Node 22 LTS (`.nvmrc`), matching Vercel | Decided |
 | Package manager | npm | Decided |
 | Hosting | Vercel | Decided |
-| 3D | Three.js via react-three-fiber + drei | Decided |
+| 3D | None — dropped 2026-09-08, see design-direction.md | Decided |
 | CMS | Sanity (free plan) | Decided |
 | Styling | Tailwind v4 | Decided |
+| Animation | IntersectionObserver + CSS transitions, no library | Decided |
 | Analytics | — | REQUIRES VERIFICATION |
 | Domain | — | REQUIRES VERIFICATION |
 
@@ -100,29 +101,8 @@ Do not claim performance results before measurement.
 | Core Web Vitals targets | — | REQUIRES VERIFICATION |
 | Asset budgets | — | REQUIRES VERIFICATION |
 | Loading and rendering strategy | — | REQUIRES VERIFICATION |
-| 3D budget | — | REQUIRES VERIFICATION — now load-bearing, see below |
+
 | Validation plan | — | REQUIRES VERIFICATION |
-
-## Three.js Risk
-
-The stated intent is a "fully interactive" Three.js site. That collides directly with three
-principles in [brief.md](brief.md): effects support storytelling rather than lead it,
-performance and accessibility outrank decoration, and 3D is used *selectively*.
-
-This is not a reason to drop the 3D — it is a reason to decide the scope deliberately before
-building. Resolve before the first Three.js commit:
-
-| Question | Status |
-| --- | --- |
-| Which sections get 3D, and which stay flat? | REQUIRES VERIFICATION |
-| What does each 3D moment communicate that 2D cannot? | REQUIRES VERIFICATION |
-| Non-WebGL and low-power fallback | REQUIRES VERIFICATION |
-| `prefers-reduced-motion` behavior | REQUIRES VERIFICATION |
-| Mobile performance budget | REQUIRES VERIFICATION |
-| Bundle-size ceiling for 3D code and assets | REQUIRES VERIFICATION |
-
-The audience is hiring managers and design leaders. A site that stutters on a mid-range phone
-argues against the craft it is meant to demonstrate.
 
 ## Reference
 

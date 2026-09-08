@@ -1,6 +1,19 @@
 import type { SanityImageSource } from "@sanity/image-url";
 
-export type SanityImage = SanityImageSource & { alt?: string; caption?: string };
+export type Annotation = {
+  _key?: string;
+  label: string;
+  note?: string;
+  tone?: "positive" | "attention" | "neutral";
+  x: number;
+  y: number;
+};
+
+export type SanityImage = SanityImageSource & {
+  alt?: string;
+  caption?: string;
+  annotations?: Annotation[];
+};
 
 export type ProjectCard = {
   _id: string;

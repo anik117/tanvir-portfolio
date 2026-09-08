@@ -20,6 +20,7 @@ type Project = {
   coverAlt: string;
   galleryAlt: string[];
   galleryCaption?: string[];
+  coverAnnotations?: Annotation[];
   [key: string]: unknown;
 };
 
@@ -49,12 +50,22 @@ async function resolveAsset(path: string, filename: string) {
   return asset._id;
 }
 
-function imageField(assetId: string, alt: string, caption?: string) {
+type Annotation = { label: string; note?: string; tone?: string; x: number; y: number };
+
+function imageField(
+  assetId: string,
+  alt: string,
+  caption?: string,
+  annotations?: Annotation[],
+) {
   return {
     _type: "image",
     asset: { _type: "reference", _ref: assetId },
     alt,
     ...(caption ? { caption } : {}),
+    ...(annotations?.length
+      ? { annotations: annotations.map((a, i) => ({ _key: `ann-${i}`, ...a })) }
+      : {}),
   };
 }
 
@@ -63,7 +74,9 @@ async function main() {
     const id = `project-${p.slug}`;
     const dir = join(process.cwd(), "assets/projects", p.slug);
     const coverId = await resolveAsset(join(dir, "cover.jpg"), `${p.slug}-cover.jpg`);
-    const coverImage = coverId ? imageField(coverId, p.coverAlt) : undefined;
+    const coverImage = coverId
+      ? imageField(coverId, p.coverAlt, undefined, p.coverAnnotations)
+      : undefined;
 
     const gallery: unknown[] = [];
     for (let i = 1; i <= 4; i++) {
