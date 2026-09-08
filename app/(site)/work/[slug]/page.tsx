@@ -6,6 +6,7 @@ import { safeFetch } from "@/sanity/client";
 import { PROJECT_BY_SLUG_QUERY, PROJECT_SLUGS_QUERY } from "@/sanity/queries";
 import type { Project } from "@/sanity/types";
 import { SanityImage } from "@/components/SanityImage";
+import { ZoomableImage } from "@/components/ZoomableImage";
 import { AnnotatedImage } from "@/components/AnnotatedImage";
 import { Reveal } from "@/components/Reveal";
 
@@ -248,18 +249,14 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
             ) : null}
 
             {project.gallery?.length ? (
-              <div className="mt-14 space-y-12">
+              <div className="mt-14 space-y-10">
                 {project.gallery.map((img, i) => (
-                  <figure key={i} className="bleed">
-                    <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-md">
-                      <SanityImage
-                        image={img}
-                        width={1600}
-                        sizes="(max-width: 1024px) 100vw, 1280px"
-                      />
-                    </div>
+                  <figure key={i}>
+                    <ZoomableImage image={img} />
                     {img.caption && (
-                      <figcaption className="mt-3 text-sm text-muted">{img.caption}</figcaption>
+                      <figcaption className="mt-3 text-sm text-muted">
+                        {img.caption} — click to enlarge
+                      </figcaption>
                     )}
                   </figure>
                 ))}

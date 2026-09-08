@@ -89,10 +89,12 @@ structure.
 | Token | Value | Use |
 | --- | --- | --- |
 | `--background` | `#ffffff` | Page ground |
+| `--accent` | `#1d4ed8` | Primary CTA. Royal blue, with a blue-tinted shadow rather than a neutral one |
+| `--accent-hover` | `#1e40af` | Primary CTA hover |
 | `--surface` | `#f8fafc` | Raised cards and rows |
 | `--surface-strong` | `#f1f5f9` | Hover and pressed fills |
-| `--foreground` | `#0f172a` | Text |
-| `--muted` | `#64748b` | Secondary text |
+| `--foreground` | `#0a0f1c` | Text. Near-black |
+| `--muted` | `#475569` | Secondary text. Slate-600 — 500 was too light to read as body copy |
 | `--border` | `#e2e8f0` | Hairlines |
 | `--highlight` | `#bfdbfe` | Marker swipe only |
 
@@ -130,7 +132,7 @@ on colour alone.
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `--container-page` | 1280px | Headers, work index, covers, galleries |
+| `--container-page` | 1080px | Header, footer, work index, covers |
 | `--container-read` | 46rem | Body copy on case studies, About, Contact |
 
 Long-form text stays at reading measure; images break out to page width with `.bleed`.
@@ -218,3 +220,18 @@ are definition lists, not boxes. The meta row is a single inline strip, not a fi
 
 Home is work only — hero plus the project list. About and Contact are their own pages, so the
 homepage stops being a scroll through everything at once.
+
+## Image Lightbox
+
+Case-study gallery images sit at reading-column width and open full size on click.
+
+Built on a native `<dialog>` with `showModal()`, so focus trapping, an inert background, and
+the backdrop come from the platform instead of being reimplemented. A 320ms scale-and-fade on
+open, a blurred backdrop, a close button top-right, and the caption under the image.
+
+Escape carries an explicit handler alongside the browser's own. The UA behaviour is real but
+cannot be exercised through synthetic key events, and a lightbox that traps you is worse than
+a redundant line of code.
+
+Backdrop clicks close it by checking that the click target is the dialog itself — clicks on
+the content never reach that element.

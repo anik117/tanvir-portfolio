@@ -7,7 +7,7 @@
 */
 
 @theme {
-  --container-page: 1280px;
+  --container-page: 1080px;
   --container-read: 46rem;
 }
 
@@ -17,10 +17,11 @@
   --background: #ffffff;
   --surface: #f8fafc;
   --surface-strong: #f1f5f9;
-  --foreground: #0f172a;
-  --muted: #64748b;
+  --foreground: #0a0f1c;
+  --muted: #475569;
   --border: #e2e8f0;
-  --accent: #0f172a;
+  --accent: #1d4ed8;
+  --accent-hover: #1e40af;
   --highlight: #bfdbfe;
 
   /* Elevation. Two layers each: a tight contact shadow and a wide ambient one,
@@ -36,6 +37,7 @@
 }
 
 @theme inline {
+  --color-accent-hover: var(--accent-hover);
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-strong: var(--surface-strong);
@@ -92,12 +94,19 @@ body {
 .btn-primary {
   background: var(--accent);
   color: #fff;
-  box-shadow: var(--shadow-md), var(--shadow-inset);
+  box-shadow:
+    0 1px 2px rgb(29 78 216 / 0.24),
+    0 6px 16px -4px rgb(29 78 216 / 0.36),
+    var(--shadow-inset);
 }
 
 .btn-primary:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), var(--shadow-inset);
+  box-shadow:
+    0 2px 4px rgb(29 78 216 / 0.22),
+    0 14px 28px -6px rgb(29 78 216 / 0.42),
+    var(--shadow-inset);
 }
 
 .btn-primary:active {
@@ -286,5 +295,61 @@ body {
 
   .availability {
     transform: none !important;
+  }
+}
+
+/* ---- Lightbox ------------------------------------------------------------
+   Native <dialog>, so focus trapping, Esc, and the backdrop come for free. */
+
+.lightbox {
+  max-width: min(96vw, 1600px);
+  max-height: 92vh;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgb(10 15 28 / 0.82);
+  backdrop-filter: blur(2px);
+}
+
+.lightbox[open] {
+  animation: lightbox-in 320ms var(--ease);
+}
+
+.lightbox[open]::backdrop {
+  animation: backdrop-in 320ms var(--ease);
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.zoomable {
+  cursor: zoom-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox[open],
+  .lightbox[open]::backdrop {
+    animation: none;
   }
 }
