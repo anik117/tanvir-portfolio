@@ -9,7 +9,7 @@ const pages = [
 ];
 
 /**
- * The page runs out into peach: the signature and status centred, three
+ * The page runs out into lilac: the signature and status centred, three
  * short columns underneath, the year at the foot.
  */
 export function SiteFooter({ settings }: { settings: SiteSettings | null }) {

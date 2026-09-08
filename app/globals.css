@@ -31,13 +31,13 @@
   --panel: #f3f6fb;
   --panel-2: #f7f9fc;
 
-  /* The gradient stops, sky to peach. */
+  /* The gradient stops, sky to lilac. */
   --sky: #badbfc;
   --sky-2: #d1e8fd;
   --sky-3: #eaf7fe;
-  --mint: #f6f9f1;
-  --cream: #fdf7e8;
-  --peach: #fcedd1;
+  --mint: #f3f6fb;
+  --cream: #f3effc;
+  --peach: #e9e2fb;
 
   --shadow-card:
     0 1px 2px rgb(18 31 49 / 0.04),
@@ -140,8 +140,8 @@ h3,
   box-shadow: var(--shadow-lift);
 }
 
-/* The hero panel: sky at the top running down into cream and peach, with
-   the big soft corners of a sheet laid on the page. */
+/* The hero sheet: sky at the top running down into lilac, sitting inside
+   an even margin with rounded corners all round. */
 .hero-panel {
   background: linear-gradient(
     180deg,

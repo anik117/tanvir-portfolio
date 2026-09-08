@@ -157,6 +157,11 @@ What was taken, with our content and interactions unchanged:
 | Buttons | Primary is blue `#2f6cf6` (hover `#1f56d9`). Secondary is white with a hairline. A soft blue tint for tertiary |
 | Everywhere | Blue for links inside cards, active nav, dots and dwell bar, the availability dot. The line grid is gone — the gradient does that job |
 
+Refinement, same day: **orange out, lilac in.** The cream and peach stops are `#f3effc` and
+`#e9e2fb`, so the gradient runs sky → lilac and the panels and footer follow. The hero sheet
+now sits inside an even 12–16px margin with 32–48px corners on all four sides, and the nav
+sits above it on the ground rather than over it.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

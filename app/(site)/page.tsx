@@ -55,8 +55,8 @@ export default async function HomePage() {
   return (
     <main>
       {/* ---- Hero ---------------------------------------------------------- */}
-      <section className="px-2 sm:px-4">
-        <div className="hero-panel -mt-[var(--nav-h)] rounded-b-[40px] pt-[calc(var(--nav-h)+3rem)] sm:rounded-b-[64px] sm:pt-[calc(var(--nav-h)+4.5rem)]">
+      <section className="p-3 sm:p-4">
+        <div className="hero-panel rounded-[32px] pt-14 sm:rounded-[48px] sm:pt-24">
           <div className="mx-auto flex max-w-page flex-col items-center px-5 text-center sm:px-10">
             <Reveal y={10}>
               <p className="inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-white/70 bg-white/70 px-4 py-2 text-[13px] font-medium text-muted-strong shadow-[var(--shadow-card)] backdrop-blur">
