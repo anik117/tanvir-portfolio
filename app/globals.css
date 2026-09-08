@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 /*
-  Light, warm-grey palette. Direction set in docs/design-direction.md.
-  Single theme by choice — the reference is light-only, and a half-maintained
-  dark mode reads worse than none.
+  Cool slate. No pure white anywhere — the ground is slate-100 and cards sit
+  lighter on it, so elevation comes from value rather than shadow.
+  Direction in docs/design-direction.md.
 */
+
+@theme {
+  --container-page: 1280px;
+  --container-read: 46rem;
+}
 
 :root {
   color-scheme: light;
 
-  --background: #faf9f7;
-  --surface: #f1efec;
-  --surface-strong: #e9e6e1;
-  --foreground: #17150f;
-  --muted: #726d64;
-  --border: #e3dfd9;
-  --accent: #17150f;
-  --highlight: #fde68a;
+  --background: #eef2f7;
+  --surface: #f8fafc;
+  --surface-strong: #e2e8f0;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --border: #d5dde7;
+  --accent: #0f172a;
+  --highlight: #bfdbfe;
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@theme {
-  /* Page container. Every max-w-page below is this value. */
-  --container-page: 1280px;
 }
 
 @theme inline {
@@ -45,17 +45,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.eyebrow {
+/* Used sparingly — for meta values and counters, not as a label on every
+   section. Labelling everything was what made the old layout read as a form. */
+.mono {
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
-/* ---- Scroll-entry motion -------------------------------------------------
-   Content renders in place. The transition is additive, so nothing is hidden
-   if JS never runs. See components/Reveal.tsx. */
+/* ---- Scroll-entry motion ------------------------------------------------- */
 
 .reveal {
   opacity: 0;
@@ -70,16 +67,12 @@ body {
   transform: none;
 }
 
-/* ---- Annotation callouts -------------------------------------------------
-   They drop in slightly past their mark and settle, so they read as placed
-   rather than faded up. */
+/* ---- Annotation callouts ------------------------------------------------- */
 
 .annotation {
   transform: translate(-50%, -50%);
 }
 
-/* Only hidden when it is inside a Reveal that has not fired yet. Standalone
-   use renders visible. */
 .reveal .annotation {
   opacity: 0;
   transform: translate(-50%, calc(-50% - 10px)) scale(0.96);
@@ -101,10 +94,9 @@ body {
 
 .group:hover .annotation-card {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -8px rgb(23 21 15 / 0.18);
+  box-shadow: 0 8px 24px -8px rgb(15 23 42 / 0.22);
 }
 
-/* The dot keeps a slow pulse so the callouts read as live, not printed on. */
 .annotation-dot::after {
   content: "";
   position: absolute;
@@ -126,9 +118,7 @@ body {
   }
 }
 
-/* ---- Highlighter ---------------------------------------------------------
-   A marker swipe under the closing words of the hero — the same gesture as
-   annotating a screen, applied to his own sentence. */
+/* ---- Highlighter --------------------------------------------------------- */
 
 .highlight {
   background-image: linear-gradient(transparent 58%, var(--highlight) 58%);
@@ -141,8 +131,7 @@ body {
   background-size: 100% 100%;
 }
 
-/* The availability chip sits slightly off-square, like a label stuck on rather
-   than laid out, and straightens when you point at it. */
+/* ---- Availability chip --------------------------------------------------- */
 
 .availability {
   transform: rotate(-1.6deg);
@@ -170,6 +159,18 @@ body {
 
 .group:hover .cover-img {
   transform: scale(1.015);
+}
+
+/* Full-bleed images inside the reading column. */
+.bleed {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .bleed {
+    width: min(var(--container-page), 92vw);
+    margin-left: calc(50% - min(var(--container-page), 92vw) / 2);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

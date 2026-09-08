@@ -66,9 +66,9 @@ export function AnnotatedImage({
                 className={`annotation-dot relative mt-1.5 h-2 w-2 shrink-0 rounded-full ${toneDot[a.tone ?? "neutral"]}`}
               />
               <span className="min-w-0">
-                <span className="block text-xs font-medium leading-snug">{a.label}</span>
+                <span className="block text-xs font-semibold leading-snug">{a.label}</span>
                 {a.note && (
-                  <span className="mt-0.5 block text-[11px] leading-snug text-muted">
+                  <span className="mt-0.5 block text-xs leading-snug text-muted">
                     {a.note}
                   </span>
                 )}
@@ -86,9 +86,9 @@ export function AnnotatedImage({
                 className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${toneDot[a.tone ?? "neutral"]}`}
               />
               <span>
-                <span className="block text-xs font-medium leading-snug">{a.label}</span>
+                <span className="block text-[13px] font-semibold leading-snug">{a.label}</span>
                 {a.note && (
-                  <span className="mt-0.5 block text-[11px] leading-snug text-muted">
+                  <span className="mt-0.5 block text-xs leading-snug text-muted">
                     {a.note}
                   </span>
                 )}

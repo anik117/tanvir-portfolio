@@ -31,6 +31,7 @@ export const SITE_SETTINGS_QUERY = groq`
     siteTitle, siteDescription, heroHeadline, heroSupporting,
     availabilityShow, availabilityLabel,
     services, aboutHeading, aboutParagraphs, stats, clientsNote, processSteps,
-    contactHeading, ctaLabel, ctaUrl, email, socials
+    aboutIntro, education, experience, toolkit,
+    contactHeading, contactMessage, ctaLabel, ctaUrl, email, socials
   }
 `;

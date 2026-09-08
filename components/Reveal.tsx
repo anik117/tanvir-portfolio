@@ -34,7 +34,10 @@ export function Reveal({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        // Also show anything already scrolled past. An element above the
+        // viewport never reports as intersecting, so on a deep link or a
+        // restored scroll position it would otherwise stay invisible forever.
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
           setShown(true);
           observer.disconnect();
         }

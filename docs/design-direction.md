@@ -82,21 +82,34 @@ Not from 3D. From four things, all cheap:
 
 ### Palette
 
-Light only. The reference is light-only, and a half-maintained dark mode reads worse than none.
-If dark mode is wanted later it is a deliberate piece of work, not a toggle.
+Cool slate, light only. **No pure white and no warm tone** — the first pass used warm off-white
+and read generic. The ground is slate-100 and cards sit *lighter* on it, so elevation comes
+from value rather than shadow.
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `--background` | `#faf9f7` | Page ground. Warm off-white, never pure `#fff` |
-| `--surface` | `#f1efec` | Cards, hover fills |
-| `--surface-strong` | `#e9e6e1` | Pressed and secondary fills |
-| `--foreground` | `#17150f` | Text. Warm near-black, never pure `#000` |
-| `--muted` | `#726d64` | Secondary text |
-| `--border` | `#e3dfd9` | Hairlines and card edges |
-| `--highlight` | `#fde68a` | Marker swipe only. Not a general accent |
+| `--background` | `#eef2f7` | Page ground. Clearly grey, not near-white |
+| `--surface` | `#f8fafc` | Cards and rows — lighter than the ground |
+| `--surface-strong` | `#e2e8f0` | Hover and pressed fills |
+| `--foreground` | `#0f172a` | Text |
+| `--muted` | `#64748b` | Secondary text |
+| `--border` | `#d5dde7` | Hairlines |
+| `--highlight` | `#bfdbfe` | Marker swipe only |
 
 Annotation tone is the only other colour: emerald for a resolved decision, amber for a flagged
-problem, muted grey for a neutral note. Nothing else in the UI is coloured.
+problem, muted for a neutral note.
+
+### Layout
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--container-page` | 1280px | Headers, work index, covers, galleries |
+| `--container-read` | 46rem | Body copy on case studies, About, Contact |
+
+Long-form text stays at reading measure; images break out to page width with `.bleed`.
+
+**Labels were removed from every section.** Putting a small mono eyebrow on each block made the
+page read as a form. Hierarchy now comes from type size and rules.
 
 ### Tactile detail
 
@@ -108,7 +121,7 @@ the annotation dots, so the two read as one system. Driven by `availabilityShow`
 it is a claim about him, so it has an off switch.
 
 **Built: the highlighter swipe.** The closing words of the hero get a marker stroke that draws
-in on entry. It is the same gesture as annotating a screen, turned on his own sentence — so the
+in on entry. Cool blue, not the warm yellow of the first pass. It is the same gesture as annotating a screen, turned on his own sentence — so the
 site's one flourish reinforces its signature device instead of competing with it.
 
 The reference's sticky note and lanyard badge were deliberately not copied. A warm-grey palette
@@ -158,3 +171,23 @@ performance budget.
 
 Gate for approval: the concept tells a story the page cannot tell without it, has a defined
 non-WebGL fallback, and fits the performance budget in [build-spec.md](build-spec.md).
+
+## Case Study Structure
+
+Rebuilt after the first pass read as a form dump: seven identically weighted sections, each
+labelled, each boxed. Now four acts, each a step in one story.
+
+| Act | Holds |
+| --- | --- |
+| 01 The brief | Goal, target users |
+| 02 What I found | Discovery note, insights, competitor analysis, personas |
+| 03 How I built it | User flows, wireframes, visual direction, gallery, key screens |
+| 04 What it set out to do | Measured outcomes if any, then expected outcomes |
+
+Cards and grids were dropped in favour of rules and type hierarchy. Personas and key screens
+are definition lists, not boxes. The meta row is a single inline strip, not a five-column grid.
+
+## Site Structure
+
+Home is work only — hero plus the project list. About and Contact are their own pages, so the
+homepage stops being a scroll through everything at once.

@@ -144,7 +144,7 @@ async function main() {
     heroSupporting:
       "I'm Tanvir Ahassan, a UI/UX Designer with 5+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
     ctaLabel: "Book a Call",
-    availabilityLabel: "Available for new work",
+    availabilityLabel: "Available for hire",
     availabilityShow: true,
     // The old site's header button pointed at cal.com/babarogic — a leftover from
     // the Framer template, not Tanvir's calendar. This is the correct one.
@@ -157,6 +157,15 @@ async function main() {
       { _key: "so4", platform: "Behance", url: "https://www.behance.net/anik117" },
     ],
     contactHeading: "Have a project in mind or just want to connect?",
+    contactMessage:
+      "I'm currently looking for a new remote role. If you're hiring, or you have a project that needs a designer, I'd like to hear about it.",
+    aboutIntro:
+      "I started with a degree in Software Engineering, which gave me a foundation in technology, problem-solving, and systems thinking. Working in tech is where I found my interest in how people actually use digital products, and that is what moved me into UI/UX design.",
+    toolkit: ["Figma", "Framer", "Sanity", "Notion", "Webflow"],
+    // Education and experience are left empty on purpose — no dates, institutions,
+    // or employers exist anywhere in the source. Fill them in the Studio.
+    education: [],
+    experience: [],
     aboutHeading: "Designing Digital Solutions With Impact",
     aboutParagraphs: [
       "I started my professional journey with a degree in Software Engineering, where I built a strong foundation in technology, problem-solving, and system thinking. While working in the tech field, I discovered my deep interest in how people interact with digital products. This curiosity and passion for creating seamless experiences eventually led me to transition into UI/UX design.",

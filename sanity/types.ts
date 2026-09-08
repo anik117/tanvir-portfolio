@@ -75,7 +75,12 @@ export type SiteSettings = {
   stats?: { _key?: string; value: string; label: string }[];
   clientsNote?: string;
   processSteps?: Named[];
+  aboutIntro?: string;
+  education?: { _key?: string; qualification: string; institution?: string; years?: string; note?: string }[];
+  experience?: { _key?: string; role: string; organization?: string; years?: string; summary?: string }[];
+  toolkit?: string[];
   contactHeading?: string;
+  contactMessage?: string;
   ctaLabel?: string;
   ctaUrl?: string;
   email?: string;

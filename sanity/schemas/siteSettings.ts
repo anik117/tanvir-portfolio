@@ -7,7 +7,8 @@ export const siteSettings = defineType({
   groups: [
     { name: "general", title: "General", default: true },
     { name: "home", title: "Homepage" },
-    { name: "contact", title: "Contact" },
+    { name: "about", title: "About page" },
+    { name: "contact", title: "Contact page" },
   ],
   fields: [
     defineField({ name: "siteTitle", type: "string", group: "general" }),
@@ -89,7 +90,53 @@ export const siteSettings = defineType({
       ],
     }),
 
+    defineField({ name: "aboutIntro", type: "text", rows: 3, group: "about" }),
+    defineField({
+      name: "education",
+      type: "array",
+      group: "about",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "qualification", type: "string", validation: (r) => r.required() }),
+            defineField({ name: "institution", type: "string" }),
+            defineField({ name: "years", type: "string" }),
+            defineField({ name: "note", type: "string" }),
+          ],
+          preview: { select: { title: "qualification", subtitle: "institution" } },
+        }),
+      ],
+    }),
+    defineField({
+      name: "experience",
+      type: "array",
+      group: "about",
+      description: "Most recent first.",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "role", type: "string", validation: (r) => r.required() }),
+            defineField({ name: "organization", type: "string" }),
+            defineField({ name: "years", type: "string" }),
+            defineField({ name: "summary", type: "text", rows: 2 }),
+          ],
+          preview: { select: { title: "role", subtitle: "organization" } },
+        }),
+      ],
+    }),
+    defineField({
+      name: "toolkit",
+      title: "Toolkit",
+      type: "array",
+      group: "about",
+      of: [{ type: "string" }],
+      options: { layout: "tags" },
+    }),
+
     defineField({ name: "contactHeading", type: "string", group: "contact" }),
+    defineField({ name: "contactMessage", type: "text", rows: 3, group: "contact" }),
     defineField({ name: "ctaLabel", type: "string", group: "contact", initialValue: "Get in touch" }),
     defineField({ name: "ctaUrl", type: "url", group: "contact" }),
     defineField({ name: "email", type: "string", group: "contact" }),
