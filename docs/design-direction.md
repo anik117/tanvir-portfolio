@@ -3,9 +3,20 @@
 Portfolio-wide visual, motion, interaction, and 3D direction. Approved direction here is a
 source of truth for design work. Inspiration is not direction until it is approved.
 
+## Starting Point
+
+**The design is fully new.** The current Framer site at <https://tanvirux.framer.website/> is
+being retired, and its visual language is *not* a constraint on this build — no colors,
+type, layout, or component decisions carry over.
+
+What does carry over is content: bio, services, process, stats, and client list, captured in
+[profile.md](profile.md) and [content.md](content.md). Reference the copy, not the look.
+
 ## Visual
 
-**Desired qualities:** Premium, modern. Further qualities REQUIRES VERIFICATION.
+**Desired qualities:** Premium, modern, super clean. Further qualities REQUIRES VERIFICATION.
+
+A blank slate needs an anchor before component work starts. Nothing below is decided.
 
 | Area | Direction | Status |
 | --- | --- | --- |

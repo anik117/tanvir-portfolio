@@ -14,10 +14,10 @@ Documentation scaffold complete. No verified content yet, and the app is not sca
 | Area | State |
 | --- | --- |
 | Stack | Decided — Next.js + TypeScript, Vercel, Three.js |
-| CMS | Sanity proposed, not confirmed |
+| CMS | Sanity free plan — decided |
 | Profile and site copy | Drafted from the current live site, needs review |
-| Design direction | Awaiting verified input |
-| Four case studies | Blocked on Figma audit |
+| Design direction | Blank slate — old Framer visual is not a reference |
+| Case studies | 4 carried over (blocked on Figma audit) + 1-2 new, unnamed |
 | Application code | Not started |
 
 Replaces the current Framer site at <https://tanvirux.framer.website/>.

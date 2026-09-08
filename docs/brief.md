@@ -23,15 +23,23 @@ Product design hiring managers, design leaders, startup founders, and product te
 
 ## Featured Projects
 
-| Project | Case study | Doc |
-| --- | --- | --- |
-| TaxRise | In progress | [taxrise.md](projects/taxrise.md) |
-| ZO Skin Centre | In progress | [zo-skin-centre.md](projects/zo-skin-centre.md) |
-| Alokito Teacher | In progress | [alokito-teacher.md](projects/alokito-teacher.md) |
-| Ibadat | In progress | [ibadat.md](projects/ibadat.md) |
+Five or six total: the four carried over from the current site, plus one or two new.
 
-All four are blocked on the same first step: a Figma audit to establish verified summary,
-role, and goal.
+| Project | Carried over | Doc |
+| --- | --- | --- |
+| TaxRise | Yes | [taxrise.md](projects/taxrise.md) |
+| ZO Skin Centre | Yes | [zo-skin-centre.md](projects/zo-skin-centre.md) |
+| Alokito Teacher | Yes | [alokito-teacher.md](projects/alokito-teacher.md) |
+| Ibadat | Yes | [ibadat.md](projects/ibadat.md) |
+| New project 1 | No | Not yet named |
+| New project 2 (optional) | No | Not yet named |
+
+Carrying a project over means the project stays, not the writing. The current site only has
+one-line teasers behind each; the case studies get written from scratch. Start a new one from
+[_template.md](projects/_template.md).
+
+The four carried-over projects are blocked on the same first step: a Figma audit to establish
+verified summary, role, and goal.
 
 ## Principles
 

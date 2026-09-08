@@ -13,7 +13,7 @@ truth for development.
 | Package manager | npm | Decided |
 | Hosting | Vercel | Decided |
 | 3D | Three.js via react-three-fiber + drei | Decided |
-| CMS | Sanity (free plan) | Proposed — see below |
+| CMS | Sanity (free plan) | Decided |
 | Styling | — | REQUIRES VERIFICATION |
 | Analytics | — | REQUIRES VERIFICATION |
 | Domain | — | REQUIRES VERIFICATION |
@@ -22,12 +22,14 @@ truth for development.
 
 ### CMS Rationale
 
+Decided: **Sanity free plan.**
+
 A design portfolio is asset-heavy, and image delivery — not content modelling — is the thing
 that will actually hurt. That is the deciding factor.
 
 | Option | Free tier | Why / why not |
 | --- | --- | --- |
-| **Sanity** | 20 GB asset storage, 10 GB bandwidth/mo, 500k CDN requests/mo, 10k documents, 20 seats, does not expire | **Proposed.** Image CDN with on-the-fly resize, format conversion, and hotspot cropping. Studio embeds at `/studio` in the same Next.js app and ships to Vercel with the site. Free-tier datasets are public — fine, since portfolio content is public anyway. |
+| **Sanity** | 20 GB asset storage, 10 GB bandwidth/mo, 500k CDN requests/mo, 10k documents, 20 seats, does not expire | **Decided.** $0 forever, no card. Image CDN with on-the-fly resize, format conversion, and hotspot cropping. Studio embeds at `/studio` in the same Next.js app and ships to Vercel with the site. Free-tier datasets are public — fine, since portfolio content is public anyway. |
 | Keystatic | Free, open source | Git-based, so images land in the repo. For high-res case-study screens that means repo bloat and Git LFS. Rejected on the image constraint. |
 | Payload | Free, open source, MIT | Excellent, but needs a database and more ops. Overkill for four case studies maintained by one person. |
 | MDX in-repo | Free | Zero vendor risk, but no visual editing and the same image-in-git problem as Keystatic. |
