@@ -45,14 +45,14 @@ export function BrandMarquee({ brands }: { brands: Brand[] }) {
     <li
       key={`${b.slug}${hidden ? "-dup" : ""}`}
       aria-hidden={hidden || undefined}
-      className="flex h-12 shrink-0 items-center px-7 text-muted-strong/60 transition-colors duration-300 hover:text-foreground"
+      className="flex h-12 shrink-0 items-center px-8 text-muted-strong/60 transition-colors duration-300 hover:text-foreground"
     >
       {b.logo ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={b.logo}
           alt={b.name}
-          className="h-8 w-auto opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+          className="h-9 w-auto max-w-[160px] opacity-55 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
         />
       ) : (
         <span className="heading whitespace-nowrap text-[22px] font-bold">{b.name}</span>

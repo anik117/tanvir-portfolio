@@ -147,6 +147,8 @@ h3,
 /* The hero sheet: sky at the top running down into lilac, sitting inside
    an even margin with rounded corners all round. */
 .hero-panel {
+  position: relative;
+  isolation: isolate;
   background: linear-gradient(
     180deg,
     var(--sky) 0%,
@@ -159,6 +161,29 @@ h3,
 }
 
 /* Tinted panels for whole sections. */
+/* A thin grid behind the hero's content, strongest in the middle and
+   fading out toward the sheet's edges. */
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(rgb(18 31 49 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(18 31 49 / 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: center top;
+  mask-image: radial-gradient(ellipse 70% 65% at 50% 42%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 42%, #000 20%, transparent 75%);
+}
+
+.hero-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
 .panel-cream {
   background: linear-gradient(180deg, var(--cream) 0%, var(--peach) 100%);
 }

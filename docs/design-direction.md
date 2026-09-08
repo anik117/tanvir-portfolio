@@ -168,8 +168,10 @@ pill is tinted soft blue.
 **The hero artboard is gone (2026-09-09).** In its place a row of the brands Tanvir has
 worked with — Salesforce, Burger King, Centerbase, ExamSoft (Turnitin), OpenClinica, TaxRise
 Inc., Alokito Teachers, T-Mobile, AT&T, as he listed them — drifting sideways and easing to a
-fifth of its speed while a mark is hovered. Marks are grey wordmarks until a logo file is
-placed in `public/brands/`; `lib/brands.ts` picks those up at build time. The list is his own
+fifth of its speed while a mark is hovered. Five marks are in `public/brands/` (Salesforce, Burger King, T-Mobile,
+AT&T, Turnitin for ExamSoft) from Wikimedia Commons and Simple Icons; the other four are
+wordmarks until artwork turns up. `lib/brands.ts` picks files up at build time. A thin 44px
+grid sits behind the hero content, masked to fade toward the sheet's edges. The list is his own
 statement; profile.md's note about being precise on the nature of each engagement still
 applies to any copy that expands on it.
 
