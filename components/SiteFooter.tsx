@@ -1,80 +1,85 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { SiteSettings } from "@/sanity/types";
-import { Reveal } from "@/components/Reveal";
-import { Highlight } from "@/components/Highlight";
+
+const pages = [
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
 
 /**
- * The positioning line held in reserve in profile.md, set wide with the
- * highlighter, then links on the left and the signature on the right.
+ * A quiet grey close: the signature and status on the left, the site's
+ * pages and his channels on the right, the year underneath. Nothing else.
  */
 export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
   const socials = settings?.socials ?? [];
   const name = settings?.siteTitle ?? "Tanvir Ahassan";
 
   return (
-    <footer className="mt-32">
-      <div className="mx-auto max-w-page px-5 pb-12 sm:px-10">
-        <Reveal>
-          <p className="heading max-w-5xl text-balance text-[2.6rem] font-medium leading-[1.02] tracking-[-0.035em] sm:text-[5rem] lg:text-[6.5rem]">
-            <Highlight text="Turning complexity into clarity." words={2} />
-          </p>
-        </Reveal>
+    <footer className="mt-32 bg-[#f4f4f2]">
+      <div className="mx-auto max-w-page px-5 py-14 sm:px-10 sm:py-16">
+        <div className="flex flex-wrap items-start justify-between gap-x-16 gap-y-10">
+          <div>
+            <p className="serif-italic text-[34px] leading-none">{name}</p>
+            {settings?.availabilityShow && settings.availabilityLabel && (
+              <p className="mt-4 inline-flex items-center gap-2 text-[13px] text-muted-strong">
+                <span className="relative flex h-2 w-2">
+                  <span className="annotation-dot absolute inset-0 rounded-full bg-emerald-500" />
+                  <span className="relative h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
+                {settings.availabilityLabel}
+              </p>
+            )}
+          </div>
 
-        <Reveal>
-          <div className="mt-16 flex flex-wrap items-end justify-between gap-x-12 gap-y-10 border-t border-border pt-10 sm:mt-24">
-            <ul className="space-y-3 text-[15px]">
-              {socials.map((s) => (
-                <li key={s._key ?? s.platform}>
-                  <a
-                    href={s.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-2 font-medium hover:text-muted-strong"
-                  >
-                    {s.platform}
-                    <ArrowUpRight aria-hidden size={15} className="arrow-up" />
-                  </a>
-                </li>
-              ))}
-              {settings?.ctaUrl && (
-                <li>
-                  <a
-                    href={settings.ctaUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-2 font-medium hover:text-muted-strong"
-                  >
-                    {settings.ctaLabel ?? "Book a Call"}
-                    <ArrowUpRight aria-hidden size={15} className="arrow-up" />
-                  </a>
-                </li>
-              )}
-              {settings?.email && (
-                <li className="pt-2">
-                  <a href={`mailto:${settings.email}`} className="font-medium hover:text-muted-strong">
-                    {settings.email}
-                  </a>
-                </li>
-              )}
-            </ul>
-
-            <div className="text-right">
-              <p className="serif-italic text-5xl leading-none tracking-tight sm:text-6xl">{name}</p>
-              <ul className="mt-6 space-y-2 text-sm">
-                {settings?.availabilityShow && settings.availabilityLabel && (
-                  <li className="inline-flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="annotation-dot absolute inset-0 rounded-full bg-accent" />
-                      <span className="relative h-2 w-2 rounded-full bg-accent" />
-                    </span>
-                    {settings.availabilityLabel}
+          <div className="flex gap-16 sm:gap-24">
+            <div>
+              <p className="mono text-[11px] uppercase tracking-[0.16em] text-muted">Pages</p>
+              <ul className="mt-4 space-y-2.5 text-[14px]">
+                {pages.map((p) => (
+                  <li key={p.href}>
+                    <Link href={p.href} className="text-muted-strong hover:text-foreground">
+                      {p.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="mono text-[11px] uppercase tracking-[0.16em] text-muted">Elsewhere</p>
+              <ul className="mt-4 space-y-2.5 text-[14px]">
+                {socials.map((s) => (
+                  <li key={s._key ?? s.platform}>
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group inline-flex items-center gap-1 text-muted-strong hover:text-foreground"
+                    >
+                      {s.platform}
+                      <ArrowUpRight aria-hidden size={12} className="arrow-up" />
+                    </a>
+                  </li>
+                ))}
+                {settings?.email && (
+                  <li>
+                    <a
+                      href={`mailto:${settings.email}`}
+                      className="text-muted-strong hover:text-foreground"
+                    >
+                      {settings.email}
+                    </a>
                   </li>
                 )}
-                <li className="text-muted-strong">© {new Date().getFullYear()}</li>
               </ul>
             </div>
           </div>
-        </Reveal>
+        </div>
+
+        <p className="mono mt-14 border-t border-foreground/10 pt-6 text-[12px] text-muted">
+          © {new Date().getFullYear()} {name}
+        </p>
       </div>
     </footer>
   );

@@ -115,6 +115,12 @@ Seventh pass:
   then Experience, Education, What I do, and Toolkit as plain rows with a mono label above
   each. No cards, no timeline, no icons.
 
+Eighth pass:
+
+- **Footer is quiet.** The "Turning complexity into clarity." line is gone. A pale grey
+  `#f4f4f2` band with the signature and availability on the left, two short mono-labelled
+  lists on the right (pages; channels and email), and the year under a rule.
+
 Amber stays on "attention" callouts. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
