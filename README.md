@@ -7,40 +7,74 @@ that decides *what* gets built, and the Next.js application that builds it.
 
 **Start with [docs/brief.md](docs/brief.md).**
 
-## Status
+Replaces the current Framer site at <https://tanvirux.framer.website/>.
 
-Documentation scaffold complete. No verified content yet, and the app is not scaffolded.
+## Status
 
 | Area | State |
 | --- | --- |
-| Stack | Decided — Next.js + TypeScript, Vercel, Three.js |
-| CMS | Sanity free plan — decided |
-| Profile and site copy | Drafted from the current live site, needs review |
-| Design direction | Blank slate — old Framer visual is not a reference |
+| Stack | Next.js 16, React 19, TypeScript, Tailwind v4 |
+| App scaffold | Builds, typechecks, and lints clean |
+| CMS | Sanity wired up — needs an account and a project ID |
+| Hosting | Vercel — not yet deployed |
+| Content | Placeholder. Real copy blocked on decisions below |
+| Design direction | Blank slate. The neutral baseline is not the design |
 | Case studies | 4 carried over (blocked on Figma audit) + 1-2 new, unnamed |
-| Application code | Not started |
+| Three.js | Installed, unused. Scope undecided |
 
-Replaces the current Framer site at <https://tanvirux.framer.website/>.
+Unresolved fields across `docs/` are marked `REQUIRES VERIFICATION`. That marker is a hard
+stop, not a placeholder to fill with a plausible guess.
 
-Every unresolved field is marked `REQUIRES VERIFICATION`. That marker is a hard stop, not a
-placeholder to fill in with a plausible guess.
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Runs at <http://localhost:3000>. It works without Sanity — the homepage falls back to
+placeholder projects and shows a setup banner.
+
+| Script | Does |
+| --- | --- |
+| `npm run dev` | Dev server |
+| `npm run build` | Production build |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm run lint` | ESLint |
+
+**Node:** `.nvmrc` pins 22 (LTS), which matches Vercel. Node 25 works but is a non-LTS release
+and some dependencies warn about it.
+
+## Connecting Sanity
+
+1. Create a free account at [sanity.io](https://www.sanity.io) and make a project. No card needed.
+2. `cp .env.local.example .env.local`
+3. Paste the project ID into `NEXT_PUBLIC_SANITY_PROJECT_ID`, then restart the dev server.
+4. In Sanity, add CORS origins for `http://localhost:3000` and the Vercel domain once deployed.
+
+Then `/studio` mounts the real Studio. Until step 3, it shows setup instructions instead.
 
 ## Layout
 
 ```
+app/            routes — home, work/[slug], studio
+components/     shared UI
+sanity/         client, schemas, queries, studio structure
+public/         web-serving assets
+
 docs/           what to build — the source of truth
 ├── brief.md            goal, audience, principles, evidence rules
 ├── profile.md          bio, experience, capabilities, contact
 ├── content.md          page copy for every route
 ├── design-direction.md visual, interaction, motion, Three.js
 ├── build-spec.md       stack, IA, components, responsive, a11y, performance
-└── projects/           one case study per file
+└── projects/           one case study per file, plus _template.md
 
-assets/         source design exports, organized by scope
+assets/         source design exports, not web-serving
 ```
 
-Application code lands at the repository root when the app is scaffolded — `app/`, `public/`,
-`package.json`, and the rest of the standard Next.js layout.
+`docs/` is internal design reasoning and stays in git. Sanity holds published website content.
+Two different jobs — the CMS does not replace `docs/`.
 
 ## Working Rules
 
@@ -48,12 +82,13 @@ Application code lands at the repository root when the app is scaffolded — `ap
 2. Mark anything unconfirmed as `REQUIRES VERIFICATION` instead of guessing.
 3. Archived or exploratory work is never a final implementation reference.
 4. Read the relevant project doc in `docs/projects/` before using its material.
-5. Project-specific documentation beats general assumption.
-6. Ask when something important is missing rather than filling the gap.
+5. Ask when something important is missing rather than filling the gap.
 
 ## Next Steps
 
-1. Resolve the two conflicts in `docs/profile.md` — job title, and positioning line.
-2. Confirm Sanity as the CMS, then scaffold the Next.js app.
-3. Scope the Three.js work against the risk table in `docs/build-spec.md`.
-4. Run the Figma audit — it unblocks all four case studies at once.
+1. Create the Sanity account and connect it.
+2. Resolve the two conflicts in `docs/profile.md` — job title, and positioning line.
+3. Decide the visual direction. The current baseline is deliberately neutral.
+4. Scope the Three.js work against the risk table in `docs/build-spec.md`.
+5. Run the Figma audit — it unblocks all four carried-over case studies.
+6. Name the one or two new projects.

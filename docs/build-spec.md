@@ -7,14 +7,14 @@ truth for development.
 
 | Layer | Choice | Status |
 | --- | --- | --- |
-| Framework | Next.js (App Router) | Decided |
+| Framework | Next.js 16 (App Router, Turbopack) | Decided |
 | Language | TypeScript | Decided |
-| Runtime | Node 25.x locally | Decided |
+| Runtime | Node 22 LTS (`.nvmrc`), matching Vercel | Decided |
 | Package manager | npm | Decided |
 | Hosting | Vercel | Decided |
 | 3D | Three.js via react-three-fiber + drei | Decided |
 | CMS | Sanity (free plan) | Decided |
-| Styling | — | REQUIRES VERIFICATION |
+| Styling | Tailwind v4 | Decided |
 | Analytics | — | REQUIRES VERIFICATION |
 | Domain | — | REQUIRES VERIFICATION |
 
@@ -128,3 +128,14 @@ argues against the craft it is meant to demonstrate.
 
 Current site: <https://tanvirux.framer.website/> — Framer, being replaced by this build.
 Its copy and structure are captured in [content.md](content.md) and [profile.md](profile.md).
+
+## Build Notes
+
+Non-obvious things the scaffold depends on. Do not remove them without checking.
+
+| Setting | In | Why |
+| --- | --- | --- |
+| `serverExternalPackages: ["sanity", "@sanity/vision"]` | `next.config.ts` | Sanity Studio imports `useSWR` as a default export, but swr's `react-server` build only has named exports. Turbopack resolves that condition in the RSC graph and the build fails. Keeping Sanity out of the server graph avoids it. |
+| `turbopack.root` | `next.config.ts` | Turbopack otherwise walks up and finds a stray `package-lock.json` in the home directory, outside this repo. |
+| `styled-components` | dependency | `NextStudio` uses it internally. Missing it gives a runtime "styled is not defined". |
+| Null-safe Sanity client | `sanity/client.ts` | The app must build and run before the Sanity account exists. `safeFetch` returns null rather than throwing. |
