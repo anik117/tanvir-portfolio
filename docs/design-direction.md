@@ -82,22 +82,49 @@ Not from 3D. From four things, all cheap:
 
 ### Palette
 
-Cool slate, light only. **No pure white and no warm tone** — the first pass used warm off-white
-and read generic. The ground is slate-100 and cards sit *lighter* on it, so elevation comes
-from value rather than shadow.
+White ground, cool slate everything else. The first pass used a warm off-white and read
+generic; the correction over-shot to a grey ground. White is the ground, slate carries
+structure.
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `--background` | `#eef2f7` | Page ground. Clearly grey, not near-white |
-| `--surface` | `#f8fafc` | Cards and rows — lighter than the ground |
-| `--surface-strong` | `#e2e8f0` | Hover and pressed fills |
+| `--background` | `#ffffff` | Page ground |
+| `--surface` | `#f8fafc` | Raised cards and rows |
+| `--surface-strong` | `#f1f5f9` | Hover and pressed fills |
 | `--foreground` | `#0f172a` | Text |
 | `--muted` | `#64748b` | Secondary text |
-| `--border` | `#d5dde7` | Hairlines |
+| `--border` | `#e2e8f0` | Hairlines |
 | `--highlight` | `#bfdbfe` | Marker swipe only |
 
-Annotation tone is the only other colour: emerald for a resolved decision, amber for a flagged
-problem, muted for a neutral note.
+### Elevation
+
+Depth comes from a three-step shadow scale, each step two layers: a tight contact shadow plus
+a wide ambient one. A single-layer shadow is what makes a raised surface read as a flat grey
+box instead of a lifted one.
+
+| Token | Use |
+| --- | --- |
+| `--shadow-sm` | Resting cards, rows, chips |
+| `--shadow-md` | Primary buttons, images |
+| `--shadow-lg` | Hover state on anything raised |
+| `--shadow-inset` | A 1px inner top highlight on the dark primary button |
+
+`.raised` is the card base; `.raised-hover` adds the 2px lift. Buttons are fully rounded
+pills — `.btn` with `.btn-primary` or `.btn-secondary` — and press back down on `:active`,
+so the depth responds rather than just decorating.
+
+### Icons
+
+Lucide (`lucide-react`), 15–17px, `strokeWidth` 2–2.5. Used for real affordances —
+directional arrows, contact channels, About section headings, and annotation tone marks —
+never as decoration beside a heading for its own sake.
+
+Lucide dropped its brand icons, so socials use the platform name with a two-letter monogram
+rather than a logo. That reads cleaner than mismatched brand marks anyway.
+
+Annotation tone is now an icon, not a dot: a check for a resolved decision, a warning triangle
+for a flagged problem, a minus for a neutral note. The icon carries the meaning without relying
+on colour alone.
 
 ### Layout
 

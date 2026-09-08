@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import { safeFetch } from "@/sanity/client";
 import { PROJECT_BY_SLUG_QUERY, PROJECT_SLUGS_QUERY } from "@/sanity/queries";
@@ -92,8 +93,12 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
   return (
     <main className="pb-10">
       <div className="mx-auto max-w-page px-6 pt-12">
-        <Link href="/" className="text-sm text-muted transition-colors hover:text-foreground">
-          ← All work
+        <Link
+          href="/"
+          className="group inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
+        >
+          <ArrowLeft aria-hidden size={15} />
+          All work
         </Link>
 
         <header className="mt-10 max-w-3xl">
@@ -109,9 +114,10 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               href={project.externalUrl}
               target="_blank"
               rel="noreferrer"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-medium hover:opacity-70"
+              className="group btn btn-secondary mt-8"
             >
-              {project.externalLabel ?? "Visit Website"} <span className="arrow">↗</span>
+              {project.externalLabel ?? "Visit Website"}
+              <ArrowUpRight aria-hidden size={16} className="arrow" />
             </a>
           )}
         </header>
@@ -245,7 +251,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               <div className="mt-14 space-y-12">
                 {project.gallery.map((img, i) => (
                   <figure key={i} className="bleed">
-                    <div className="overflow-hidden rounded-lg border border-border bg-surface">
+                    <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-md">
                       <SanityImage
                         image={img}
                         width={1600}
@@ -326,7 +332,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                 <li key={other._id}>
                   <Link href={`/work/${other.slug}`} className="group block">
                     {other.coverImage && (
-                      <div className="overflow-hidden rounded-lg border border-border bg-surface">
+                      <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-md">
                         <SanityImage
                           image={other.coverImage}
                           width={600}

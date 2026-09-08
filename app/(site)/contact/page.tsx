@@ -1,6 +1,7 @@
 import { safeFetch } from "@/sanity/client";
 import { SITE_SETTINGS_QUERY } from "@/sanity/queries";
 import type { SiteSettings } from "@/sanity/types";
+import { ArrowUpRight, CalendarDays, Mail } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata = {
@@ -22,49 +23,69 @@ export default async function ContactPage() {
           <p className="mt-8 text-lg leading-relaxed text-muted">{settings.contactMessage}</p>
         )}
 
-        <div className="mt-12 space-y-px overflow-hidden rounded-lg border border-border">
+        <ul className="mt-12 grid gap-3">
           {settings?.email && (
-            <a
-              href={`mailto:${settings.email}`}
-              className="group flex items-baseline justify-between gap-6 bg-surface px-6 py-5 transition-colors hover:bg-surface-strong"
-            >
-              <span className="text-sm text-muted">Email</span>
-              <span className="font-medium">
-                {settings.email} <span className="arrow">→</span>
-              </span>
-            </a>
+            <li>
+              <a
+                href={`mailto:${settings.email}`}
+                className="group raised raised-hover flex items-center gap-4 rounded-2xl px-5 py-4"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background ring-1 ring-border">
+                  <Mail aria-hidden size={17} />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm text-muted">Email</span>
+                  <span className="block truncate font-medium">{settings.email}</span>
+                </span>
+                <ArrowUpRight aria-hidden size={17} className="arrow shrink-0 text-muted" />
+              </a>
+            </li>
           )}
 
           {settings?.ctaUrl && (
-            <a
-              href={settings.ctaUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex items-baseline justify-between gap-6 bg-surface px-6 py-5 transition-colors hover:bg-surface-strong"
-            >
-              <span className="text-sm text-muted">Book a call</span>
-              <span className="font-medium">
-                {settings.ctaLabel ?? "Book a Call"} <span className="arrow">↗</span>
-              </span>
-            </a>
+            <li>
+              <a
+                href={settings.ctaUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group raised raised-hover flex items-center gap-4 rounded-2xl px-5 py-4"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background ring-1 ring-border">
+                  <CalendarDays aria-hidden size={17} />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm text-muted">Book a call</span>
+                  <span className="block truncate font-medium">
+                    {settings.ctaLabel ?? "Book a Call"}
+                  </span>
+                </span>
+                <ArrowUpRight aria-hidden size={17} className="arrow shrink-0 text-muted" />
+              </a>
+            </li>
           )}
 
           {settings?.socials?.map((s) => (
-            <a
-              key={s._key ?? s.platform}
-              href={s.url}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex items-baseline justify-between gap-6 bg-surface px-6 py-5 transition-colors hover:bg-surface-strong"
-            >
-              <span className="text-sm text-muted">{s.platform}</span>
-              <span className="font-medium">
-                {s.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}{" "}
-                <span className="arrow">↗</span>
-              </span>
-            </a>
+            <li key={s._key ?? s.platform}>
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noreferrer"
+                className="group raised raised-hover flex items-center gap-4 rounded-2xl px-5 py-4"
+              >
+                <span className="mono flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background text-xs font-semibold ring-1 ring-border">
+                  {s.platform.slice(0, 2)}
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm text-muted">{s.platform}</span>
+                  <span className="block truncate font-medium">
+                    {s.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                  </span>
+                </span>
+                <ArrowUpRight aria-hidden size={17} className="arrow shrink-0 text-muted" />
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </Reveal>
     </main>
   );

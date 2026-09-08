@@ -1,12 +1,22 @@
 import { safeFetch } from "@/sanity/client";
 import { SITE_SETTINGS_QUERY } from "@/sanity/queries";
 import type { SiteSettings } from "@/sanity/types";
+import { Briefcase, GraduationCap, Sparkles, Wrench } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata = {
   title: "About | Tanvir Ahassan",
   description: "Background, education, and experience.",
 };
+
+function Heading({ icon: Icon, children }: { icon: typeof Briefcase; children: React.ReactNode }) {
+  return (
+    <h2 className="flex items-center gap-2 text-sm font-medium text-muted">
+      <Icon aria-hidden size={15} />
+      {children}
+    </h2>
+  );
+}
 
 function Row({ children }: { children: React.ReactNode }) {
   return (
@@ -37,9 +47,9 @@ export default async function AboutPage() {
         ) : null}
 
         {settings?.stats?.length ? (
-          <dl className="mt-14 grid grid-cols-3 gap-6 border-y border-border py-8">
+          <dl className="mt-14 grid grid-cols-3 gap-4">
             {settings.stats.map((stat) => (
-              <div key={stat._key ?? stat.label}>
+              <div key={stat._key ?? stat.label} className="raised rounded-2xl px-5 py-6">
                 <dt className="text-3xl font-semibold tracking-tight">{stat.value}</dt>
                 <dd className="mt-1 text-sm text-muted">{stat.label}</dd>
               </div>
@@ -51,7 +61,7 @@ export default async function AboutPage() {
       {settings?.experience?.length ? (
         <Reveal>
           <section className="mt-16">
-            <h2 className="text-sm font-medium text-muted">Experience</h2>
+            <Heading icon={Briefcase}>Experience</Heading>
             <ul className="mt-6">
               {settings.experience.map((job) => (
                 <Row key={job._key ?? job.role}>
@@ -77,7 +87,7 @@ export default async function AboutPage() {
       {settings?.education?.length ? (
         <Reveal>
           <section className="mt-16">
-            <h2 className="text-sm font-medium text-muted">Education</h2>
+            <Heading icon={GraduationCap}>Education</Heading>
             <ul className="mt-6">
               {settings.education.map((ed) => (
                 <Row key={ed._key ?? ed.qualification}>
@@ -103,7 +113,7 @@ export default async function AboutPage() {
       {settings?.services?.length ? (
         <Reveal>
           <section className="mt-16">
-            <h2 className="text-sm font-medium text-muted">What I do</h2>
+            <Heading icon={Sparkles}>What I do</Heading>
             <ul className="mt-6">
               {settings.services.map((service) => (
                 <Row key={service._key ?? service.name}>
@@ -121,12 +131,12 @@ export default async function AboutPage() {
       {settings?.toolkit?.length ? (
         <Reveal>
           <section className="mt-16">
-            <h2 className="text-sm font-medium text-muted">Toolkit</h2>
+            <Heading icon={Wrench}>Toolkit</Heading>
             <ul className="mt-5 flex flex-wrap gap-2">
               {settings.toolkit.map((tool) => (
                 <li
                   key={tool}
-                  className="rounded-md border border-border bg-surface px-3 py-1.5 text-sm"
+                  className="raised rounded-full px-3.5 py-1.5 text-sm"
                 >
                   {tool}
                 </li>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { safeFetch } from "@/sanity/client";
 import { PROJECTS_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/queries";
 import type { ProjectCard, SiteSettings } from "@/sanity/types";
@@ -41,13 +42,14 @@ export default async function HomePage() {
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85"
+              className="group btn btn-primary"
             >
-              Get in touch <span className="arrow">→</span>
+              Get in touch
+              <ArrowRight aria-hidden size={16} className="arrow" />
             </Link>
             <Link
               href="/about"
-              className="rounded-md border border-border bg-surface px-5 py-2.5 text-sm font-medium transition-colors hover:bg-surface-strong"
+              className="btn btn-secondary"
             >
               About me
             </Link>
@@ -98,9 +100,10 @@ export default async function HomePage() {
 
                   <Link
                     href={`/work/${project.slug}`}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium hover:opacity-70"
+                    className="mt-7 btn btn-secondary"
                   >
-                    Read the case study <span className="arrow">→</span>
+                    Read the case study
+                    <ArrowRight aria-hidden size={16} className="arrow" />
                   </Link>
                 </article>
               </Reveal>

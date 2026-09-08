@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /*
-  Cool slate. No pure white anywhere — the ground is slate-100 and cards sit
-  lighter on it, so elevation comes from value rather than shadow.
+  White ground, cool slate everything else. Depth comes from a three-step
+  shadow scale plus a hairline border — subtle elevation, not skeuomorphism.
   Direction in docs/design-direction.md.
 */
 
@@ -14,14 +14,23 @@
 :root {
   color-scheme: light;
 
-  --background: #eef2f7;
+  --background: #ffffff;
   --surface: #f8fafc;
-  --surface-strong: #e2e8f0;
+  --surface-strong: #f1f5f9;
   --foreground: #0f172a;
   --muted: #64748b;
-  --border: #d5dde7;
+  --border: #e2e8f0;
   --accent: #0f172a;
   --highlight: #bfdbfe;
+
+  /* Elevation. Two layers each: a tight contact shadow and a wide ambient one,
+     which is what stops a raised surface reading as a flat grey box. */
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.05), 0 1px 3px rgb(15 23 42 / 0.05);
+  --shadow-md:
+    0 1px 2px rgb(15 23 42 / 0.04), 0 4px 10px -2px rgb(15 23 42 / 0.08);
+  --shadow-lg:
+    0 2px 4px rgb(15 23 42 / 0.04), 0 12px 28px -6px rgb(15 23 42 / 0.12);
+  --shadow-inset: inset 0 1px 0 rgb(255 255 255 / 0.14);
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -47,6 +56,72 @@ body {
 
 /* Used sparingly — for meta values and counters, not as a label on every
    section. Labelling everything was what made the old layout read as a form. */
+/* ---- Elevation utilities ------------------------------------------------- */
+
+.raised {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 280ms var(--ease),
+    box-shadow 280ms var(--ease);
+}
+
+.raised-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- Buttons ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    transform 240ms var(--ease),
+    box-shadow 240ms var(--ease),
+    background-color 240ms var(--ease);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--shadow-inset);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
 .mono {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-variant-numeric: tabular-nums;
@@ -94,7 +169,7 @@ body {
 
 .group:hover .annotation-card {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -8px rgb(15 23 42 / 0.22);
+  box-shadow: var(--shadow-lg);
 }
 
 .annotation-dot::after {
@@ -174,6 +249,14 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .btn,
+  .raised,
+  .raised-hover:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none !important;
+  }
+
   *,
   *::before,
   *::after {
