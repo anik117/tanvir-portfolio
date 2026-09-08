@@ -124,7 +124,7 @@ Eighth pass:
 Ninth pass — "no orange tone; white, black, and sand grey only":
 
 - `--panel` is `#f1f1ee` and the canvas grids `#f7f7f5`: neutral greys with no yellow cast.
-  The footer uses the same panel grey.
+  The footer is white with a hairline across the top.
 - The blue accent is gone; `--accent` resolves to ink. The avatar and channel discs are
   black with white initials; the availability dot is black; the copy-confirm tick is ink.
 - Instrument Serif was already the serif — the signature and the italic closing words. Kept.

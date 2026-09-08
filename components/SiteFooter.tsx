@@ -9,7 +9,7 @@ const pages = [
 ];
 
 /**
- * A quiet grey close: the signature and status on the left, the site's
+ * A quiet close under a hairline: the signature and status on the left, the site's
  * pages and his channels on the right, the year underneath. Nothing else.
  */
 export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
@@ -17,7 +17,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
   const name = settings?.siteTitle ?? "Tanvir Ahassan";
 
   return (
-    <footer className="mt-32 bg-panel">
+    <footer className="mt-32 border-t border-border bg-white">
       <div className="mx-auto max-w-page px-5 py-14 sm:px-10 sm:py-16">
         <div className="flex flex-wrap items-start justify-between gap-x-16 gap-y-10">
           <div>
