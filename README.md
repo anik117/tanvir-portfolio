@@ -7,7 +7,9 @@ that decides *what* gets built, and the Next.js application that builds it.
 
 **Start with [docs/brief.md](docs/brief.md).**
 
-Replaces the current Framer site at <https://tanvirux.framer.website/>.
+**Live:** <https://tanvir-portfolio-two.vercel.app> · **Studio:** <https://tanvir-portfolio-two.vercel.app/studio>
+
+Replaces the Framer site at <https://tanvirux.framer.website/>, which is still up.
 
 ## Status
 
@@ -16,7 +18,7 @@ Replaces the current Framer site at <https://tanvirux.framer.website/>.
 | Stack | Next.js 16, React 19, TypeScript, Tailwind v4 |
 | App scaffold | Builds, typechecks, and lints clean |
 | CMS | Sanity wired up — needs an account and a project ID |
-| Hosting | Vercel — not yet deployed |
+| Hosting | Vercel, auto-deploying from `main` |
 | Content | Imported from the old Framer site into Sanity |
 | Design direction | Working baseline built. Full redesign still to come |
 | Case studies | 4 imported with full content and images; 1-2 new still unnamed |
@@ -45,14 +47,27 @@ placeholder projects and shows a setup banner.
 **Node:** `.nvmrc` pins 22 (LTS), which matches Vercel. Node 25 works but is a non-LTS release
 and some dependencies warn about it.
 
-## Connecting Sanity
+## Sanity
 
-1. Create a free account at [sanity.io](https://www.sanity.io) and make a project. No card needed.
-2. `cp .env.local.example .env.local`
-3. Paste the project ID into `NEXT_PUBLIC_SANITY_PROJECT_ID`, then restart the dev server.
-4. In Sanity, add CORS origins for `http://localhost:3000` and the Vercel domain once deployed.
+Project `wr5d5bj5`, dataset `production`. For local work:
 
-Then `/studio` mounts the real Studio. Until step 3, it shows setup instructions instead.
+```bash
+cp .env.local.example .env.local   # then paste the project ID
+```
+
+Without it the site still runs — it falls back to placeholder projects and `/studio` shows
+setup instructions rather than crashing.
+
+A new origin needs to be in Sanity's CORS list before the Studio works there. Visiting the
+Studio while signed in registers it automatically; if it does not, add it by hand at
+<https://www.sanity.io/manage/project/wr5d5bj5/api> with credentials allowed.
+
+To re-import or repair content:
+
+```bash
+npx sanity login
+npx sanity exec scripts/import-content.ts --with-user-token
+```
 
 ## Layout
 
@@ -86,10 +101,10 @@ Two different jobs — the CMS does not replace `docs/`.
 
 ## Next Steps
 
-1. Fill in `role` on each project — the old site never stated it, and it is the first
-   thing a hiring manager looks for.
-2. Add the missing URLs: project links, contact CTA, email, socials.
-3. Rewrite the generic gallery alt text in the Studio.
-4. Decide the visual direction, then do the full redesign.
-5. Scope the Three.js work against the risk table in `docs/build-spec.md`.
-6. Name the one or two new projects.
+1. Upgrade `role` if he was sole or lead designer — it currently says "UI/UX Designer",
+   which claims nothing about team structure. See `sanity/seed/README.md`.
+2. Add measured outcomes once there are numbers with sources behind them.
+3. Point the old Framer site at this one, or take it down. Its header "Book a Call" button
+   still links to someone else's calendar.
+4. Add a custom domain.
+5. Name the one or two new projects.
