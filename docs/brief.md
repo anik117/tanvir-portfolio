@@ -8,9 +8,9 @@ The single source of truth for what this portfolio is and who it is for. Everyth
 | Field | Value |
 | --- | --- |
 | Name | Tanvir Ahassan |
-| Role | Product and UX Designer |
+| Role | UI/UX Designer |
 | Experience | 5+ years designing digital products and user experiences |
-| Core positioning | Turning complexity into clarity |
+| Core positioning | Crafting seamless digital experiences with a human touch |
 
 ## Goal
 

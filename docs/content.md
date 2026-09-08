@@ -10,7 +10,7 @@ not as approved copy for the new build. Rows marked `REQUIRES VERIFICATION` have
 
 | Slot | Current copy | Status |
 | --- | --- | --- |
-| Hero headline | Crafting seamless digital experiences with a human touch. | From live site |
+| Hero headline | Crafting seamless digital experiences with a human touch. | **Decided** |
 | Supporting message | I'm Tanvir Ahassan, a UI/UX Designer with 5+ years of experience designing intuitive, user-friendly digital products for startups and enterprises. | From live site |
 | Primary CTA | Book a Call | From live site |
 | Page title | Tanvir Ahassan \| UI/UX designer with 5y+ experiences | From live site |
@@ -19,8 +19,10 @@ not as approved copy for the new build. Rows marked `REQUIRES VERIFICATION` have
 Process → Clients → Contact.
 
 That order is conventional and works. The open question is whether the new site keeps it or
-restructures around the Three.js concept. See the positioning conflict in
-[profile.md](profile.md) before rewriting the hero.
+restructures around the Three.js concept.
+
+The hero line and job title are now decided — see [profile.md](profile.md). The rest of the
+homepage copy is still the old site's draft.
 
 Note the page title has a grammar error — "5y+ experiences" should be "experience." Worth
 fixing on the new build since it is the SEO title.

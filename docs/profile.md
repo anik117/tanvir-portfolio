@@ -15,31 +15,28 @@ Rows marked `REQUIRES VERIFICATION` have no source at all.
 | Field | Value | Status |
 | --- | --- | --- |
 | Name | Tanvir Ahassan | Verified |
+| Title | UI/UX Designer | **Decided** |
 | Experience | 5+ years | Verified |
 | Background | Software Engineering degree, then transitioned into UI/UX | From live site |
 | Focus | Intuitive, user-friendly digital products for startups and enterprises | From live site |
 | Location | — | REQUIRES VERIFICATION |
 
-### Open Conflict: Job Title
+### Resolved: Job Title
 
-| Source | Title |
-| --- | --- |
-| `brief.md` | Product and UX Designer |
-| Live site | UI/UX Designer |
+**UI/UX Designer.** Decided 2026-09-08, carrying the live site's title forward. The earlier
+brief said "Product and UX Designer"; that is retired.
 
-Pick one and use it everywhere. "Product Designer" reads more senior to the hiring managers
-and design leaders named as the primary audience; "UI/UX Designer" matches current SEO and
-inbound. Unresolved.
+Worth revisiting later. "Product Designer" reads more senior to the hiring managers and design
+leaders named as the primary audience, while "UI/UX Designer" matches existing SEO and inbound.
+The choice was to keep continuity, not to close the question permanently.
 
-### Open Conflict: Positioning Line
+### Resolved: Positioning Line
 
-| Source | Line |
-| --- | --- |
-| `brief.md` | Turning complexity into clarity |
-| Live site hero | Crafting seamless digital experiences with a human touch |
+**"Crafting seamless digital experiences with a human touch."** Decided 2026-09-08.
 
-These say different things — one claims analytical reduction, the other claims warmth. The
-brief is the newer intent, so it likely wins, but this is a decision, not an oversight.
+"Turning complexity into clarity" is retired as the public line. It is still a sharper,
+more differentiating claim, so keep it in reserve — it may fit a section heading or the about
+page even though it is no longer the hero.
 
 ## Experience
 
