@@ -299,17 +299,6 @@ a:hover > .arrow-up {
   box-shadow: var(--shadow-lift);
 }
 
-/* ---- Hero artboard dwell bar --------------------------------------------- */
-
-@keyframes dwell {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
 /* ---- Carousel ------------------------------------------------------------ */
 
 .no-scrollbar {

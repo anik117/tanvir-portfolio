@@ -6,7 +6,8 @@ import type { ProjectCard, SanityImage, SiteSettings } from "@/sanity/types";
 import { Reveal } from "@/components/Reveal";
 import { Highlight } from "@/components/Highlight";
 import { SetupBanner } from "@/components/SetupBanner";
-import { HeroArtboard } from "@/components/home/HeroArtboard";
+import { BrandMarquee } from "@/components/home/BrandMarquee";
+import { brands } from "@/lib/brands";
 import { WorkStack } from "@/components/home/WorkStack";
 import { AboutReveal } from "@/components/home/AboutReveal";
 import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
@@ -108,12 +109,17 @@ export default async function HomePage() {
             </Reveal>
           </div>
 
-          <Reveal delay={320} y={28} className="mx-auto mt-14 w-full max-w-[1080px] px-3 sm:mt-20 sm:px-6">
-            <HeroArtboard projects={projects} />
+          <Reveal delay={320} y={16} className="mt-16 sm:mt-24">
+            <p className="mono text-center text-[11px] uppercase tracking-[0.18em] text-muted-strong">
+              Brands I&rsquo;ve worked with
+            </p>
+            <div className="mt-6">
+              <BrandMarquee brands={brands()} />
+            </div>
           </Reveal>
 
           {settings?.stats?.length ? (
-            <Reveal delay={420} y={12} className="flex justify-center px-5 pb-12 pt-10 sm:pb-16">
+            <Reveal delay={420} y={12} className="flex justify-center px-5 pb-12 pt-12 sm:pb-16">
               <dl className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-full border border-white/70 bg-white/80 px-6 py-3 text-[13px] shadow-[var(--shadow-card)] backdrop-blur">
                 {settings.stats.map((stat) => (
                   <div key={stat._key ?? stat.label} className="inline-flex items-center gap-2">

@@ -162,8 +162,16 @@ Refinement, same day: **orange out, lilac in.** The cream and peach stops are `#
 now sits inside an even 12–16px margin with 32–48px corners on all four sides, and the nav
 sits above it on the ground rather than over it.
 
-Links are 600 everywhere (nav pills 700); the page container is 1200px. The hero artboard
-is 1080px wide and turns every 3.2s. The active nav pill is tinted soft blue with a dot.
+Links are 600 everywhere (nav pills 700); the page container is 1200px. The active nav
+pill is tinted soft blue.
+
+**The hero artboard is gone (2026-09-09).** In its place a row of the brands Tanvir has
+worked with — Salesforce, Burger King, Centerbase, ExamSoft (Turnitin), OpenClinica, TaxRise
+Inc., Alokito Teachers, T-Mobile, AT&T, as he listed them — drifting sideways and easing to a
+fifth of its speed while a mark is hovered. Marks are grey wordmarks until a logo file is
+placed in `public/brands/`; `lib/brands.ts` picks those up at build time. The list is his own
+statement; profile.md's note about being precise on the nature of each engagement still
+applies to any copy that expands on it.
 
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
