@@ -19,6 +19,7 @@ type Project = {
   order: number;
   coverAlt: string;
   galleryAlt: string[];
+  galleryCaption?: string[];
   [key: string]: unknown;
 };
 
@@ -26,21 +27,32 @@ const projects: Project[] = JSON.parse(
   readFileSync(join(process.cwd(), "sanity/seed/projects.json"), "utf8"),
 );
 
-async function uploadImage(path: string, label: string) {
+/**
+ * Resolves an image asset by its original filename, uploading it only if the
+ * dataset does not already hold one. Keyed on filename rather than on what the
+ * document currently references, so a document that lost its reference is
+ * relinked instead of re-uploaded.
+ */
+async function resolveAsset(path: string, filename: string) {
+  const existing = await client.fetch<{ _id: string } | null>(
+    `*[_type == "sanity.imageAsset" && originalFilename == $filename][0]{_id}`,
+    { filename },
+  );
+  if (existing?._id) return existing._id;
+
   if (!existsSync(path)) {
     console.warn(`  ! missing ${path} — skipping`);
     return null;
   }
-  const asset = await client.assets.upload("image", createReadStream(path), {
-    filename: label,
-  });
-  return { _type: "reference" as const, _ref: asset._id };
+  const asset = await client.assets.upload("image", createReadStream(path), { filename });
+  console.log(`  ↑ uploaded ${filename}`);
+  return asset._id;
 }
 
-function imageField(ref: { _ref: string }, alt: string, caption?: string) {
+function imageField(assetId: string, alt: string, caption?: string) {
   return {
     _type: "image",
-    asset: { _type: "reference", _ref: ref._ref },
+    asset: { _type: "reference", _ref: assetId },
     alt,
     ...(caption ? { caption } : {}),
   };
@@ -50,32 +62,21 @@ async function main() {
   for (const p of projects) {
     const id = `project-${p.slug}`;
     const dir = join(process.cwd(), "assets/projects", p.slug);
+    const coverId = await resolveAsset(join(dir, "cover.jpg"), `${p.slug}-cover.jpg`);
+    const coverImage = coverId ? imageField(coverId, p.coverAlt) : undefined;
 
-    const existing = await client.fetch<{ coverImage?: unknown } | null>(
-      `*[_id == $id][0]{coverImage}`,
-      { id },
-    );
-
-    let coverImage: unknown = existing?.coverImage;
-    let gallery: unknown[] | undefined;
-
-    if (!coverImage) {
-      console.log(`${p.slug}: uploading images…`);
-      const coverRef = await uploadImage(join(dir, "cover.jpg"), `${p.slug}-cover.jpg`);
-      coverImage = coverRef ? imageField(coverRef, p.coverAlt) : undefined;
-
-      gallery = [];
-      for (let i = 1; i <= 4; i++) {
-        const ref = await uploadImage(join(dir, `screen-${i}.jpg`), `${p.slug}-screen-${i}.jpg`);
-        if (ref) {
-          gallery.push({
-            _key: `screen-${i}`,
-            ...imageField(ref, p.galleryAlt[i - 1] ?? `${p.title} screen ${i}`),
-          });
-        }
-      }
-    } else {
-      console.log(`${p.slug}: images already present, keeping them`);
+    const gallery: unknown[] = [];
+    for (let i = 1; i <= 4; i++) {
+      const assetId = await resolveAsset(join(dir, `screen-${i}.jpg`), `${p.slug}-screen-${i}.jpg`);
+      if (!assetId) continue;
+      gallery.push({
+        _key: `screen-${i}`,
+        ...imageField(
+          assetId,
+          p.galleryAlt[i - 1] ?? `${p.title} screen ${i}`,
+          p.galleryCaption?.[i - 1],
+        ),
+      });
     }
 
     // Give every array item a stable _key so Sanity does not complain.
@@ -96,6 +97,7 @@ async function main() {
       year: p.year,
       duration: p.duration,
       externalLabel: p.externalLabel,
+      externalUrl: p.externalUrl,
       goal: p.goal,
       targetUsers: keyed(p.targetUsers as unknown[], "user"),
       discoveryNote: p.discoveryNote,
@@ -128,6 +130,16 @@ async function main() {
     heroSupporting:
       "I'm Tanvir Ahassan, a UI/UX Designer with 5+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
     ctaLabel: "Book a Call",
+    // The old site's header button pointed at cal.com/babarogic — a leftover from
+    // the Framer template, not Tanvir's calendar. This is the correct one.
+    ctaUrl: "https://cal.com/tanvir-ahassan-hy2rwn/30min",
+    email: "anik880@gmail.com",
+    socials: [
+      { _key: "so1", platform: "LinkedIn", url: "https://www.linkedin.com/in/tanvir-ahassan/" },
+      { _key: "so2", platform: "Twitter", url: "https://x.com/ux_tanvir" },
+      { _key: "so3", platform: "Dribbble", url: "https://dribbble.com/anik117" },
+      { _key: "so4", platform: "Behance", url: "https://www.behance.net/anik117" },
+    ],
     contactHeading: "Have a project in mind or just want to connect?",
     aboutHeading: "Designing Digital Solutions With Impact",
     aboutParagraphs: [

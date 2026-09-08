@@ -224,13 +224,21 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           ) : null}
 
           {project.gallery?.length ? (
-            <ul className="mb-14 grid gap-6 sm:grid-cols-2">
+            <ul className="mb-14 grid gap-8 sm:grid-cols-2">
               {project.gallery.map((img, i) => (
-                <li
-                  key={i}
-                  className="overflow-hidden rounded-xl border border-border bg-surface"
-                >
-                  <SanityImage image={img} width={900} sizes="(max-width: 640px) 100vw, 500px" />
+                <li key={i}>
+                  <figure>
+                    <div className="overflow-hidden rounded-xl border border-border bg-surface">
+                      <SanityImage
+                        image={img}
+                        width={900}
+                        sizes="(max-width: 640px) 100vw, 500px"
+                      />
+                    </div>
+                    {img.caption && (
+                      <figcaption className="eyebrow mt-3">{img.caption}</figcaption>
+                    )}
+                  </figure>
                 </li>
               ))}
             </ul>

@@ -124,10 +124,17 @@
   ],
   "coverAlt": "ZO Skin Centre homepage with a facial treatment hero, a clinic locations grid, and practitioner profiles",
   "galleryAlt": [
-   "ZO Skin Centre — final design screens, 1 of 4",
-   "ZO Skin Centre — final design screens, 2 of 4",
-   "ZO Skin Centre — final design screens, 3 of 4",
-   "ZO Skin Centre — final design screens, 4 of 4"
+   "Before and after comparison of the ZO Skin Centre homepage — the old dark blue layout beside the redesigned version with a treatment hero and a clinic locations grid",
+   "Practitioner profile for Zein Obagi, M.D. on mobile, beside an About panel and a locations list with map",
+   "Treatment results page showing before and after photos of a ZO Controlled Depth Peel, beside a practitioner card and clinic contact details",
+   "Angled view of mobile screens — practitioner profile, treatment results, patient reviews, and a consultation request confirmation"
+  ],
+  "externalUrl": "https://zoskincentre.com/",
+  "galleryCaption": [
+   "Before and after — homepage",
+   "Practitioner profile and locations",
+   "Treatment results",
+   "Mobile flow"
   ]
  },
  {
@@ -253,10 +260,17 @@
   ],
   "coverAlt": "Ibadat app splash, welcome, and prophetic ritual acts screens on mobile",
   "galleryAlt": [
-   "Ibadat — final design screens, 1 of 4",
-   "Ibadat — final design screens, 2 of 4",
-   "Ibadat — final design screens, 3 of 4",
-   "Ibadat — final design screens, 4 of 4"
+   "Prayer Times screen counting down to Dhuhr with the daily prayer list, beside a Silence Mode screen with per-prayer toggles",
+   "Dua collection screen with browsable categories, beside an open prayer showing Arabic text, transliteration, translation, and source reference",
+   "Feed screen with Daily, Weekly, Monthly, and Yearly tabs listing ritual acts and Islamic events",
+   "Angled view of app screens — welcome, prophetic ritual acts, prayer times, and supplications"
+  ],
+  "externalUrl": "https://www.figma.com/proto/rSlXsfvsPDTz0P7m5RLHnK/Islamic-Prayer-App?page-id=1%3A2&node-id=458-5081&p=f&viewport=282%2C362%2C0.02&t=tRp6q0Yvyn8jAbD2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=10%3A29&show-proto-sidebar=1",
+  "galleryCaption": [
+   "Prayer times and silence mode",
+   "Dua collection with references",
+   "Feed",
+   "Key screens"
   ]
  },
  {
@@ -382,10 +396,17 @@
   ],
   "coverAlt": "Alokito Teacher homepage showing courses, the job platform for teachers and recruiters, badges, and pricing plans",
   "galleryAlt": [
-   "Alokito Teacher — final design screens, 1 of 4",
-   "Alokito Teacher — final design screens, 2 of 4",
-   "Alokito Teacher — final design screens, 3 of 4",
-   "Alokito Teacher — final design screens, 4 of 4"
+   "Before and after comparison of the Alokito Teacher homepage — the old illustration-led layout beside the redesigned version with photography and course cards",
+   "Alokito Teacher homepage on mobile, beside the Job Platform page explaining benefits for teachers and recruiters",
+   "Job search screen with keyword and location filters and live job counts, beside a course detail page for Inquiry-based learning with pricing",
+   "Angled view of mobile screens — homepage, course listing, course detail, and job search"
+  ],
+  "externalUrl": "https://www.alokitoteachers.com/",
+  "galleryCaption": [
+   "Before and after — homepage",
+   "Homepage and job platform",
+   "Job search and course detail",
+   "Mobile flow"
   ]
  },
  {
@@ -514,10 +535,17 @@
   ],
   "coverAlt": "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
   "galleryAlt": [
-   "TaxRise — final design screens, 1 of 4",
-   "TaxRise — final design screens, 2 of 4",
-   "TaxRise — final design screens, 3 of 4",
-   "TaxRise — final design screens, 4 of 4"
+   "Before and after comparison of the TaxRise free consultation page — the dense old layout beside the redesigned version with a clearer form and an expectations section",
+   "TaxRise customer stories page on mobile, beside a full story about a $206,000 IRS liability settled for $650",
+   "Team page on mobile showing the executive team, beside enrolled agent profiles with case counts",
+   "Angled view of mobile screens — tax relief services, blog listing, and about page"
+  ],
+  "externalUrl": "https://taxrise.com/",
+  "galleryCaption": [
+   "Before and after — free consultation",
+   "Customer stories",
+   "Team and enrolled agents",
+   "Mobile flow"
   ]
  }
 ]

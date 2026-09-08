@@ -21,16 +21,17 @@ live in `assets/projects/<slug>/`.
 
 | Field | Why |
 | --- | --- |
-| `role` | Not stated anywhere on the old site. You need to fill this in — it is the first thing a hiring manager looks for. |
-| `outcomes` (measured) | No real numbers exist. The schema requires evidence on every metric. |
-| `externalUrl` | The old site had "Visit Website" / "View Prototype" buttons but the targets were not captured. |
-| `ctaUrl`, `email`, `socials` | URLs behind the old site's buttons and social icons. |
+| `role` | Not stated anywhere on the old site. Only Tanvir can fill this in — it is the first thing a hiring manager looks for. |
+| `outcomes` (measured) | No real numbers exist. The schema requires evidence on every metric, so these stay empty until there are sources. |
 
-## Needs review
+## Notes
 
-**Gallery alt text is generic** — "final design screens, N of 4". The old site had no alt
-text at all, so there was nothing to carry over, and describing screens not seen would be
-inventing detail. Cover images have real descriptions. Rewrite the gallery alt in the Studio.
+**Alt text was written from the images, not carried over.** The old site had none on any of
+the 20 screenshots. Every image now has a real description and the gallery has captions.
+
+**Assets are keyed by filename.** `resolveAsset` looks up `sanity.imageAsset` by
+`originalFilename` before uploading, so re-running relinks existing assets rather than
+duplicating them — and repairs a document that lost its image references.
 
 **Expected outcomes are not results.** The old site said "the expected outcomes included" —
 that framing is honest and the site preserves it, rendering them under a heading that says
