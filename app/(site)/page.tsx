@@ -55,7 +55,8 @@ export default async function HomePage() {
   return (
     <main>
       {/* ---- Hero ---------------------------------------------------------- */}
-      <section className="mx-auto grid max-w-page items-center gap-12 px-5 pb-20 pt-12 sm:px-10 sm:pt-16 lg:min-h-[calc(100vh-var(--nav-h))] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:py-10">
+      <section className="hero-grid">
+        <div className="mx-auto grid max-w-page items-center gap-12 px-5 pb-20 pt-12 sm:px-10 sm:pt-16 lg:min-h-[calc(100vh-var(--nav-h))] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:py-10">
         <div>
           <Reveal y={10}>
             <p className="mono flex flex-wrap items-center gap-x-3 text-[11px] uppercase tracking-[0.18em] text-muted-strong">
@@ -115,6 +116,7 @@ export default async function HomePage() {
         <Reveal delay={200} y={24}>
           <HeroArtboard projects={projects} />
         </Reveal>
+        </div>
       </section>
 
       {/* ---- Work ---------------------------------------------------------- */}

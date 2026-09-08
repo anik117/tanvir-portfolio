@@ -123,7 +123,7 @@ export default async function ContactPage() {
 
         {/* ---- The practical side ----------------------------------------- */}
         <Reveal delay={200}>
-          <div className="band rounded-3xl p-6 sm:p-8">
+          <div className="rounded-3xl border border-border p-6 sm:p-8">
             <p className="mono text-[11px] uppercase tracking-[0.18em] text-muted-strong">
               A good first message
             </p>

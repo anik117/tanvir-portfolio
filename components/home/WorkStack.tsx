@@ -8,7 +8,7 @@ import { SanityImage } from "@/components/SanityImage";
  * up over the last as the reader scrolls the dark band. Pure CSS: sticky
  * positioning inside a tall parent, no scroll hijacking.
  *
- * White cards on the cream band: ink text on the left, the product shot on a
+ * White cards, hairline-framed: ink text on the left, the product shot on a
  * canvas grid to the right, and a mono index in the corner.
  */
 export function WorkStack({ projects }: { projects: ProjectCard[] }) {
@@ -18,7 +18,7 @@ export function WorkStack({ projects }: { projects: ProjectCard[] }) {
         <li key={project._id} className="sticky" style={{ top: "calc(var(--nav-h) + 1.5rem)" }}>
           <Link
             href={`/work/${project.slug}`}
-            className="card group grid overflow-hidden rounded-3xl shadow-[var(--shadow-lift)] transition-transform duration-500 ease-[var(--ease)] hover:-translate-y-1 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
+            className="card group grid overflow-hidden rounded-3xl shadow-[var(--shadow-lift)] ring-1 ring-border transition-transform duration-500 ease-[var(--ease)] hover:-translate-y-1 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
           >
             <div className="flex flex-col justify-between p-6 sm:min-h-[400px] sm:p-8">
               <div>
@@ -46,7 +46,7 @@ export function WorkStack({ projects }: { projects: ProjectCard[] }) {
               </p>
             </div>
 
-            <div className="canvas-grid flex items-center border-l border-border p-6 sm:p-9">
+            <div className="flex items-center border-l border-border bg-white p-6 sm:p-9">
               {project.coverImage && (
                 <div className="w-full overflow-hidden rounded-xl border border-border bg-white shadow-[0_16px_32px_-12px_rgb(0_0_0/0.35)]">
                   <SanityImage

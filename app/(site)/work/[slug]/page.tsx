@@ -352,7 +352,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           {hasOutcome && (
             <Act id="act-{n}" title="What it set out to do">
               {project.outcomes?.length ? (
-                <ul className="band mb-8 grid gap-6 rounded-3xl p-6 sm:grid-cols-3 sm:p-8">
+                <ul className="mb-8 grid gap-6 rounded-3xl border border-border p-6 sm:grid-cols-3 sm:p-8">
                   {project.outcomes.map((o) => (
                     <li key={o._key ?? o.label}>
                       <p className="mono text-4xl font-medium tracking-[-0.03em]">{o.value}</p>

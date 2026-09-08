@@ -129,6 +129,13 @@ Ninth pass — "no orange tone; white, black, and sand grey only":
   black with white initials; the availability dot is black; the copy-confirm tick is ink.
 - Instrument Serif was already the serif — the signature and the italic closing words. Kept.
 
+Tenth pass:
+
+- **The line grid is behind the hero only**, fading out toward its foot. Every other
+  section, and the whole of every other page, is flat white. `.band` now draws only a
+  hairline across the top of a section; the work-card image panel, the contact card, and
+  the outcome numbers are white with a hairline border.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

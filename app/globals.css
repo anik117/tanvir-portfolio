@@ -65,13 +65,7 @@ html {
 }
 
 body {
-  /* A fine line grid, like a canvas, rather than the reference's dots. */
   background-color: var(--background);
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  background-position: center top;
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -133,6 +127,17 @@ h3,
   box-shadow: var(--shadow-lift);
 }
 
+/* The line grid, behind the hero only, fading out at its foot. */
+.hero-grid {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
+  mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+}
+
 /* A tighter grid inside a frame, like an artboard. */
 .canvas-grid {
   background-color: var(--panel-2);
@@ -142,10 +147,11 @@ h3,
   background-size: 16px 16px;
 }
 
-/* A section on warm paper. Full bleed, no grid. */
+/* Sections are white. `.band` is kept as a hook and draws only a rule. */
 .band {
-  background: var(--panel);
+  background: var(--background);
   color: var(--foreground);
+  border-top: 1px solid var(--border);
 }
 
 /* ---- Buttons ------------------------------------------------------------- */
