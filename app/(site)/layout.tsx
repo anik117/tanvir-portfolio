@@ -1,4 +1,12 @@
 import type { ReactNode } from "react";
+
+/**
+ * Regenerate every minute so Studio edits reach the live site without a
+ * redeploy. Without this the pages are frozen at build time and content
+ * changes would only appear on the next push.
+ */
+export const revalidate = 60;
+
 import { safeFetch } from "@/sanity/client";
 import { SITE_SETTINGS_QUERY } from "@/sanity/queries";
 import type { SiteSettings } from "@/sanity/types";

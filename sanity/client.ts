@@ -7,6 +7,8 @@ export const client: SanityClient | null = projectId
       projectId,
       dataset,
       apiVersion,
+      // Next's revalidate window controls freshness; the CDN just makes the
+      // fetch cheap when it does run.
       useCdn: true,
       perspective: "published",
     })

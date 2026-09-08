@@ -161,14 +161,61 @@ async function main() {
       "I'm currently looking for a new remote role. If you're hiring, or you have a project that needs a designer, I'd like to hear about it.",
     aboutIntro:
       "I started with a degree in Software Engineering, which gave me a foundation in technology, problem-solving, and systems thinking. Working in tech is where I found my interest in how people actually use digital products, and that is what moved me into UI/UX design.",
-    toolkit: ["Figma", "Framer", "Sanity", "Notion", "Webflow"],
-    // Education and experience are left empty on purpose — no dates, institutions,
-    // or employers exist anywhere in the source. Fill them in the Studio.
-    education: [],
-    experience: [],
+    // Only tools there is actual evidence for: Figma (the Ibadat prototype link),
+    // Framer (the old site), Sanity (this one). Add the rest in the Studio.
+    toolkit: ["Figma", "Framer", "Sanity"],
+    // From LinkedIn, 2026-09-08. Most recent first.
+    experience: [
+      {
+        _key: "x1",
+        role: "UI/UX Designer",
+        organization: "MIADVG LLC · Full-time · Bangladesh",
+        years: "Apr 2020 — Present",
+        summary:
+          "Leading end-to-end UI/UX design processes for web and mobile applications, and collaborating with cross-functional teams to align user experience with business goals.",
+      },
+      {
+        _key: "x2",
+        role: "Product Designer",
+        organization: "DigiTruck Bangladesh · Full-time · Mirpur DOHS",
+        years: "Jul 2019 — Apr 2020",
+        summary:
+          "Designed user interfaces for mobile and web applications, working closely with developers to implement pixel-perfect UI components.",
+      },
+      {
+        _key: "x3",
+        role: "Visualizer",
+        organization: "Lie to Eye · Full-time · Gulshan 1, Dhaka",
+        years: "Dec 2018 — Jun 2019",
+        summary:
+          "Designed visual assets including illustrations, icons, and marketing materials, and developed creative concepts for branding and advertising campaigns.",
+      },
+      {
+        _key: "x4",
+        role: "Front-end Engineer, Intern",
+        organization: "Monstarlab · Internship · Bangladesh",
+        years: "Jan 2017 — Jun 2017",
+        summary:
+          "Assisted in front-end development with HTML, CSS, and JavaScript frameworks, implementing UI components alongside the design team.",
+      },
+      {
+        _key: "x5",
+        role: "Graphic Design Intern",
+        organization: "10 Minute School · Bangladesh",
+        years: "Feb 2017 — Apr 2017",
+      },
+    ],
+    education: [
+      {
+        _key: "e1",
+        qualification: "BSc in Software Engineering, Computer Science",
+        institution: "Institute of Information Technology (IIT), University of Dhaka",
+        years: "2014 — 2018",
+        note: 'General member of the Dhaka University IT Society.',
+      },
+    ],
     aboutHeading: "Designing Digital Solutions With Impact",
     aboutParagraphs: [
-      "I started my professional journey with a degree in Software Engineering, where I built a strong foundation in technology, problem-solving, and system thinking. While working in the tech field, I discovered my deep interest in how people interact with digital products. This curiosity and passion for creating seamless experiences eventually led me to transition into UI/UX design.",
       "Collaboration is at the heart of my work. I enjoy partnering with developers, product managers, and stakeholders to create seamless workflows and efficient design systems. My goal is always to bridge the gap between creativity and functionality — delivering designs that are visually appealing, intuitive, and aligned with both business objectives and user expectations.",
     ],
     services: [
