@@ -1,32 +1,34 @@
 @import "tailwindcss";
 
 /*
-  Deliberately neutral baseline. This is NOT the design.
-  docs/design-direction.md is a blank slate — the retired Framer site's visual
-  language is explicitly not a reference. Replace these tokens once the visual
-  direction is decided.
+  Working baseline, not the final design. docs/design-direction.md is still a
+  blank slate — this is a clean neutral system to build on, chosen so the
+  content is readable and the layout holds up before the real direction lands.
 */
 
 :root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --muted: #78716c;
-  --border: #e7e5e4;
-  --accent: #1c1917;
+  --background: #fbfaf9;
+  --surface: #ffffff;
+  --foreground: #1a1917;
+  --muted: #6f6a64;
+  --border: #e6e2dd;
+  --accent: #1a1917;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c0a09;
-    --foreground: #fafaf9;
-    --muted: #a8a29e;
-    --border: #292524;
-    --accent: #fafaf9;
+    --background: #0d0c0b;
+    --surface: #161513;
+    --foreground: #f5f3f0;
+    --muted: #9a938b;
+    --border: #2a2724;
+    --accent: #f5f3f0;
   }
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
@@ -40,6 +42,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Shared type rhythm for long-form case-study prose. */
+.eyebrow {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -17,9 +17,9 @@ Replaces the current Framer site at <https://tanvirux.framer.website/>.
 | App scaffold | Builds, typechecks, and lints clean |
 | CMS | Sanity wired up — needs an account and a project ID |
 | Hosting | Vercel — not yet deployed |
-| Content | Placeholder. Real copy blocked on decisions below |
-| Design direction | Blank slate. The neutral baseline is not the design |
-| Case studies | 4 carried over (blocked on Figma audit) + 1-2 new, unnamed |
+| Content | Imported from the old Framer site into Sanity |
+| Design direction | Working baseline built. Full redesign still to come |
+| Case studies | 4 imported with full content and images; 1-2 new still unnamed |
 | Three.js | Installed, unused. Scope undecided |
 
 Unresolved fields across `docs/` are marked `REQUIRES VERIFICATION`. That marker is a hard
@@ -86,9 +86,10 @@ Two different jobs — the CMS does not replace `docs/`.
 
 ## Next Steps
 
-1. Create the Sanity account and connect it.
-2. Resolve the two conflicts in `docs/profile.md` — job title, and positioning line.
-3. Decide the visual direction. The current baseline is deliberately neutral.
-4. Scope the Three.js work against the risk table in `docs/build-spec.md`.
-5. Run the Figma audit — it unblocks all four carried-over case studies.
+1. Fill in `role` on each project — the old site never stated it, and it is the first
+   thing a hiring manager looks for.
+2. Add the missing URLs: project links, contact CTA, email, socials.
+3. Rewrite the generic gallery alt text in the Studio.
+4. Decide the visual direction, then do the full redesign.
+5. Scope the Three.js work against the risk table in `docs/build-spec.md`.
 6. Name the one or two new projects.

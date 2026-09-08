@@ -1,54 +1,104 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const siteSettings = defineType({
   name: "siteSettings",
   title: "Site settings",
   type: "document",
+  groups: [
+    { name: "general", title: "General", default: true },
+    { name: "home", title: "Homepage" },
+    { name: "contact", title: "Contact" },
+  ],
   fields: [
-    defineField({ name: "siteTitle", type: "string" }),
+    defineField({ name: "siteTitle", type: "string", group: "general" }),
+    defineField({ name: "siteDescription", type: "text", rows: 2, group: "general", description: "Meta description." }),
+
+    defineField({ name: "heroHeadline", type: "string", group: "home" }),
+    defineField({ name: "heroSupporting", type: "text", rows: 3, group: "home" }),
     defineField({
-      name: "siteDescription",
+      name: "services",
+      type: "array",
+      group: "home",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "name", type: "string", validation: (r) => r.required() }),
+            defineField({ name: "description", type: "text", rows: 3 }),
+          ],
+          preview: { select: { title: "name", subtitle: "description" } },
+        }),
+      ],
+    }),
+    defineField({ name: "aboutHeading", type: "string", group: "home" }),
+    defineField({
+      name: "aboutParagraphs",
+      type: "array",
+      group: "home",
+      of: [{ type: "text" }],
+    }),
+    defineField({
+      name: "stats",
+      type: "array",
+      group: "home",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "value", type: "string", validation: (r) => r.required() }),
+            defineField({ name: "label", type: "string", validation: (r) => r.required() }),
+          ],
+          preview: { select: { title: "value", subtitle: "label" } },
+        }),
+      ],
+    }),
+    defineField({
+      name: "clientsNote",
       type: "text",
-      rows: 2,
-      description: "Used as the meta description.",
+      rows: 3,
+      group: "home",
+      description: "Be precise about whether each was employment, agency, or contract work.",
     }),
     defineField({
-      name: "heroHeadline",
-      type: "string",
-      description:
-        "Unresolved in docs/profile.md: 'Turning complexity into clarity' vs the old Framer line. Decide before launch.",
+      name: "processSteps",
+      type: "array",
+      group: "home",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "name", type: "string", validation: (r) => r.required() }),
+            defineField({ name: "description", type: "text", rows: 2, description: "Not on the old site — still to write." }),
+          ],
+          preview: { select: { title: "name", subtitle: "description" } },
+        }),
+      ],
     }),
-    defineField({ name: "heroSupporting", type: "text", rows: 3 }),
-    defineField({ name: "ctaLabel", type: "string", initialValue: "Get in touch" }),
-    defineField({ name: "ctaUrl", type: "url" }),
-    defineField({ name: "email", type: "string" }),
+
+    defineField({ name: "contactHeading", type: "string", group: "contact" }),
+    defineField({ name: "ctaLabel", type: "string", group: "contact", initialValue: "Get in touch" }),
+    defineField({ name: "ctaUrl", type: "url", group: "contact" }),
+    defineField({ name: "email", type: "string", group: "contact" }),
     defineField({
       name: "socials",
       type: "array",
+      group: "contact",
       of: [
-        {
+        defineArrayMember({
           type: "object",
           fields: [
             defineField({
               name: "platform",
               type: "string",
-              options: {
-                list: ["LinkedIn", "Twitter", "Dribbble", "Behance", "GitHub", "Other"],
-              },
-              validation: (rule) => rule.required(),
+              options: { list: ["LinkedIn", "Twitter", "Dribbble", "Behance", "GitHub", "Other"] },
+              validation: (r) => r.required(),
             }),
-            defineField({
-              name: "url",
-              type: "url",
-              validation: (rule) => rule.required(),
-            }),
+            defineField({ name: "url", type: "url", validation: (r) => r.required() }),
           ],
           preview: { select: { title: "platform", subtitle: "url" } },
-        },
+        }),
       ],
     }),
   ],
-  preview: {
-    prepare: () => ({ title: "Site settings" }),
-  },
+  preview: { prepare: () => ({ title: "Site settings" }) },
 });
