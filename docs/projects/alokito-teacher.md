@@ -8,16 +8,25 @@
 
 ## Summary
 
-REQUIRES VERIFICATION — complete after the Figma audit.
+**From the live site** (<https://tanvirux.framer.website/>, read 2026-09-08) — existing teaser
+copy, not a verified case study:
 
-| Field | Value |
-| --- | --- |
-| What it is | REQUIRES VERIFICATION |
-| My role | REQUIRES VERIFICATION |
-| Main goal | REQUIRES VERIFICATION |
-| Timeline | REQUIRES VERIFICATION |
-| Team and collaborators | REQUIRES VERIFICATION |
-| Scope boundaries | REQUIRES VERIFICATION |
+> A complete redesign of Alokito Teacher's website, adding a new job portal feature to connect teachers with opportunities.
+
+| Field | Value | Status |
+| --- | --- | --- |
+| Full title | Alokito Teacher Website Redesign + Job Portal | From live site |
+| Type | Website redesign + new feature | From live site |
+| Stated goal | See teaser above | From live site |
+| My role | — | REQUIRES VERIFICATION |
+| Timeline | — | REQUIRES VERIFICATION |
+| Team and collaborators | — | REQUIRES VERIFICATION |
+| Scope boundaries | — | REQUIRES VERIFICATION |
+| Outcome / results | — | REQUIRES VERIFICATION |
+
+The teaser claims outcomes (bookings, conversions, consistency). Do not repeat those on the new
+site as results unless there is evidence behind them — an unbacked metric is the first thing a
+design leader will probe in an interview.
 
 ## Context
 

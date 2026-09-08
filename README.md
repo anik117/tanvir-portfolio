@@ -13,11 +13,14 @@ Documentation scaffold complete. No verified content yet, and the app is not sca
 
 | Area | State |
 | --- | --- |
-| Brief and positioning | Verified |
-| Stack | Decided — Next.js + TypeScript |
-| Profile, content, design direction | Awaiting verified input |
+| Stack | Decided — Next.js + TypeScript, Vercel, Three.js |
+| CMS | Sanity proposed, not confirmed |
+| Profile and site copy | Drafted from the current live site, needs review |
+| Design direction | Awaiting verified input |
 | Four case studies | Blocked on Figma audit |
 | Application code | Not started |
+
+Replaces the current Framer site at <https://tanvirux.framer.website/>.
 
 Every unresolved field is marked `REQUIRES VERIFICATION`. That marker is a hard stop, not a
 placeholder to fill in with a plausible guess.
@@ -50,7 +53,7 @@ Application code lands at the repository root when the app is scaffolded — `ap
 
 ## Next Steps
 
-1. Run the Figma audit — it unblocks all four case studies at once.
-2. Fill `docs/profile.md`, which needs no Figma access.
-3. Decide the sitemap and routes in `docs/build-spec.md`.
-4. Scaffold the Next.js app.
+1. Resolve the two conflicts in `docs/profile.md` — job title, and positioning line.
+2. Confirm Sanity as the CMS, then scaffold the Next.js app.
+3. Scope the Three.js work against the risk table in `docs/build-spec.md`.
+4. Run the Figma audit — it unblocks all four case studies at once.

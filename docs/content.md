@@ -1,63 +1,96 @@
 # Site Content
 
-Approved copy for every portfolio page. Approved copy is a source of truth; anything marked
-`REQUIRES VERIFICATION` is not final and must not ship.
+Copy for every portfolio page.
 
-Do not invent claims, credentials, or outcomes.
+Rows marked **From live site** are the existing Framer copy, read from
+<https://tanvirux.framer.website/> on 2026-09-08. Treat it as a starting draft to react to,
+not as approved copy for the new build. Rows marked `REQUIRES VERIFICATION` have no source.
 
 ## Homepage
 
-| Slot | Copy | Status |
+| Slot | Current copy | Status |
 | --- | --- | --- |
-| Hero headline | — | REQUIRES VERIFICATION |
-| Supporting message | — | REQUIRES VERIFICATION |
-| Primary CTA | — | REQUIRES VERIFICATION |
-| Secondary CTA | — | REQUIRES VERIFICATION |
+| Hero headline | Crafting seamless digital experiences with a human touch. | From live site |
+| Supporting message | I'm Tanvir Ahassan, a UI/UX Designer with 5+ years of experience designing intuitive, user-friendly digital products for startups and enterprises. | From live site |
+| Primary CTA | Book a Call | From live site |
+| Page title | Tanvir Ahassan \| UI/UX designer with 5y+ experiences | From live site |
 
-**Section order:** REQUIRES VERIFICATION
+**Current section order (live site):** Hero → Recent Work → Services → About → Stats →
+Process → Clients → Contact.
 
-The positioning line "Turning complexity into clarity" is verified and available, but whether
-it is the hero headline or supporting copy is an open decision.
+That order is conventional and works. The open question is whether the new site keeps it or
+restructures around the Three.js concept. See the positioning conflict in
+[profile.md](profile.md) before rewriting the hero.
 
-## About
-
-| Section | Copy | Status |
-| --- | --- | --- |
-| Introduction | — | REQUIRES VERIFICATION |
-| Experience narrative | — | REQUIRES VERIFICATION |
-| Working approach | — | REQUIRES VERIFICATION |
-
-Facts here must trace back to [profile.md](profile.md). Do not add biography or career claims
-that are not verified there first.
+Note the page title has a grammar error — "5y+ experiences" should be "experience." Worth
+fixing on the new build since it is the SEO title.
 
 ## Selected Work
 
-**Selection criteria:** REQUIRES VERIFICATION
+**Section intro (live site):** "A curated selection of projects where I've designed intuitive,
+user-focused digital experiences that solve real business challenges."
 
-The four featured projects are fixed by the brief. What is unresolved is their order, their
-one-line summaries, and which have full case studies at launch versus a summary card.
+**Live site order** differs from the order in [brief.md](brief.md). Unresolved — the first
+project carries the most weight, so this is a real decision.
 
-| Project | Summary | Role | Case-study depth |
-| --- | --- | --- | --- |
-| TaxRise | REQUIRES VERIFICATION | REQUIRES VERIFICATION | REQUIRES VERIFICATION |
-| ZO Skin Centre | REQUIRES VERIFICATION | REQUIRES VERIFICATION | REQUIRES VERIFICATION |
-| Alokito Teacher | REQUIRES VERIFICATION | REQUIRES VERIFICATION | REQUIRES VERIFICATION |
-| Ibadat | REQUIRES VERIFICATION | REQUIRES VERIFICATION | REQUIRES VERIFICATION |
+| Live site order | Brief order |
+| --- | --- |
+| 1. ZO Skin Centre | 1. TaxRise |
+| 2. Ibadat | 2. ZO Skin Centre |
+| 3. Alokito Teacher | 3. Alokito Teacher |
+| 4. TaxRise | 4. Ibadat |
+
+Card copy currently in use:
+
+| Project | Title | Summary |
+| --- | --- | --- |
+| ZO Skin Centre | ZO Skin Centre Website Redesign | A premium website redesign aimed at increasing online appointment bookings and creating a seamless experience. |
+| Ibadat | Ibadat – Islamic App | A prayer and lifestyle app designed for Muslims to track prayer times, access authentic duas, and manage notifications seamlessly. |
+| Alokito Teacher | Alokito Teacher Website Redesign + Job Portal | A complete redesign of Alokito Teacher's website, adding a new job portal feature to connect teachers with opportunities. |
+| TaxRise | TaxRise Inc Website Redesign | A complete redesign of TaxRise Inc's website to modernize the brand presence, improve consistency, and boost conversions. |
+
+**Gap:** these are one-line teasers, not case studies. The live site has no depth behind them.
+Building that depth is the actual work — see `docs/projects/`.
+
+## Services
+
+| Service | Description |
+| --- | --- |
+| UI/UX Design | Crafting user-centered digital experiences through research, wireframing, prototyping, and testing. |
+| Design System | Building scalable design systems for consistency, efficiency, and design-dev collaboration. |
+| Design Consultation | Helping startups refine digital products by identifying usability issues, improving workflows, and aligning design with business goals. |
+
+All three From live site.
+
+## About
+
+**Section heading (live site):** "Designing Digital Solutions With Impact"
+
+Two published paragraphs, both From live site:
+
+1. **Origin story** — Software Engineering degree, foundation in technology and systems
+   thinking, discovered an interest in how people interact with digital products while working
+   in tech, transitioned into UI/UX.
+2. **Collaboration** — partners with developers, PMs, and stakeholders; bridges creativity and
+   functionality; aligns design with business objectives and user expectations.
+
+This is decent copy and the origin story is genuinely differentiating — an engineering
+background is a real asset with the stated audience. Worth keeping the substance.
+
+**Stats block:** 5+ years in business · 15+ completed projects · 20+ clients.
+
+**Clients paragraph:** collaborations with Salesforce, Burger King, Centerbase, ZO Skin Centre,
+and Accurate, across enterprise SaaS and consumer brands.
+
+## Contact
+
+| Slot | Current copy | Status |
+| --- | --- | --- |
+| Heading | Have a project in mind or just want to connect? | From live site |
+| CTA | Get in touch | From live site |
+| Social links | LinkedIn, Twitter, Dribbble, Behance | From live site |
 
 ## Process
 
-**Overview:** REQUIRES VERIFICATION
-
-Describe the process actually used, not an aspirational one. One row per stage.
-
-| Stage | Purpose | Activities | Outputs |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-## Contact Page
-
-| Slot | Copy | Status |
-| --- | --- | --- |
-| Heading | — | REQUIRES VERIFICATION |
-| Message | — | REQUIRES VERIFICATION |
-| Calls to action | — | REQUIRES VERIFICATION |
+Labels only on the live site — Discover, Define, Design, Deliver — with no per-stage copy.
+Descriptions are REQUIRES VERIFICATION. See [profile.md](profile.md).

@@ -5,21 +5,39 @@ truth for development.
 
 ## Stack
 
-Decided. Everything else in this document is still open.
-
 | Layer | Choice | Status |
 | --- | --- | --- |
 | Framework | Next.js (App Router) | Decided |
 | Language | TypeScript | Decided |
 | Runtime | Node 25.x locally | Decided |
 | Package manager | npm | Decided |
+| Hosting | Vercel | Decided |
+| 3D | Three.js via react-three-fiber + drei | Decided |
+| CMS | Sanity (free plan) | Proposed — see below |
 | Styling | — | REQUIRES VERIFICATION |
-| Content source | Markdown in `docs/` vs CMS | REQUIRES VERIFICATION |
-| 3D | react-three-fiber, only if a Three.js concept is approved | Conditional |
-| Hosting | — | REQUIRES VERIFICATION |
 | Analytics | — | REQUIRES VERIFICATION |
+| Domain | — | REQUIRES VERIFICATION |
 
 **Browser and device support:** REQUIRES VERIFICATION
+
+### CMS Rationale
+
+A design portfolio is asset-heavy, and image delivery — not content modelling — is the thing
+that will actually hurt. That is the deciding factor.
+
+| Option | Free tier | Why / why not |
+| --- | --- | --- |
+| **Sanity** | 20 GB asset storage, 10 GB bandwidth/mo, 500k CDN requests/mo, 10k documents, 20 seats, does not expire | **Proposed.** Image CDN with on-the-fly resize, format conversion, and hotspot cropping. Studio embeds at `/studio` in the same Next.js app and ships to Vercel with the site. Free-tier datasets are public — fine, since portfolio content is public anyway. |
+| Keystatic | Free, open source | Git-based, so images land in the repo. For high-res case-study screens that means repo bloat and Git LFS. Rejected on the image constraint. |
+| Payload | Free, open source, MIT | Excellent, but needs a database and more ops. Overkill for four case studies maintained by one person. |
+| MDX in-repo | Free | Zero vendor risk, but no visual editing and the same image-in-git problem as Keystatic. |
+
+**Watch item:** Sanity's 10 GB/month bandwidth is the ceiling to keep an eye on, not the
+document count. Serve AVIF/WebP through the image pipeline and it is not close.
+
+**Important:** the CMS holds *published website content*. It does not replace `docs/`, which is
+internal design reasoning and stays in git. Two different jobs.
+
 
 ## Information Architecture
 
@@ -80,5 +98,31 @@ Do not claim performance results before measurement.
 | Core Web Vitals targets | — | REQUIRES VERIFICATION |
 | Asset budgets | — | REQUIRES VERIFICATION |
 | Loading and rendering strategy | — | REQUIRES VERIFICATION |
-| 3D budget, if approved | — | REQUIRES VERIFICATION |
+| 3D budget | — | REQUIRES VERIFICATION — now load-bearing, see below |
 | Validation plan | — | REQUIRES VERIFICATION |
+
+## Three.js Risk
+
+The stated intent is a "fully interactive" Three.js site. That collides directly with three
+principles in [brief.md](brief.md): effects support storytelling rather than lead it,
+performance and accessibility outrank decoration, and 3D is used *selectively*.
+
+This is not a reason to drop the 3D — it is a reason to decide the scope deliberately before
+building. Resolve before the first Three.js commit:
+
+| Question | Status |
+| --- | --- |
+| Which sections get 3D, and which stay flat? | REQUIRES VERIFICATION |
+| What does each 3D moment communicate that 2D cannot? | REQUIRES VERIFICATION |
+| Non-WebGL and low-power fallback | REQUIRES VERIFICATION |
+| `prefers-reduced-motion` behavior | REQUIRES VERIFICATION |
+| Mobile performance budget | REQUIRES VERIFICATION |
+| Bundle-size ceiling for 3D code and assets | REQUIRES VERIFICATION |
+
+The audience is hiring managers and design leaders. A site that stutters on a mid-range phone
+argues against the craft it is meant to demonstrate.
+
+## Reference
+
+Current site: <https://tanvirux.framer.website/> — Framer, being replaced by this build.
+Its copy and structure are captured in [content.md](content.md) and [profile.md](profile.md).

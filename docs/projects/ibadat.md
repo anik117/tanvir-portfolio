@@ -8,16 +8,25 @@
 
 ## Summary
 
-REQUIRES VERIFICATION — complete after the Figma audit.
+**From the live site** (<https://tanvirux.framer.website/>, read 2026-09-08) — existing teaser
+copy, not a verified case study:
 
-| Field | Value |
-| --- | --- |
-| What it is | REQUIRES VERIFICATION |
-| My role | REQUIRES VERIFICATION |
-| Main goal | REQUIRES VERIFICATION |
-| Timeline | REQUIRES VERIFICATION |
-| Team and collaborators | REQUIRES VERIFICATION |
-| Scope boundaries | REQUIRES VERIFICATION |
+> A prayer and lifestyle app designed for Muslims to track prayer times, access authentic duas, and manage notifications seamlessly.
+
+| Field | Value | Status |
+| --- | --- | --- |
+| Full title | Ibadat – Islamic App | From live site |
+| Type | Mobile app | From live site |
+| Stated goal | See teaser above | From live site |
+| My role | — | REQUIRES VERIFICATION |
+| Timeline | — | REQUIRES VERIFICATION |
+| Team and collaborators | — | REQUIRES VERIFICATION |
+| Scope boundaries | — | REQUIRES VERIFICATION |
+| Outcome / results | — | REQUIRES VERIFICATION |
+
+The teaser claims outcomes (bookings, conversions, consistency). Do not repeat those on the new
+site as results unless there is evidence behind them — an unbacked metric is the first thing a
+design leader will probe in an interview.
 
 ## Context
 
