@@ -1,13 +1,8 @@
+"use client";
+
 import { NextStudio } from "next-sanity/studio";
 import config from "@/sanity.config";
 import { isSanityConfigured } from "@/sanity/env";
-
-export const dynamic = "force-static";
-
-export const metadata = {
-  title: "Studio",
-  robots: { index: false, follow: false },
-};
 
 function SetupInstructions() {
   return (
