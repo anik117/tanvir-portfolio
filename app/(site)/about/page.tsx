@@ -3,6 +3,7 @@ import { SITE_SETTINGS_QUERY } from "@/sanity/queries";
 import type { SiteSettings } from "@/sanity/types";
 import { Briefcase, GraduationCap, Sparkles, Wrench } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { GrowLine } from "@/components/motion/GrowLine";
 
 export const metadata = {
   title: "About | Tanvir Ahassan",
@@ -11,17 +12,46 @@ export const metadata = {
 
 function Heading({ icon: Icon, children }: { icon: typeof Briefcase; children: React.ReactNode }) {
   return (
-    <h2 className="flex items-center gap-2 text-sm font-medium text-muted">
-      <Icon aria-hidden size={15} />
+    <h2 className="flex items-center gap-3 text-sm font-medium text-muted-strong">
+      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-dark text-white">
+        <Icon aria-hidden size={14} />
+      </span>
       {children}
     </h2>
   );
 }
 
-function Row({ children }: { children: React.ReactNode }) {
+function TimelineRow({
+  years,
+  title,
+  subtitle,
+  note,
+  delay,
+}: {
+  years?: string;
+  title: string;
+  subtitle?: string;
+  note?: string;
+  delay: number;
+}) {
   return (
-    <li className="grid gap-x-8 gap-y-1 border-t border-border py-6 sm:grid-cols-[10rem_1fr]">
-      {children}
+    <li className="relative pl-10">
+      <span
+        aria-hidden
+        className="absolute left-[11px] top-7 h-2.5 w-2.5 rounded-full bg-dark ring-4 ring-background"
+      />
+      <Reveal delay={delay} y={16}>
+        <div className="card card-hover grid gap-x-8 gap-y-1 rounded-2xl px-5 py-5 sm:grid-cols-[8rem_1fr]">
+          <span className="mono text-sm text-muted">{years}</span>
+          <span>
+            <span className="block font-medium">{title}</span>
+            {subtitle && <span className="block text-sm text-muted-strong">{subtitle}</span>}
+            {note && (
+              <span className="mt-2 block text-sm leading-relaxed text-muted-strong">{note}</span>
+            )}
+          </span>
+        </div>
+      </Reveal>
     </li>
   );
 }
@@ -30,115 +60,113 @@ export default async function AboutPage() {
   const settings = await safeFetch<SiteSettings>(SITE_SETTINGS_QUERY);
 
   return (
-    <main className="mx-auto max-w-read px-6 py-20 sm:py-28">
-      <Reveal>
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">About</h1>
+    <main className="mx-auto max-w-page px-5 py-20 sm:px-10 sm:py-28">
+      {/* ---- Intro + stats ------------------------------------------------- */}
+      <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+        <div>
+          <Reveal y={16}>
+            <h1 className="text-balance text-[2.2rem] font-medium leading-[1.12] tracking-[-0.02em] sm:text-5xl">
+              {settings?.aboutHeading ?? "About"}
+            </h1>
+          </Reveal>
 
-        {settings?.aboutIntro && (
-          <p className="mt-8 text-lg leading-relaxed">{settings.aboutIntro}</p>
-        )}
+          {settings?.aboutIntro && (
+            <Reveal delay={150} y={12}>
+              <p className="mt-8 max-w-2xl text-xl leading-relaxed sm:text-2xl sm:leading-[1.4]">
+                {settings.aboutIntro}
+              </p>
+            </Reveal>
+          )}
 
-        {settings?.aboutParagraphs?.length ? (
-          <div className="mt-6 space-y-5 leading-relaxed text-muted">
-            {settings.aboutParagraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        ) : null}
+          {settings?.aboutParagraphs?.length ? (
+            <Reveal delay={250} y={12}>
+              <div className="mt-6 max-w-2xl space-y-5 leading-relaxed text-muted-strong">
+                {settings.aboutParagraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </Reveal>
+          ) : null}
+        </div>
 
         {settings?.stats?.length ? (
-          <dl className="mt-14 grid grid-cols-3 gap-4">
-            {settings.stats.map((stat) => (
-              <div key={stat._key ?? stat.label} className="raised rounded-2xl px-5 py-6">
-                <dt className="text-3xl font-semibold tracking-tight">{stat.value}</dt>
-                <dd className="mt-1 text-sm text-muted">{stat.label}</dd>
-              </div>
+          <dl className="grid content-start gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            {settings.stats.map((stat, i) => (
+              <Reveal key={stat._key ?? stat.label} delay={200 + i * 100}>
+                <div className="card card-hover rounded-2xl px-6 py-6">
+                  <dt className="text-sm text-muted-strong">{stat.label}</dt>
+                  <dd className="mono mt-2 text-5xl font-medium tracking-[-0.03em]">{stat.value}</dd>
+                </div>
+              </Reveal>
             ))}
           </dl>
         ) : null}
-      </Reveal>
+      </div>
 
-      {settings?.experience?.length ? (
-        <Reveal>
-          <section className="mt-16">
-            <Heading icon={Briefcase}>Experience</Heading>
-            <ul className="mt-6">
-              {settings.experience.map((job) => (
-                <Row key={job._key ?? job.role}>
-                  <span className="mono text-sm text-muted">{job.years}</span>
-                  <span>
-                    <span className="block font-medium">{job.role}</span>
-                    {job.organization && (
-                      <span className="block text-sm text-muted">{job.organization}</span>
-                    )}
-                    {job.summary && (
-                      <span className="mt-2 block text-sm leading-relaxed text-muted">
-                        {job.summary}
-                      </span>
-                    )}
-                  </span>
-                </Row>
-              ))}
-            </ul>
-          </section>
-        </Reveal>
+      {/* ---- Experience + education --------------------------------------- */}
+      {settings?.experience?.length || settings?.education?.length ? (
+        <div className="mt-24 grid gap-16 lg:grid-cols-2 lg:gap-10">
+          {settings?.experience?.length ? (
+            <section>
+              <Heading icon={Briefcase}>Experience</Heading>
+              <div className="relative mt-8">
+                <GrowLine className="left-4 top-4 bottom-4 w-px" />
+                <ul className="space-y-4">
+                  {settings.experience.map((job, i) => (
+                    <TimelineRow
+                      key={job._key ?? job.role}
+                      years={job.years}
+                      title={job.role}
+                      subtitle={job.organization}
+                      note={job.summary}
+                      delay={i * 70}
+                    />
+                  ))}
+                </ul>
+              </div>
+            </section>
+          ) : null}
+
+          {settings?.education?.length ? (
+            <section>
+              <Heading icon={GraduationCap}>Education</Heading>
+              <div className="relative mt-8">
+                <GrowLine className="left-4 top-4 bottom-4 w-px" />
+                <ul className="space-y-4">
+                  {settings.education.map((ed, i) => (
+                    <TimelineRow
+                      key={ed._key ?? ed.qualification}
+                      years={ed.years}
+                      title={ed.qualification}
+                      subtitle={ed.institution}
+                      note={ed.note}
+                      delay={i * 70}
+                    />
+                  ))}
+                </ul>
+              </div>
+            </section>
+          ) : null}
+        </div>
       ) : null}
 
-      {settings?.education?.length ? (
-        <Reveal>
-          <section className="mt-16">
-            <Heading icon={GraduationCap}>Education</Heading>
-            <ul className="mt-6">
-              {settings.education.map((ed) => (
-                <Row key={ed._key ?? ed.qualification}>
-                  <span className="mono text-sm text-muted">{ed.years}</span>
-                  <span>
-                    <span className="block font-medium">{ed.qualification}</span>
-                    {ed.institution && (
-                      <span className="block text-sm text-muted">{ed.institution}</span>
-                    )}
-                    {ed.note && (
-                      <span className="mt-2 block text-sm leading-relaxed text-muted">
-                        {ed.note}
-                      </span>
-                    )}
-                  </span>
-                </Row>
-              ))}
-            </ul>
-          </section>
-        </Reveal>
-      ) : null}
-
+      {/* ---- Services: the page's dark band ---------------------------------- */}
       {settings?.services?.length ? (
-        <Reveal>
-          <section className="mt-16">
+        <Reveal className="mt-24">
+          <section className="band rounded-3xl p-6 sm:p-10">
             <Heading icon={Sparkles}>What I do</Heading>
-            <ul className="mt-6">
-              {settings.services.map((service) => (
-                <Row key={service._key ?? service.name}>
-                  <span className="font-medium">{service.name}</span>
-                  <span className="text-sm leading-relaxed text-muted">
-                    {service.description}
-                  </span>
-                </Row>
-              ))}
-            </ul>
-          </section>
-        </Reveal>
-      ) : null}
-
-      {settings?.toolkit?.length ? (
-        <Reveal>
-          <section className="mt-16">
-            <Heading icon={Wrench}>Toolkit</Heading>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {settings.toolkit.map((tool) => (
-                <li
-                  key={tool}
-                  className="raised rounded-full px-3.5 py-1.5 text-sm"
-                >
-                  {tool}
+            <ul className="mt-8 grid gap-4 md:grid-cols-3">
+              {settings.services.map((service, i) => (
+                <li key={service._key ?? service.name} className="card rounded-2xl p-6">
+                  <span className="mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-3 text-lg font-semibold tracking-tight">
+                    {service.name}
+                  </h3>
+                  {service.description && (
+                    <p className="mt-2 text-sm leading-relaxed text-muted-strong">
+                      {service.description}
+                    </p>
+                  )}
                 </li>
               ))}
             </ul>
@@ -146,12 +174,22 @@ export default async function AboutPage() {
         </Reveal>
       ) : null}
 
-      {settings?.clientsNote ? (
-        <Reveal>
-          <section className="mt-16 border-t border-border pt-8">
-            <p className="leading-relaxed text-muted">{settings.clientsNote}</p>
-          </section>
-        </Reveal>
+      {/* ---- Toolkit -------------------------------------------------------- */}
+      {settings?.toolkit?.length ? (
+        <section className="mt-24">
+          <Heading icon={Wrench}>Toolkit</Heading>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {settings.toolkit.map((tool, i) => (
+              <li key={tool}>
+                <Reveal delay={i * 30} y={8}>
+                  <span className="card card-hover inline-block rounded-full px-3.5 py-1.5 text-sm">
+                    {tool}
+                  </span>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </section>
       ) : null}
     </main>
   );

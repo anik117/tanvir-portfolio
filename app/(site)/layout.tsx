@@ -20,11 +20,13 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
     <>
       <SiteHeader
         name={settings?.siteTitle ?? "Tanvir Ahassan"}
-        availability={
-          settings?.availabilityShow ? settings.availabilityLabel : undefined
+        cta={
+          settings?.ctaUrl
+            ? { label: settings.ctaLabel ?? "Book a Call", href: settings.ctaUrl, external: true }
+            : { label: "Let's talk", href: "/contact" }
         }
       />
-      <div className="flex-1">{children}</div>
+      <div className="relative flex-1">{children}</div>
       <SiteFooter settings={settings} />
     </>
   );

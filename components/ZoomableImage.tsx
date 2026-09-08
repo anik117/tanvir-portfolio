@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { X } from "lucide-react";
+import { Maximize2, X } from "lucide-react";
 import { SanityImage } from "@/components/SanityImage";
 import type { SanityImage as SanityImageType } from "@/sanity/types";
 
@@ -30,10 +30,18 @@ export function ZoomableImage({
       <button
         type="button"
         onClick={open}
-        className="zoomable block w-full overflow-hidden rounded-xl border border-border bg-surface shadow-sm transition-shadow hover:shadow-lg"
+        className="zoomable card card-hover group relative block w-full overflow-hidden rounded-2xl p-2"
         aria-label={`Enlarge: ${image.alt ?? "screenshot"}`}
       >
-        <SanityImage image={image} width={width} sizes={sizes} />
+        <div className="overflow-hidden rounded-xl">
+          <SanityImage image={image} width={width} sizes={sizes} className="cover-img" />
+        </div>
+        <span
+          aria-hidden
+          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-dark text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
+          <Maximize2 size={15} />
+        </span>
       </button>
 
       <dialog
@@ -54,13 +62,13 @@ export function ZoomableImage({
             type="button"
             onClick={close}
             aria-label="Close"
-            className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-background/90 text-foreground shadow-md ring-1 ring-border backdrop-blur transition-transform hover:scale-105"
+            className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-foreground shadow-md transition-transform hover:scale-105"
           >
             <X aria-hidden size={18} />
           </button>
 
-          <div className="overflow-hidden rounded-xl bg-surface">
-            <SanityImage image={image} width={2000} sizes="96vw" />
+          <div className="overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <SanityImage image={image} width={2000} sizes="96vw" contain />
           </div>
 
           {image.caption && (

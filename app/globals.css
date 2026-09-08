@@ -1,77 +1,149 @@
 @import "tailwindcss";
 
 /*
-  White ground, cool slate everything else. Depth comes from a three-step
-  shadow scale plus a hairline border — subtle elevation, not skeuomorphism.
-  Direction in docs/design-direction.md.
+  Near-white ground with a fine dot grid, ink-black type, and one full-bleed
+  dark band per page for contrast. Inter for everything, Instrument Serif
+  italic for the one line that needs a voice, a pen script for the sticky
+  note. Direction in docs/design-direction.md, "Direction change — paper".
 */
 
 @theme {
-  --container-page: 1080px;
-  --container-read: 46rem;
+  --container-page: 1180px;
+  --container-read: 44rem;
 }
 
 :root {
   color-scheme: light;
 
-  --background: #ffffff;
-  --surface: #f8fafc;
-  --surface-strong: #f1f5f9;
-  --foreground: #0a0f1c;
-  --muted: #475569;
-  --border: #e2e8f0;
+  --background: #fefefe;
+  --foreground: #141414;
+  --muted: #9b9ba5;
+  --muted-strong: #6b6b73;
+  --border: rgb(20 20 20 / 0.08);
+  --dark: #141414;
+  --dark-2: #1e1e1e;
+  --dark-fg: #f5f5f5;
+  --dark-muted: rgb(245 245 245 / 0.6);
+  --line: rgb(20 20 20 / 0.045);
   --accent: #1d4ed8;
-  --accent-hover: #1e40af;
-  --highlight: #bfdbfe;
+  --panel: #f4f1ea;
 
-  /* Elevation. Two layers each: a tight contact shadow and a wide ambient one,
-     which is what stops a raised surface reading as a flat grey box. */
-  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.05), 0 1px 3px rgb(15 23 42 / 0.05);
-  --shadow-md:
-    0 1px 2px rgb(15 23 42 / 0.04), 0 4px 10px -2px rgb(15 23 42 / 0.08);
-  --shadow-lg:
-    0 2px 4px rgb(15 23 42 / 0.04), 0 12px 28px -6px rgb(15 23 42 / 0.12);
-  --shadow-inset: inset 0 1px 0 rgb(255 255 255 / 0.14);
+  --shadow-card:
+    0 0.6px 1.1px -0.5px rgb(5 5 5 / 0.05),
+    0 2.3px 4.1px -1px rgb(5 5 5 / 0.06),
+    0 10px 18px -1.5px rgb(5 5 5 / 0.11);
+  --shadow-lift:
+    0 1px 2px -0.5px rgb(5 5 5 / 0.06),
+    0 6px 12px -2px rgb(5 5 5 / 0.08),
+    0 24px 40px -4px rgb(5 5 5 / 0.16);
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-h: 4.5rem;
 }
 
 @theme inline {
-  --color-accent-hover: var(--accent-hover);
   --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-surface-strong: var(--surface-strong);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
   --color-border: var(--border);
+  --color-dark: var(--dark);
+  --color-dark-2: var(--dark-2);
+  --color-dark-fg: var(--dark-fg);
+  --color-dark-muted: var(--dark-muted);
   --color-accent: var(--accent);
+  --color-panel: var(--panel);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  /* A fine line grid, like a canvas, rather than the reference's dots. */
+  background-color: var(--background);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
-/* Used sparingly — for meta values and counters, not as a label on every
-   section. Labelling everything was what made the old layout read as a form. */
-/* ---- Elevation utilities ------------------------------------------------- */
+::selection {
+  background: #141414;
+  color: #fefefe;
+}
 
-.raised {
-  background: var(--surface);
+h1,
+h2,
+h3,
+.heading {
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.serif-italic {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+}
+
+/* ---- Emphasis -------------------------------------------------------------
+   The closing words of a headline are set in the signature's serif italic. */
+
+.emphasis {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  /* The serif sits a touch smaller on the line than the sans at the same size. */
+  font-size: 1.08em;
+  line-height: 0.9;
+}
+
+/* ---- Surfaces ------------------------------------------------------------ */
+
+/* A paper card: white, hairline, the reference's three-layer shadow. */
+.card {
+  background: #fff;
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  transition:
-    transform 280ms var(--ease),
-    box-shadow 280ms var(--ease);
+  box-shadow: var(--shadow-card);
 }
 
-.raised-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+.card-hover {
+  transition:
+    transform 500ms var(--ease),
+    box-shadow 500ms var(--ease);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* A tighter grid inside a frame, like an artboard. */
+.canvas-grid {
+  background-color: #fbfaf7;
+  background-image:
+    linear-gradient(rgb(20 20 20 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(20 20 20 / 0.05) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* A section on warm paper. Full bleed, no grid. */
+.band {
+  background: var(--panel);
+  color: var(--foreground);
 }
 
 /* ---- Buttons ------------------------------------------------------------- */
@@ -81,105 +153,83 @@ body {
   align-items: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  padding: 0.625rem 1.25rem;
-  font-size: 0.875rem;
+  padding: 0.7rem 1.35rem;
+  font-size: 0.95rem;
   font-weight: 500;
+  line-height: 1;
   white-space: nowrap;
   transition:
-    transform 240ms var(--ease),
-    box-shadow 240ms var(--ease),
-    background-color 240ms var(--ease);
+    transform 320ms var(--ease),
+    background-color 320ms var(--ease),
+    color 320ms var(--ease),
+    box-shadow 320ms var(--ease);
 }
 
-.btn-primary {
-  background: var(--accent);
+.btn-dark {
+  background: var(--dark);
   color: #fff;
-  box-shadow:
-    0 1px 2px rgb(29 78 216 / 0.24),
-    0 6px 16px -4px rgb(29 78 216 / 0.36),
-    var(--shadow-inset);
 }
 
-.btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow:
-    0 2px 4px rgb(29 78 216 / 0.22),
-    0 14px 28px -6px rgb(29 78 216 / 0.42),
-    var(--shadow-inset);
+.btn-dark:hover {
+  background: #000;
+  transform: translateY(-1px);
 }
 
-.btn-primary:active {
-  transform: translateY(0);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-secondary {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-secondary:hover {
-  transform: translateY(-2px);
+.btn-light {
   background: #fff;
-  box-shadow: var(--shadow-md);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
 }
 
-.btn-secondary:active {
-  transform: translateY(0);
-  box-shadow: var(--shadow-sm);
+.btn-light:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lift);
 }
 
-.mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-variant-numeric: tabular-nums;
+.btn-ghost {
+  background: rgb(255 255 255 / 0.1);
+  color: #fff;
 }
 
-/* ---- Scroll-entry motion ------------------------------------------------- */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity 520ms var(--ease),
-    transform 520ms var(--ease);
+.btn-ghost:hover {
+  background: rgb(255 255 255 / 0.18);
 }
 
-.reveal-in {
-  opacity: 1;
-  transform: none;
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ---- Links --------------------------------------------------------------- */
+
+.arrow {
+  display: inline-block;
+  transition: transform 300ms var(--ease);
+}
+
+.group:hover .arrow {
+  transform: translateX(4px);
+}
+
+.arrow-up {
+  display: inline-block;
+  transition: transform 300ms var(--ease);
+}
+
+.group:hover .arrow-up,
+a:hover > .arrow-up {
+  transform: translate(3px, -3px);
+}
+
+.cover-img {
+  transition: transform 900ms var(--ease);
+}
+
+.group:hover .cover-img {
+  transform: scale(1.03);
 }
 
 /* ---- Annotation callouts ------------------------------------------------- */
-
-.annotation {
-  transform: translate(-50%, -50%);
-}
-
-.reveal .annotation {
-  opacity: 0;
-  transform: translate(-50%, calc(-50% - 10px)) scale(0.96);
-  transition:
-    opacity 380ms var(--ease),
-    transform 520ms var(--ease);
-}
-
-.reveal-in .annotation {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.annotation-card {
-  transition:
-    transform 260ms var(--ease),
-    box-shadow 260ms var(--ease);
-}
-
-.group:hover .annotation-card {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
 
 .annotation-dot::after {
   content: "";
@@ -192,7 +242,7 @@ body {
 
 @keyframes ping {
   0% {
-    opacity: 0.45;
+    opacity: 0.5;
     transform: scale(1);
   }
   70%,
@@ -202,50 +252,29 @@ body {
   }
 }
 
-/* ---- Highlighter --------------------------------------------------------- */
-
-.highlight {
-  background-image: linear-gradient(transparent 58%, var(--highlight) 58%);
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  transition: background-size 760ms var(--ease) 340ms;
+.annotation-card {
+  transition:
+    transform 300ms var(--ease),
+    box-shadow 300ms var(--ease);
 }
 
-.reveal-in .highlight {
-  background-size: 100% 100%;
+.group:hover .annotation-card {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
 }
 
-/* ---- Availability chip --------------------------------------------------- */
+/* ---- Carousel ------------------------------------------------------------ */
 
-.availability {
-  transform: rotate(-1.6deg);
-  transition: transform 320ms var(--ease);
+.no-scrollbar {
+  scrollbar-width: none;
 }
 
-.availability:hover {
-  transform: rotate(0deg);
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-/* ---- Hover affordances --------------------------------------------------- */
+/* ---- Full-bleed images inside the reading column ------------------------- */
 
-.arrow {
-  display: inline-block;
-  transition: transform 260ms var(--ease);
-}
-
-.group:hover .arrow {
-  transform: translateX(3px);
-}
-
-.cover-img {
-  transition: transform 700ms var(--ease);
-}
-
-.group:hover .cover-img {
-  transform: scale(1.015);
-}
-
-/* Full-bleed images inside the reading column. */
 .bleed {
   width: 100%;
 }
@@ -257,53 +286,18 @@ body {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .btn,
-  .raised,
-  .raised-hover:hover,
-  .btn-primary:hover,
-  .btn-secondary:hover {
-    transform: none !important;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .reveal,
-  .annotation {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .annotation {
-    transform: translate(-50%, -50%) !important;
-  }
-
-  .highlight {
-    background-size: 100% 100% !important;
-  }
-
-  .annotation-dot::after {
-    display: none;
-  }
-
-  .availability {
-    transform: none !important;
-  }
-}
-
 /* ---- Lightbox ------------------------------------------------------------
    Native <dialog>, so focus trapping, Esc, and the backdrop come for free. */
 
 .lightbox {
-  max-width: min(96vw, 1600px);
-  max-height: 92vh;
+  /* Pinned to the viewport and centred both ways, whatever the image size. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: 100vw;
+  max-height: 100vh;
   padding: 0;
   border: none;
   background: transparent;
@@ -311,26 +305,26 @@ body {
 }
 
 .lightbox::backdrop {
-  background: rgb(10 15 28 / 0.82);
-  backdrop-filter: blur(2px);
+  background: rgb(20 20 20 / 0.88);
+  backdrop-filter: blur(6px);
 }
 
 .lightbox[open] {
-  animation: lightbox-in 320ms var(--ease);
+  animation: lightbox-in 360ms var(--ease);
 }
 
 .lightbox[open]::backdrop {
-  animation: backdrop-in 320ms var(--ease);
+  animation: backdrop-in 360ms var(--ease);
 }
 
 @keyframes lightbox-in {
   from {
     opacity: 0;
-    transform: scale(0.94);
+    transform: scale(0.95) translateY(10px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: none;
   }
 }
 
@@ -347,31 +341,37 @@ body {
   cursor: zoom-in;
 }
 
+/* ---- Reduced motion ------------------------------------------------------ */
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn:hover,
+  .card-hover:hover,
+  .group:hover .arrow,
+  .group:hover .arrow-up,
+  .group:hover .cover-img,
+  .group:hover .annotation-card {
+    transform: none !important;
+  }
+
+  .annotation-dot::after {
+    display: none;
+  }
+
   .lightbox[open],
   .lightbox[open]::backdrop {
     animation: none;
   }
-}
 
-/* Quote swap in the testimonials tablist. */
-.quote-in {
-  animation: quote-in 420ms var(--ease);
-}
-
-@keyframes quote-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .quote-in {
-    animation: none;
-  }
 }

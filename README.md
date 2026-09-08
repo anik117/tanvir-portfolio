@@ -20,9 +20,9 @@ Replaces the Framer site at <https://tanvirux.framer.website/>, which is still u
 | CMS | Sanity wired up — needs an account and a project ID |
 | Hosting | Vercel, auto-deploying from `main` |
 | Content | Imported from the old Framer site into Sanity |
-| Design direction | Working baseline built. Full redesign still to come |
+| Design direction | Redesigned 2026-09-08: white ground with a dot grid, dark bands, scroll-driven sections, annotation callouts as the signature. See `docs/design-direction.md` |
 | Case studies | 4 imported with full content and images; 1-2 new still unnamed |
-| Three.js | Installed, unused. Scope undecided |
+| Three.js | Not used. Tried and removed the same day |
 
 Unresolved fields across `docs/` are marked `REQUIRES VERIFICATION`. That marker is a hard
 stop, not a placeholder to fill with a plausible guess.
@@ -72,8 +72,11 @@ npx sanity exec scripts/import-content.ts --with-user-token
 ## Layout
 
 ```
-app/            routes — home, work/[slug], studio
+app/            routes — home, work, work/[slug], about, contact, studio
 components/     shared UI
+  home/         HeroCards, WorkStack, AboutReveal, TestimonialCarousel
+  motion/       Providers, GrowLine, useMediaQuery
+lib/            small pure helpers
 sanity/         client, schemas, queries, studio structure
 public/         web-serving assets
 

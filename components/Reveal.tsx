@@ -1,60 +1,39 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import type { ReactNode } from "react";
+
+export const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
- * Fade-and-rise on scroll entry. IntersectionObserver plus a CSS transition —
- * the motion in docs/design-direction.md does not need an animation library.
- *
- * Content is always in the DOM. If the observer never fires, or the visitor
- * prefers reduced motion, it simply renders in its final state.
+ * Fade-and-rise on scroll entry. Content is always in the DOM; with reduced
+ * motion it simply renders in its final state.
  */
 export function Reveal({
   children,
   delay = 0,
   className = "",
+  y = 28,
+  once = true,
+  amount = 0.15,
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
+  y?: number;
+  once?: boolean;
+  amount?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    // Reduced motion is handled in CSS, which forces the final state.
-    // This only guards against IntersectionObserver being unavailable.
-    if (!("IntersectionObserver" in window)) {
-      const id = setTimeout(() => setShown(true), 0);
-      return () => clearTimeout(id);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Also show anything already scrolled past. An element above the
-        // viewport never reports as intersecting, so on a deep link or a
-        // restored scroll position it would otherwise stay invisible forever.
-        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-          setShown(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
+  const reduce = useReducedMotion();
   return (
-    <div
-      ref={ref}
-      className={`reveal ${shown ? "reveal-in" : ""} ${className}`}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+    <motion.div
+      className={className}
+      initial={reduce ? false : { opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once, amount, margin: "0px 0px -8% 0px" }}
+      transition={{ duration: 0.8, delay: delay / 1000, ease: EASE }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

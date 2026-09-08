@@ -104,6 +104,12 @@ export const siteSettings = defineType({
             defineField({ name: "title", type: "string" }),
             defineField({ name: "company", type: "string" }),
             defineField({
+              name: "logo",
+              type: "image",
+              description: "The company's mark. A monogram placeholder is shown until one is added.",
+              options: { hotspot: true },
+            }),
+            defineField({
               name: "relationship",
               type: "string",
               description: "How they worked with you. Shown on the card, so keep it accurate.",

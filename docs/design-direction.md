@@ -3,14 +3,160 @@
 Portfolio-wide visual, motion, interaction, and 3D direction. Approved direction here is a
 source of truth for design work. Inspiration is not direction until it is approved.
 
-## Starting Point
+## Direction change — paper (2026-09-08, night)
 
-**The design is fully new.** The current Framer site at <https://tanvirux.framer.website/> is
-being retired, and its visual language is *not* a constraint on this build — no colors,
-type, layout, or component decisions carry over.
+**Tanvir rejected the 3D-morphism pass as "too much 3D" and "non-professional", and named
+<https://www.trushaneogi.com/> as the target: a white theme with dark sections, not 3D, with
+scroll interactions.** This section wins over everything below it where they conflict. The
+earlier 3D pass is gone from the code; its section is kept below as the record of why.
 
-What does carry over is content: bio, services, process, stats, and client list, captured in
-[profile.md](profile.md) and [content.md](content.md). Reference the copy, not the look.
+### Divergence from the reference (2026-09-08, later)
+
+Tanvir approved the structure but called the first cut "a 1:1 copy". Four changes were made
+so the site reads as his rather than as the reference with different words. The scroll
+behaviour — the stacking band, the pinned About, the carousel — is unchanged.
+
+| Change | What | Why it is his |
+| --- | --- | --- |
+| Annotation device everywhere | Callouts pinned to the product shots on the work cards, and on the hero's screen card | Already the site's signature in the sections below; the reference has nothing like it |
+| Type voice | Geist for headings, Inter for body. The serif italic second line is gone; the closing words get a highlighter swipe that draws in on entry | The swipe is the annotation gesture turned on his own sentence |
+| One accent | Royal blue `#1d4ed8`, only on decisions: positive callout marks, the availability dot, the active nav marker. Work panels are warm paper `#f4f1ea` instead of a colour per card | Colour carries meaning instead of decorating |
+| Footer | "Turning complexity into clarity." set wide with the swipe, in place of the giant cropped wordmark | The reserve line from profile.md, and the wordmark was the reference's most recognisable element |
+
+Refined the same night on Tanvir's notes:
+
+- **Geist Mono** for numbers, meta rows, and the nav. Stat values, outcome numbers, year and
+  category lines, act numbers, and the three nav links are all mono now.
+- **The swipe became a hand-drawn line.** A yellow (`#f7c948`) SVG stroke with a slight
+  wobble under the closing words, drawn in with a dash-offset transition. The blue fill read
+  as a text-selection.
+- **Testimonials are a ruled grid**, not a carousel: three across on the dark band, hairlines
+  between, the quote in Instrument Serif, and the company's mark beside the name. There is an
+  optional `logo` image on each testimonial in the Studio; until one is uploaded, a mono
+  monogram of the company stands in.
+
+Second pass, same night — "still too close, especially the hero":
+
+- **Hero is two columns, left-aligned.** Mono eyebrow (title, current employer), the headline
+  with the yellow line, the supporting paragraph from the Studio (unused until now), two
+  buttons, and a mono stats strip under a rule. On the right, one prop instead of four: the
+  latest cover as an artboard on a 16px canvas grid, its decisions pinned, with a mono label.
+  The fanned desk props are gone — they were the most reference-shaped thing on the page.
+- **Line grid, not dots.** The ground is a 64px hairline grid at 4.5% ink; frames inside cards
+  use a 16px one. Same "workspace" feeling, different texture, and it ties to the artboard.
+- **Nav carries his name**, in the heading face, not a lower-case wordmark with a full stop.
+- **Work cards are paper**, not a dark/colour split: ink on `#f4f1ea`, the shot on a canvas
+  grid to the right, a mono `01 / 04` index. The section heading sits inside the dark band,
+  left-aligned, with a mono count, instead of a centred "Latest work." above it.
+- **Testimonials have tiers.** One featured quote at reading size in the serif beside the
+  section intro, then the rest in a ruled two-column grid at body size. Mono relationship and
+  date on every card. Hierarchy carries the weight, not point size.
+- **About pin** gained a mono eyebrow and is left-aligned inside its measure.
+
+Third pass — "the typography is not aligning; use Plus Jakarta Sans; no black sections":
+
+- **Plus Jakarta Sans** is the one text face now, headings at 600. Geist Mono stays for
+  numbers, meta and nav; Instrument Serif italic for the signature, which is now also the
+  nav logo, so the same mark opens and closes the page.
+- **No dark sections.** `.band` is warm paper (`#f4f1ea`) and the sections on it use white
+  cards: the work stack and the testimonials. The page runs white → paper → white → paper.
+- **Testimonials** follow a customer-stories pattern: heading and subline left, a link right,
+  then white rounded cards with the quote on top and the company mark, name and role under a
+  rule. The cards pack in CSS columns because the quotes vary a lot in length.
+- Compact callouts are spaced apart automatically when two Studio positions sit within 16%
+  of each other vertically, so the small frames on cards never stack notes.
+
+Fourth pass:
+
+- **Testimonials are an expanding row.** One card open at 600px with the quote at reading
+  size; the others 300px with the quote clamped. Hover (fine pointers, after 160ms so a pass
+  of the cursor does not fire it) or click opens a card and the row recentres on it; arrows
+  and dots page through. Recentring sets the row's scroll position from the cards' target
+  widths, never `scrollIntoView`, which would also scroll the page on first paint.
+- **Avatars are coloured discs with bold initials** — six fixed colours cycled by position.
+  No photos are needed, and none are asked for in the Studio.
+- **Emphasis is italic**, nothing drawn. The hand-drawn yellow line is gone; the closing
+  words of a headline are set in Instrument Serif italic — the signature's face — so the
+  logo and the headline share one voice.
+
+Fifth pass:
+
+- **Callouts are off the project cards and the case study covers.** Tanvir found them busy
+  at card size. The hero artboard keeps its two, as the one place the device is shown.
+- **About pin is two columns**: the paragraph at heading size with its closing words in the
+  serif italic, then a row of what he does and a link to the About page fading in as the
+  words finish; the image pile spreads in the right column.
+- **Contact opens with "Hi, I'm Tanvir."** in the serif, the heading, the Studio's message,
+  a mono status line (availability, current employer), then the actions. Beside it a paper
+  card with what a good first message includes and the channels as coloured discs.
+- **Lightbox** is pinned to the viewport and centred both ways; the image scales to fit
+  84vh so it never sits off-centre on a tall screenshot.
+
+Amber stays on "attention" callouts. A flagged problem is a meaning, not a decoration, and
+turning it blue would say "resolved". The hero's four props are kept, but the sticky note
+became the annotated screen and the portrait became the numbers; there is no portrait yet.
+
+### The reference, analysed
+
+Framer site, no canvas or WebGL anywhere. Read on 2026-09-08.
+
+| Aspect | Finding |
+| --- | --- |
+| Ground | `#fefefe` with a dot grid: `radial-gradient(rgba(153,153,153,.2) .6px, transparent 1.4px)` at 15px |
+| Type | Inter Display 500 for everything; Instrument Serif italic for one hero line; Nanum Pen Script on a sticky note |
+| Text colours | `#141414` ink, `#9ea1a5` and `#9e9e9e` for secondary |
+| Nav | Lower-case first-name wordmark with a full stop, three links, black pill button. Static, not sticky |
+| Hero | Two-line centred headline (sans, then serif italic), "Previously at" line, four prop cards fanned like things on a desk |
+| Work | "Latest work." on white, then a full-bleed `#141414` band where 604×360 cards stack — each `position: sticky` at the same offset so the next slides over the last. Left half dark `#1e1e1e` text, right half a flat colour with the product shot |
+| About | The page pins. The paragraph darkens sentence by sentence and a pile of photos spreads into a loose grid, both driven by scroll |
+| Testimonials | A dark `#141414` panel with 24px radius inside the container, "What others said.", a carousel of `#1e1e1e` cards with dots |
+| Footer | Links left, signature and status right, then the wordmark set at viewport scale and cropped by the page edge |
+
+### What was recreated, and with what content
+
+| Reference element | Ours | Content source |
+| --- | --- | --- |
+| Headline in two voices | Sans first line, serif italic second, split at " with " | `heroHeadline` |
+| "Previously at TikTok" | "Currently at MIADVG LLC" — first experience entry, "Currently" if its years say Present | `experience[0]` |
+| Sticky note "cool stats" | Same, pen script on yellow | `stats` |
+| Dark "I write about…" card | "4 case studies on how each product actually got made." → /work | project count |
+| Portrait photo card | The latest cover, cropped, with a caption | `projects[0].coverImage` |
+| Dictionary card "ai-augmented designer" | "ui/ux designer" with the four process steps as senses | `processSteps` |
+| Stacked work cards | Same layout and stacking; panel colours cycle blue, maroon, purple, pale blue | projects |
+| Pinned About with photo pile | Word-by-word darkening; five images spread — covers and gallery shots, since there are no personal photos yet | `aboutIntro`, `PILE_QUERY` |
+| Testimonial panel | Same, with the relationship and date kept on each card | `testimonials` |
+| Signature | The full name in Instrument Serif italic — there is no signature asset | `siteTitle` |
+| "Based in …" and the live clock | **Not built.** Location is REQUIRES VERIFICATION in profile.md | — |
+| Resume button | The Studio's CTA (Book a Call) — there is no résumé file in the project | `ctaUrl`, `ctaLabel` |
+
+### Motion
+
+All of it is scroll-driven or entry-only. Library: `motion` (Motion for React), with
+`MotionConfig reducedMotion="user"` at the root and CSS keyframes zeroed in `globals.css`.
+
+| Pattern | Built as | Reduced motion |
+| --- | --- | --- |
+| Hero cards | Rise in with stagger, settle at ±6°, straighten and lift on hover | Final state |
+| Work stack | `position: sticky` in a tall parent. Native scroll, nothing hijacked | Same — it is layout, not animation |
+| About pin | 280vh section, `sticky` child, `useScroll` progress drives per-word opacity and each photo's x/y/rotate | Rendered finished, section is its own height |
+| Testimonials | Native scroll-snap; IntersectionObserver keeps the dots honest | Same |
+| Wordmark | Rises in once on view | Opacity only |
+| Everything else | `Reveal` fade-and-rise, once | Final state |
+
+Still banned: loaders, parallax on images, and anything that delays reading. The pinned About
+is the one place the page holds the reader, and it holds real copy while it does.
+
+### Palette
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--background` | `#fefefe` | Ground, with the dot grid |
+| `--foreground` | `#141414` | Ink |
+| `--muted` | `#9b9ba5` | Meta rows and captions |
+| `--muted-strong` | `#6b6b73` | Body copy that is secondary but still read |
+| `--dark` | `#141414` | The band and the testimonial panel |
+| `--dark-2` | `#1e1e1e` | Cards inside dark surfaces |
+| `--accent` | `#1e5ced` | The first work panel and the availability dot. Nowhere else |
 
 ## Reference: jaimec.co
 
@@ -187,7 +333,9 @@ Reduced-motion behavior is not optional — every approved pattern needs a defin
 Three.js is optional. A concept is not approved implementation. Each concept must justify its
 cost against usability, accessibility, responsiveness, and performance.
 
-**Dropped, 2026-09-08.** No 3D on this site.
+**Dropped, 2026-09-08 (morning). Reinstated that evening as a WebGL hero, then removed again
+that night** when Tanvir rejected it — see "Direction change — paper" at the top. Three.js is
+out of the project. The gate below still applies to any future proposal.
 
 The reference achieves the exact feel that was asked for — sleek, modern, interactive — with
 zero canvas and zero WebGL. Given a proven alternative, 3D could not justify its cost in

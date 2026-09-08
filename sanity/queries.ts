@@ -35,3 +35,10 @@ export const SITE_SETTINGS_QUERY = groq`
     contactHeading, contactMessage, ctaLabel, ctaUrl, email, socials
   }
 `;
+
+/** A handful of images across all projects, for the photo pile on the homepage. */
+export const PILE_QUERY = groq`
+  *[_type == "project"] | order(order asc, _createdAt desc) {
+    "images": [coverImage, gallery[0], gallery[1]]
+  }
+`;

@@ -12,10 +12,10 @@ truth for development.
 | Runtime | Node 22 LTS (`.nvmrc`), matching Vercel | Decided |
 | Package manager | npm | Decided |
 | Hosting | Vercel | Decided |
-| 3D | None — dropped 2026-09-08, see design-direction.md | Decided |
+| 3D | None. A WebGL hero was built and removed the same day — see design-direction.md | Decided 2026-09-08 |
 | CMS | Sanity (free plan) | Decided |
 | Styling | Tailwind v4 | Decided |
-| Animation | IntersectionObserver + CSS transitions, no library | Decided |
+| Animation | `motion` (Motion for React) for scroll-linked and entry animation; `position: sticky` for the stacking and pinning | Decided 2026-09-08 |
 | Analytics | — | REQUIRES VERIFICATION |
 | Domain | — | REQUIRES VERIFICATION |
 
@@ -120,4 +120,11 @@ Non-obvious things the scaffold depends on. Do not remove them without checking.
 | `styled-components` | dependency | `NextStudio` uses it internally. Missing it gives a runtime "styled is not defined". |
 | Studio loaded via `next/dynamic` with `ssr: false` | `app/studio/[[...tool]]/page.tsx` | Server-rendering the Studio fails on React internals (`useMemoCache`) and only recovers by falling back to client rendering. Skipping SSR avoids it. |
 | Studio page is a client component | `app/studio/[[...tool]]/page.tsx` | `sanity.config.ts` builds objects with methods, which cannot be passed from a server component as props. Route config and metadata live in the sibling layout. |
+| `wordmark()` lives in `lib/`, not in a client component | `lib/wordmark.ts` | A helper exported from a `"use client"` module cannot be called from a server component — Next throws at render. |
+| `fill` mode on `SanityImage` | `components/SanityImage.tsx` | The hero and pile photos are square frames; the default `height: auto` would letterbox them. |
+| Static header | `components/SiteHeader.tsx` | A sticky white bar would sit over the dark work band. The reference is static too. |
+| Callouts anchor away from the nearest edge | `components/AnnotatedImage.tsx` | A note pinned at 80% would otherwise be squeezed against the frame and wrap into a column. |
+| `.canvas-grid` and the body grid are `background-image` gradients | `globals.css` | No asset, no extra element, and they scale with the box. |
+| Callouts set `text-foreground` explicitly | `components/AnnotatedImage.tsx` | Inside `.band` they would inherit near-white and vanish on their white pill. |
+| `autoPort: true` | `.claude/launch.json` | Lets the preview fall back to another port when 3000 is taken by another session. |
 | Null-safe Sanity client | `sanity/client.ts` | The app must build and run before the Sanity account exists. `safeFetch` returns null rather than throwing. |

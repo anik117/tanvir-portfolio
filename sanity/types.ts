@@ -76,6 +76,7 @@ export type SiteSettings = {
     name: string;
     title?: string;
     company?: string;
+    logo?: SanityImage;
     relationship?: string;
     date?: string;
     projectSlug?: string;
