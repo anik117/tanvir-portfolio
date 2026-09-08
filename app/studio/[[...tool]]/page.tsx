@@ -1,8 +1,23 @@
 "use client";
 
-import { NextStudio } from "next-sanity/studio";
+import dynamic from "next/dynamic";
 import config from "@/sanity.config";
 import { isSanityConfigured } from "@/sanity/env";
+
+// The Studio is a large browser-only bundle. Server-rendering it fails on
+// React internals and only recovers by falling back to client rendering, so
+// skip SSR outright.
+const NextStudio = dynamic(
+  () => import("next-sanity/studio").then((m) => m.NextStudio),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="p-8 font-mono text-xs uppercase tracking-widest text-muted">
+        Loading Studio…
+      </div>
+    ),
+  },
+);
 
 function SetupInstructions() {
   return (

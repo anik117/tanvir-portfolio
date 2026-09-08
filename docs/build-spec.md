@@ -138,4 +138,6 @@ Non-obvious things the scaffold depends on. Do not remove them without checking.
 | `serverExternalPackages: ["sanity", "@sanity/vision"]` | `next.config.ts` | Sanity Studio imports `useSWR` as a default export, but swr's `react-server` build only has named exports. Turbopack resolves that condition in the RSC graph and the build fails. Keeping Sanity out of the server graph avoids it. |
 | `turbopack.root` | `next.config.ts` | Turbopack otherwise walks up and finds a stray `package-lock.json` in the home directory, outside this repo. |
 | `styled-components` | dependency | `NextStudio` uses it internally. Missing it gives a runtime "styled is not defined". |
+| Studio loaded via `next/dynamic` with `ssr: false` | `app/studio/[[...tool]]/page.tsx` | Server-rendering the Studio fails on React internals (`useMemoCache`) and only recovers by falling back to client rendering. Skipping SSR avoids it. |
+| Studio page is a client component | `app/studio/[[...tool]]/page.tsx` | `sanity.config.ts` builds objects with methods, which cannot be passed from a server component as props. Route config and metadata live in the sibling layout. |
 | Null-safe Sanity client | `sanity/client.ts` | The app must build and run before the Sanity account exists. `safeFetch` returns null rather than throwing. |
