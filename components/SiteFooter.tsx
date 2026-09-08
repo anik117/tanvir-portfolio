@@ -17,7 +17,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
   const name = settings?.siteTitle ?? "Tanvir Ahassan";
 
   return (
-    <footer className="mt-32 bg-[#f4f4f2]">
+    <footer className="mt-32 bg-panel">
       <div className="mx-auto max-w-page px-5 py-14 sm:px-10 sm:py-16">
         <div className="flex flex-wrap items-start justify-between gap-x-16 gap-y-10">
           <div>
@@ -25,8 +25,8 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
             {settings?.availabilityShow && settings.availabilityLabel && (
               <p className="mt-4 inline-flex items-center gap-2 text-[13px] text-muted-strong">
                 <span className="relative flex h-2 w-2">
-                  <span className="annotation-dot absolute inset-0 rounded-full bg-emerald-500" />
-                  <span className="relative h-2 w-2 rounded-full bg-emerald-500" />
+                  <span className="annotation-dot absolute inset-0 rounded-full bg-foreground" />
+                  <span className="relative h-2 w-2 rounded-full bg-foreground" />
                 </span>
                 {settings.availabilityLabel}
               </p>

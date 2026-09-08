@@ -121,7 +121,15 @@ Eighth pass:
   `#f4f4f2` band with the signature and availability on the left, two short mono-labelled
   lists on the right (pages; channels and email), and the year under a rule.
 
-Amber stays on "attention" callouts. A flagged problem is a meaning, not a decoration, and
+Ninth pass — "no orange tone; white, black, and sand grey only":
+
+- `--panel` is `#f1f1ee` and the canvas grids `#f7f7f5`: neutral greys with no yellow cast.
+  The footer uses the same panel grey.
+- The blue accent is gone; `--accent` resolves to ink. The avatar and channel discs are
+  black with white initials; the availability dot is black; the copy-confirm tick is ink.
+- Instrument Serif was already the serif — the signature and the italic closing words. Kept.
+
+Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
 

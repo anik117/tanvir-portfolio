@@ -7,10 +7,8 @@ import type { SiteSettings } from "@/sanity/types";
 
 type Item = NonNullable<SiteSettings["testimonials"]>[number];
 
-const colours = ["#1d4ed8", "#0f766e", "#b45309", "#7c3aed", "#be123c", "#0e7490"];
-
-/** A coloured disc with bold initials — no photos are needed. */
-function Avatar({ name, index, large }: { name: string; index: number; large: boolean }) {
+/** A black disc with bold initials — no photos are needed. */
+function Avatar({ name, large }: { name: string; large: boolean }) {
   const initials = name
     .split(/\s+/)
     .slice(0, 2)
@@ -21,8 +19,7 @@ function Avatar({ name, index, large }: { name: string; index: number; large: bo
       aria-hidden
       className={`flex shrink-0 items-center justify-center rounded-full font-bold text-white transition-all duration-500 ${
         large ? "h-14 w-14 text-[17px]" : "h-11 w-11 text-[14px]"
-      }`}
-      style={{ background: colours[index % colours.length] }}
+      } bg-foreground`}
     >
       {initials}
     </span>
@@ -135,7 +132,7 @@ export function TestimonialCarousel({ items }: { items: Item[] }) {
 
                 <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-t border-border pt-6">
                   <span className="flex items-center gap-3.5">
-                    <Avatar name={item.name} index={i} large={on} />
+                    <Avatar name={item.name} large={on} />
                     <span className="min-w-0">
                       <span className="block text-[14px] font-semibold">{item.name}</span>
                       <span className="block text-[13px] leading-snug text-muted-strong">

@@ -15,7 +15,7 @@ export type Annotation = {
    is a meaning, not a decoration — and neutral notes are grey. */
 const tone = {
   positive: { Icon: Check, cls: "text-white bg-accent ring-accent/30" },
-  attention: { Icon: TriangleAlert, cls: "text-amber-800 bg-amber-100 ring-amber-200" },
+  attention: { Icon: TriangleAlert, cls: "text-foreground bg-panel ring-border" },
   neutral: { Icon: Minus, cls: "text-muted-strong bg-foreground/[0.06] ring-border" },
 } as const;
 

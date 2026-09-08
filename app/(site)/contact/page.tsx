@@ -11,21 +11,18 @@ export const metadata = {
   description: "Get in touch about a role or a project.",
 };
 
-const colours = ["#1d4ed8", "#0f766e", "#b45309", "#7c3aed", "#be123c", "#0e7490"];
 
 function Channel({
   href,
   label,
   value,
   external,
-  colour,
   icon,
 }: {
   href: string;
   label: string;
   value: string;
   external?: boolean;
-  colour: string;
   icon: React.ReactNode;
 }) {
   return (
@@ -35,10 +32,7 @@ function Channel({
       rel={external ? "noreferrer" : undefined}
       className="group flex items-center gap-4 rounded-2xl px-3 py-3 transition-colors hover:bg-foreground/[0.03]"
     >
-      <span
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[13px] font-bold text-white"
-        style={{ background: colour }}
-      >
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-foreground text-[13px] font-bold text-white">
         {icon}
       </span>
       <span className="min-w-0 flex-1">
@@ -92,8 +86,8 @@ export default async function ContactPage() {
               {settings?.availabilityShow && settings.availabilityLabel && (
                 <li className="inline-flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
-                    <span className="annotation-dot absolute inset-0 rounded-full bg-emerald-500" />
-                    <span className="relative h-2 w-2 rounded-full bg-emerald-500" />
+                    <span className="annotation-dot absolute inset-0 rounded-full bg-foreground" />
+                    <span className="relative h-2 w-2 rounded-full bg-foreground" />
                   </span>
                   {settings.availabilityLabel}
                 </li>
@@ -158,19 +152,17 @@ export default async function ContactPage() {
                     href={`mailto:${settings.email}`}
                     label="Email"
                     value={settings.email}
-                    colour={colours[0]}
                     icon={<Mail aria-hidden size={16} />}
                   />
                 </li>
               )}
-              {settings?.socials?.map((s, i) => (
+              {settings?.socials?.map((s) => (
                 <li key={s._key ?? s.platform}>
                   <Channel
                     href={s.url}
                     label={s.platform}
                     value={s.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
                     external
-                    colour={colours[(i + 1) % colours.length]}
                     icon={s.platform.slice(0, 2).toUpperCase()}
                   />
                 </li>
