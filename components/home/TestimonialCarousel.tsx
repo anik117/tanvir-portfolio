@@ -30,14 +30,14 @@ function Avatar({ name, index, large }: { name: string; index: number; large: bo
 }
 
 /**
- * A row of quotes that scrolls sideways. One card is open — wide, the full
- * quote at reading size — and the rest sit beside it small. Hovering or
- * clicking a card opens it and closes the last, and the row recentres on it.
+ * A row of quotes that scrolls sideways. One card is open — wide and tall,
+ * the full quote at reading size — and the rest sit beside it smaller.
+ * Clicking a card opens it and closes the last, and the row recentres on it.
  */
 export function TestimonialCarousel({ items }: { items: Item[] }) {
   const track = useRef<HTMLUListElement>(null);
-  const hoverTimer = useRef<number | null>(null);
-  const [active, setActive] = useState(Math.min(1, items.length - 1));
+  // Open the middle of the first three, so the row reads small · large · small.
+  const [active, setActive] = useState(items.length >= 3 ? 1 : 0);
 
   /**
    * Scroll the row so card `i` sits in the middle. Computed from the cards'
@@ -67,15 +67,6 @@ export function TestimonialCarousel({ items }: { items: Item[] }) {
   const open = (i: number) => {
     setActive(i);
     centre(i);
-  };
-
-  const onEnter = (i: number) => {
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-    if (hoverTimer.current) window.clearTimeout(hoverTimer.current);
-    hoverTimer.current = window.setTimeout(() => open(i), 160);
-  };
-  const onLeave = () => {
-    if (hoverTimer.current) window.clearTimeout(hoverTimer.current);
   };
 
   return (
@@ -113,18 +104,16 @@ export function TestimonialCarousel({ items }: { items: Item[] }) {
 
       <ul
         ref={track}
-        className="no-scrollbar mt-14 flex items-stretch gap-5 overflow-x-auto px-[6vw] pb-4 sm:px-[12vw]"
-        onMouseLeave={onLeave}
+        className="no-scrollbar mt-14 flex items-center gap-5 overflow-x-auto px-[6vw] pb-4 sm:px-[12vw]"
       >
         {items.map((item, i) => {
           const on = i === active;
           return (
             <li
               key={item._key ?? item.name}
-              className={`shrink-0 transition-[width] duration-500 ease-[var(--ease)] ${
-                on ? "w-[86vw] sm:w-[600px]" : "w-[70vw] sm:w-[300px]"
+              className={`flex shrink-0 transition-[width,height] duration-500 ease-[var(--ease)] ${
+                on ? "min-h-[440px] w-[86vw] sm:h-[440px] sm:w-[600px]" : "h-[360px] w-[70vw] sm:w-[300px]"
               }`}
-              onMouseEnter={() => onEnter(i)}
             >
               <button
                 type="button"
@@ -136,7 +125,9 @@ export function TestimonialCarousel({ items }: { items: Item[] }) {
               >
                 <blockquote
                   className={`leading-[1.6] transition-[font-size] duration-500 ${
-                    on ? "text-[16px] sm:text-[19px] sm:leading-[1.55]" : "line-clamp-6 text-[14px]"
+                    on
+                      ? "line-clamp-[11] text-[16px] sm:line-clamp-none sm:text-[19px] sm:leading-[1.55]"
+                      : "line-clamp-6 text-[14px]"
                   }`}
                 >
                   &ldquo;{item.quote}&rdquo;

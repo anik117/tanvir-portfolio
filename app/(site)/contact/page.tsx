@@ -67,7 +67,7 @@ export default async function ContactPage() {
 
   return (
     <main className="mx-auto max-w-page px-5 py-16 sm:px-10 sm:py-24">
-      <div className="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-20">
         {/* ---- The invitation ------------------------------------------- */}
         <div>
           <Reveal y={10}>

@@ -92,6 +92,19 @@ Fifth pass:
 - **Lightbox** is pinned to the viewport and centred both ways; the image scales to fit
   84vh so it never sits off-centre on a tall screenshot.
 
+Sixth pass:
+
+- **Testimonials open on click only.** Hover no longer expands a card; the middle of the
+  first three is open on load so the row reads small · large · small, and the open card is
+  taller as well as wider. On phones the open card grows with its quote up to eleven lines.
+- **No callouts anywhere.** The hero artboard lost its two as well; it is now the cover on a
+  canvas grid with a mono label. `AnnotatedImage` stays in the codebase for the day a case
+  study wants one deliberately.
+- **Case study is quieter.** The act index is a hairline with a marker, no numbers. The big
+  faint act numbers and "Act 01" eyebrows are gone; acts are separated by a rule. Lists are
+  plain — dashes, hairline rows, no cards. Cards are kept only for the cover frame, the
+  gallery images, the outcome numbers, and the "More work" tiles.
+
 Amber stays on "attention" callouts. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

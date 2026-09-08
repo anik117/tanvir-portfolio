@@ -23,34 +23,24 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">) {
 }
 
 /**
- * Four acts — brief, research, design, outcome — each a step in one story.
- * The act number sits large and faint behind the heading, like a chapter
- * plate, and the sticky index on wide screens tracks which act is on screen.
+ * Four acts — brief, research, design, outcome — each a step in one story,
+ * separated by a hairline. The sticky index on wide screens tracks which act
+ * is on screen.
  */
 function Act({
   id,
-  n,
   title,
   children,
 }: {
   id: string;
-  n: string;
+  n?: string;
   title: string;
   children: ReactNode;
 }) {
   return (
     <Reveal>
-      <section id={id} className="relative mt-24 scroll-mt-28 first:mt-0">
-        <div className="relative mb-10">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -left-2 -top-8 select-none text-[6rem] font-semibold leading-none tracking-tighter text-foreground/[0.05] sm:-left-4 sm:text-[8rem]"
-          >
-            {n}
-          </span>
-          <p className="mono relative text-xs uppercase tracking-[0.2em] text-muted">Act {n}</p>
-          <h2 className="relative mt-3 text-3xl font-medium tracking-tight sm:text-4xl">{title}</h2>
-        </div>
+      <section id={id} className="mt-20 scroll-mt-28 border-t border-border pt-10 first:mt-0 first:border-t-0 first:pt-0">
+        <h2 className="mb-8 text-3xl font-semibold sm:text-4xl">{title}</h2>
         {children}
       </section>
     </Reveal>
@@ -70,10 +60,8 @@ function Points({ items }: { items: string[] }) {
   return (
     <ul className="space-y-3">
       {items.map((item, i) => (
-        <li key={i} className="card flex gap-4 rounded-2xl px-5 py-4 leading-relaxed">
-          <span className="mono mt-1 shrink-0 text-xs text-muted">
-            {String(i + 1).padStart(2, "0")}
-          </span>
+        <li key={i} className="flex gap-4 leading-relaxed">
+          <span aria-hidden className="mt-[0.85em] h-px w-4 shrink-0 bg-foreground/40" />
           <span>{item}</span>
         </li>
       ))}
@@ -87,13 +75,10 @@ function Lead({ children }: { children: ReactNode }) {
 
 function Rows({ items }: { items: { key: string; label: string; description?: string }[] }) {
   return (
-    <dl className="card divide-y divide-border overflow-hidden rounded-2xl">
+    <dl className="divide-y divide-border border-y border-border">
       {items.map((it) => (
-        <div
-          key={it.key}
-          className="grid gap-1 px-5 py-4 transition-colors hover:bg-foreground/[0.02] sm:grid-cols-[14rem_1fr] sm:gap-6"
-        >
-          <dt className="font-medium">{it.label}</dt>
+        <div key={it.key} className="grid gap-1 py-4 sm:grid-cols-[13rem_1fr] sm:gap-6">
+          <dt className="font-semibold">{it.label}</dt>
           <dd className="leading-relaxed text-muted-strong">{it.description}</dd>
         </div>
       ))}
@@ -209,14 +194,11 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         {meta.length > 0 && (
           <Reveal delay={300}>
-            <dl className="mt-8 flex flex-wrap gap-2.5">
+            <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-y border-border py-5">
               {meta.map(([label, value]) => (
-                <div
-                  key={label}
-                  className="card flex items-baseline gap-2 rounded-full px-4 py-2 text-sm"
-                >
-                  <dt className="text-xs text-muted">{label}</dt>
-                  <dd className="mono text-[13px] font-medium">{value}</dd>
+                <div key={label}>
+                  <dt className="mono text-[11px] uppercase tracking-[0.14em] text-muted">{label}</dt>
+                  <dd className="mt-1 text-[15px] font-medium">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -234,7 +216,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         <div className="max-w-read">
           {hasBrief && (
-            <Act id="act-01" n="01" title="The brief">
+            <Act id="act-{n}" title="The brief">
               {project.goal && <Lead>{project.goal}</Lead>}
               {project.targetUsers?.length ? (
                 <>
@@ -252,7 +234,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasResearch && (
-            <Act id="act-02" n="02" title="What I found">
+            <Act id="act-{n}" title="What I found">
               {project.discoveryNote && <Lead>{project.discoveryNote}</Lead>}
 
               {project.insights?.length ? (
@@ -272,9 +254,9 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               {project.personas?.length ? (
                 <div className="mt-12">
                   <Sub>Who I designed for</Sub>
-                  <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
                     {project.personas.map((p) => (
-                      <div key={p._key ?? p.name} className="card card-hover rounded-2xl p-6">
+                      <div key={p._key ?? p.name} className="border-t border-border pt-5">
                         <p className="text-lg font-medium tracking-tight">{p.name}</p>
                         {p.context && <p className="mt-0.5 text-sm text-muted-strong">{p.context}</p>}
                         <dl className="mt-5 space-y-3 text-[15px] leading-relaxed">
@@ -302,19 +284,14 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasBuild && (
-            <Act id="act-03" n="03" title="How I built it">
+            <Act id="act-{n}" title="How I built it">
               {project.userFlows?.length ? (
                 <div>
                   <Sub>Critical flows</Sub>
-                  <ol className="space-y-3">
-                    {project.userFlows.map((f, i) => (
-                      <li key={f._key ?? f.name} className="card rounded-2xl px-5 py-4">
-                        <p className="flex items-baseline gap-3 font-medium">
-                          <span className="mono text-xs text-muted">
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
-                          {f.name}
-                        </p>
+                  <ol className="divide-y divide-border border-y border-border">
+                    {project.userFlows.map((f) => (
+                      <li key={f._key ?? f.name} className="py-4">
+                        <p className="font-semibold">{f.name}</p>
                         {f.steps && (
                           <p className="mt-2 text-[14px] leading-relaxed text-muted-strong">
                             {f.steps}
@@ -373,7 +350,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasOutcome && (
-            <Act id="act-04" n="04" title="What it set out to do">
+            <Act id="act-{n}" title="What it set out to do">
               {project.outcomes?.length ? (
                 <ul className="band mb-8 grid gap-6 rounded-3xl p-6 sm:grid-cols-3 sm:p-8">
                   {project.outcomes.map((o) => (

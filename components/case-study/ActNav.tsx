@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 export type ActLink = { id: string; n: string; title: string };
 
 /**
- * The case study's four acts as a sticky index. Highlights the act currently
- * on screen so a reader always knows where they are in the story.
+ * The case study's four acts as a sticky index: a hairline with a marker on
+ * the act currently on screen, and nothing else.
  */
 export function ActNav({ acts }: { acts: ActLink[] }) {
   const [active, setActive] = useState(acts[0]?.id);
@@ -31,8 +31,8 @@ export function ActNav({ acts }: { acts: ActLink[] }) {
   }, [acts]);
 
   return (
-    <nav aria-label="Case study sections" className="card rounded-2xl p-2">
-      <ol className="space-y-0.5">
+    <nav aria-label="Case study sections">
+      <ol className="border-l border-border">
         {acts.map((act) => {
           const on = act.id === active;
           return (
@@ -40,12 +40,13 @@ export function ActNav({ acts }: { acts: ActLink[] }) {
               <a
                 href={`#${act.id}`}
                 aria-current={on ? "location" : undefined}
-                className={`flex items-baseline gap-3 rounded-xl px-3 py-2 text-sm transition-colors ${
-                  on ? "bg-dark text-white" : "text-muted-strong hover:text-foreground"
+                className={`-ml-px block border-l-2 py-2 pl-5 text-[15px] transition-colors ${
+                  on
+                    ? "border-foreground font-semibold text-foreground"
+                    : "border-transparent text-muted-strong hover:text-foreground"
                 }`}
               >
-                <span className={`mono text-xs ${on ? "text-white/60" : "text-muted"}`}>{act.n}</span>
-                <span className="font-medium">{act.title}</span>
+                {act.title}
               </a>
             </li>
           );

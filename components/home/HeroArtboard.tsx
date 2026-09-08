@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { ProjectCard } from "@/sanity/types";
-import { AnnotatedImage } from "@/components/AnnotatedImage";
+import { SanityImage } from "@/components/SanityImage";
 
 /**
- * The hero's one prop: the latest cover on a canvas grid with its decisions
- * pinned, framed like an artboard with a mono label. A screenshot shows what
- * shipped; the callouts show what was decided — and that is the whole pitch.
+ * The hero's one prop: the latest cover on a canvas grid, framed like an
+ * artboard with a mono label.
  */
 export function HeroArtboard({ project }: { project: ProjectCard }) {
   if (!project.coverImage) return null;
@@ -26,15 +25,15 @@ export function HeroArtboard({ project }: { project: ProjectCard }) {
         </Link>
       </div>
       <div className="canvas-grid group rounded-xl border border-border p-5 sm:p-7">
-        <AnnotatedImage
-          image={project.coverImage}
-          width={1200}
-          sizes="(max-width: 1024px) 100vw, 560px"
-          priority
-          list={false}
-          compact
-          className="[&_img]:shadow-[0_24px_48px_-16px_rgb(0_0_0/0.35)]"
-        />
+        <div className="overflow-hidden rounded-lg border border-border bg-white shadow-[0_24px_48px_-16px_rgb(0_0_0/0.35)]">
+          <SanityImage
+            image={project.coverImage}
+            width={1200}
+            sizes="(max-width: 1024px) 100vw, 560px"
+            priority
+            className="cover-img"
+          />
+        </div>
       </div>
     </div>
   );
