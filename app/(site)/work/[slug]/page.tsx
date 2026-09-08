@@ -38,8 +38,10 @@ function Act({
   children: ReactNode;
 }) {
   return (
-    <Reveal>
-      <section id={id} className="mt-20 scroll-mt-28 border-t border-border pt-10 first:mt-0 first:border-t-0 first:pt-0">
+    // The Reveal wrapper is what the parent spaces; the section inside is
+    // always its first child, so `first:` resets must live on the wrapper.
+    <Reveal className="border-t border-border pt-10 first:border-t-0 first:pt-0">
+      <section id={id} className="scroll-mt-28">
         <h2 className="mb-8 text-3xl font-semibold sm:text-4xl">{title}</h2>
         {children}
       </section>
@@ -214,7 +216,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           </div>
         </aside>
 
-        <div className="max-w-read">
+        <div className="max-w-read space-y-20">
           {hasBrief && (
             <Act id="act-{n}" title="The brief">
               {project.goal && <Lead>{project.goal}</Lead>}
@@ -254,7 +256,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               {project.personas?.length ? (
                 <div className="mt-12">
                   <Sub>Who I designed for</Sub>
-                  <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                  <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
                     {project.personas.map((p) => (
                       <div key={p._key ?? p.name} className="border-t border-border pt-5">
                         <p className="text-lg font-medium tracking-tight">{p.name}</p>
