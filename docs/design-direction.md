@@ -235,3 +235,27 @@ a redundant line of code.
 
 Backdrop clicks close it by checking that the click target is the dialog itself — clicks on
 the content never reach that element.
+
+## Testimonials
+
+The client list *is* the navigation. Picking a name swaps the quote, so the companies are the
+interface rather than small print under a paragraph — which is what makes the names read as
+credentials instead of decoration.
+
+Built as a real tablist: arrow keys move between clients, Home and End jump to the ends, the
+panel is labelled by its tab, and the quote block is keyed so the fade replays on change. On
+narrow screens the tabs become a horizontally scrollable row above the quote.
+
+Each card states the relationship — Client, Colleague, or Collaborator — and the date. A
+recommendation from a teammate is not the same claim as one from a paying client, and
+flattening the two would be the kind of quiet overstatement the rest of this site avoids.
+
+## Site Structure
+
+| Route | Holds |
+| --- | --- |
+| `/` | Hero, selected work in full, testimonials |
+| `/work` | Compact grid index of every project |
+| `/work/[slug]` | Case study, four acts |
+| `/about` | Intro, stats, experience, education, services, toolkit |
+| `/contact` | Channels |

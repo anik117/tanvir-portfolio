@@ -70,6 +70,16 @@ export type SiteSettings = {
   heroHeadline?: string;
   heroSupporting?: string;
   services?: Named[];
+  testimonials?: {
+    _key?: string;
+    quote: string;
+    name: string;
+    title?: string;
+    company?: string;
+    relationship?: string;
+    date?: string;
+    projectSlug?: string;
+  }[];
   aboutHeading?: string;
   aboutParagraphs?: string[];
   stats?: { _key?: string; value: string; label: string }[];

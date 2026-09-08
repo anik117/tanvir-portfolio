@@ -139,10 +139,10 @@ async function main() {
     _type: "siteSettings",
     siteTitle: "Tanvir Ahassan",
     siteDescription:
-      "UI/UX Designer with 5+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
+      "UI/UX Designer with 7+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
     heroHeadline: "Crafting seamless digital experiences with a human touch.",
     heroSupporting:
-      "I'm Tanvir Ahassan, a UI/UX Designer with 5+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
+      "I'm Tanvir Ahassan, a UI/UX Designer with 7+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
     ctaLabel: "Book a Call",
     availabilityLabel: "Available for hire",
     availabilityShow: true,
@@ -159,6 +159,57 @@ async function main() {
     contactHeading: "Have a project in mind or just want to connect?",
     contactMessage:
       "I'm currently looking for a new remote role. If you're hiring, or you have a project that needs a designer, I'd like to hear about it.",
+    // From LinkedIn recommendations, read 2026-09-08. Verbatim.
+    testimonials: [
+      {
+        _key: "t1",
+        quote:
+          "Working with Tanvir on the Alokito Teachers website was a seamless experience. He designed a platform that is both user-friendly and visually engaging, while carefully aligning with our vision of building a comprehensive ecosystem for developing, assessing, and placing teachers, as well as supporting education institutions. His ability to combine functionality with clean, attractive design significantly improved the user experience of our platform.",
+        name: "Azwa Nayeem",
+        title: "Educator, Social Entrepreneur, and Founder",
+        company: "Alokito Teachers",
+        relationship: "Client",
+        date: "Feb 2026",
+        projectSlug: "alokito-teacher",
+      },
+      {
+        _key: "t2",
+        quote:
+          "From the first interaction I had with Tanvir I knew I was dealing with someone who takes great care in his work. He was communicative, responsive, professional, and understanding. We delivered the scope of work to his team and when he gave us our first design examples I was blown away. The quality of his designs were top notch, his attention to detail was fantastic, and he was able to execute on our vision to the T.",
+        name: "David Ventura",
+        title: "Battery technology",
+        relationship: "Client",
+        date: "Feb 2026",
+      },
+      {
+        _key: "t3",
+        quote:
+          "Tanvir is an amazing part of my team. He brings so much to each project. Primarily he is great at communicating and even more important — at listening. His attention to the client produces the best designs that are always on point and appreciated by our clients. In addition to his work skills, Tanvir is also a person who keeps his word. Upfront, we agree on the work to be done, the timeline and cost. Tanvir has always come in on time and in budget.",
+        name: "Barry Girsh",
+        title: "CEO",
+        company: "My Value Add Inc.",
+        relationship: "Collaborator",
+        date: "Feb 2026",
+      },
+      {
+        _key: "t4",
+        quote:
+          "I had the pleasure of working with Tanvir for over a year and a half on various UX projects. His skills with Figma are exceptional and his designs are always intuitive and thought out. But what really sets him apart is his collaborative attitude — he's always willing to lend a hand and go above and beyond to help his teammates out and ensure the success of the project. Tanvir is a great communicator and would make an invaluable asset to any team.",
+        name: "Krystian Bagunu",
+        title: "Senior Product Designer",
+        relationship: "Colleague",
+        date: "Apr 2023",
+      },
+      {
+        _key: "t5",
+        quote:
+          "Tanvir was incredible in the assistance of creating my website for my therapy and coaching business. Tanvir was kind, helpful, collaborative, and great to work with. His attention to detail is incredible! I highly recommend his services to anyone needing assistance in website or UX Design.",
+        name: "Jason Sleisenger",
+        title: "M.A., LPCC, NCC — psychotherapy and coaching",
+        relationship: "Client",
+        date: "Feb 2026",
+      },
+    ],
     aboutIntro:
       "I started with a degree in Software Engineering, which gave me a foundation in technology, problem-solving, and systems thinking. Working in tech is where I found my interest in how people actually use digital products, and that is what moved me into UI/UX design.",
     // Only tools there is actual evidence for: Figma (the Ibadat prototype link),
@@ -224,7 +275,7 @@ async function main() {
       { _key: "s3", name: "Design Consultation", description: "Helping startups and businesses refine their digital products by identifying usability issues, improving workflows, and aligning design with business goals." },
     ],
     stats: [
-      { _key: "st1", value: "5+", label: "Years in business" },
+      { _key: "st1", value: "7+", label: "Years designing" },
       { _key: "st2", value: "15+", label: "Completed projects" },
       { _key: "st3", value: "20+", label: "Clients" },
     ],

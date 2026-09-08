@@ -30,7 +30,7 @@ export const SITE_SETTINGS_QUERY = groq`
   *[_type == "siteSettings"][0] {
     siteTitle, siteDescription, heroHeadline, heroSupporting,
     availabilityShow, availabilityLabel,
-    services, aboutHeading, aboutParagraphs, stats, clientsNote, processSteps,
+    testimonials, services, aboutHeading, aboutParagraphs, stats, clientsNote, processSteps,
     aboutIntro, education, experience, toolkit,
     contactHeading, contactMessage, ctaLabel, ctaUrl, email, socials
   }

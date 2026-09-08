@@ -7,6 +7,7 @@ import { AnnotatedImage } from "@/components/AnnotatedImage";
 import { Reveal } from "@/components/Reveal";
 import { Highlight } from "@/components/Highlight";
 import { SetupBanner } from "@/components/SetupBanner";
+import { Testimonials } from "@/components/Testimonials";
 
 export default async function HomePage() {
   const [projects, settings] = await Promise.all([
@@ -58,9 +59,16 @@ export default async function HomePage() {
       </section>
 
       <section className="py-20">
-        <h2 className="text-sm font-medium text-muted">
-          Selected work — {projects.length} projects
-        </h2>
+        <div className="flex flex-wrap items-baseline justify-between gap-4">
+          <h2 className="text-sm font-medium text-muted">Selected work</h2>
+          <Link
+            href="/work"
+            className="group inline-flex items-center gap-1.5 text-sm font-medium hover:opacity-70"
+          >
+            All {projects.length} projects
+            <ArrowRight aria-hidden size={15} className="arrow" />
+          </Link>
+        </div>
 
         <ul className="mt-14 space-y-28">
           {projects.map((project, i) => (
@@ -111,6 +119,20 @@ export default async function HomePage() {
           ))}
         </ul>
       </section>
+
+      {settings?.testimonials?.length ? (
+        <section className="border-t border-border py-20">
+          <Reveal>
+            <div className="mb-10 flex flex-wrap items-baseline justify-between gap-4">
+              <h2 className="text-2xl font-semibold tracking-tight">In their words</h2>
+              <p className="text-sm text-muted">
+                {settings.testimonials.length} recommendations from clients and teammates
+              </p>
+            </div>
+            <Testimonials items={settings.testimonials} />
+          </Reveal>
+        </section>
+      ) : null}
     </main>
   );
 }

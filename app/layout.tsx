@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Tanvir Ahassan | UI/UX Designer",
   description:
-    "UI/UX Designer with 5+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
+    "UI/UX Designer with 7+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

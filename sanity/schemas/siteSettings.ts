@@ -90,6 +90,38 @@ export const siteSettings = defineType({
       ],
     }),
 
+    defineField({
+      name: "testimonials",
+      type: "array",
+      group: "home",
+      description: "Real recommendations only. Each one names who said it and how they know you.",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "quote", type: "text", rows: 6, validation: (r) => r.required() }),
+            defineField({ name: "name", type: "string", validation: (r) => r.required() }),
+            defineField({ name: "title", type: "string" }),
+            defineField({ name: "company", type: "string" }),
+            defineField({
+              name: "relationship",
+              type: "string",
+              description: "How they worked with you. Shown on the card, so keep it accurate.",
+              options: { list: ["Client", "Colleague", "Collaborator"] },
+              initialValue: "Client",
+            }),
+            defineField({ name: "date", type: "string" }),
+            defineField({
+              name: "projectSlug",
+              type: "string",
+              description: "Optional. Links the quote to a case study, e.g. alokito-teacher.",
+            }),
+          ],
+          preview: { select: { title: "name", subtitle: "company" } },
+        }),
+      ],
+    }),
+
     defineField({ name: "aboutIntro", type: "text", rows: 3, group: "about" }),
     defineField({
       name: "education",
