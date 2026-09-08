@@ -34,7 +34,7 @@ export function HeroArtboard({ projects }: { projects: ProjectCard[] }) {
 
   return (
     <div
-      className="card rounded-2xl p-2 shadow-[var(--shadow-lift)]"
+      className="card p-2 shadow-[var(--shadow-lift)]"
       onMouseEnter={() => setHeld(true)}
       onMouseLeave={() => setHeld(false)}
       onFocusCapture={() => setHeld(true)}
@@ -58,14 +58,14 @@ export function HeroArtboard({ projects }: { projects: ProjectCard[] }) {
         </span>
         <Link
           href={`/work/${current.slug}`}
-          className="group inline-flex items-center gap-1 normal-case tracking-normal text-foreground hover:text-muted-strong"
+          className="group inline-flex items-center gap-1 normal-case tracking-normal text-accent hover:text-accent-hover"
         >
           Case study
           <ArrowUpRight aria-hidden size={12} className="arrow-up" />
         </Link>
       </div>
 
-      <div className="canvas-grid rounded-xl border border-border p-5 sm:p-7">
+      <div className="canvas-grid rounded-[18px] border border-border p-5 sm:p-7">
         <Link
           href={`/work/${current.slug}`}
           aria-label={`${current.title} case study`}
@@ -74,7 +74,7 @@ export function HeroArtboard({ projects }: { projects: ProjectCard[] }) {
           {items.map((p, i) => (
             <motion.div
               key={p._id}
-              className="absolute inset-0 overflow-hidden rounded-lg border border-border bg-white shadow-[0_24px_48px_-16px_rgb(0_0_0/0.35)]"
+              className="absolute inset-0 overflow-hidden rounded-xl border border-border bg-white shadow-[0_24px_48px_-16px_rgb(18_31_49/0.25)]"
               initial={false}
               animate={{ opacity: i === index ? 1 : 0, scale: i === index ? 1 : 0.985 }}
               transition={{ duration: 0.8, ease: EASE }}
@@ -103,14 +103,14 @@ export function HeroArtboard({ projects }: { projects: ProjectCard[] }) {
                     onClick={() => setIndex(i)}
                     aria-label={`Show ${p.title}`}
                     aria-current={on ? "true" : undefined}
-                    className={`relative h-1.5 overflow-hidden rounded-full bg-foreground/15 transition-[width] duration-300 ${
-                      on ? "w-8" : "w-1.5 hover:bg-foreground/35"
+                    className={`relative h-1.5 overflow-hidden rounded-full bg-foreground/10 transition-[width] duration-300 ${
+                      on ? "w-8" : "w-1.5 hover:bg-foreground/30"
                     }`}
                   >
                     {on && (
                       <span
                         key={index}
-                        className="absolute inset-y-0 left-0 rounded-full bg-foreground"
+                        className="absolute inset-y-0 left-0 rounded-full bg-accent"
                         style={{
                           animation: rotating ? `dwell ${DWELL}ms linear forwards` : "none",
                           width: rotating ? undefined : "100%",

@@ -136,6 +136,27 @@ Tenth pass:
   hairline across the top of a section; the work-card image panel, the contact card, and
   the outcome numbers are white with a hairline border.
 
+## Direction change — clarify.ai (2026-09-09)
+
+Tanvir pointed at <https://www.clarify.ai/> for card style, colour, spacing and section
+design, asked for a light orange-and-blue theme, and for blue primary actions. Read on
+2026-09-09: `#fafafa` ground, navy ink `#121f31`, secondary `#394b63`, hairline `#e4e8ec`,
+white cards at 24px with a three-layer soft shadow, panels at 32–64px, a floating frosted
+pill nav, and a vertical gradient from sky `#badbfc` through mint into cream `#fdf7e8` and
+peach `#fcedd1`. Their headings are centred and large; their primary is green.
+
+What was taken, with our content and interactions unchanged:
+
+| Element | Ours |
+| --- | --- |
+| Hero | A gradient sheet with big rounded bottom corners, running under the floating nav. Centred: status pill, headline with the serif closing words, supporting copy, blue primary + white secondary, then the rotating artboard, then the numbers in a frosted pill |
+| Nav | Signature left, links in a frosted white pill centred, blue call to action right. Fixed |
+| Work | Centred heading and subline, a soft blue "All projects" button, then the sticky stack inside a cream-to-peach panel; cards white with the shot on a faint blue tint |
+| Testimonials | Sky panel, centred heading, arrows under it, the click-to-open row; blue avatar discs |
+| Footer | The page runs out into peach: signature centred, three short columns, the year |
+| Buttons | Primary is blue `#2f6cf6` (hover `#1f56d9`). Secondary is white with a hairline. A soft blue tint for tertiary |
+| Everywhere | Blue for links inside cards, active nav, dots and dwell bar, the availability dot. The line grid is gone — the gradient does that job |
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

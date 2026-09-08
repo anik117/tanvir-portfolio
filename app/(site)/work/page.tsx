@@ -35,7 +35,7 @@ export default async function WorkIndexPage() {
               <Reveal delay={i * 80} className="h-full">
                 <Link
                   href={`/work/${project.slug}`}
-                  className="card card-hover group block h-full overflow-hidden rounded-2xl p-3"
+                  className="card card-hover group block h-full overflow-hidden p-3"
                 >
                   {project.coverImage && (
                     <div className="overflow-hidden rounded-xl border border-border bg-foreground/[0.03]">
@@ -56,7 +56,7 @@ export default async function WorkIndexPage() {
                     </p>
                     <div className="mt-3 flex items-start justify-between gap-4">
                       <h2 className="text-2xl font-medium tracking-tight">{project.title}</h2>
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-strong transition-all duration-300 group-hover:rotate-45 group-hover:border-dark group-hover:bg-dark group-hover:text-white">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-strong transition-all duration-300 group-hover:rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-white">
                         <ArrowUpRight aria-hidden size={17} strokeWidth={2} />
                       </span>
                     </div>

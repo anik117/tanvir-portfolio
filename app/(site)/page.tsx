@@ -55,92 +55,97 @@ export default async function HomePage() {
   return (
     <main>
       {/* ---- Hero ---------------------------------------------------------- */}
-      <section className="hero-grid">
-        <div className="mx-auto grid max-w-page items-center gap-12 px-5 pb-20 pt-12 sm:px-10 sm:pt-16 lg:min-h-[calc(100vh-var(--nav-h))] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 lg:py-10">
-        <div>
-          <Reveal y={10}>
-            <p className="mono flex flex-wrap items-center gap-x-3 text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-              <span>UI/UX Designer</span>
-              {at && (
-                <>
-                  <span aria-hidden className="h-px w-5 bg-border" />
-                  <span>
-                    {at.prefix} {at.org}
+      <section className="px-2 sm:px-4">
+        <div className="hero-panel -mt-[var(--nav-h)] rounded-b-[40px] pt-[calc(var(--nav-h)+3rem)] sm:rounded-b-[64px] sm:pt-[calc(var(--nav-h)+4.5rem)]">
+          <div className="mx-auto flex max-w-page flex-col items-center px-5 text-center sm:px-10">
+            <Reveal y={10}>
+              <p className="inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-white/70 bg-white/70 px-4 py-2 text-[13px] font-medium text-muted-strong shadow-[var(--shadow-card)] backdrop-blur">
+                {settings?.availabilityShow && settings.availabilityLabel && (
+                  <span className="inline-flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="annotation-dot absolute inset-0 rounded-full bg-accent" />
+                      <span className="relative h-2 w-2 rounded-full bg-accent" />
+                    </span>
+                    {settings.availabilityLabel}
                   </span>
-                </>
-              )}
-            </p>
-          </Reveal>
-
-          <Reveal delay={80} y={16}>
-            <h1 className="mt-6 max-w-xl text-[2.5rem] font-semibold leading-[1.06] sm:text-[3.5rem]">
-              <Highlight text={headline} words={4} />
-            </h1>
-          </Reveal>
-
-          {settings?.heroSupporting && (
-            <Reveal delay={180} y={12}>
-              <p className="mt-7 max-w-md text-[17px] leading-relaxed text-muted-strong">
-                {settings.heroSupporting}
+                )}
+                {at && (
+                  <>
+                    <span aria-hidden className="hidden h-3 w-px bg-border sm:block" />
+                    <span>
+                      {at.prefix} <span className="text-foreground">{at.org}</span>
+                    </span>
+                  </>
+                )}
               </p>
             </Reveal>
-          )}
 
-          <Reveal delay={260} y={12}>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a href="#work" className="group btn btn-dark">
-                See the work
-                <ArrowRight aria-hidden size={15} className="arrow" />
-              </a>
-              <Link href="/contact" className="group btn btn-light">
-                Get in touch
-                <ArrowUpRight aria-hidden size={15} className="arrow-up" />
-              </Link>
-            </div>
+            <Reveal delay={80} y={16}>
+              <h1 className="mt-8 max-w-4xl text-[2.5rem] font-semibold leading-[1.06] sm:text-[3.75rem]">
+                <Highlight text={headline} words={4} />
+              </h1>
+            </Reveal>
+
+            {settings?.heroSupporting && (
+              <Reveal delay={180} y={12}>
+                <p className="mt-7 max-w-xl text-[18px] leading-relaxed text-muted-strong sm:text-[21px]">
+                  {settings.heroSupporting}
+                </p>
+              </Reveal>
+            )}
+
+            <Reveal delay={260} y={12}>
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+                <a href="#work" className="group btn btn-primary">
+                  See the work
+                  <ArrowRight aria-hidden size={15} className="arrow" />
+                </a>
+                <Link href="/contact" className="group btn btn-light">
+                  Get in touch
+                  <ArrowUpRight aria-hidden size={15} className="arrow-up" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={320} y={28} className="mx-auto mt-14 w-full max-w-[880px] px-4 sm:mt-20 sm:px-10">
+            <HeroArtboard projects={projects} />
           </Reveal>
 
           {settings?.stats?.length ? (
-            <Reveal delay={340} y={12}>
-              <dl className="mt-14 flex flex-wrap gap-x-10 gap-y-5 border-t border-border pt-6">
+            <Reveal delay={420} y={12} className="flex justify-center px-5 pb-12 pt-10 sm:pb-16">
+              <dl className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-full border border-white/70 bg-white/80 px-6 py-3 text-[13px] shadow-[var(--shadow-card)] backdrop-blur">
                 {settings.stats.map((stat) => (
-                  <div key={stat._key ?? stat.label}>
-                    <dd className="mono text-[26px] font-medium leading-none">{stat.value}</dd>
-                    <dt className="mt-1.5 text-[12px] text-muted-strong">{stat.label}</dt>
+                  <div key={stat._key ?? stat.label} className="inline-flex items-center gap-2">
+                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    <dd className="mono font-semibold">{stat.value}</dd>
+                    <dt className="text-muted-strong">{stat.label.toLowerCase()}</dt>
                   </div>
                 ))}
               </dl>
             </Reveal>
           ) : null}
         </div>
-
-        <Reveal delay={200} y={24}>
-          <HeroArtboard projects={projects} />
-        </Reveal>
-        </div>
       </section>
 
       {/* ---- Work ---------------------------------------------------------- */}
-      <section id="work" className="band scroll-mt-24 pb-[40vh] pt-20 sm:pt-28">
-        <div className="mx-auto max-w-page px-5 sm:px-10">
-          <Reveal>
-            <div className="mb-16 flex flex-wrap items-end justify-between gap-6 border-b border-border pb-8">
-              <div>
-                <p className="mono text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-                  Selected work · {String(projects.length).padStart(2, "0")}
-                </p>
-                <h2 className="mt-4 text-4xl font-semibold sm:text-5xl">
-                  Case studies, not screenshots.
-                </h2>
-              </div>
-              <Link
-                href="/work"
-                className="group mono inline-flex items-center gap-1.5 text-[13px] text-muted-strong hover:text-foreground"
-              >
-                All projects
-                <ArrowUpRight aria-hidden size={13} className="arrow-up" />
-              </Link>
-            </div>
-          </Reveal>
+      <section id="work" className="mx-auto max-w-page scroll-mt-24 px-5 pt-28 sm:px-10 sm:pt-36">
+        <Reveal>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-4xl font-semibold leading-[1.05] sm:text-[52px]">
+              Case studies, not screenshots.
+            </h2>
+            <p className="mx-auto mt-5 max-w-lg text-[18px] text-muted-strong sm:text-[20px]">
+              {projects.length} projects told from the brief to what they set out to do.
+            </p>
+            <Link href="/work" className="group btn btn-soft mt-7">
+              All projects
+              <ArrowRight aria-hidden size={14} className="arrow" />
+            </Link>
+          </div>
+        </Reveal>
+
+        <div className="panel-cream mt-14 rounded-[32px] px-3 py-6 sm:px-10 sm:py-10">
           <WorkStack projects={projects} />
         </div>
       </section>
@@ -156,7 +161,7 @@ export default async function HomePage() {
 
       {/* ---- Testimonials -------------------------------------------------- */}
       {settings?.testimonials?.length ? (
-        <div className="mt-8">
+        <div className="mx-auto max-w-page px-5 sm:px-10">
           <TestimonialCarousel items={settings.testimonials} />
         </div>
       ) : null}

@@ -26,7 +26,7 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
             : { label: "Let's talk", href: "/contact" }
         }
       />
-      <div className="relative flex-1">{children}</div>
+      <div className="relative flex-1 pt-[var(--nav-h)]">{children}</div>
       <SiteFooter settings={settings} />
     </>
   );

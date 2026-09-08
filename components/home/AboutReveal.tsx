@@ -93,7 +93,7 @@ function Tail({
       )}
       <Link
         href="/about"
-        className="group mt-8 inline-flex items-center gap-2 text-[15px] font-semibold"
+        className="group mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:text-accent-hover"
       >
         More about me
         <ArrowRight aria-hidden size={16} className="arrow" />

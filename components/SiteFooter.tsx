@@ -9,75 +9,87 @@ const pages = [
 ];
 
 /**
- * A quiet close under a hairline: the signature and status on the left, the site's
- * pages and his channels on the right, the year underneath. Nothing else.
+ * The page runs out into peach: the signature and status centred, three
+ * short columns underneath, the year at the foot.
  */
 export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
   const socials = settings?.socials ?? [];
   const name = settings?.siteTitle ?? "Tanvir Ahassan";
 
   return (
-    <footer className="mt-32 border-t border-border bg-white">
-      <div className="mx-auto max-w-page px-5 py-14 sm:px-10 sm:py-16">
-        <div className="flex flex-wrap items-start justify-between gap-x-16 gap-y-10">
-          <div>
-            <p className="serif-italic text-[34px] leading-none">{name}</p>
-            {settings?.availabilityShow && settings.availabilityLabel && (
-              <p className="mt-4 inline-flex items-center gap-2 text-[13px] text-muted-strong">
-                <span className="relative flex h-2 w-2">
-                  <span className="annotation-dot absolute inset-0 rounded-full bg-foreground" />
-                  <span className="relative h-2 w-2 rounded-full bg-foreground" />
-                </span>
-                {settings.availabilityLabel}
-              </p>
-            )}
-          </div>
+    <footer className="mt-32 bg-gradient-to-b from-background via-[var(--cream)] to-[var(--peach)]">
+      <div className="mx-auto max-w-page px-5 pb-10 pt-20 sm:px-10 sm:pt-28">
+        <div className="text-center">
+          <p className="serif-italic text-[40px] leading-none sm:text-[48px]">{name}</p>
+          {settings?.availabilityShow && settings.availabilityLabel && (
+            <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-3.5 py-1.5 text-[13px] font-medium text-muted-strong">
+              <span className="relative flex h-2 w-2">
+                <span className="annotation-dot absolute inset-0 rounded-full bg-accent" />
+                <span className="relative h-2 w-2 rounded-full bg-accent" />
+              </span>
+              {settings.availabilityLabel}
+            </p>
+          )}
+        </div>
 
-          <div className="flex gap-16 sm:gap-24">
-            <div>
-              <p className="mono text-[11px] uppercase tracking-[0.16em] text-muted">Pages</p>
-              <ul className="mt-4 space-y-2.5 text-[14px]">
-                {pages.map((p) => (
-                  <li key={p.href}>
-                    <Link href={p.href} className="text-muted-strong hover:text-foreground">
-                      {p.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mono text-[11px] uppercase tracking-[0.16em] text-muted">Elsewhere</p>
-              <ul className="mt-4 space-y-2.5 text-[14px]">
-                {socials.map((s) => (
-                  <li key={s._key ?? s.platform}>
-                    <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group inline-flex items-center gap-1 text-muted-strong hover:text-foreground"
-                    >
-                      {s.platform}
-                      <ArrowUpRight aria-hidden size={12} className="arrow-up" />
-                    </a>
-                  </li>
-                ))}
-                {settings?.email && (
-                  <li>
-                    <a
-                      href={`mailto:${settings.email}`}
-                      className="text-muted-strong hover:text-foreground"
-                    >
-                      {settings.email}
-                    </a>
-                  </li>
-                )}
-              </ul>
-            </div>
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-2 gap-10 text-center sm:grid-cols-3">
+          <div>
+            <p className="text-[14px] font-semibold">Pages</p>
+            <ul className="mt-4 space-y-2.5 text-[14px]">
+              {pages.map((p) => (
+                <li key={p.href}>
+                  <Link href={p.href} className="text-muted-strong hover:text-foreground">
+                    {p.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[14px] font-semibold">Elsewhere</p>
+            <ul className="mt-4 space-y-2.5 text-[14px]">
+              {socials.map((s) => (
+                <li key={s._key ?? s.platform}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-1 text-muted-strong hover:text-foreground"
+                  >
+                    {s.platform}
+                    <ArrowUpRight aria-hidden size={12} className="arrow-up" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="col-span-2 sm:col-span-1">
+            <p className="text-[14px] font-semibold">Contact</p>
+            <ul className="mt-4 space-y-2.5 text-[14px]">
+              {settings?.email && (
+                <li>
+                  <a href={`mailto:${settings.email}`} className="text-muted-strong hover:text-foreground">
+                    {settings.email}
+                  </a>
+                </li>
+              )}
+              {settings?.ctaUrl && (
+                <li>
+                  <a
+                    href={settings.ctaUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-muted-strong hover:text-foreground"
+                  >
+                    {settings.ctaLabel ?? "Book a Call"}
+                  </a>
+                </li>
+              )}
+            </ul>
           </div>
         </div>
 
-        <p className="mono mt-14 border-t border-foreground/10 pt-6 text-[12px] text-muted">
+        <p className="mono mt-20 text-center text-[12px] text-muted">
           © {new Date().getFullYear()} {name}
         </p>
       </div>

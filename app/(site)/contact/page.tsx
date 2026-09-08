@@ -30,9 +30,9 @@ function Channel({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
-      className="group flex items-center gap-4 rounded-2xl px-3 py-3 transition-colors hover:bg-foreground/[0.03]"
+      className="group flex items-center gap-4 rounded-2xl px-3 py-3 transition-colors hover:bg-white/70"
     >
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-foreground text-[13px] font-bold text-white">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-[13px] font-bold text-white">
         {icon}
       </span>
       <span className="min-w-0 flex-1">
@@ -86,8 +86,8 @@ export default async function ContactPage() {
               {settings?.availabilityShow && settings.availabilityLabel && (
                 <li className="inline-flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
-                    <span className="annotation-dot absolute inset-0 rounded-full bg-foreground" />
-                    <span className="relative h-2 w-2 rounded-full bg-foreground" />
+                    <span className="annotation-dot absolute inset-0 rounded-full bg-accent" />
+                    <span className="relative h-2 w-2 rounded-full bg-accent" />
                   </span>
                   {settings.availabilityLabel}
                 </li>
@@ -123,7 +123,7 @@ export default async function ContactPage() {
 
         {/* ---- The practical side ----------------------------------------- */}
         <Reveal delay={200}>
-          <div className="rounded-3xl border border-border p-6 sm:p-8">
+          <div className="panel-cream rounded-[32px] p-6 sm:p-8">
             <p className="mono text-[11px] uppercase tracking-[0.18em] text-muted-strong">
               A good first message
             </p>
