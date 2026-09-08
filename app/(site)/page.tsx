@@ -108,7 +108,7 @@ export default async function HomePage() {
             </Reveal>
           </div>
 
-          <Reveal delay={320} y={28} className="mx-auto mt-14 w-full max-w-[880px] px-4 sm:mt-20 sm:px-10">
+          <Reveal delay={320} y={28} className="mx-auto mt-14 w-full max-w-[1080px] px-3 sm:mt-20 sm:px-6">
             <HeroArtboard projects={projects} />
           </Reveal>
 

@@ -162,7 +162,8 @@ Refinement, same day: **orange out, lilac in.** The cream and peach stops are `#
 now sits inside an even 12–16px margin with 32–48px corners on all four sides, and the nav
 sits above it on the ground rather than over it.
 
-Links are 600 everywhere (nav pills 700); the page container is 1200px.
+Links are 600 everywhere (nav pills 700); the page container is 1200px. The hero artboard
+is 1080px wide and turns every 3.2s. The active nav pill is tinted soft blue with a dot.
 
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note

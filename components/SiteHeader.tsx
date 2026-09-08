@@ -77,13 +77,19 @@ export function SiteHeader({
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`rounded-full px-4 py-2 text-[14px] font-bold transition-colors ${
+                className={`relative rounded-full px-4 py-2 text-[14px] font-bold transition-colors ${
                   active
-                    ? "bg-white text-foreground shadow-sm"
-                    : "text-muted-strong hover:bg-white/70 hover:text-foreground"
+                    ? "bg-accent-soft text-accent-hover shadow-sm"
+                    : "text-muted-strong hover:bg-white/80 hover:text-foreground"
                 }`}
               >
                 {link.label}
+                {active && (
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-[3px] left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent"
+                  />
+                )}
               </Link>
             );
           })}

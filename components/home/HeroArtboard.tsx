@@ -8,11 +8,11 @@ import type { ProjectCard } from "@/sanity/types";
 import { SanityImage } from "@/components/SanityImage";
 import { EASE } from "@/components/Reveal";
 
-const DWELL = 5000;
+const DWELL = 3200;
 
 /**
  * The hero's one prop: an artboard that turns through every project's cover,
- * a few seconds each, with the label and link following. Every cover is in
+ * three seconds each, with the label and link following. Every cover is in
  * the DOM from the start so a switch is a crossfade, never a load. Hovering
  * holds the current one; the dots jump; reduced motion shows only the first.
  */
