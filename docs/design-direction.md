@@ -105,6 +105,16 @@ Sixth pass:
   plain — dashes, hairline rows, no cards. Cards are kept only for the cover frame, the
   gallery images, the outcome numbers, and the "More work" tiles.
 
+Seventh pass:
+
+- **The hero artboard rotates.** Every project's cover is mounted from the start and the
+  board crossfades to the next every five seconds, the mono label and the case-study link
+  following. A dwell bar in the active dot shows the timer; hovering or focusing holds it;
+  the dots jump. Reduced motion shows the first cover and stops.
+- **About is one reading column.** Heading, intro, paragraphs, the numbers under a rule,
+  then Experience, Education, What I do, and Toolkit as plain rows with a mono label above
+  each. No cards, no timeline, no icons.
+
 Amber stays on "attention" callouts. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

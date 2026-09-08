@@ -42,7 +42,6 @@ export default async function HomePage() {
   const headline =
     settings?.heroHeadline ?? "Crafting seamless digital experiences with a human touch.";
   const at = tenure(settings);
-  const first = projects[0];
 
   // Covers first, then second images, so the pile spans every project.
   const photos = [
@@ -114,7 +113,7 @@ export default async function HomePage() {
         </div>
 
         <Reveal delay={200} y={24}>
-          <HeroArtboard project={first} />
+          <HeroArtboard projects={projects} />
         </Reveal>
       </section>
 
