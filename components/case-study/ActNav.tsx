@@ -39,6 +39,19 @@ export function ActNav({ acts }: { acts: ActLink[] }) {
             <li key={act.id}>
               <a
                 href={`#${act.id}`}
+                onClick={(e) => {
+                  // Scroll ourselves: the browser's hash jump does not respect
+                  // the section's scroll margin under the floating header, and
+                  // the router can swallow a same-page hash change.
+                  e.preventDefault();
+                  const node = document.getElementById(act.id);
+                  if (!node) return;
+                  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                  const top = node.getBoundingClientRect().top + window.scrollY - 112;
+                  window.scrollTo({ top, behavior: reduce ? "auto" : "smooth" });
+                  window.history.replaceState(null, "", `#${act.id}`);
+                  setActive(act.id);
+                }}
                 aria-current={on ? "location" : undefined}
                 className={`-ml-px block border-l-2 py-2 pl-5 text-[15px] transition-colors ${
                   on

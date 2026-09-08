@@ -218,7 +218,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         <div className="max-w-read space-y-20">
           {hasBrief && (
-            <Act id="act-{n}" title="The brief">
+            <Act id="act-01" title="The brief">
               {project.goal && <Lead>{project.goal}</Lead>}
               {project.targetUsers?.length ? (
                 <>
@@ -236,7 +236,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasResearch && (
-            <Act id="act-{n}" title="What I found">
+            <Act id="act-02" title="What I found">
               {project.discoveryNote && <Lead>{project.discoveryNote}</Lead>}
 
               {project.insights?.length ? (
@@ -286,7 +286,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasBuild && (
-            <Act id="act-{n}" title="How I built it">
+            <Act id="act-03" title="How I built it">
               {project.userFlows?.length ? (
                 <div>
                   <Sub>Critical flows</Sub>
@@ -352,7 +352,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasOutcome && (
-            <Act id="act-{n}" title="What it set out to do">
+            <Act id="act-04" title="What it set out to do">
               {project.outcomes?.length ? (
                 <ul className="panel-cream mb-8 grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:p-8">
                   {project.outcomes.map((o) => (
