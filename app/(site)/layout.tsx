@@ -10,7 +10,12 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
 
   return (
     <>
-      <SiteHeader name={settings?.siteTitle ?? "Tanvir Ahassan"} />
+      <SiteHeader
+        name={settings?.siteTitle ?? "Tanvir Ahassan"}
+        availability={
+          settings?.availabilityShow ? settings.availabilityLabel : undefined
+        }
+      />
       <div className="flex-1">{children}</div>
       <SiteFooter settings={settings} />
     </>

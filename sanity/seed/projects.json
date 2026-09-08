@@ -158,7 +158,8 @@
     "x": 79,
     "y": 70
    }
-  ]
+  ],
+  "role": "UI/UX Designer"
  },
  {
   "slug": "ibadat",
@@ -317,7 +318,8 @@
     "x": 80,
     "y": 40
    }
-  ]
+  ],
+  "role": "UI/UX Designer"
  },
  {
   "slug": "alokito-teacher",
@@ -476,7 +478,8 @@
     "x": 78,
     "y": 78
    }
-  ]
+  ],
+  "role": "UI/UX Designer"
  },
  {
   "slug": "taxrise",
@@ -638,6 +641,7 @@
     "x": 79,
     "y": 48
    }
-  ]
+  ],
+  "role": "UI/UX Designer"
  }
 ]

@@ -109,6 +109,7 @@ async function main() {
       platform: p.platform,
       year: p.year,
       duration: p.duration,
+      role: p.role,
       externalLabel: p.externalLabel,
       externalUrl: p.externalUrl,
       goal: p.goal,
@@ -143,6 +144,8 @@ async function main() {
     heroSupporting:
       "I'm Tanvir Ahassan, a UI/UX Designer with 5+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
     ctaLabel: "Book a Call",
+    availabilityLabel: "Available for new work",
+    availabilityShow: true,
     // The old site's header button pointed at cal.com/babarogic — a leftover from
     // the Framer template, not Tanvir's calendar. This is the correct one.
     ctaUrl: "https://cal.com/tanvir-ahassan-hy2rwn/30min",

@@ -17,7 +17,7 @@ export default async function HomePage() {
     return (
       <>
         <SetupBanner />
-        <main className="mx-auto max-w-6xl px-6 py-32">
+        <main className="mx-auto max-w-page px-6 py-32">
           <h1 className="text-4xl font-medium tracking-tight">No content yet</h1>
           <p className="mt-4 text-muted">
             Run{" "}
@@ -63,7 +63,7 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
-      <section id="work" className="mx-auto max-w-6xl scroll-mt-24 px-6 pb-8">
+      <section id="work" className="mx-auto max-w-page scroll-mt-24 px-6 pb-8">
         <ul className="space-y-24">
           {projects.map((project, i) => (
             <li key={project._id}>
@@ -113,7 +113,7 @@ export default async function HomePage() {
       </section>
 
       {settings?.services?.length ? (
-        <section className="mx-auto max-w-6xl px-6 py-24">
+        <section className="mx-auto max-w-page px-6 py-24">
           <Reveal>
             <h2 className="eyebrow mb-10 border-b border-border pb-5">What I do</h2>
             <ul className="grid gap-10 sm:grid-cols-3">
@@ -130,7 +130,7 @@ export default async function HomePage() {
         </section>
       ) : null}
 
-      <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
+      <section id="about" className="mx-auto max-w-page scroll-mt-24 px-6 py-24">
         <Reveal>
           <h2 className="eyebrow mb-10 border-b border-border pb-5">About</h2>
           <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr]">

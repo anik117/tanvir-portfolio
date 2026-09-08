@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
   ].filter(([, v]) => Boolean(v)) as [string, string][];
 
   return (
-    <main className="mx-auto max-w-5xl px-6 pb-8 pt-16">
+    <main className="mx-auto max-w-page px-6 pb-8 pt-16">
       <Link href="/#work" className="eyebrow hover:text-foreground">
         ← All work
       </Link>

@@ -5,7 +5,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
 
   return (
     <footer id="contact" className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20">
+      <div className="mx-auto max-w-page px-6 py-20">
         <h2 className="max-w-2xl text-balance text-3xl font-medium tracking-tight sm:text-4xl">
           {settings?.contactHeading ?? "Have a project in mind or just want to connect?"}
         </h2>

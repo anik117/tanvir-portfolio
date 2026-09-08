@@ -65,6 +65,8 @@ export type Project = ProjectCard & {
 export type SiteSettings = {
   siteTitle?: string;
   siteDescription?: string;
+  availabilityShow?: boolean;
+  availabilityLabel?: string;
   heroHeadline?: string;
   heroSupporting?: string;
   services?: Named[];

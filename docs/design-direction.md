@@ -71,12 +71,12 @@ Not from 3D. From four things, all cheap:
 | Surfaces | Soft raised cards on the ground, 12–20px radii. |
 | Shape language | Pills for nav, buttons, and tags. Rounded rectangles for cards. |
 | Space | Generous. Whitespace is the main compositional tool. |
-| Width | Wider than the 480px reference — the case studies need room. |
+| Width | 1280px page container (`--container-page`). Far wider than the 480px reference — the case studies need room. |
 | Signature device | Annotation callouts pinned to real screenshots. |
 
 | Area | Direction | Status |
 | --- | --- | --- |
-| Typography | Geist Sans; Geist Mono for eyebrows and meta | Decided |
+| Typography | Plus Jakarta Sans (Google Fonts); Geist Mono for eyebrows and meta | Decided |
 | Composition | Centred hero, left-aligned reading content | Decided |
 | Imagery treatment | Screenshots with annotation callouts, never bare | Decided |
 
@@ -101,6 +101,11 @@ problem, muted grey for a neutral note. Nothing else in the UI is coloured.
 ### Tactile detail
 
 One playful moment, per the interaction principles.
+
+**Built: the availability chip.** A small status pill beside the name, set 1.6° off-square like
+a label stuck on rather than laid out, straightening on hover. Its dot carries the same pulse as
+the annotation dots, so the two read as one system. Driven by `availabilityShow` in the Studio —
+it is a claim about him, so it has an off switch.
 
 **Built: the highlighter swipe.** The closing words of the hero get a marker stroke that draws
 in on entry. It is the same gesture as annotating a screen, turned on his own sentence — so the

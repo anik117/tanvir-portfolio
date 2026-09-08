@@ -29,6 +29,7 @@ export const PROJECT_SLUGS_QUERY = groq`
 export const SITE_SETTINGS_QUERY = groq`
   *[_type == "siteSettings"][0] {
     siteTitle, siteDescription, heroHeadline, heroSupporting,
+    availabilityShow, availabilityLabel,
     services, aboutHeading, aboutParagraphs, stats, clientsNote, processSteps,
     contactHeading, ctaLabel, ctaUrl, email, socials
   }

@@ -13,6 +13,20 @@ export const siteSettings = defineType({
     defineField({ name: "siteTitle", type: "string", group: "general" }),
     defineField({ name: "siteDescription", type: "text", rows: 2, group: "general", description: "Meta description." }),
 
+    defineField({
+      name: "availabilityShow",
+      title: "Show availability chip",
+      type: "boolean",
+      group: "home",
+      description: "Turn off when you are not taking work. This is a claim about you — keep it true.",
+      initialValue: false,
+    }),
+    defineField({
+      name: "availabilityLabel",
+      type: "string",
+      group: "home",
+      initialValue: "Available for new work",
+    }),
     defineField({ name: "heroHeadline", type: "string", group: "home" }),
     defineField({ name: "heroSupporting", type: "text", rows: 3, group: "home" }),
     defineField({
