@@ -22,8 +22,7 @@ export default async function WorkIndexPage() {
             All work.
           </h1>
           <p className="mx-auto mt-6 max-w-lg text-lg text-muted-strong">
-            {projects?.length ?? 0} case studies — the brief, what I found, how I built it, and
-            what it set out to do.
+            Each one starts with the brief and ends with what it set out to do.
           </p>
         </div>
       </Reveal>

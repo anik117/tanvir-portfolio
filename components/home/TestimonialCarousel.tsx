@@ -70,10 +70,10 @@ export function TestimonialCarousel({ items }: { items: Item[] }) {
     <section className="panel-sky mt-8 overflow-hidden rounded-[32px] py-16 sm:py-24">
       <div className="mx-auto max-w-2xl px-5 text-center">
         <h2 className="text-4xl font-semibold leading-[1.05] sm:text-[52px]">
-          What clients and teammates say
+          Kind words from people I&rsquo;ve worked with.
         </h2>
         <p className="mx-auto mt-5 max-w-md text-[18px] text-muted-strong sm:text-[20px]">
-          Who hired him, who worked beside him — each card says which.
+          Clients and teammates, in their own words.
         </p>
         <div className="mt-7 flex justify-center gap-2">
           <button

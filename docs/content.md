@@ -96,3 +96,16 @@ and Accurate, across enterprise SaaS and consumer brands.
 
 Labels only on the live site — Discover, Define, Design, Deliver — with no per-stage copy.
 Descriptions are REQUIRES VERIFICATION. See [profile.md](profile.md).
+
+
+## Suggested copy, 2026-09-09
+
+Tanvir asked for warmer, shorter text with more personality. The code-owned lines were
+rewritten directly. These two live in the Studio and need pasting there:
+
+| Field | Current | Suggested |
+| --- | --- | --- |
+| `heroSupporting` | I'm Tanvir Ahassan, a UI/UX Designer with 7+ years of experience designing intuitive, user-friendly digital products for startups and enterprises. | I'm Tanvir. For seven years I've designed products people actually enjoy using — for startups finding their feet and enterprises that can't afford to get it wrong. |
+| `contactMessage` | I'm currently looking for a new remote role. If you're hiring, or you have a project that needs a designer, I'd like to hear about it. | I'm looking for my next remote role. If you're hiring, or you've got something that needs a designer's eye, I'd love to hear about it. |
+
+Both keep to what is already verified: the years, the audience, and the availability.

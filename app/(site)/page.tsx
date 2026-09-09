@@ -7,6 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { Highlight } from "@/components/Highlight";
 import { SetupBanner } from "@/components/SetupBanner";
 import { BrandMarquee } from "@/components/home/BrandMarquee";
+import { CountUp } from "@/components/motion/CountUp";
 import { brands } from "@/lib/brands";
 import { WorkStack } from "@/components/home/WorkStack";
 import { AboutReveal } from "@/components/home/AboutReveal";
@@ -111,7 +112,7 @@ export default async function HomePage() {
 
           <Reveal delay={320} y={16} className="mt-16 sm:mt-24">
             <p className="mono text-center text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-              Brands I&rsquo;ve worked with
+              Some of the teams I&rsquo;ve designed for
             </p>
             <div className="mt-6">
               <BrandMarquee brands={brands()} />
@@ -119,13 +120,17 @@ export default async function HomePage() {
           </Reveal>
 
           {settings?.stats?.length ? (
-            <Reveal delay={420} y={12} className="flex justify-center px-5 pb-12 pt-12 sm:pb-16">
-              <dl className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-full border border-white/70 bg-white/80 px-6 py-3 text-[13px] shadow-[var(--shadow-card)] backdrop-blur">
+            <Reveal delay={420} y={16} className="flex justify-center px-5 pb-12 pt-12 sm:pb-16">
+              <dl className="card grid w-full max-w-[760px] grid-cols-3 divide-x divide-border bg-white/85 backdrop-blur">
                 {settings.stats.map((stat) => (
-                  <div key={stat._key ?? stat.label} className="inline-flex items-center gap-2">
-                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    <dd className="mono font-semibold">{stat.value}</dd>
-                    <dt className="text-muted-strong">{stat.label.toLowerCase()}</dt>
+                  <div key={stat._key ?? stat.label} className="px-4 py-6 text-center sm:py-8">
+                    <dd>
+                      <CountUp
+                        value={stat.value}
+                        className="mono block text-[32px] font-semibold leading-none text-accent-hover sm:text-[44px]"
+                      />
+                    </dd>
+                    <dt className="mt-2.5 text-[12px] text-muted-strong sm:text-[14px]">{stat.label}</dt>
                   </div>
                 ))}
               </dl>
@@ -139,10 +144,10 @@ export default async function HomePage() {
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-4xl font-semibold leading-[1.05] sm:text-[52px]">
-              Case studies, not screenshots.
+              Work I&rsquo;m proud of.
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-[18px] text-muted-strong sm:text-[20px]">
-              {projects.length} projects told from the brief to what they set out to do.
+              A few projects, each one from the first brief to what shipped.
             </p>
             <Link href="/work" className="group btn btn-soft mt-7">
               All projects

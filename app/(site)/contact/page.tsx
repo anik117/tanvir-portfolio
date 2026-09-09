@@ -3,27 +3,24 @@ import { SITE_SETTINGS_QUERY } from "@/sanity/queries";
 import type { SiteSettings } from "@/sanity/types";
 import { ArrowUpRight, CalendarDays, Mail } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { CopyButton } from "@/components/CopyButton";
 import { Highlight } from "@/components/Highlight";
+import { SocialIcon } from "@/components/SocialIcon";
 
 export const metadata = {
   title: "Contact | Tanvir Ahassan",
   description: "Get in touch about a role or a project.",
 };
 
-
 function Channel({
   href,
   label,
   value,
   external,
-  icon,
 }: {
   href: string;
   label: string;
   value: string;
   external?: boolean;
-  icon: React.ReactNode;
 }) {
   return (
     <a
@@ -32,8 +29,8 @@ function Channel({
       rel={external ? "noreferrer" : undefined}
       className="group flex items-center gap-4 rounded-2xl px-3 py-3 transition-colors hover:bg-white/70"
     >
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-[13px] font-bold text-white">
-        {icon}
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-accent shadow-[var(--shadow-card)] ring-1 ring-white/80 transition-colors group-hover:bg-accent group-hover:text-white">
+        <SocialIcon platform={label} size={18} />
       </span>
       <span className="min-w-0 flex-1">
         <span className="block text-[12px] text-muted">{label}</span>
@@ -65,7 +62,9 @@ export default async function ContactPage() {
         {/* ---- The invitation ------------------------------------------- */}
         <div>
           <Reveal y={10}>
-            <p className="serif-italic text-[30px] leading-none sm:text-[38px]">Hi, I&rsquo;m {first}.</p>
+            <p className="serif-italic text-[30px] leading-none sm:text-[38px]">
+              Hi, I&rsquo;m {first}. Good to meet you.
+            </p>
           </Reveal>
           <Reveal delay={80} y={16}>
             <h1 className="mt-6 max-w-2xl text-[2.3rem] font-semibold leading-[1.08] sm:text-[3.4rem]">
@@ -99,9 +98,9 @@ export default async function ContactPage() {
           {settings?.email && (
             <Reveal delay={320} y={12}>
               <div className="mt-10 flex flex-wrap items-center gap-3">
-                <a href={`mailto:${settings.email}`} className="group btn btn-dark">
+                <a href={`mailto:${settings.email}`} className="group btn btn-primary">
                   <Mail aria-hidden size={16} />
-                  Email me
+                  Say hello
                   <ArrowUpRight aria-hidden size={15} className="arrow-up" />
                 </a>
                 {settings.ctaUrl && (
@@ -115,26 +114,31 @@ export default async function ContactPage() {
                     {settings.ctaLabel ?? "Book a Call"}
                   </a>
                 )}
-                <CopyButton value={settings.email} label="Copy address" />
               </div>
+              <p className="mt-4 text-[14px] text-muted-strong">
+                I read everything myself and reply within a couple of days.
+              </p>
             </Reveal>
           )}
         </div>
 
         {/* ---- The practical side ----------------------------------------- */}
         <Reveal delay={200}>
-          <div className="panel-cream rounded-[32px] p-6 sm:p-8">
+          <div className="rounded-[32px] bg-gradient-to-b from-[var(--sky-3)] to-[var(--accent-soft)] p-6 sm:p-8">
             <p className="mono text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-              A good first message
+              Not sure what to write?
             </p>
-            <ol className="mt-5 space-y-3 text-[15px] leading-relaxed">
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-strong">
+              A few lines are plenty. Tell me:
+            </p>
+            <ol className="mt-4 space-y-2.5 text-[15px] leading-relaxed">
               {[
-                "What you're building, and who it's for.",
-                "Where it is — an idea, a redesign, or something already live.",
-                "A rough sense of timeline and budget. Rough is fine.",
+                "what you're building, and who it's for",
+                "where it is — an idea, a redesign, or something live",
+                "roughly when you need it. Rough is fine.",
               ].map((line, i) => (
                 <li key={line} className="flex gap-3">
-                  <span className="mono mt-0.5 shrink-0 text-[12px] text-muted">
+                  <span className="mono mt-0.5 shrink-0 text-[12px] text-accent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>{line}</span>
@@ -143,17 +147,12 @@ export default async function ContactPage() {
             </ol>
 
             <p className="mono mt-10 text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-              Or find me here
+              Elsewhere
             </p>
             <ul className="mt-3 -mx-3">
               {settings?.email && (
                 <li>
-                  <Channel
-                    href={`mailto:${settings.email}`}
-                    label="Email"
-                    value={settings.email}
-                    icon={<Mail aria-hidden size={16} />}
-                  />
+                  <Channel href={`mailto:${settings.email}`} label="Email" value={settings.email} />
                 </li>
               )}
               {settings?.socials?.map((s) => (
@@ -163,7 +162,6 @@ export default async function ContactPage() {
                     label={s.platform}
                     value={s.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
                     external
-                    icon={s.platform.slice(0, 2).toUpperCase()}
                   />
                 </li>
               ))}

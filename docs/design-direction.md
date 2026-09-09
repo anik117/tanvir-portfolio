@@ -175,6 +175,18 @@ grid sits behind the hero content, masked to fade toward the sheet's edges. The 
 statement; profile.md's note about being precise on the nature of each engagement still
 applies to any copy that expands on it.
 
+Refinement, 2026-09-09 (later):
+
+- **Hero numbers** are a white three-column card with the values counting up from zero at
+  44px in the blue, labels under. Prominent, and the first motion the visitor sees.
+- **Contact** lost the copy button; its card is a sky-to-soft-blue tint; channels carry real
+  marks (LinkedIn from Wikimedia Commons; X, Dribbble, Behance from Simple Icons) on white
+  discs that fill blue on hover. The greeting reads "Hi, I'm Tanvir. Good to meet you." and a
+  line under the buttons says he reads everything himself.
+- **Copy** is first person and shorter throughout: "Work I'm proud of.", "Some of the teams
+  I've designed for", "Kind words from people I've worked with.", "The longer version".
+  Suggested replacements for the two Studio fields are in content.md.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
