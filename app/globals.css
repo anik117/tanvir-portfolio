@@ -31,13 +31,13 @@
   --panel: #f3f6fb;
   --panel-2: #f7f9fc;
 
-  /* The gradient stops, sky to soft orange. */
+  /* The gradient stops, sky to a pale, light yellow. */
   --sky: #badbfc;
   --sky-2: #d1e8fd;
   --sky-3: #eaf7fe;
   --mint: #f6f7fb;
-  --cream: #fff4e8;
-  --peach: #ffe6d0;
+  --cream: #fffbef;
+  --peach: #fff3d6;
 
   --shadow-card:
     0 1px 2px rgb(18 31 49 / 0.04),
@@ -160,8 +160,8 @@ h3,
   box-shadow: var(--shadow-lift);
 }
 
-/* The hero sheet: sky at the top running down into soft orange, sitting
-   at the container width with rounded corners all round. */
+/* The hero sheet: sky at the top running down into pale yellow, full width
+   inside an even margin, rounded on all corners. */
 .hero-panel {
   position: relative;
   isolation: isolate;

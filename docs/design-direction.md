@@ -237,6 +237,9 @@ Section titles ("Work I'm proud of.", "Testimonials", "About") share one `.secti
 style: the serif at 36–44px, centred, except the pinned About which stays left-aligned to
 its column.
 
+Hero sheet back to full width inside a 12–16px margin; the warm stops are a pale yellow
+(`#fffbef` → `#fff3d6`), lighter and less orange.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

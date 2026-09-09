@@ -57,7 +57,7 @@ export default async function HomePage() {
   return (
     <main>
       {/* ---- Hero ---------------------------------------------------------- */}
-      <section className="mx-auto max-w-page px-5 pt-3 sm:px-10 sm:pt-4">
+      <section className="px-3 pt-3 sm:px-4 sm:pt-4">
         <div className="hero-panel rounded-[32px] pt-14 sm:rounded-[48px] sm:pt-24">
           <div className="mx-auto flex max-w-page flex-col items-center px-5 text-center sm:px-10">
             <Reveal y={10}>
