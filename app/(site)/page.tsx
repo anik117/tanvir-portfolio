@@ -121,16 +121,18 @@ export default async function HomePage() {
 
           {settings?.stats?.length ? (
             <Reveal delay={420} y={16} className="flex justify-center px-5 pb-12 pt-12 sm:pb-16">
-              <dl className="flex flex-wrap items-start justify-center gap-x-14 gap-y-8 sm:gap-x-24">
+              <dl className="grid w-full max-w-[720px] grid-cols-3 gap-x-3 sm:gap-x-10">
                 {settings.stats.map((stat) => (
                   <div key={stat._key ?? stat.label} className="text-center">
                     <dd>
                       <CountUp
                         value={stat.value}
-                        className="mono block text-[36px] font-semibold leading-none text-foreground sm:text-[48px]"
+                        className="mono block text-[30px] font-semibold leading-none text-foreground/75 sm:text-[46px]"
                       />
                     </dd>
-                    <dt className="mt-3 text-[13px] text-muted-strong sm:text-[14px]">{stat.label}</dt>
+                    <dt className="mt-2.5 text-[12px] leading-snug text-muted-strong sm:mt-3 sm:text-[14px]">
+                      {stat.label}
+                    </dt>
                   </div>
                 ))}
               </dl>

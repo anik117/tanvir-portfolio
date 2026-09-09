@@ -187,6 +187,21 @@ Refinement, 2026-09-09 (later):
   I've designed for", "Kind words from people I've worked with.", "The longer version".
   Suggested replacements for the two Studio fields are in content.md.
 
+Case study readability pass, 2026-09-09:
+
+- **At a glance** under the meta row: the goal, who it was designed for, and what it set out
+  to do, in three cells on a blue tint. All from fields the study already has. For the reader
+  who will not scroll.
+- **Every act has a deck line** under its heading saying what the act covers, so a skimmer
+  knows whether to stop. Structural labels, not claims.
+- **Secondary lists fold.** Competitor analysis, wireframes and visual direction sit behind a
+  native `<details>` whose summary shows the count. Insights, flows, personas and key screens
+  stay open — they carry the story.
+- **Type is roomier**: leads at 21px, points at 17px with a blue dash, rows at 16px.
+- **Reading time** ("4 min") joins the meta row, computed from the study's own text.
+- **Meta row is a grid** (2 → 3 → 6 columns) so phones show aligned pairs.
+- Hero numbers are ink at 75% and stay on one row on phones.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

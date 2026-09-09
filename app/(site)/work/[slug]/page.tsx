@@ -30,11 +30,13 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">) {
 function Act({
   id,
   title,
+  deck,
   children,
 }: {
   id: string;
-  n?: string;
   title: string;
+  /** One line on what this act covers, so a skimmer knows whether to stop. */
+  deck: string;
   children: ReactNode;
 }) {
   return (
@@ -42,10 +44,45 @@ function Act({
     // always its first child, so `first:` resets must live on the wrapper.
     <Reveal className="border-t border-border pt-10 first:border-t-0 first:pt-0">
       <section id={id} className="scroll-mt-28">
-        <h2 className="mb-8 text-3xl font-semibold sm:text-4xl">{title}</h2>
+        <h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2>
+        <p className="mb-9 mt-2 text-[15px] text-muted">{deck}</p>
         {children}
       </section>
     </Reveal>
+  );
+}
+
+/**
+ * Secondary material, folded until asked for. The summary line says what is
+ * inside and how much, so nothing is hidden — just deferred.
+ */
+function Folded({
+  label,
+  count,
+  children,
+}: {
+  label: string;
+  count: number;
+  children: ReactNode;
+}) {
+  return (
+    <details className="group mt-10 rounded-2xl border border-border bg-white/60 open:bg-white">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[15px] font-semibold [&::-webkit-details-marker]:hidden">
+        <span>
+          {label}
+          <span className="mono ml-3 text-[12px] font-medium text-muted">
+            {count} {count === 1 ? "note" : "notes"}
+          </span>
+        </span>
+        <span
+          aria-hidden
+          className="flex h-7 w-7 items-center justify-center rounded-full border border-border text-muted-strong transition-transform group-open:rotate-45"
+        >
+          +
+        </span>
+      </summary>
+      <div className="px-5 pb-5">{children}</div>
+    </details>
   );
 }
 
@@ -60,10 +97,10 @@ function Sub({ children }: { children: ReactNode }) {
 
 function Points({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-3">
+    <ul className="space-y-4">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-4 leading-relaxed">
-          <span aria-hidden className="mt-[0.85em] h-px w-4 shrink-0 bg-foreground/40" />
+        <li key={i} className="flex gap-4 text-[17px] leading-[1.65]">
+          <span aria-hidden className="mt-[0.9em] h-px w-4 shrink-0 bg-accent" />
           <span>{item}</span>
         </li>
       ))}
@@ -72,7 +109,28 @@ function Points({ items }: { items: string[] }) {
 }
 
 function Lead({ children }: { children: ReactNode }) {
-  return <p className="mb-8 text-xl leading-relaxed">{children}</p>;
+  return <p className="mb-9 text-[21px] leading-[1.5]">{children}</p>;
+}
+
+/** Roughly how long the study takes to read, from its own text. */
+function readingTime(project: Project) {
+  const text = [
+    project.summary,
+    project.goal,
+    project.discoveryNote,
+    ...(project.insights ?? []),
+    ...(project.competitorAnalysis ?? []),
+    ...(project.wireframes ?? []),
+    ...(project.visualDirection ?? []),
+    ...(project.targetUsers ?? []).map((u) => `${u.label} ${u.description ?? ""}`),
+    ...(project.personas ?? []).map((p) => `${p.wants ?? ""} ${p.preferences ?? ""} ${p.motivations ?? ""}`),
+    ...(project.userFlows ?? []).map((f) => `${f.name} ${f.steps ?? ""}`),
+    ...(project.keyScreens ?? []).map((k) => `${k.name} ${k.description ?? ""}`),
+    ...(project.expectedOutcomes ?? []).map((o) => `${o.label} ${o.description ?? ""}`),
+  ]
+    .filter(Boolean)
+    .join(" ");
+  return Math.max(1, Math.round(text.split(/\s+/).length / 200));
 }
 
 function Rows({ items }: { items: { key: string; label: string; description?: string }[] }) {
@@ -81,7 +139,7 @@ function Rows({ items }: { items: { key: string; label: string; description?: st
       {items.map((it) => (
         <div key={it.key} className="grid gap-1 py-4 sm:grid-cols-[13rem_1fr] sm:gap-6">
           <dt className="font-semibold">{it.label}</dt>
-          <dd className="leading-relaxed text-muted-strong">{it.description}</dd>
+          <dd className="text-[16px] leading-relaxed text-muted-strong">{it.description}</dd>
         </div>
       ))}
     </dl>
@@ -111,6 +169,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
     ["Platform", project.platform],
     ["Year", project.year],
     ["Duration", project.duration],
+    ["Read", `${readingTime(project)} min`],
   ].filter(([, v]) => Boolean(v)) as [string, string][];
 
   const hasBrief = Boolean(project.goal || project.targetUsers?.length);
@@ -196,9 +255,9 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         {meta.length > 0 && (
           <Reveal delay={300}>
-            <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-y border-border py-5">
+            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-border py-5 sm:grid-cols-3 lg:grid-cols-6">
               {meta.map(([label, value]) => (
-                <div key={label}>
+                <div key={label} className="min-w-0">
                   <dt className="mono text-[11px] uppercase tracking-[0.14em] text-muted">{label}</dt>
                   <dd className="mt-1 text-[15px] font-medium">{value}</dd>
                 </div>
@@ -207,6 +266,40 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           </Reveal>
         )}
       </div>
+
+      {/* ---- At a glance ---------------------------------------------------
+           The whole study in three cells, built from fields it already has,
+           for the reader who will not scroll. */}
+      {(project.goal || project.targetUsers?.length || project.expectedOutcomes?.length) && (
+        <div className="mx-auto mt-10 max-w-page px-5 sm:px-10">
+          <Reveal delay={360}>
+            <dl className="grid gap-6 rounded-[28px] bg-gradient-to-b from-[var(--sky-3)] to-[var(--accent-soft)] p-6 sm:grid-cols-3 sm:gap-10 sm:p-8">
+              {project.goal && (
+                <div>
+                  <dt className="mono text-[11px] uppercase tracking-[0.16em] text-muted-strong">The goal</dt>
+                  <dd className="mt-2 text-[15px] leading-relaxed">{project.goal}</dd>
+                </div>
+              )}
+              {project.targetUsers?.length ? (
+                <div>
+                  <dt className="mono text-[11px] uppercase tracking-[0.16em] text-muted-strong">Designed for</dt>
+                  <dd className="mt-2 text-[15px] leading-relaxed">
+                    {project.targetUsers.map((u) => u.label).join(" · ")}
+                  </dd>
+                </div>
+              ) : null}
+              {project.expectedOutcomes?.length ? (
+                <div>
+                  <dt className="mono text-[11px] uppercase tracking-[0.16em] text-muted-strong">Set out to</dt>
+                  <dd className="mt-2 text-[15px] leading-relaxed">
+                    {project.expectedOutcomes.map((o) => o.label).join(" · ")}
+                  </dd>
+                </div>
+              ) : null}
+            </dl>
+          </Reveal>
+        </div>
+      )}
 
       {/* ---- Story --------------------------------------------------------- */}
       <div className="mx-auto mt-24 max-w-page px-5 sm:px-10 xl:grid xl:grid-cols-[14rem_1fr] xl:gap-16">
@@ -218,7 +311,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         <div className="max-w-read space-y-20">
           {hasBrief && (
-            <Act id="act-01" title="The brief">
+            <Act id="act-01" title="The brief" deck="What the client needed, and who it had to serve.">
               {project.goal && <Lead>{project.goal}</Lead>}
               {project.targetUsers?.length ? (
                 <>
@@ -236,7 +329,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasResearch && (
-            <Act id="act-02" title="What I found">
+            <Act id="act-02" title="What I found" deck="What research and conversations turned up before any design.">
               {project.discoveryNote && <Lead>{project.discoveryNote}</Lead>}
 
               {project.insights?.length ? (
@@ -247,10 +340,9 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               ) : null}
 
               {project.competitorAnalysis?.length ? (
-                <div className="mt-12">
-                  <Sub>Competitor analysis</Sub>
+                <Folded label="Competitor analysis" count={project.competitorAnalysis.length}>
                   <Points items={project.competitorAnalysis} />
-                </div>
+                </Folded>
               ) : null}
 
               {project.personas?.length ? (
@@ -261,7 +353,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                       <div key={p._key ?? p.name} className="border-t border-border pt-5">
                         <p className="text-lg font-medium tracking-tight">{p.name}</p>
                         {p.context && <p className="mt-0.5 text-sm text-muted-strong">{p.context}</p>}
-                        <dl className="mt-5 space-y-3 text-[15px] leading-relaxed">
+                        <dl className="mt-5 space-y-3 text-[16px] leading-relaxed">
                           {[
                             ["Wants", p.wants],
                             ["Prefers", p.preferences],
@@ -286,7 +378,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasBuild && (
-            <Act id="act-03" title="How I built it">
+            <Act id="act-03" title="How I built it" deck="The flows, the decisions, and the screens that came out of them.">
               {project.userFlows?.length ? (
                 <div>
                   <Sub>Critical flows</Sub>
@@ -306,17 +398,15 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               ) : null}
 
               {project.wireframes?.length ? (
-                <div className="mt-12">
-                  <Sub>Wireframes</Sub>
+                <Folded label="Wireframes" count={project.wireframes.length}>
                   <Points items={project.wireframes} />
-                </div>
+                </Folded>
               ) : null}
 
               {project.visualDirection?.length ? (
-                <div className="mt-12">
-                  <Sub>Visual direction</Sub>
+                <Folded label="Visual direction" count={project.visualDirection.length}>
                   <Points items={project.visualDirection} />
-                </div>
+                </Folded>
               ) : null}
 
               {project.gallery?.length ? (
@@ -352,7 +442,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasOutcome && (
-            <Act id="act-04" title="What it set out to do">
+            <Act id="act-04" title="What it set out to do" deck="The outcomes it was designed for, and any that were measured.">
               {project.outcomes?.length ? (
                 <ul className="panel-cream mb-8 grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:p-8">
                   {project.outcomes.map((o) => (
