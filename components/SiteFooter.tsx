@@ -20,7 +20,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings | null }) {
     <footer className="mt-32 bg-gradient-to-b from-background via-[var(--cream)] to-[var(--peach)]">
       <div className="mx-auto max-w-page px-5 pb-10 pt-20 sm:px-10 sm:pt-28">
         <div className="text-center">
-          <p className="serif-italic text-[40px] leading-none sm:text-[48px]">{name}</p>
+          <p className="serif text-[40px] leading-none sm:text-[48px]">{name}</p>
           {settings?.availabilityShow && settings.availabilityLabel && (
             <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-3.5 py-1.5 text-[13px] font-medium text-muted-strong">
               <span className="relative flex h-2 w-2">

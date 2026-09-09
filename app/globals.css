@@ -105,17 +105,33 @@ h3,
   font-family: var(--font-serif), Georgia, serif;
 }
 
+/* Kept as an alias: every serif on the site is the same upright cut now. */
 .serif-italic {
   font-family: var(--font-serif), Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+}
+
+/* Section titles: the serif, centred, at one size. */
+.section-title {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-align: center;
+  font-size: 2.25rem;
+  line-height: 1.05;
+}
+@media (min-width: 640px) {
+  .section-title {
+    font-size: 2.75rem;
+  }
 }
 
 /* ---- Emphasis -------------------------------------------------------------
-   The closing words of a headline are set in the signature's serif italic. */
+   The closing words of a headline are set in the signature's serif. */
 
 .emphasis {
   font-family: var(--font-serif), Georgia, serif;
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   letter-spacing: -0.01em;
   /* The serif sits a touch smaller on the line than the sans at the same size. */

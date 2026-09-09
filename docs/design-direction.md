@@ -230,6 +230,13 @@ Refinement, 2026-09-09 (evening):
   marks, initials disc above, name and role under, turning every seven seconds. Hover or
   focus holds it; arrows and dots move it. No stars — there is no rating data to show.
 
+**One serif, upright (2026-09-09).** Tanvir liked the "Testimonials" heading — Instrument
+Serif, regular — and asked for it everywhere the serif appears. The signature in the nav and
+footer, the closing words of headlines, the contact greeting: all upright now, no italic.
+Section titles ("Work I'm proud of.", "Testimonials", "About") share one `.section-title`
+style: the serif at 36–44px, centred, except the pinned About which stays left-aligned to
+its column.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

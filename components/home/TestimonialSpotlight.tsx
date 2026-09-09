@@ -55,7 +55,7 @@ export function TestimonialSpotlight({ items }: { items: Item[] }) {
       onFocusCapture={() => setHeld(true)}
       onBlurCapture={() => setHeld(false)}
     >
-      <h2 className="serif text-[32px] leading-none sm:text-[38px]">Testimonials</h2>
+      <h2 className="section-title">Testimonials</h2>
 
       <div className="relative mt-8 px-4 py-14 sm:px-16 sm:py-20">
         <Corner className="left-0 top-0 border-l border-t" />

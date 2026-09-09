@@ -17,12 +17,11 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-// The signature, in the nav and the footer.
+// The one serif: the signature, section titles, and the closing words of headlines.
 const instrument = Instrument_Serif({
   variable: "--font-serif",
   subsets: ["latin"],
   weight: "400",
-  style: ["normal", "italic"],
   display: "swap",
 });
 

@@ -172,7 +172,7 @@ export function AboutReveal({
     return (
       <section id="about" className="mx-auto grid max-w-page gap-12 px-5 py-32 sm:px-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <p className="mono mb-6 text-[11px] uppercase tracking-[0.18em] text-muted-strong">About</p>
+          <h2 className="section-title mb-8 !text-left">About</h2>
           <p className="heading text-[26px] font-semibold leading-[1.25] sm:text-[34px]">
             {words.slice(0, emphasisFrom).join(" ")}{" "}
             <em className="emphasis">{words.slice(emphasisFrom).join(" ")}</em>
@@ -203,9 +203,7 @@ export function AboutReveal({
       <div className="sticky top-0 flex h-screen items-center">
         <div className="mx-auto grid w-full max-w-page items-center gap-10 px-5 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div>
-            <p className="mono mb-6 text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-              About
-            </p>
+            <h2 className="section-title mb-8 !text-left">About</h2>
             {paragraph}
             <Tail chips={chips} progress={scrollYProgress} />
           </div>

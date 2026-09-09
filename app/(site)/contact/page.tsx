@@ -62,7 +62,7 @@ export default async function ContactPage() {
         {/* ---- The invitation ------------------------------------------- */}
         <div>
           <Reveal y={10}>
-            <p className="serif-italic text-[30px] leading-none sm:text-[38px]">
+            <p className="serif text-[30px] leading-none sm:text-[38px]">
               Hi, I&rsquo;m {first}. Good to meet you.
             </p>
           </Reveal>

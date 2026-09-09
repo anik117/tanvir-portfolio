@@ -145,9 +145,7 @@ export default async function HomePage() {
       <section id="work" className="mx-auto max-w-page scroll-mt-24 px-5 pt-28 sm:px-10 sm:pt-36">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-semibold leading-[1.05] sm:text-[52px]">
-              Work I&rsquo;m proud of.
-            </h2>
+            <h2 className="section-title">Work I&rsquo;m proud of.</h2>
             <p className="mx-auto mt-5 max-w-lg text-[18px] text-muted-strong sm:text-[20px]">
               A few projects, each one from the first brief to what shipped.
             </p>

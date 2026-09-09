@@ -62,7 +62,7 @@ export function SiteHeader({
         className="mx-auto flex max-w-page items-center justify-between px-5 sm:px-10"
         style={{ height: "var(--nav-h)" }}
       >
-        <Link href="/" className="serif-italic text-[26px] leading-none tracking-tight">
+        <Link href="/" className="serif text-[26px] leading-none tracking-tight">
           {name}
         </Link>
 
