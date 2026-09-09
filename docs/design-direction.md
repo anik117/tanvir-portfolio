@@ -213,6 +213,12 @@ Second readability pass, 2026-09-09:
   and re-imported. Same facts, fewer words: "Booking online was harder than it should be"
   instead of "Users often struggled with booking appointments online." No claim was added.
 
+**Favicon, 2026-09-09.** The signature's italic "T" (Instrument Serif Italic, outlined to a
+path so no font is needed) on the hero's sky-to-lilac tile with a faint top highlight and a
+hairline edge. `app/icon0.svg` for browsers that take SVG, `app/icon1.png` at 64px for the
+rest, `app/apple-icon.png` at 180px without rounding since iOS applies its own. Generated
+from the font with opentype.js; regenerate by re-running the script rather than editing paths.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
