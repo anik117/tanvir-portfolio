@@ -9,7 +9,7 @@ import { SanityImage } from "@/components/SanityImage";
  * positioning inside a tall parent, no scroll hijacking.
  *
  * White cards, hairline-framed: ink text on the left, the product shot
- * filling the right half edge to edge, and a mono index in the corner.
+ * filling a rounded frame inside white padding on the right.
  */
 export function WorkStack({ projects }: { projects: ProjectCard[] }) {
   return (
@@ -46,16 +46,18 @@ export function WorkStack({ projects }: { projects: ProjectCard[] }) {
               </p>
             </div>
 
-            <div className="relative min-h-[240px] border-l border-border sm:min-h-0">
+            <div className="border-l border-border bg-white p-4 sm:p-5">
               {project.coverImage && (
-                <SanityImage
-                  image={project.coverImage}
-                  width={1200}
-                  sizes="(max-width: 640px) 100vw, 560px"
-                  priority={i === 0}
-                  fill
-                  className="cover-img"
-                />
+                <div className="h-[220px] overflow-hidden rounded-2xl sm:h-full">
+                  <SanityImage
+                    image={project.coverImage}
+                    width={1200}
+                    sizes="(max-width: 640px) 100vw, 560px"
+                    priority={i === 0}
+                    fill
+                    className="cover-img"
+                  />
+                </div>
               )}
             </div>
           </Link>
