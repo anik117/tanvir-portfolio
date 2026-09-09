@@ -177,8 +177,8 @@ applies to any copy that expands on it.
 
 Refinement, 2026-09-09 (later):
 
-- **Hero numbers** are a white three-column card with the values counting up from zero at
-  44px in the blue, labels under. Prominent, and the first motion the visitor sees.
+- **Hero numbers** sit straight on the sheet, no card: three values counting up from zero at
+  48px in ink, labels under, wide gaps between. Prominent, and the first motion the visitor sees.
 - **Contact** lost the copy button; its card is a sky-to-soft-blue tint; channels carry real
   marks (LinkedIn from Wikimedia Commons; X, Dribbble, Behance from Simple Icons) on white
   discs that fill blue on hover. The greeting reads "Hi, I'm Tanvir. Good to meet you." and a
