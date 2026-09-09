@@ -8,8 +8,8 @@ import { SanityImage } from "@/components/SanityImage";
  * up over the last as the reader scrolls the dark band. Pure CSS: sticky
  * positioning inside a tall parent, no scroll hijacking.
  *
- * White cards, hairline-framed: ink text on the left, the product shot on a
- * canvas grid to the right, and a mono index in the corner.
+ * White cards, hairline-framed: ink text on the left, the product shot
+ * filling the right half edge to edge, and a mono index in the corner.
  */
 export function WorkStack({ projects }: { projects: ProjectCard[] }) {
   return (
@@ -46,17 +46,16 @@ export function WorkStack({ projects }: { projects: ProjectCard[] }) {
               </p>
             </div>
 
-            <div className="canvas-grid flex items-center border-l border-border p-6 sm:p-9">
+            <div className="relative min-h-[240px] border-l border-border sm:min-h-0">
               {project.coverImage && (
-                <div className="w-full overflow-hidden rounded-xl border border-border bg-white shadow-[0_16px_32px_-12px_rgb(18_31_49/0.25)]">
-                  <SanityImage
-                    image={project.coverImage}
-                    width={900}
-                    sizes="(max-width: 640px) 100vw, 480px"
-                    priority={i === 0}
-                    className="cover-img"
-                  />
-                </div>
+                <SanityImage
+                  image={project.coverImage}
+                  width={1200}
+                  sizes="(max-width: 640px) 100vw, 560px"
+                  priority={i === 0}
+                  fill
+                  className="cover-img"
+                />
               )}
             </div>
           </Link>
