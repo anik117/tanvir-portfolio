@@ -156,7 +156,7 @@ export default async function HomePage() {
           </div>
         </Reveal>
 
-        <div className="panel-cream mt-14 rounded-[32px] px-3 py-6 sm:px-10 sm:py-10">
+        <div className="panel-soft mt-14 rounded-[32px] px-3 py-6 sm:px-10 sm:py-10">
           <WorkStack projects={projects} />
         </div>
       </section>

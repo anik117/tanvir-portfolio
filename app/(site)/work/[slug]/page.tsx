@@ -287,7 +287,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
       {(project.goal || project.targetUsers?.length || project.expectedOutcomes?.length) && (
         <div className="mx-auto mt-10 max-w-page px-5 sm:px-10">
           <Reveal delay={360}>
-            <dl className="grid gap-6 rounded-[28px] bg-gradient-to-b from-[var(--sky-3)] to-[var(--accent-soft)] p-6 sm:grid-cols-3 sm:gap-10 sm:p-8">
+            <dl className="panel-soft grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:gap-10 sm:p-8">
               {project.goal && (
                 <div>
                   <dt className="mono text-[11px] uppercase tracking-[0.16em] text-muted-strong">The goal</dt>
@@ -453,7 +453,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           {hasOutcome && (
             <Act id="act-04" title="What it set out to do">
               {project.outcomes?.length ? (
-                <ul className="panel-cream mb-8 grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:p-8">
+                <ul className="panel-soft mb-8 grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:p-8">
                   {project.outcomes.map((o) => (
                     <li key={o._key ?? o.label}>
                       <p className="mono text-4xl font-medium tracking-[-0.03em] text-accent-hover">{o.value}</p>

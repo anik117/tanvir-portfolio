@@ -124,7 +124,7 @@ export default async function ContactPage() {
 
         {/* ---- The practical side ----------------------------------------- */}
         <Reveal delay={200}>
-          <div className="rounded-[32px] bg-gradient-to-b from-[var(--sky-3)] to-[var(--accent-soft)] p-6 sm:p-8">
+          <div className="panel-soft rounded-[32px] p-6 sm:p-8">
             <p className="mono text-[11px] uppercase tracking-[0.18em] text-muted-strong">
               Not sure what to write?
             </p>

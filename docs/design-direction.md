@@ -240,6 +240,10 @@ its column.
 Hero sheet back to full width inside a 12–16px margin; the warm stops are a pale yellow
 (`#fffbef` → `#fff3d6`), lighter and less orange.
 
+The sky-to-yellow gradient is the hero's and the footer's only. Every other panel — the
+work stack, the case study's at-a-glance strip and outcome numbers, the contact card — sits
+on a soft warm grey `#f4f3f0` (`.panel-soft`).
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

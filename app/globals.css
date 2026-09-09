@@ -208,6 +208,12 @@ h3,
   background: linear-gradient(180deg, var(--sky-3) 0%, var(--sky-2) 100%);
 }
 
+/* Soft warm grey for section panels. The gradient is for the hero and the
+   footer only; everything between sits on this. */
+.panel-soft {
+  background: #f4f3f0;
+}
+
 /* The soft tint behind a product shot inside a card. */
 .canvas-grid {
   background: linear-gradient(180deg, var(--panel-2) 0%, var(--panel) 100%);
