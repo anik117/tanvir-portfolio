@@ -15,11 +15,11 @@
 :root {
   color-scheme: light;
 
-  --background: #fafafa;
+  --background: #faf9f7;
   --foreground: #121f31;
   --muted: #768194;
   --muted-strong: #394b63;
-  --border: #e4e8ec;
+  --border: #e6e4df;
   --dark: #121f31;
   --dark-2: #1e2b3c;
   --dark-fg: #f5f5f5;
@@ -28,14 +28,14 @@
   --accent: #2f6cf6;
   --accent-hover: #1f56d9;
   --accent-soft: #dbeafe;
-  --panel: #f3f6fb;
-  --panel-2: #f7f9fc;
+  --panel: #f4f3f0;
+  --panel-2: #f8f7f4;
 
   /* The gradient stops, sky to a pale, light yellow. */
   --sky: #badbfc;
   --sky-2: #d1e8fd;
   --sky-3: #eaf7fe;
-  --mint: #f6f7fb;
+  --mint: #f8f7f4;
   --cream: #fffbef;
   --peach: #fff3d6;
 

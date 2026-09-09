@@ -244,6 +244,9 @@ The sky-to-yellow gradient is the hero's and the footer's only. Every other pane
 work stack, the case study's at-a-glance strip and outcome numbers, the contact card — sits
 on a soft warm grey `#f4f3f0` (`.panel-soft`).
 
+All greys are the same warm family now: ground `#faf9f7`, panels `#f4f3f0` and `#f8f7f4`
+(also the tint behind product shots), hairlines `#e6e4df`. Text stays navy.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
