@@ -30,13 +30,10 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">) {
 function Act({
   id,
   title,
-  deck,
   children,
 }: {
   id: string;
   title: string;
-  /** One line on what this act covers, so a skimmer knows whether to stop. */
-  deck: string;
   children: ReactNode;
 }) {
   return (
@@ -44,8 +41,7 @@ function Act({
     // always its first child, so `first:` resets must live on the wrapper.
     <Reveal className="border-t border-border pt-10 first:border-t-0 first:pt-0">
       <section id={id} className="scroll-mt-28">
-        <h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2>
-        <p className="mb-9 mt-2 text-[15px] text-muted">{deck}</p>
+        <h2 className="mb-8 text-3xl font-semibold sm:text-4xl">{title}</h2>
         {children}
       </section>
     </Reveal>
@@ -88,19 +84,37 @@ function Folded({
 
 function Sub({ children }: { children: ReactNode }) {
   return (
-    <h3 className="mb-5 flex items-center gap-3 text-sm font-medium text-muted-strong">
-      <span aria-hidden className="h-px w-6 bg-dark" />
-      {children}
-    </h3>
+    <h3 className="mono mb-4 text-[11px] uppercase tracking-[0.18em] text-muted-strong">{children}</h3>
+  );
+}
+
+/** "Homepage → Select service → …" as a row of small steps. */
+function Steps({ steps }: { steps: string }) {
+  const parts = steps.split(/\s*(?:→|->|>)\s*/).filter(Boolean);
+  return (
+    <ol className="flex flex-wrap items-center gap-y-2">
+      {parts.map((step, i) => (
+        <li key={i} className="flex items-center">
+          <span className="rounded-md bg-accent-soft/70 px-2 py-0.5 text-[13px] font-medium text-accent-hover">
+            {step}
+          </span>
+          {i < parts.length - 1 && (
+            <span aria-hidden className="mx-1.5 text-[12px] text-muted">
+              →
+            </span>
+          )}
+        </li>
+      ))}
+    </ol>
   );
 }
 
 function Points({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-4">
+    <ul className="space-y-2.5">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-4 text-[17px] leading-[1.65]">
-          <span aria-hidden className="mt-[0.9em] h-px w-4 shrink-0 bg-accent" />
+        <li key={i} className="flex gap-3 text-[16px] leading-[1.6]">
+          <span aria-hidden className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
           <span>{item}</span>
         </li>
       ))}
@@ -109,7 +123,7 @@ function Points({ items }: { items: string[] }) {
 }
 
 function Lead({ children }: { children: ReactNode }) {
-  return <p className="mb-9 text-[21px] leading-[1.5]">{children}</p>;
+  return <p className="mb-8 text-[18px] leading-relaxed text-muted-strong">{children}</p>;
 }
 
 /** Roughly how long the study takes to read, from its own text. */
@@ -137,9 +151,9 @@ function Rows({ items }: { items: { key: string; label: string; description?: st
   return (
     <dl className="divide-y divide-border border-y border-border">
       {items.map((it) => (
-        <div key={it.key} className="grid gap-1 py-4 sm:grid-cols-[13rem_1fr] sm:gap-6">
+        <div key={it.key} className="grid gap-1 py-3.5 sm:grid-cols-[13rem_1fr] sm:gap-6">
           <dt className="font-semibold">{it.label}</dt>
-          <dd className="text-[16px] leading-relaxed text-muted-strong">{it.description}</dd>
+          <dd className="text-[15px] leading-relaxed text-muted-strong">{it.description}</dd>
         </div>
       ))}
     </dl>
@@ -311,8 +325,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         <div className="max-w-read space-y-20">
           {hasBrief && (
-            <Act id="act-01" title="The brief" deck="What the client needed, and who it had to serve.">
-              {project.goal && <Lead>{project.goal}</Lead>}
+            <Act id="act-01" title="The brief">
               {project.targetUsers?.length ? (
                 <>
                   <Sub>Who it had to work for</Sub>
@@ -329,7 +342,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasResearch && (
-            <Act id="act-02" title="What I found" deck="What research and conversations turned up before any design.">
+            <Act id="act-02" title="What I found">
               {project.discoveryNote && <Lead>{project.discoveryNote}</Lead>}
 
               {project.insights?.length ? (
@@ -348,12 +361,12 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
               {project.personas?.length ? (
                 <div className="mt-12">
                   <Sub>Who I designed for</Sub>
-                  <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+                  <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
                     {project.personas.map((p) => (
                       <div key={p._key ?? p.name} className="border-t border-border pt-5">
                         <p className="text-lg font-medium tracking-tight">{p.name}</p>
                         {p.context && <p className="mt-0.5 text-sm text-muted-strong">{p.context}</p>}
-                        <dl className="mt-5 space-y-3 text-[16px] leading-relaxed">
+                        <dl className="mt-4 space-y-2.5 text-[15px] leading-relaxed">
                           {[
                             ["Wants", p.wants],
                             ["Prefers", p.preferences],
@@ -378,19 +391,15 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasBuild && (
-            <Act id="act-03" title="How I built it" deck="The flows, the decisions, and the screens that came out of them.">
+            <Act id="act-03" title="How I built it">
               {project.userFlows?.length ? (
                 <div>
                   <Sub>Critical flows</Sub>
                   <ol className="divide-y divide-border border-y border-border">
                     {project.userFlows.map((f) => (
-                      <li key={f._key ?? f.name} className="py-4">
+                      <li key={f._key ?? f.name} className="grid gap-2 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
                         <p className="font-semibold">{f.name}</p>
-                        {f.steps && (
-                          <p className="mt-2 text-[14px] leading-relaxed text-muted-strong">
-                            {f.steps}
-                          </p>
-                        )}
+                        {f.steps && <Steps steps={f.steps} />}
                       </li>
                     ))}
                   </ol>
@@ -442,7 +451,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasOutcome && (
-            <Act id="act-04" title="What it set out to do" deck="The outcomes it was designed for, and any that were measured.">
+            <Act id="act-04" title="What it set out to do">
               {project.outcomes?.length ? (
                 <ul className="panel-cream mb-8 grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:p-8">
                   {project.outcomes.map((o) => (
@@ -457,9 +466,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
               {project.expectedOutcomes?.length ? (
                 <>
-                  <p className="mb-6 text-muted-strong">
-                    Designed for, not measured — this was a redesign without instrumentation.
-                  </p>
+                  <p className="mb-5 text-[14px] text-muted">Designed for, not measured.</p>
                   <Rows
                     items={project.expectedOutcomes.map((o) => ({
                       key: o._key ?? o.label,

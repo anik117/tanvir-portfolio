@@ -1,647 +1,647 @@
 [
- {
-  "slug": "zo-skin-centre",
-  "title": "ZO Skin Centre",
-  "order": 1,
-  "summary": "A premium website redesign for ZO Skin Centre aimed at increasing online appointment bookings and creating a seamless experience.",
-  "projectType": "Website Redesign",
-  "industry": "Health",
-  "platform": "Desktop & Mobile",
-  "year": "2025",
-  "duration": "4 months",
-  "externalLabel": "Visit Website",
-  "goal": "Increase online appointment bookings, unify multiple clinic locations into a seamless browsing experience, and highlight key services.",
-  "targetUsers": [
-   {
-    "label": "Patients (25–65)",
-    "description": "Looking for skincare treatments, trustworthy dermatologists, and easy appointment booking."
-   },
-   {
-    "label": "Dermatologists",
-    "description": "Professionals whose credibility and expertise needed to be showcased."
-   }
-  ],
-  "discoveryNote": "I collaborated directly with the clinic manager to understand current challenges.",
-  "insights": [
-   "Users often struggled with booking appointments online.",
-   "Multiple location pages caused confusion and increased bounce rate.",
-   "Visitors wanted to easily browse treatments, view results, and read patient reviews in one place."
-  ],
-  "competitorAnalysis": [
-   "Competitor sites leaned heavily on strong imagery and simplified booking flows, which became a benchmark for this redesign."
-  ],
-  "personas": [
-   {
-    "name": "Maya",
-    "context": "32, Working Professional",
-    "wants": "Quick access to treatment info.",
-    "preferences": "Mobile-friendly booking.",
-    "motivations": "Trust signals — reviews, before and after photos."
-   },
-   {
-    "name": "Rahman",
-    "context": "55, Retired Professional",
-    "wants": "Clear details about treatments and doctors.",
-    "preferences": "Straightforward navigation.",
-    "motivations": "Easy-to-read, trustworthy design."
-   }
-  ],
-  "userFlows": [
-   {
-    "name": "Book a Consultation",
-    "steps": "Homepage → Select service → Choose doctor → Fill booking form"
-   },
-   {
-    "name": "Explore Treatments",
-    "steps": "Homepage → Treatments page → Detailed service info → View gallery"
-   },
-   {
-    "name": "View Results",
-    "steps": "Homepage → Gallery / Before & After → Filter by treatment"
-   },
-   {
-    "name": "Read Reviews",
-    "steps": "Homepage → Testimonials section → Filter by treatment or doctor"
-   }
-  ],
-  "wireframes": [
-   "Low-fidelity sketches were developed first to map the layout.",
-   "Focused on placing the booking CTA prominently and consolidating all clinic locations on the homepage.",
-   "Iterated wireframes into mid and high-fidelity prototypes before final UI."
-  ],
-  "visualDirection": [
-   "Premium, minimal, and luxurious.",
-   "Built trust through clean white space, modern typography, and medical-inspired accents.",
-   "Maintained alignment with the parent brand's theme, but applied unique elements to differentiate ZO Skin Centre."
-  ],
-  "keyScreens": [
-   {
-    "name": "Homepage",
-    "description": "Unified entry point highlighting services, locations, and appointment booking."
-   },
-   {
-    "name": "Treatments Page",
-    "description": "Structured grid with service descriptions and direct Book Now CTAs."
-   },
-   {
-    "name": "Doctors Page",
-    "description": "Professional profiles showcasing credentials and experience."
-   },
-   {
-    "name": "Booking Form",
-    "description": "Simplified step-by-step form optimized for mobile."
-   },
-   {
-    "name": "Reviews Page",
-    "description": "Authentic patient testimonials with filtering."
-   },
-   {
-    "name": "Gallery",
-    "description": "Before and after results in an organized, trust-building format."
-   },
-   {
-    "name": "Contact Page",
-    "description": "Consolidated locations with maps and seamless navigation."
-   }
-  ],
-  "expectedOutcomes": [
-   {
-    "label": "Improved usability",
-    "description": "Easier booking and location browsing."
-   },
-   {
-    "label": "Reduced confusion",
-    "description": "All locations accessible directly from the homepage."
-   },
-   {
-    "label": "Increased trust",
-    "description": "Stronger focus on results, reviews, and doctors."
-   },
-   {
-    "label": "Visual upgrade",
-    "description": "Premium, medical-luxury look aligned with brand identity."
-   }
-  ],
-  "coverAlt": "ZO Skin Centre homepage with a facial treatment hero, a clinic locations grid, and practitioner profiles",
-  "galleryAlt": [
-   "Before and after comparison of the ZO Skin Centre homepage — the old dark blue layout beside the redesigned version with a treatment hero and a clinic locations grid",
-   "Practitioner profile for Zein Obagi, M.D. on mobile, beside an About panel and a locations list with map",
-   "Treatment results page showing before and after photos of a ZO Controlled Depth Peel, beside a practitioner card and clinic contact details",
-   "Angled view of mobile screens — practitioner profile, treatment results, patient reviews, and a consultation request confirmation"
-  ],
-  "externalUrl": "https://zoskincentre.com/",
-  "galleryCaption": [
-   "Before and after — homepage",
-   "Practitioner profile and locations",
-   "Treatment results",
-   "Mobile flow"
-  ],
-  "coverAnnotations": [
-   {
-    "label": "Booking CTA above the fold",
-    "note": "Users were struggling to book online",
-    "tone": "positive",
-    "x": 21,
-    "y": 31
-   },
-   {
-    "label": "All four clinics on one page",
-    "note": "Separate location pages were driving bounce",
-    "tone": "positive",
-    "x": 24,
-    "y": 74
-   },
-   {
-    "label": "Practitioners surfaced early",
-    "note": "Credibility was the deciding trust signal",
-    "tone": "neutral",
-    "x": 79,
-    "y": 70
-   }
-  ],
-  "role": "Sole UI/UX Designer"
- },
- {
-  "slug": "ibadat",
-  "title": "Ibadat",
-  "order": 2,
-  "summary": "A prayer and lifestyle app designed for Muslims to track prayer times, access authentic duas, and manage notifications seamlessly.",
-  "projectType": "Mobile App Design",
-  "industry": "App",
-  "platform": "iOS and Android",
-  "year": "2024",
-  "duration": "3 months",
-  "externalLabel": "View Prototype",
-  "goal": "Create a seamless, modern Islamic app to support daily prayers, provide authentic duas, and integrate smart features for a better spiritual experience.",
-  "targetUsers": [
-   {
-    "label": "Muslims (15–65)",
-    "description": "Seeking accurate prayer times, easy access to duas, and distraction-free prayer experiences."
-   },
-   {
-    "label": "Mosque-goers",
-    "description": "Benefiting from automatic silent mode and alerts when entering the mosque."
-   }
-  ],
-  "discoveryNote": "I collaborated with the client to refine the vision and understand user expectations.",
-  "insights": [
-   "Users wanted a distraction-free prayer experience without manual phone adjustments.",
-   "Prayer time accuracy and localization were crucial.",
-   "Authenticity and accessibility of duas needed to be clear, with references to Quran and Hadith.",
-   "A personal feed could engage users by providing insights and reminders tied to Islamic dates and events."
-  ],
-  "competitorAnalysis": [
-   "Existing apps provided prayer times but lacked innovation and personalization.",
-   "Few apps integrated mosque-based silent mode or customizable dua collections."
-  ],
-  "personas": [
-   {
-    "name": "Ayesha",
-    "context": "25, University Student",
-    "wants": "Accurate prayer alerts, dua references, and a distraction-free mosque experience.",
-    "preferences": "Clean, modern interface with easy navigation.",
-    "motivations": "Staying consistent with prayers while balancing student life."
-   },
-   {
-    "name": "Karim",
-    "context": "45, Business Professional",
-    "wants": "Automatic silent mode in mosques and a personalized dua collection.",
-    "preferences": "Reliable app with minimal effort required.",
-    "motivations": "Integrating faith into a busy work schedule."
-   }
-  ],
-  "userFlows": [
-   {
-    "name": "Prayer Times & Alerts",
-    "steps": "Launch app → Enable location → Prayer times displayed → Notifications set"
-   },
-   {
-    "name": "Mosque Silent Mode",
-    "steps": "User enters mosque → App detects location → Phone switches to silent automatically"
-   },
-   {
-    "name": "Browse Duas",
-    "steps": "Homepage → Dua collection → Select dua → View reference and translation → Save to personal list"
-   },
-   {
-    "name": "Explore Feed",
-    "steps": "Homepage → Feed section → Weekly / monthly / yearly Islamic insights → Engage with content"
-   }
-  ],
-  "wireframes": [
-   "Designed low-fidelity wireframes for prayer time screens, dua collection, and feed.",
-   "Focused on reducing clutter and emphasizing readability.",
-   "Progressed into high-fidelity designs with a consistent Islamic visual style."
-  ],
-  "visualDirection": [
-   "Minimal, spiritual, and modern.",
-   "Calm colors, clean typography, and intuitive iconography.",
-   "Focused on accessibility and easy navigation for a wide age range."
-  ],
-  "keyScreens": [
-   {
-    "name": "Prayer Times Screen",
-    "description": "Accurate, location-based times with alerts."
-   },
-   {
-    "name": "Dua Collection",
-    "description": "Indexed library with references, translations, and editable options."
-   },
-   {
-    "name": "Feed",
-    "description": "Weekly, monthly, and yearly insights tied to Islamic events."
-   },
-   {
-    "name": "Silent Mode Feature",
-    "description": "Automatic detection of mosque entry with toggle control."
-   },
-   {
-    "name": "Settings",
-    "description": "Multiple methods for calculating prayer times, customizable alerts, and personalization."
-   }
-  ],
-  "expectedOutcomes": [
-   {
-    "label": "Distraction-free prayers",
-    "description": "Automatic silent mode enhances the experience in mosques."
-   },
-   {
-    "label": "Authenticity",
-    "description": "Verified duas with references increase trust."
-   },
-   {
-    "label": "Personalization",
-    "description": "Users can adjust translations and settings to their needs."
-   },
-   {
-    "label": "Engagement",
-    "description": "The feed section fosters long-term interaction with the app."
-   },
-   {
-    "label": "Scalability",
-    "description": "Future updates can expand features such as community or event integrations."
-   }
-  ],
-  "coverAlt": "Ibadat app splash, welcome, and prophetic ritual acts screens on mobile",
-  "galleryAlt": [
-   "Prayer Times screen counting down to Dhuhr with the daily prayer list, beside a Silence Mode screen with per-prayer toggles",
-   "Dua collection screen with browsable categories, beside an open prayer showing Arabic text, transliteration, translation, and source reference",
-   "Feed screen with Daily, Weekly, Monthly, and Yearly tabs listing ritual acts and Islamic events",
-   "Angled view of app screens — welcome, prophetic ritual acts, prayer times, and supplications"
-  ],
-  "externalUrl": "https://www.figma.com/proto/rSlXsfvsPDTz0P7m5RLHnK/Islamic-Prayer-App?page-id=1%3A2&node-id=458-5081&p=f&viewport=282%2C362%2C0.02&t=tRp6q0Yvyn8jAbD2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=10%3A29&show-proto-sidebar=1",
-  "galleryCaption": [
-   "Prayer times and silence mode",
-   "Dua collection with references",
-   "Feed",
-   "Key screens"
-  ],
-  "coverAnnotations": [
-   {
-    "label": "Silent mode, no manual step",
-    "note": "Phone switches itself on mosque entry",
-    "tone": "positive",
-    "x": 21,
-    "y": 33
-   },
-   {
-    "label": "One-tap start",
-    "note": "Wide age range, so no onboarding maze",
-    "tone": "neutral",
-    "x": 50,
-    "y": 72
-   },
-   {
-    "label": "Sources on every dua",
-    "note": "Quran and Hadith references shown inline",
-    "tone": "positive",
-    "x": 80,
-    "y": 40
-   }
-  ],
-  "role": "Sole UI/UX Designer"
- },
- {
-  "slug": "alokito-teacher",
-  "title": "Alokito Teacher",
-  "order": 3,
-  "summary": "A complete redesign of Alokito Teacher's website, adding a new job portal feature to connect teachers with opportunities.",
-  "projectType": "Website Redesign + Job Portal",
-  "industry": "Edtech",
-  "platform": "Desktop & Mobile",
-  "year": "2024",
-  "duration": "4 months",
-  "externalLabel": "Visit Website",
-  "goal": "Refresh the brand with a modern, engaging design, improve consistency, and introduce new functionality including pricing plans and a teacher-focused job portal.",
-  "targetUsers": [
-   {
-    "label": "Teachers (22–50)",
-    "description": "Seeking training courses, resources, and career opportunities."
-   },
-   {
-    "label": "Institutions and schools",
-    "description": "Looking to hire trained teachers through the job portal."
-   }
-  ],
-  "discoveryNote": "I collaborated directly with the client to gather feedback and requirements.",
-  "insights": [
-   "The old design felt outdated and lacked consistency with the brand's fun and modern identity.",
-   "Teachers wanted a simple way to browse and purchase courses.",
-   "The job portal needed to provide an easy search-and-apply experience.",
-   "Pricing packages were essential to highlight, as the client wanted to push high-value course bundles."
-  ],
-  "competitorAnalysis": [
-   "Education platforms with strong visual branding and clear navigation were benchmarks.",
-   "Job portals emphasized clean search and filtering to minimize friction."
-  ],
-  "personas": [
-   {
-    "name": "Rina",
-    "context": "28, Primary School Teacher",
-    "wants": "Affordable training courses and an easy course purchase flow.",
-    "preferences": "Fun, engaging design with straightforward navigation.",
-    "motivations": "Career growth and recognition through certified courses."
-   },
-   {
-    "name": "Arif",
-    "context": "40, School Administrator",
-    "wants": "A reliable platform to find trained teachers.",
-    "preferences": "Job portal with efficient filters and application tracking.",
-    "motivations": "Hire competent teachers faster."
-   }
-  ],
-  "userFlows": [
-   {
-    "name": "Browse Courses",
-    "steps": "Homepage → Courses page → Course detail → Enroll / Purchase"
-   },
-   {
-    "name": "Explore Pricing Packages",
-    "steps": "Homepage → Pricing page → Select plan → Checkout"
-   },
-   {
-    "name": "Job Search & Apply",
-    "steps": "Homepage → Job portal → Search and filter jobs → Apply"
-   },
-   {
-    "name": "Institution Hiring Flow",
-    "steps": "Job portal → Post job listing → Manage applications"
-   }
-  ],
-  "wireframes": [
-   "Created low-fidelity wireframes for homepage, courses, pricing, and job portal.",
-   "Mapped out consistent layouts to reflect the fun, educational brand identity.",
-   "Iterated into high-fidelity prototypes with feedback from client and stakeholders."
-  ],
-  "visualDirection": [
-   "Fun, modern, and consistent with the educational brand.",
-   "Clean typography, bright accents, and approachable UI.",
-   "Fully responsive design for a mobile-first experience."
-  ],
-  "keyScreens": [
-   {
-    "name": "Homepage",
-    "description": "Highlights courses, job portal access, and pricing."
-   },
-   {
-    "name": "Courses Page",
-    "description": "Grid-based layout with categories and quick enroll options."
-   },
-   {
-    "name": "Pricing Page",
-    "description": "Showcases single courses and bundled packages."
-   },
-   {
-    "name": "Job Portal",
-    "description": "Search and filter jobs with a direct application flow."
-   },
-   {
-    "name": "Application Form",
-    "description": "Simplified job apply form optimized for teachers."
-   }
-  ],
-  "expectedOutcomes": [
-   {
-    "label": "Improved usability",
-    "description": "Streamlined course purchase and job application flows."
-   },
-   {
-    "label": "Modern design",
-    "description": "Fun, consistent branding across all pages."
-   },
-   {
-    "label": "New revenue opportunities",
-    "description": "Highlighted high-value pricing plans and packages."
-   },
-   {
-    "label": "Career connection",
-    "description": "Enabled teachers to find and apply for jobs directly on the platform."
-   },
-   {
-    "label": "Responsive experience",
-    "description": "Optimized across devices for teachers on mobile."
-   }
-  ],
-  "coverAlt": "Alokito Teacher homepage showing courses, the job platform for teachers and recruiters, badges, and pricing plans",
-  "galleryAlt": [
-   "Before and after comparison of the Alokito Teacher homepage — the old illustration-led layout beside the redesigned version with photography and course cards",
-   "Alokito Teacher homepage on mobile, beside the Job Platform page explaining benefits for teachers and recruiters",
-   "Job search screen with keyword and location filters and live job counts, beside a course detail page for Inquiry-based learning with pricing",
-   "Angled view of mobile screens — homepage, course listing, course detail, and job search"
-  ],
-  "externalUrl": "https://www.alokitoteachers.com/",
-  "galleryCaption": [
-   "Before and after — homepage",
-   "Homepage and job platform",
-   "Job search and course detail",
-   "Mobile flow"
-  ],
-  "coverAnnotations": [
-   {
-    "label": "Courses lead the page",
-    "note": "Teachers wanted to browse and buy quickly",
-    "tone": "positive",
-    "x": 22,
-    "y": 56
-   },
-   {
-    "label": "Job portal — new feature",
-    "note": "Added to connect teachers with schools",
-    "tone": "positive",
-    "x": 78,
-    "y": 29
-   },
-   {
-    "label": "Bundles made visible",
-    "note": "Client needed high-value plans pushed",
-    "tone": "neutral",
-    "x": 78,
-    "y": 78
-   }
-  ],
-  "role": "Sole UI/UX Designer"
- },
- {
-  "slug": "taxrise",
-  "title": "TaxRise",
-  "order": 4,
-  "summary": "A complete redesign of TaxRise Inc's website to modernize the brand presence, improve consistency, and boost conversions.",
-  "projectType": "Website Redesign",
-  "industry": "Fintech",
-  "platform": "Desktop & Mobile",
-  "year": "2024",
-  "duration": "6 months",
-  "externalLabel": "Visit Website",
-  "goal": "Modernize the website, improve consistency across all pages, and increase conversion rates while staying competitive in the industry.",
-  "targetUsers": [
-   {
-    "label": "Clients (25–60)",
-    "description": "Looking for trustworthy tax resolution services, clear information, and easy ways to get started."
-   },
-   {
-    "label": "Internal teams (SEO and marketing)",
-    "description": "Needed a site aligned with brand strategy, optimized for conversions, and scalable for campaigns."
-   }
-  ],
-  "discoveryNote": "I collaborated closely with stakeholders, the SEO team, and the marketing team to gather insights.",
-  "insights": [
-   "The previous design lacked consistency across pages, which reduced trust.",
-   "Conversion flows were not optimized, leading to drop-offs.",
-   "SEO and marketing required a flexible site structure to support campaigns."
-  ],
-  "competitorAnalysis": [
-   "Competitors leaned into modern, professional layouts with strong trust signals and clear CTAs.",
-   "Benchmarking highlighted the need for a stronger visual identity and a smoother onboarding flow."
-  ],
-  "personas": [
-   {
-    "name": "John",
-    "context": "35, Small Business Owner",
-    "wants": "Clear explanation of services and a quick way to connect with experts.",
-    "preferences": "Professional and modern design that instills trust.",
-    "motivations": "Credibility, testimonials, and transparency."
-   },
-   {
-    "name": "Linda",
-    "context": "50, Salaried Professional",
-    "wants": "Easy-to-understand steps to resolve tax issues.",
-    "preferences": "Simple navigation, accessible information.",
-    "motivations": "Assurance through reviews, case studies, and visible expertise."
-   }
-  ],
-  "userFlows": [
-   {
-    "name": "Request Consultation",
-    "steps": "Homepage → Services → Select service → Contact form"
-   },
-   {
-    "name": "Learn About Services",
-    "steps": "Homepage → Services overview → Individual service detail page"
-   },
-   {
-    "name": "Build Trust",
-    "steps": "Homepage → Reviews / Testimonials → Case Studies → Contact"
-   },
-   {
-    "name": "Resources Access",
-    "steps": "Homepage → Blog / Knowledge Base → Read articles → Lead capture form"
-   }
-  ],
-  "wireframes": [
-   "Started with low-fidelity wireframes to define site structure and layout.",
-   "Prioritized placement of CTAs and trust elements such as reviews and credentials.",
-   "Iterated into high-fidelity prototypes with stakeholder feedback."
-  ],
-  "visualDirection": [
-   "Modern, consistent, and professional.",
-   "Comprehensive style guide developed for typography, colors, components, and layouts.",
-   "Emphasis on trust-building visuals: client testimonials, success metrics, and case highlights."
-  ],
-  "keyScreens": [
-   {
-    "name": "Homepage",
-    "description": "Clean hero section with a clear CTA, overview of services, and trust elements."
-   },
-   {
-    "name": "Services Page",
-    "description": "Grid-based layout with detailed explanations and direct CTAs."
-   },
-   {
-    "name": "About Page",
-    "description": "Company story, credibility markers, and team highlights."
-   },
-   {
-    "name": "Testimonials / Case Studies",
-    "description": "Organized for easy browsing to reinforce credibility."
-   },
-   {
-    "name": "Blog / Resources",
-    "description": "Structured for SEO and easy content consumption."
-   },
-   {
-    "name": "Contact Page",
-    "description": "Simple, mobile-friendly forms with clear CTAs."
-   }
-  ],
-  "expectedOutcomes": [
-   {
-    "label": "Improved usability",
-    "description": "Simplified navigation and conversion flows."
-   },
-   {
-    "label": "Consistency",
-    "description": "Unified style across roughly 30 unique screens."
-   },
-   {
-    "label": "Increased trust",
-    "description": "Stronger brand presence through modern design and testimonials."
-   },
-   {
-    "label": "Conversion-focused",
-    "description": "Clearer CTAs and better-structured service pages."
-   },
-   {
-    "label": "Scalability",
-    "description": "Site aligned with SEO and marketing needs for ongoing campaigns."
-   }
-  ],
-  "coverAlt": "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
-  "galleryAlt": [
-   "Before and after comparison of the TaxRise free consultation page — the dense old layout beside the redesigned version with a clearer form and an expectations section",
-   "TaxRise customer stories page on mobile, beside a full story about a $206,000 IRS liability settled for $650",
-   "Team page on mobile showing the executive team, beside enrolled agent profiles with case counts",
-   "Angled view of mobile screens — tax relief services, blog listing, and about page"
-  ],
-  "externalUrl": "https://taxrise.com/",
-  "galleryCaption": [
-   "Before and after — free consultation",
-   "Customer stories",
-   "Team and enrolled agents",
-   "Mobile flow"
-  ],
-  "coverAnnotations": [
-   {
-    "label": "One clear CTA",
-    "note": "Old conversion flows were dropping off",
-    "tone": "positive",
-    "x": 21,
-    "y": 27
-   },
-   {
-    "label": "Results lead with proof",
-    "note": "Credibility was what both personas asked for",
-    "tone": "positive",
-    "x": 23,
-    "y": 72
-   },
-   {
-    "label": "~30 screens, one style guide",
-    "note": "Inconsistency was actively reducing trust",
-    "tone": "neutral",
-    "x": 79,
-    "y": 48
-   }
-  ],
-  "role": "Sole UI/UX Designer"
- }
+  {
+    "slug": "zo-skin-centre",
+    "title": "ZO Skin Centre",
+    "order": 1,
+    "summary": "Website redesign for a skincare clinic group, built to win more online bookings.",
+    "projectType": "Website Redesign",
+    "industry": "Health",
+    "platform": "Desktop & Mobile",
+    "year": "2025",
+    "duration": "4 months",
+    "externalLabel": "Visit Website",
+    "goal": "More online bookings, one clear path across several clinic locations, and the key services up front.",
+    "targetUsers": [
+      {
+        "label": "Patients (25–65)",
+        "description": "Want treatments, doctors they can trust, and an easy way to book."
+      },
+      {
+        "label": "Dermatologists",
+        "description": "Need their credentials and expertise seen."
+      }
+    ],
+    "discoveryNote": "Worked directly with the clinic manager on what was getting in the way.",
+    "insights": [
+      "Booking online was harder than it should be.",
+      "A page per location confused people and pushed bounce rate up.",
+      "Visitors wanted treatments, results and reviews in one place."
+    ],
+    "competitorAnalysis": [
+      "Competitors led with strong imagery and a short booking flow — the bar to clear."
+    ],
+    "personas": [
+      {
+        "name": "Maya",
+        "context": "32, Working Professional",
+        "wants": "Treatment info, fast.",
+        "preferences": "Booking on her phone.",
+        "motivations": "Reviews and before-and-after photos."
+      },
+      {
+        "name": "Rahman",
+        "context": "55, Retired Professional",
+        "wants": "Plain details on treatments and doctors.",
+        "preferences": "Simple navigation.",
+        "motivations": "A design that reads as trustworthy."
+      }
+    ],
+    "userFlows": [
+      {
+        "name": "Book a Consultation",
+        "steps": "Homepage → Select service → Choose doctor → Fill booking form"
+      },
+      {
+        "name": "Explore Treatments",
+        "steps": "Homepage → Treatments page → Detailed service info → View gallery"
+      },
+      {
+        "name": "View Results",
+        "steps": "Homepage → Gallery / Before & After → Filter by treatment"
+      },
+      {
+        "name": "Read Reviews",
+        "steps": "Homepage → Testimonials section → Filter by treatment or doctor"
+      }
+    ],
+    "wireframes": [
+      "Low-fidelity sketches first, to settle the layout.",
+      "Booking CTA up front; every location on the homepage.",
+      "Mid- then high-fidelity prototypes before final UI."
+    ],
+    "visualDirection": [
+      "Premium, minimal, quiet.",
+      "White space, modern type and light medical cues to build trust.",
+      "On the parent brand's theme, with its own distinguishing elements."
+    ],
+    "keyScreens": [
+      {
+        "name": "Homepage",
+        "description": "Services, locations and booking from one entry point."
+      },
+      {
+        "name": "Treatments Page",
+        "description": "Grid of services, each with a Book Now."
+      },
+      {
+        "name": "Doctors Page",
+        "description": "Profiles with credentials and experience."
+      },
+      {
+        "name": "Booking Form",
+        "description": "Step by step, built for mobile."
+      },
+      {
+        "name": "Reviews Page",
+        "description": "Patient testimonials, filterable."
+      },
+      {
+        "name": "Gallery",
+        "description": "Before-and-after results, organised by treatment."
+      },
+      {
+        "name": "Contact Page",
+        "description": "All locations, with maps."
+      }
+    ],
+    "expectedOutcomes": [
+      {
+        "label": "Improved usability",
+        "description": "Easier booking and location browsing."
+      },
+      {
+        "label": "Reduced confusion",
+        "description": "Every location reachable from the homepage."
+      },
+      {
+        "label": "Increased trust",
+        "description": "Results, reviews and doctors up front."
+      },
+      {
+        "label": "Visual upgrade",
+        "description": "A premium, medical-luxury look, on brand."
+      }
+    ],
+    "coverAlt": "ZO Skin Centre homepage with a facial treatment hero, a clinic locations grid, and practitioner profiles",
+    "galleryAlt": [
+      "Before and after comparison of the ZO Skin Centre homepage — the old dark blue layout beside the redesigned version with a treatment hero and a clinic locations grid",
+      "Practitioner profile for Zein Obagi, M.D. on mobile, beside an About panel and a locations list with map",
+      "Treatment results page showing before and after photos of a ZO Controlled Depth Peel, beside a practitioner card and clinic contact details",
+      "Angled view of mobile screens — practitioner profile, treatment results, patient reviews, and a consultation request confirmation"
+    ],
+    "externalUrl": "https://zoskincentre.com/",
+    "galleryCaption": [
+      "Before and after — homepage",
+      "Practitioner profile and locations",
+      "Treatment results",
+      "Mobile flow"
+    ],
+    "coverAnnotations": [
+      {
+        "label": "Booking CTA above the fold",
+        "note": "Users were struggling to book online",
+        "tone": "positive",
+        "x": 21,
+        "y": 31
+      },
+      {
+        "label": "All four clinics on one page",
+        "note": "Separate location pages were driving bounce",
+        "tone": "positive",
+        "x": 24,
+        "y": 74
+      },
+      {
+        "label": "Practitioners surfaced early",
+        "note": "Credibility was the deciding trust signal",
+        "tone": "neutral",
+        "x": 79,
+        "y": 70
+      }
+    ],
+    "role": "Sole UI/UX Designer"
+  },
+  {
+    "slug": "ibadat",
+    "title": "Ibadat",
+    "order": 2,
+    "summary": "A prayer and lifestyle app for Muslims: prayer times, authentic duas, smart notifications.",
+    "projectType": "Mobile App Design",
+    "industry": "App",
+    "platform": "iOS and Android",
+    "year": "2024",
+    "duration": "3 months",
+    "externalLabel": "View Prototype",
+    "goal": "A modern Islamic app for daily prayer, authentic duas, and smart features that make the day easier.",
+    "targetUsers": [
+      {
+        "label": "Muslims (15–65)",
+        "description": "Accurate prayer times, duas to hand, no distractions while praying."
+      },
+      {
+        "label": "Mosque-goers",
+        "description": "The phone goes silent on its own when they arrive."
+      }
+    ],
+    "discoveryNote": "Worked with the client to sharpen the vision and what users expected.",
+    "insights": [
+      "People wanted to pray without touching their phone.",
+      "Prayer-time accuracy and localisation were non-negotiable.",
+      "Duas had to be clearly authentic, with Quran and Hadith references.",
+      "A personal feed tied to Islamic dates could keep people coming back."
+    ],
+    "competitorAnalysis": [
+      "Existing apps gave prayer times, little else, and no personalisation.",
+      "Almost none had mosque-based silent mode or custom dua collections."
+    ],
+    "personas": [
+      {
+        "name": "Ayesha",
+        "context": "25, University Student",
+        "wants": "Accurate alerts, referenced duas, a distraction-free mosque.",
+        "preferences": "Clean, modern, easy to move around.",
+        "motivations": "Staying consistent with prayer around student life."
+      },
+      {
+        "name": "Karim",
+        "context": "45, Business Professional",
+        "wants": "Silent mode in the mosque and a personal dua collection.",
+        "preferences": "Reliable, minimal effort.",
+        "motivations": "Fitting faith into a full work schedule."
+      }
+    ],
+    "userFlows": [
+      {
+        "name": "Prayer Times & Alerts",
+        "steps": "Launch app → Enable location → Prayer times displayed → Notifications set"
+      },
+      {
+        "name": "Mosque Silent Mode",
+        "steps": "User enters mosque → App detects location → Phone switches to silent automatically"
+      },
+      {
+        "name": "Browse Duas",
+        "steps": "Homepage → Dua collection → Select dua → View reference and translation → Save to personal list"
+      },
+      {
+        "name": "Explore Feed",
+        "steps": "Homepage → Feed section → Weekly / monthly / yearly Islamic insights → Engage with content"
+      }
+    ],
+    "wireframes": [
+      "Low-fidelity wireframes for prayer times, duas and the feed.",
+      "Less clutter, more readability.",
+      "High-fidelity designs with a consistent Islamic visual style."
+    ],
+    "visualDirection": [
+      "Minimal, spiritual, modern.",
+      "Calm colour, clean type, clear icons.",
+      "Accessible and easy to navigate across a wide age range."
+    ],
+    "keyScreens": [
+      {
+        "name": "Prayer Times Screen",
+        "description": "Location-based times with alerts."
+      },
+      {
+        "name": "Dua Collection",
+        "description": "Indexed library with references, translations and edits."
+      },
+      {
+        "name": "Feed",
+        "description": "Weekly, monthly and yearly insights tied to Islamic events."
+      },
+      {
+        "name": "Silent Mode Feature",
+        "description": "Detects mosque entry; one toggle."
+      },
+      {
+        "name": "Settings",
+        "description": "Calculation methods, alerts, personalisation."
+      }
+    ],
+    "expectedOutcomes": [
+      {
+        "label": "Distraction-free prayers",
+        "description": "Silent mode handles the phone in the mosque."
+      },
+      {
+        "label": "Authenticity",
+        "description": "Referenced duas people can trust."
+      },
+      {
+        "label": "Personalization",
+        "description": "Translations and settings to suit each user."
+      },
+      {
+        "label": "Engagement",
+        "description": "A feed that gives a reason to return."
+      },
+      {
+        "label": "Scalability",
+        "description": "Room for community and event features later."
+      }
+    ],
+    "coverAlt": "Ibadat app splash, welcome, and prophetic ritual acts screens on mobile",
+    "galleryAlt": [
+      "Prayer Times screen counting down to Dhuhr with the daily prayer list, beside a Silence Mode screen with per-prayer toggles",
+      "Dua collection screen with browsable categories, beside an open prayer showing Arabic text, transliteration, translation, and source reference",
+      "Feed screen with Daily, Weekly, Monthly, and Yearly tabs listing ritual acts and Islamic events",
+      "Angled view of app screens — welcome, prophetic ritual acts, prayer times, and supplications"
+    ],
+    "externalUrl": "https://www.figma.com/proto/rSlXsfvsPDTz0P7m5RLHnK/Islamic-Prayer-App?page-id=1%3A2&node-id=458-5081&p=f&viewport=282%2C362%2C0.02&t=tRp6q0Yvyn8jAbD2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=10%3A29&show-proto-sidebar=1",
+    "galleryCaption": [
+      "Prayer times and silence mode",
+      "Dua collection with references",
+      "Feed",
+      "Key screens"
+    ],
+    "coverAnnotations": [
+      {
+        "label": "Silent mode, no manual step",
+        "note": "Phone switches itself on mosque entry",
+        "tone": "positive",
+        "x": 21,
+        "y": 33
+      },
+      {
+        "label": "One-tap start",
+        "note": "Wide age range, so no onboarding maze",
+        "tone": "neutral",
+        "x": 50,
+        "y": 72
+      },
+      {
+        "label": "Sources on every dua",
+        "note": "Quran and Hadith references shown inline",
+        "tone": "positive",
+        "x": 80,
+        "y": 40
+      }
+    ],
+    "role": "Sole UI/UX Designer"
+  },
+  {
+    "slug": "alokito-teacher",
+    "title": "Alokito Teacher",
+    "order": 3,
+    "summary": "A redesign of Alokito Teacher's site, with a new job portal linking teachers to work.",
+    "projectType": "Website Redesign + Job Portal",
+    "industry": "Edtech",
+    "platform": "Desktop & Mobile",
+    "year": "2024",
+    "duration": "4 months",
+    "externalLabel": "Visit Website",
+    "goal": "A modern, consistent brand refresh, plus pricing plans and a job portal for teachers.",
+    "targetUsers": [
+      {
+        "label": "Teachers (22–50)",
+        "description": "Training, resources and career opportunities."
+      },
+      {
+        "label": "Institutions and schools",
+        "description": "Trained teachers to hire, through the portal."
+      }
+    ],
+    "discoveryNote": "Worked directly with the client on feedback and requirements.",
+    "insights": [
+      "The old site felt dated and off-brand for a fun, modern identity.",
+      "Teachers wanted a simple way to browse and buy courses.",
+      "The job portal had to make search-and-apply easy.",
+      "High-value course bundles needed a prominent home."
+    ],
+    "competitorAnalysis": [
+      "Education platforms with strong branding and clear navigation set the bar.",
+      "The best job portals keep search and filtering frictionless."
+    ],
+    "personas": [
+      {
+        "name": "Rina",
+        "context": "28, Primary School Teacher",
+        "wants": "Affordable courses, easy to buy.",
+        "preferences": "Fun, engaging, simple to navigate.",
+        "motivations": "Career growth through certified courses."
+      },
+      {
+        "name": "Arif",
+        "context": "40, School Administrator",
+        "wants": "A reliable place to find trained teachers.",
+        "preferences": "Good filters and application tracking.",
+        "motivations": "Hiring competent teachers faster."
+      }
+    ],
+    "userFlows": [
+      {
+        "name": "Browse Courses",
+        "steps": "Homepage → Courses page → Course detail → Enroll / Purchase"
+      },
+      {
+        "name": "Explore Pricing Packages",
+        "steps": "Homepage → Pricing page → Select plan → Checkout"
+      },
+      {
+        "name": "Job Search & Apply",
+        "steps": "Homepage → Job portal → Search and filter jobs → Apply"
+      },
+      {
+        "name": "Institution Hiring Flow",
+        "steps": "Job portal → Post job listing → Manage applications"
+      }
+    ],
+    "wireframes": [
+      "Low-fidelity wireframes for home, courses, pricing and the portal.",
+      "Consistent layouts that carry the fun, educational brand.",
+      "High-fidelity prototypes shaped by client and stakeholder feedback."
+    ],
+    "visualDirection": [
+      "Fun, modern, on-brand.",
+      "Clean type, bright accents, approachable UI.",
+      "Mobile-first and fully responsive."
+    ],
+    "keyScreens": [
+      {
+        "name": "Homepage",
+        "description": "Courses, job portal and pricing up front."
+      },
+      {
+        "name": "Courses Page",
+        "description": "Grid with categories and quick enrol."
+      },
+      {
+        "name": "Pricing Page",
+        "description": "Single courses and bundles side by side."
+      },
+      {
+        "name": "Job Portal",
+        "description": "Search, filter, apply."
+      },
+      {
+        "name": "Application Form",
+        "description": "A short apply form built for teachers."
+      }
+    ],
+    "expectedOutcomes": [
+      {
+        "label": "Improved usability",
+        "description": "Shorter course purchase and job application flows."
+      },
+      {
+        "label": "Modern design",
+        "description": "Consistent, fun branding on every page."
+      },
+      {
+        "label": "New revenue opportunities",
+        "description": "Bundles and plans given prominence."
+      },
+      {
+        "label": "Career connection",
+        "description": "Teachers can find and apply for jobs on the platform."
+      },
+      {
+        "label": "Responsive experience",
+        "description": "Works well on the phones teachers use."
+      }
+    ],
+    "coverAlt": "Alokito Teacher homepage showing courses, the job platform for teachers and recruiters, badges, and pricing plans",
+    "galleryAlt": [
+      "Before and after comparison of the Alokito Teacher homepage — the old illustration-led layout beside the redesigned version with photography and course cards",
+      "Alokito Teacher homepage on mobile, beside the Job Platform page explaining benefits for teachers and recruiters",
+      "Job search screen with keyword and location filters and live job counts, beside a course detail page for Inquiry-based learning with pricing",
+      "Angled view of mobile screens — homepage, course listing, course detail, and job search"
+    ],
+    "externalUrl": "https://www.alokitoteachers.com/",
+    "galleryCaption": [
+      "Before and after — homepage",
+      "Homepage and job platform",
+      "Job search and course detail",
+      "Mobile flow"
+    ],
+    "coverAnnotations": [
+      {
+        "label": "Courses lead the page",
+        "note": "Teachers wanted to browse and buy quickly",
+        "tone": "positive",
+        "x": 22,
+        "y": 56
+      },
+      {
+        "label": "Job portal — new feature",
+        "note": "Added to connect teachers with schools",
+        "tone": "positive",
+        "x": 78,
+        "y": 29
+      },
+      {
+        "label": "Bundles made visible",
+        "note": "Client needed high-value plans pushed",
+        "tone": "neutral",
+        "x": 78,
+        "y": 78
+      }
+    ],
+    "role": "Sole UI/UX Designer"
+  },
+  {
+    "slug": "taxrise",
+    "title": "TaxRise",
+    "order": 4,
+    "summary": "A redesign of TaxRise Inc's website to modernise the brand, tighten consistency and lift conversions.",
+    "projectType": "Website Redesign",
+    "industry": "Fintech",
+    "platform": "Desktop & Mobile",
+    "year": "2024",
+    "duration": "6 months",
+    "externalLabel": "Visit Website",
+    "goal": "A modern, consistent site that converts better and holds its own in the market.",
+    "targetUsers": [
+      {
+        "label": "Clients (25–60)",
+        "description": "Trustworthy tax help, clear information, an easy first step."
+      },
+      {
+        "label": "Internal teams (SEO and marketing)",
+        "description": "A site on brand, built to convert, easy to extend for campaigns."
+      }
+    ],
+    "discoveryNote": "Worked closely with stakeholders and the SEO and marketing teams.",
+    "insights": [
+      "Inconsistency between pages was costing trust.",
+      "Conversion flows leaked people along the way.",
+      "SEO and marketing needed a structure they could build campaigns on."
+    ],
+    "competitorAnalysis": [
+      "Competitors used modern, professional layouts with strong trust signals and clear CTAs.",
+      "The gap: a stronger visual identity and a smoother way in."
+    ],
+    "personas": [
+      {
+        "name": "John",
+        "context": "35, Small Business Owner",
+        "wants": "Services explained plainly and a fast way to reach an expert.",
+        "preferences": "Professional, modern, trustworthy.",
+        "motivations": "Credibility, testimonials, transparency."
+      },
+      {
+        "name": "Linda",
+        "context": "50, Salaried Professional",
+        "wants": "Clear steps to resolve a tax problem.",
+        "preferences": "Simple navigation, accessible information.",
+        "motivations": "Reviews, case studies, visible expertise."
+      }
+    ],
+    "userFlows": [
+      {
+        "name": "Request Consultation",
+        "steps": "Homepage → Services → Select service → Contact form"
+      },
+      {
+        "name": "Learn About Services",
+        "steps": "Homepage → Services overview → Individual service detail page"
+      },
+      {
+        "name": "Build Trust",
+        "steps": "Homepage → Reviews / Testimonials → Case Studies → Contact"
+      },
+      {
+        "name": "Resources Access",
+        "steps": "Homepage → Blog / Knowledge Base → Read articles → Lead capture form"
+      }
+    ],
+    "wireframes": [
+      "Low-fidelity wireframes to set structure and layout.",
+      "CTAs and trust elements — reviews, credentials — placed first.",
+      "High-fidelity prototypes refined with stakeholders."
+    ],
+    "visualDirection": [
+      "Modern, consistent, professional.",
+      "A full style guide: type, colour, components, layouts.",
+      "Trust made visible: testimonials, success metrics, case highlights."
+    ],
+    "keyScreens": [
+      {
+        "name": "Homepage",
+        "description": "Clean hero, clear CTA, services and trust elements."
+      },
+      {
+        "name": "Services Page",
+        "description": "Grid with detail and direct CTAs."
+      },
+      {
+        "name": "About Page",
+        "description": "Company story, credibility, team."
+      },
+      {
+        "name": "Testimonials / Case Studies",
+        "description": "Easy to browse; there to reinforce credibility."
+      },
+      {
+        "name": "Blog / Resources",
+        "description": "Structured for SEO and easy reading."
+      },
+      {
+        "name": "Contact Page",
+        "description": "Simple, mobile-friendly forms."
+      }
+    ],
+    "expectedOutcomes": [
+      {
+        "label": "Improved usability",
+        "description": "Simpler navigation and conversion flows."
+      },
+      {
+        "label": "Consistency",
+        "description": "One style across roughly 30 screens."
+      },
+      {
+        "label": "Increased trust",
+        "description": "A modern presence, backed by testimonials."
+      },
+      {
+        "label": "Conversion-focused",
+        "description": "Clearer CTAs, better-structured service pages."
+      },
+      {
+        "label": "Scalability",
+        "description": "Ready for SEO and marketing campaigns."
+      }
+    ],
+    "coverAlt": "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
+    "galleryAlt": [
+      "Before and after comparison of the TaxRise free consultation page — the dense old layout beside the redesigned version with a clearer form and an expectations section",
+      "TaxRise customer stories page on mobile, beside a full story about a $206,000 IRS liability settled for $650",
+      "Team page on mobile showing the executive team, beside enrolled agent profiles with case counts",
+      "Angled view of mobile screens — tax relief services, blog listing, and about page"
+    ],
+    "externalUrl": "https://taxrise.com/",
+    "galleryCaption": [
+      "Before and after — free consultation",
+      "Customer stories",
+      "Team and enrolled agents",
+      "Mobile flow"
+    ],
+    "coverAnnotations": [
+      {
+        "label": "One clear CTA",
+        "note": "Old conversion flows were dropping off",
+        "tone": "positive",
+        "x": 21,
+        "y": 27
+      },
+      {
+        "label": "Results lead with proof",
+        "note": "Credibility was what both personas asked for",
+        "tone": "positive",
+        "x": 23,
+        "y": 72
+      },
+      {
+        "label": "~30 screens, one style guide",
+        "note": "Inconsistency was actively reducing trust",
+        "tone": "neutral",
+        "x": 79,
+        "y": 48
+      }
+    ],
+    "role": "Sole UI/UX Designer"
+  }
 ]

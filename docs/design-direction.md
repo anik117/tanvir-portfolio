@@ -202,6 +202,17 @@ Case study readability pass, 2026-09-09:
 - **Meta row is a grid** (2 → 3 → 6 columns) so phones show aligned pairs.
 - Hero numbers are ink at 75% and stay on one row on phones.
 
+Second readability pass, 2026-09-09:
+
+- **No dashes.** Sub-labels are small mono caps; list points carry a 6px blue dot. The deck
+  lines under act headings went — they were more words. Act 1 no longer repeats the goal that
+  already sits in the at-a-glance strip.
+- **Flows are step chips.** "Homepage → Select service → …" splits on the arrows into small
+  blue-tinted steps, so a flow reads at a glance.
+- **Copy is about 20% shorter** across all four studies, rewritten in `sanity/seed/projects.json`
+  and re-imported. Same facts, fewer words: "Booking online was harder than it should be"
+  instead of "Users often struggled with booking appointments online." No claim was added.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
