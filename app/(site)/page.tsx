@@ -11,7 +11,7 @@ import { CountUp } from "@/components/motion/CountUp";
 import { brands } from "@/lib/brands";
 import { WorkStack } from "@/components/home/WorkStack";
 import { AboutReveal } from "@/components/home/AboutReveal";
-import { TestimonialCarousel } from "@/components/home/TestimonialCarousel";
+import { TestimonialSpotlight } from "@/components/home/TestimonialSpotlight";
 
 /** "Currently at X" from the most recent experience entry, if there is one. */
 function tenure(settings: SiteSettings | null) {
@@ -57,7 +57,7 @@ export default async function HomePage() {
   return (
     <main>
       {/* ---- Hero ---------------------------------------------------------- */}
-      <section className="p-3 sm:p-4">
+      <section className="mx-auto max-w-page px-5 pt-3 sm:px-10 sm:pt-4">
         <div className="hero-panel rounded-[32px] pt-14 sm:rounded-[48px] sm:pt-24">
           <div className="mx-auto flex max-w-page flex-col items-center px-5 text-center sm:px-10">
             <Reveal y={10}>
@@ -175,7 +175,7 @@ export default async function HomePage() {
       {/* ---- Testimonials -------------------------------------------------- */}
       {settings?.testimonials?.length ? (
         <div className="mx-auto max-w-page px-5 sm:px-10">
-          <TestimonialCarousel items={settings.testimonials} />
+          <TestimonialSpotlight items={settings.testimonials} />
         </div>
       ) : null}
     </main>

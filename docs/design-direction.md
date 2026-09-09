@@ -219,6 +219,17 @@ hairline edge. `app/icon0.svg` for browsers that take SVG, `app/icon1.png` at 64
 rest, `app/apple-icon.png` at 180px without rounding since iOS applies its own. Generated
 from the font with opentype.js; regenerate by re-running the script rather than editing paths.
 
+Refinement, 2026-09-09 (evening):
+
+- **Hero sheet is container width** (1200px), not full-bleed, so it matches every section.
+- **Lilac is out, soft orange in.** The gradient runs sky → `#fff4e8` → `#ffe6d0`; the work
+  panel and footer follow.
+- **Brand row renders four copies** and loops on one copy's width, so a very wide screen
+  never sees it run out.
+- **Testimonials are a spotlight**: one quote centred on plain white inside four corner
+  marks, initials disc above, name and role under, turning every seven seconds. Hover or
+  focus holds it; arrows and dots move it. No stars — there is no rating data to show.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
