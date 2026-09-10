@@ -42,10 +42,21 @@ function Card({
   const soft = dark ? "text-white/65" : "text-muted-strong";
   return (
     <figure
-      className={`relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] p-7 sm:p-8 ${
+      className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] p-7 sm:p-8 ${
         dark ? "bg-dark shadow-[var(--shadow-lift)]" : "card"
       } ${className}`}
     >
+      {!dark && (
+        // A soft yellow glow at the foot of a white card, only while hovered.
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] opacity-0 transition-opacity duration-500 ease-[var(--ease)] group-hover:opacity-100"
+          style={{
+            background:
+              "radial-gradient(120% 90% at 50% 110%, rgb(255 226 150 / 0.7) 0%, rgb(255 236 180 / 0.35) 40%, transparent 72%)",
+          }}
+        />
+      )}
       {dark && (
         // A soft blue glow rising from the foot of the ink card, so the
         // attribution sits in light rather than in the dark.
