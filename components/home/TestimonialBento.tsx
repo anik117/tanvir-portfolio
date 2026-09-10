@@ -8,7 +8,14 @@ import { Reveal } from "@/components/Reveal";
 type Item = NonNullable<SiteSettings["testimonials"]>[number];
 
 /* Soft avatar tints, cycled by position; ink initials on all of them. */
-const tints = ["#dbeafe", "#fff3d6", "#dcfce7", "#fce7f3", "#ede9fe", "#ffedd5"];
+const tints = [
+  "#dbeafe",
+  "#fff3d6",
+  "#dcfce7",
+  "#fce7f3",
+  "#ede9fe",
+  "#ffedd5",
+];
 
 function initials(name: string) {
   return name
@@ -60,7 +67,9 @@ function Card({
       )}
       <div className="relative">
         <QuoteMark dark={dark} />
-        <blockquote className={`mt-5 text-[15.5px] font-normal leading-[1.65] ${ink}`}>
+        <blockquote
+          className={`mt-5 text-[15.5px] font-normal leading-[1.65] ${ink}`}
+        >
           &ldquo;{item.quote}&rdquo;
         </blockquote>
       </div>
@@ -80,7 +89,9 @@ function Card({
               {[item.title, item.company].filter(Boolean).join(", ")}
             </p>
             {(item.relationship || item.projectSlug) && (
-              <p className={`mono mt-1.5 flex flex-wrap gap-x-3 text-[10.5px] uppercase tracking-[0.12em] ${dark ? "text-white/50" : "text-muted"}`}>
+              <p
+                className={`mono mt-1.5 flex flex-wrap gap-x-3 text-[10.5px] uppercase tracking-[0.12em] ${dark ? "text-white/50" : "text-muted"}`}
+              >
                 {item.relationship && (
                   <span>
                     {item.relationship}
@@ -102,7 +113,14 @@ function Card({
         </div>
         {item.logo && (
           <span className="h-7 w-7 shrink-0 overflow-hidden rounded-md opacity-70">
-            <SanityImage image={item.logo} width={80} aspect={1} crop sizes="28px" fill />
+            <SanityImage
+              image={item.logo}
+              width={80}
+              aspect={1}
+              crop
+              sizes="28px"
+              fill
+            />
           </span>
         )}
       </figcaption>
@@ -127,30 +145,35 @@ export function TestimonialBento({ items }: { items: Item[] }) {
 
       {/* One card. The 1px gaps show the border colour through, which rules
           the cells apart without each needing its own frame. */}
-      <div className="card mt-12 grid gap-px overflow-hidden rounded-[28px] bg-border p-0 lg:grid-cols-3">
-        <Reveal className="bg-dark lg:col-span-1 lg:row-span-2">
-          <Card item={first} index={0} dark />
-        </Reveal>
-
-        {second && (
-          <Reveal delay={80} className="bg-white lg:col-span-2">
-            <Card item={second} index={1} />
+      <div className="card mt-12 overflow-hidden rounded-[28px] p-0">
+        <div
+          className="grid gap-px lg:grid-cols-3"
+          style={{ background: "var(--border)" }}
+        >
+          <Reveal className="bg-dark lg:col-span-1 lg:row-span-2">
+            <Card item={first} index={0} dark />
           </Reveal>
-        )}
 
-        {rest.map((item, i) => {
-          // The first two sit beside the tall card; anything after runs full width.
-          const wide = i >= 2;
-          return (
-            <Reveal
-              key={item._key ?? item.name}
-              delay={160 + i * 80}
-              className={`bg-white ${wide ? "lg:col-span-3" : ""}`}
-            >
-              <Card item={item} index={i + 2} />
+          {second && (
+            <Reveal delay={80} className="bg-white lg:col-span-2">
+              <Card item={second} index={1} />
             </Reveal>
-          );
-        })}
+          )}
+
+          {rest.map((item, i) => {
+            // The first two sit beside the tall card; anything after runs full width.
+            const wide = i >= 2;
+            return (
+              <Reveal
+                key={item._key ?? item.name}
+                delay={160 + i * 80}
+                className={`bg-white ${wide ? "lg:col-span-3" : ""}`}
+              >
+                <Card item={item} index={i + 2} />
+              </Reveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
