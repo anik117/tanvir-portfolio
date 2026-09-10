@@ -160,7 +160,7 @@ export default async function AboutPage() {
       {/* ---- The record ----------------------------------------------------
            Left: where he has worked, then studied. Right: what he does, then
            what he uses. */}
-      <div className="mt-24 grid gap-x-20 gap-y-20 lg:grid-cols-2">
+      <div className="mt-24 grid gap-y-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-x-28 xl:gap-x-36">
         <div className="space-y-20">
           {settings?.experience?.length ? (
             <Reveal>
