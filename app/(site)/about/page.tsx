@@ -14,7 +14,7 @@ export const metadata = {
 /** A small mono label above a group of rows. */
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mono text-[11px] uppercase tracking-[0.18em] text-muted-strong">
+    <h2 className="mono text-[13px] font-semibold uppercase tracking-[0.18em] text-accent">
       {children}
     </h2>
   );
