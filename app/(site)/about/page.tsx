@@ -73,7 +73,7 @@ export default async function AboutPage() {
 
   return (
     <main className="mx-auto max-w-page px-5 py-16 sm:px-10 sm:py-24">
-      <div className="grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-20">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-28 xl:gap-36">
         {/* ---- Who he is ------------------------------------------------- */}
         <div>
           <Reveal y={12}>
@@ -123,30 +123,30 @@ export default async function AboutPage() {
           delay={160}
           className="lg:sticky lg:top-[calc(var(--nav-h)+1.5rem)] lg:self-start"
         >
-          <section className="overflow-hidden rounded-[1.75rem] bg-dark px-6 py-8 text-dark-fg sm:px-10 sm:py-10">
-            <p className="mono text-[11px] uppercase tracking-[0.18em] text-dark-muted">
+          <section className="panel-soft overflow-hidden rounded-[1.75rem] px-6 py-8 sm:px-10 sm:py-10">
+            <p className="mono text-[11px] uppercase tracking-[0.18em] text-muted-strong">
               AI in my process
             </p>
             <h2 className="mt-4 text-[2rem] font-semibold leading-[1.08] sm:text-[2.6rem]">
               {aboutAiHeading}
             </h2>
-            <p className="mt-5 max-w-[36rem] text-[16px] leading-relaxed text-dark-muted sm:text-[17px]">
+            <p className="mt-5 max-w-[36rem] text-[16px] leading-relaxed text-muted-strong sm:text-[17px]">
               {aboutAiIntro}
             </p>
-            <ol className="mt-8 border-b border-white/15">
+            <ol className="mt-8 border-b border-border">
               {aboutAiSteps.map((step, index) => (
                 <li
-                  className="grid gap-3 border-t border-white/15 py-5 sm:grid-cols-[2rem_12rem_1fr] sm:gap-5"
+                  className="grid gap-3 border-t border-border py-5 sm:grid-cols-[2rem_12rem_1fr] sm:gap-5"
                   key={step._key ?? step.name}
                 >
-                  <span className="mono text-[12px] text-dark-muted">
+                  <span className="mono text-[12px] text-muted">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="text-[16px] font-semibold leading-snug text-dark-fg">
+                  <h3 className="text-[16px] font-semibold leading-snug">
                     {step.name}
                   </h3>
                   {step.description && (
-                    <p className="text-[15px] leading-relaxed text-dark-muted">
+                    <p className="text-[15px] leading-relaxed text-muted-strong">
                       {step.description}
                     </p>
                   )}
