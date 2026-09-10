@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Quote } from "lucide-react";
 import type { SiteSettings } from "@/sanity/types";
 import { SanityImage } from "@/components/SanityImage";
 import { Reveal } from "@/components/Reveal";
@@ -17,15 +17,16 @@ function initials(name: string) {
     .join("");
 }
 
-/** The serif closing quote, used as the mark that opens every card. */
+/** An opening quotation mark, solid, in the neutral grey. */
 function QuoteMark({ dark }: { dark?: boolean }) {
   return (
-    <span
+    <Quote
       aria-hidden
-      className={`serif block text-[44px] leading-[0.6] ${dark ? "text-white/60" : "text-accent"}`}
-    >
-      &rdquo;
-    </span>
+      size={30}
+      strokeWidth={0}
+      fill="currentColor"
+      className={`-scale-x-100 ${dark ? "text-white/40" : "text-muted"}`}
+    />
   );
 }
 
@@ -50,7 +51,7 @@ function Card({
     >
       <div>
         <QuoteMark dark={dark} />
-        <blockquote className={`mt-4 text-[15.5px] font-normal leading-[1.65] ${ink}`}>
+        <blockquote className={`mt-5 text-[15.5px] font-normal leading-[1.65] ${ink}`}>
           &ldquo;{item.quote}&rdquo;
         </blockquote>
       </div>
