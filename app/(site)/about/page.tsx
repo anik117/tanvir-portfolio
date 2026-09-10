@@ -136,7 +136,7 @@ export default async function AboutPage() {
             <ol className="mt-8 border-b border-border">
               {aboutAiSteps.map((step, index) => (
                 <li
-                  className="grid gap-3 border-t border-border py-5 sm:grid-cols-[2rem_1fr] sm:gap-x-5 xl:grid-cols-[2rem_12rem_1fr]"
+                  className="grid gap-3 border-t border-border py-5 sm:grid-cols-[2rem_1fr] sm:gap-x-5 2xl:grid-cols-[2rem_12rem_1fr]"
                   key={step._key ?? step.name}
                 >
                   <span className="mono text-[12px] text-muted">
@@ -146,7 +146,7 @@ export default async function AboutPage() {
                     {step.name}
                   </h3>
                   {step.description && (
-                    <p className="text-[15px] leading-relaxed text-muted-strong sm:col-start-2 xl:col-start-auto">
+                    <p className="text-[15px] leading-relaxed text-muted-strong sm:col-start-2 2xl:col-start-auto">
                       {step.description}
                     </p>
                   )}
