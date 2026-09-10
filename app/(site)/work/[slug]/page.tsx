@@ -123,7 +123,9 @@ function Points({ items }: { items: string[] }) {
 }
 
 function Lead({ children }: { children: ReactNode }) {
-  return <p className="mb-8 text-[18px] leading-relaxed text-muted-strong">{children}</p>;
+  return (
+    <p className="mb-8 max-w-[64rem] text-[18px] leading-relaxed text-muted-strong">{children}</p>
+  );
 }
 
 /** Roughly how long the study takes to read, from its own text. */
@@ -286,7 +288,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           </div>
         </aside>
 
-        <div className="max-w-read space-y-20">
+        <div className="min-w-0 space-y-20">
           {hasBrief && (
             <Act id="act-01" title="The challenge">
               {project.goal && <Lead>{project.goal}</Lead>}
@@ -344,7 +346,11 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                   {project.gallery.map((img, i) => (
                     <Reveal key={i} amount={0.2}>
                       <figure>
-                        <ZoomableImage image={img} />
+                        <ZoomableImage
+                          image={img}
+                          width={1800}
+                          sizes="(max-width: 1280px) 100vw, 1120px"
+                        />
                         {img.caption && (
                           <figcaption className="mt-3 text-sm text-muted-strong">
                             {img.caption} — click to enlarge

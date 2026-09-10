@@ -30,7 +30,7 @@ export function ZoomableImage({
       <button
         type="button"
         onClick={open}
-        className="zoomable card card-hover group relative block w-full overflow-hidden rounded-2xl p-2"
+        className="zoomable card card-hover group relative block w-full overflow-hidden rounded-2xl p-2 sm:p-3"
         aria-label={`Enlarge: ${image.alt ?? "screenshot"}`}
       >
         <div className="overflow-hidden rounded-xl">
