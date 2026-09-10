@@ -12,6 +12,7 @@ import { brands } from "@/lib/brands";
 import { WorkStack } from "@/components/home/WorkStack";
 import { AboutReveal } from "@/components/home/AboutReveal";
 import { TestimonialBento } from "@/components/home/TestimonialBento";
+import homeContent from "@/sanity/seed/home.json";
 
 /** "Currently at X" from the most recent experience entry, if there is one. */
 function tenure(settings: SiteSettings | null) {
@@ -42,7 +43,8 @@ export default async function HomePage() {
   }
 
   const headline =
-    settings?.heroHeadline ?? "Crafting seamless digital experiences with a human touch.";
+    settings?.heroHeadline ?? homeContent.heroHeadline;
+  const supporting = settings?.heroSupporting ?? homeContent.heroSupporting;
   const at = tenure(settings);
 
   // Covers first, then second images, so the pile spans every project.
@@ -88,10 +90,10 @@ export default async function HomePage() {
               </h1>
             </Reveal>
 
-            {settings?.heroSupporting && (
+            {supporting && (
               <Reveal delay={180} y={12}>
                 <p className="mt-7 max-w-xl text-[18px] leading-relaxed text-muted-strong sm:text-[21px]">
-                  {settings.heroSupporting}
+                  {supporting}
                 </p>
               </Reveal>
             )}
@@ -99,11 +101,11 @@ export default async function HomePage() {
             <Reveal delay={260} y={12}>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
                 <a href="#work" className="group btn btn-primary">
-                  See the work
+                  View selected work
                   <ArrowRight aria-hidden size={15} className="arrow" />
                 </a>
                 <Link href="/contact" className="group btn btn-light">
-                  Get in touch
+                  Start a conversation
                   <ArrowUpRight aria-hidden size={15} className="arrow-up" />
                 </Link>
               </div>
@@ -112,7 +114,7 @@ export default async function HomePage() {
 
           <Reveal delay={320} y={16} className="mt-16 sm:mt-24">
             <p className="mono text-center text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-              Some of the teams I&rsquo;ve designed for
+              Teams I&rsquo;ve collaborated with
             </p>
             <div className="mt-6">
               <BrandMarquee brands={brands()} />
@@ -145,12 +147,12 @@ export default async function HomePage() {
       <section id="work" className="mx-auto max-w-page scroll-mt-24 px-5 pt-28 sm:px-10 sm:pt-36">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="section-title">Work I&rsquo;m proud of.</h2>
+            <h2 className="section-title">Selected work.</h2>
             <p className="mx-auto mt-5 max-w-lg text-[18px] text-muted-strong sm:text-[20px]">
-              A few projects, each one from the first brief to what shipped.
+              Four case studies showing the problem, the process, and the reasoning behind the interface.
             </p>
             <Link href="/work" className="group btn btn-soft mt-7">
-              All projects
+              Explore all projects
               <ArrowRight aria-hidden size={14} className="arrow" />
             </Link>
           </div>

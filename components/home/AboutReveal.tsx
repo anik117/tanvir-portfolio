@@ -95,7 +95,7 @@ function Tail({
         href="/about"
         className="group mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-accent hover:text-accent-hover"
       >
-        The longer version
+        How I think and work
         <ArrowRight aria-hidden size={16} className="arrow" />
       </Link>
     </motion.div>
@@ -183,7 +183,7 @@ export function AboutReveal({
             ))}
           </ul>
           <Link href="/about" className="group mt-8 inline-flex items-center gap-2 text-[15px] font-semibold">
-            More about me
+            How I think and work
             <ArrowRight aria-hidden size={16} className="arrow" />
           </Link>
         </div>

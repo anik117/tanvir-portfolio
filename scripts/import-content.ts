@@ -31,6 +31,9 @@ const projects: Project[] = JSON.parse(
 const aboutContent = JSON.parse(
   readFileSync(join(process.cwd(), "sanity/seed/about.json"), "utf8"),
 );
+const homeContent = JSON.parse(
+  readFileSync(join(process.cwd(), "sanity/seed/home.json"), "utf8"),
+);
 
 /**
  * Resolves an image asset by its original filename, uploading it only if the
@@ -147,11 +150,7 @@ async function main() {
     _id: "siteSettings",
     _type: "siteSettings",
     siteTitle: "Tanvir Ahassan",
-    siteDescription:
-      "UI/UX Designer with 7+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
-    heroHeadline: "Crafting seamless digital experiences with a human touch.",
-    heroSupporting:
-      "I'm Tanvir Ahassan, a UI/UX Designer with 7+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
+    ...homeContent,
     ctaLabel: "Book a Call",
     availabilityLabel: "Available for hire",
     availabilityShow: true,

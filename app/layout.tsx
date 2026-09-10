@@ -35,7 +35,7 @@ const instrument = Instrument_Serif({
 export const metadata: Metadata = {
   title: "Tanvir Ahassan | UI/UX Designer",
   description:
-    "UI/UX Designer with 7+ years of experience designing intuitive, user-friendly digital products for startups and enterprises.",
+    "Tanvir Ahassan is a UI/UX designer with a software engineering background, creating clear, buildable web and mobile products with systems thinking and AI-assisted workflows.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
