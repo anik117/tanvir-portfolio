@@ -67,7 +67,7 @@ function Card({
           <span
             aria-hidden
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[14px] font-semibold text-foreground"
-            style={{ background: tints[index % tints.length] }}
+            style={{ background: dark ? "#fff" : tints[index % tints.length] }}
           >
             {initials(item.name)}
           </span>
