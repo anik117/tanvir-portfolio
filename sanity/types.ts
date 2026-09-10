@@ -84,6 +84,7 @@ export type SiteSettings = {
   aboutHeading?: string;
   aboutParagraphs?: string[];
   stats?: { _key?: string; value: string; label: string }[];
+  brands?: { _key?: string; name: string; logo?: string }[];
   clientsNote?: string;
   processSteps?: Named[];
   aboutIntro?: string;

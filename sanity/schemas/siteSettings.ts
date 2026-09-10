@@ -68,6 +68,29 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
+      name: "brands",
+      title: "Brands / logos row",
+      type: "array",
+      group: "home",
+      description:
+        'The "Teams I\'ve collaborated with" marquee. Add a brand with its name; upload a logo to show the mark instead of the name. Drag to reorder.',
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "name", type: "string", validation: (r) => r.required() }),
+            defineField({
+              name: "logo",
+              type: "image",
+              description:
+                "Optional. The brand's mark (SVG or PNG). Without one, the name is shown as text.",
+            }),
+          ],
+          preview: { select: { title: "name", media: "logo" } },
+        }),
+      ],
+    }),
+    defineField({
       name: "clientsNote",
       type: "text",
       rows: 3,

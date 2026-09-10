@@ -10,6 +10,7 @@
     "publish:about": "sanity exec scripts/publish-about.ts --with-user-token",
     "publish:contact": "sanity exec scripts/publish-contact.ts --with-user-token",
     "publish:home": "sanity exec scripts/publish-home.ts --with-user-token",
+    "publish:brands": "sanity exec scripts/publish-brands.ts --with-user-token",
     "publish:projects": "SANITY_PROJECTS_ONLY=1 sanity exec scripts/import-content.ts --with-user-token",
     "typecheck": "tsc --noEmit"
   },

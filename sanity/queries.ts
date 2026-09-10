@@ -30,7 +30,9 @@ export const SITE_SETTINGS_QUERY = groq`
   *[_type == "siteSettings"][0] {
     siteTitle, siteDescription, heroHeadline, heroSupporting,
     availabilityShow, availabilityLabel,
-    testimonials, services, aboutHeading, aboutParagraphs, stats, clientsNote, processSteps,
+    testimonials, services, aboutHeading, aboutParagraphs, stats,
+    brands[]{ name, "logo": logo.asset->url },
+    clientsNote, processSteps,
     aboutIntro, aboutAiHeading, aboutAiIntro, aboutAiSteps, education, experience, toolkit,
     contactHeading, contactMessage, ctaLabel, ctaUrl, email, socials
   }

@@ -56,6 +56,19 @@ export default async function HomePage() {
     .filter((img): img is SanityImage => Boolean(img))
     .slice(0, 5);
 
+  // Brands come from the Studio when any are set there; otherwise the code list
+  // in lib/brands.ts is the fallback, so the row is never empty.
+  const brandRow = settings?.brands?.length
+    ? settings.brands.map((b) => ({
+        name: b.name,
+        slug: b.name
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, ""),
+        logo: b.logo,
+      }))
+    : brands();
+
   return (
     <main>
       {/* ---- Hero ---------------------------------------------------------- */}
@@ -117,7 +130,7 @@ export default async function HomePage() {
               Teams I&rsquo;ve collaborated with
             </p>
             <div className="mt-6">
-              <BrandMarquee brands={brands()} />
+              <BrandMarquee brands={brandRow} />
             </div>
           </Reveal>
 
