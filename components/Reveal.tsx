@@ -16,6 +16,7 @@ export function Reveal({
   y = 28,
   once = true,
   amount = 0.15,
+  style,
 }: {
   children: ReactNode;
   delay?: number;
@@ -23,11 +24,13 @@ export function Reveal({
   y?: number;
   once?: boolean;
   amount?: number;
+  style?: React.CSSProperties;
 }) {
   const reduce = useReducedMotion();
   return (
     <motion.div
       className={className}
+      style={style}
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, amount, margin: "0px 0px -8% 0px" }}

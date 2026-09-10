@@ -11,7 +11,7 @@ import { CountUp } from "@/components/motion/CountUp";
 import { brands } from "@/lib/brands";
 import { WorkStack } from "@/components/home/WorkStack";
 import { AboutReveal } from "@/components/home/AboutReveal";
-import { TestimonialSpotlight } from "@/components/home/TestimonialSpotlight";
+import { TestimonialBento } from "@/components/home/TestimonialBento";
 
 /** "Currently at X" from the most recent experience entry, if there is one. */
 function tenure(settings: SiteSettings | null) {
@@ -173,7 +173,7 @@ export default async function HomePage() {
       {/* ---- Testimonials -------------------------------------------------- */}
       {settings?.testimonials?.length ? (
         <div className="mx-auto max-w-page px-5 sm:px-10">
-          <TestimonialSpotlight items={settings.testimonials} />
+          <TestimonialBento items={settings.testimonials} />
         </div>
       ) : null}
     </main>

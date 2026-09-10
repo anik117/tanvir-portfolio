@@ -247,6 +247,13 @@ on a soft warm grey `#f4f3f0` (`.panel-soft`).
 All greys are the same warm family now: ground `#faf9f7`, panels `#f4f3f0` and `#f8f7f4`
 (also the tint behind product shots), hairlines `#e6e4df`. Text stays navy.
 
+**Testimonials are a bento (2026-09-10).** Tanvir pointed at a metrics-led bento (8X, 2X
+cards). We have no measured outcomes to lead with, so the cards lead with the quote: the
+first stands tall on the left at reading size, the second runs wide across the top right,
+the rest fill two to a row, and the last is set in blue. Each opens with a serif closing
+quote in the accent, and ends with an initials disc, name, role, and the mono relationship
+line. The grid spans however many rows the count needs. The spotlight rotation is gone.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
