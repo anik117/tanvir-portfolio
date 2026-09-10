@@ -255,6 +255,10 @@ size and regular weight; avatars are soft pastel discs with ink initials. Each o
 quote in the accent, and ends with an initials disc, name, role, and the mono relationship
 line. The grid spans however many rows the count needs. The spotlight rotation is gone.
 
+**Body is Inter (2026-09-10).** Plus Jakarta Sans was hard to read at text sizes with its
+tight fit. Body copy, buttons, nav and labels are Inter with 0.01em of letter-spacing;
+headings stay Plus Jakarta Sans at −0.025em; the serif and mono are unchanged.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.

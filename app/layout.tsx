@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { MotionProvider } from "@/components/motion/Providers";
 import "./globals.css";
 
-// Everything that is not a number or a signature.
-const jakarta = Plus_Jakarta_Sans({
+// Body copy: Inter, for reading.
+const inter = Inter({
   variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+// Headings: Plus Jakarta Sans.
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
@@ -35,7 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${jakarta.variable} ${geistMono.variable} ${instrument.variable} h-full antialiased`}
+      className={`${inter.variable} ${jakarta.variable} ${geistMono.variable} ${instrument.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <MotionProvider>{children}</MotionProvider>
