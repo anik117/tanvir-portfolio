@@ -183,7 +183,7 @@ async function main() {
         quote:
           "From the first interaction I had with Tanvir I knew I was dealing with someone who takes great care in his work. He was communicative, responsive, professional, and understanding. We delivered the scope of work to his team and when he gave us our first design examples I was blown away. The quality of his designs were top notch, his attention to detail was fantastic, and he was able to execute on our vision to the T.",
         name: "David Ventura",
-        title: "Battery technology",
+        company: "SMART Battery Analytics",
         relationship: "Client",
         date: "Feb 2026",
       },
