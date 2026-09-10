@@ -42,21 +42,10 @@ function Card({
   const soft = dark ? "text-white/65" : "text-muted-strong";
   return (
     <figure
-      className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] p-7 sm:p-8 ${
-        dark ? "bg-dark shadow-[var(--shadow-lift)]" : "card"
+      className={`relative flex h-full flex-col justify-between overflow-hidden p-7 sm:p-8 ${
+        dark ? "bg-dark" : "bg-white"
       } ${className}`}
     >
-      {!dark && (
-        // A soft yellow glow at the foot of a white card, only while hovered.
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] opacity-0 transition-opacity duration-500 ease-[var(--ease)] group-hover:opacity-100"
-          style={{
-            background:
-              "radial-gradient(120% 90% at 50% 110%, rgb(255 226 150 / 0.7) 0%, rgb(255 236 180 / 0.35) 40%, transparent 72%)",
-          }}
-        />
-      )}
       {dark && (
         // A soft blue glow rising from the foot of the ink card, so the
         // attribution sits in light rather than in the dark.
@@ -122,7 +111,7 @@ function Card({
 }
 
 /**
- * A bento of quotes: the first stands tall on the left across two rows, the
+ * One card of quotes, ruled into cells: the first stands tall on the left across two rows, the
  * second runs wide across the top right, the next two sit under it, and any
  * after that run the full width. The tall one is set in ink so it stands
  * out; every quote is the same size and weight. Rows size to their content,
@@ -136,13 +125,15 @@ export function TestimonialBento({ items }: { items: Item[] }) {
     <section className="py-20 sm:py-28">
       <h2 className="section-title">Testimonials</h2>
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-3">
-        <Reveal className="lg:col-span-1 lg:row-span-2">
+      {/* One card. The 1px gaps show the border colour through, which rules
+          the cells apart without each needing its own frame. */}
+      <div className="card mt-12 grid gap-px overflow-hidden rounded-[28px] bg-border p-0 lg:grid-cols-3">
+        <Reveal className="bg-dark lg:col-span-1 lg:row-span-2">
           <Card item={first} index={0} dark />
         </Reveal>
 
         {second && (
-          <Reveal delay={80} className="lg:col-span-2">
+          <Reveal delay={80} className="bg-white lg:col-span-2">
             <Card item={second} index={1} />
           </Reveal>
         )}
@@ -154,7 +145,7 @@ export function TestimonialBento({ items }: { items: Item[] }) {
             <Reveal
               key={item._key ?? item.name}
               delay={160 + i * 80}
-              className={wide ? "lg:col-span-3" : ""}
+              className={`bg-white ${wide ? "lg:col-span-3" : ""}`}
             >
               <Card item={item} index={i + 2} />
             </Reveal>
