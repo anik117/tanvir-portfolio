@@ -3,48 +3,32 @@
     "slug": "zo-skin-centre",
     "title": "ZO Skin Centre",
     "order": 1,
-    "summary": "Website redesign for a skincare clinic group, built to win more online bookings.",
+    "summary": "I brought four clinic locations into one browsing and booking experience, so patients could compare treatments, practitioners and results without losing their place.",
     "projectType": "Website Redesign",
     "industry": "Health",
     "platform": "Desktop & Mobile",
     "year": "2025",
     "duration": "4 months",
     "externalLabel": "Visit Website",
-    "goal": "More online bookings, one clear path across several clinic locations, and the key services up front.",
+    "goal": "The existing site split the clinic experience across separate locations and made booking harder than it needed to be. The redesign had to create one clear path from treatment research to consultation.",
     "targetUsers": [
       {
-        "label": "Patients (25–65)",
-        "description": "Want treatments, doctors they can trust, and an easy way to book."
+        "label": "Patients",
+        "description": "People comparing treatments, practitioners, results and clinic locations before they book."
       },
       {
         "label": "Dermatologists",
-        "description": "Need their credentials and expertise seen."
+        "description": "Practitioners whose credentials and experience need to be easy for patients to evaluate."
       }
     ],
-    "discoveryNote": "Worked directly with the clinic manager on what was getting in the way.",
+    "discoveryNote": "The clinic manager pointed to three recurring problems: booking took too much effort, each location felt separate, and the proof patients looked for was scattered across the site.",
     "insights": [
-      "Booking online was harder than it should be.",
-      "A page per location confused people and pushed bounce rate up.",
-      "Visitors wanted treatments, results and reviews in one place."
+      "Separate location pages made comparison harder and forced patients to restart their journey.",
+      "Treatment information, practitioners, reviews and results worked better when they supported the same decision.",
+      "The booking path needed to stay visible and work cleanly on a phone."
     ],
     "competitorAnalysis": [
-      "Competitors led with strong imagery and a short booking flow — the bar to clear."
-    ],
-    "personas": [
-      {
-        "name": "Maya",
-        "context": "32, Working Professional",
-        "wants": "Treatment info, fast.",
-        "preferences": "Booking on her phone.",
-        "motivations": "Reviews and before-and-after photos."
-      },
-      {
-        "name": "Rahman",
-        "context": "55, Retired Professional",
-        "wants": "Plain details on treatments and doctors.",
-        "preferences": "Simple navigation.",
-        "motivations": "A design that reads as trustworthy."
-      }
+      "The comparison focused on how clinic sites bring treatment details, practitioner credibility, results and booking into one journey."
     ],
     "userFlows": [
       {
@@ -52,74 +36,30 @@
         "steps": "Homepage → Select service → Choose doctor → Fill booking form"
       },
       {
-        "name": "Explore Treatments",
-        "steps": "Homepage → Treatments page → Detailed service info → View gallery"
-      },
-      {
-        "name": "View Results",
-        "steps": "Homepage → Gallery / Before & After → Filter by treatment"
-      },
-      {
-        "name": "Read Reviews",
-        "steps": "Homepage → Testimonials section → Filter by treatment or doctor"
+        "name": "Compare Treatment Options",
+        "steps": "Homepage → Treatment → Practitioner and results → Choose clinic"
       }
     ],
     "wireframes": [
-      "Low-fidelity sketches first, to settle the layout.",
-      "Booking CTA up front; every location on the homepage.",
-      "Mid- then high-fidelity prototypes before final UI."
+      "Started with low-fidelity layouts to settle the relationship between treatments, locations and booking.",
+      "Moved into high-fidelity prototypes after the main path was clear."
     ],
     "visualDirection": [
-      "Premium, minimal, quiet.",
-      "White space, modern type and light medical cues to build trust.",
-      "On the parent brand's theme, with its own distinguishing elements."
+      "Used a quiet, premium visual language with generous space and restrained medical cues.",
+      "Stayed close to the parent brand while giving the clinic a clearer identity of its own."
     ],
     "keyScreens": [
       {
-        "name": "Homepage",
-        "description": "Services, locations and booking from one entry point."
+        "name": "One front door for every clinic",
+        "description": "Placed all four locations on the homepage so patients could compare them without moving between separate sites."
       },
       {
-        "name": "Treatments Page",
-        "description": "Grid of services, each with a Book Now."
+        "name": "Proof close to the decision",
+        "description": "Brought practitioners, reviews and before-and-after results into the treatment journey instead of leaving them in isolated sections."
       },
       {
-        "name": "Doctors Page",
-        "description": "Profiles with credentials and experience."
-      },
-      {
-        "name": "Booking Form",
-        "description": "Step by step, built for mobile."
-      },
-      {
-        "name": "Reviews Page",
-        "description": "Patient testimonials, filterable."
-      },
-      {
-        "name": "Gallery",
-        "description": "Before-and-after results, organised by treatment."
-      },
-      {
-        "name": "Contact Page",
-        "description": "All locations, with maps."
-      }
-    ],
-    "expectedOutcomes": [
-      {
-        "label": "Improved usability",
-        "description": "Easier booking and location browsing."
-      },
-      {
-        "label": "Reduced confusion",
-        "description": "Every location reachable from the homepage."
-      },
-      {
-        "label": "Increased trust",
-        "description": "Results, reviews and doctors up front."
-      },
-      {
-        "label": "Visual upgrade",
-        "description": "A premium, medical-luxury look, on brand."
+        "name": "A shorter route to consultation",
+        "description": "Kept booking actions visible and made the form easier to complete on mobile."
       }
     ],
     "coverAlt": "ZO Skin Centre homepage with a facial treatment hero, a clinic locations grid, and practitioner profiles",
@@ -139,21 +79,21 @@
     "coverAnnotations": [
       {
         "label": "Booking CTA above the fold",
-        "note": "Users were struggling to book online",
+        "note": "Booking stays within reach as patients browse",
         "tone": "positive",
         "x": 21,
         "y": 31
       },
       {
         "label": "All four clinics on one page",
-        "note": "Separate location pages were driving bounce",
+        "note": "Patients can compare clinics without restarting",
         "tone": "positive",
         "x": 24,
         "y": 74
       },
       {
         "label": "Practitioners surfaced early",
-        "note": "Credibility was the deciding trust signal",
+        "note": "Credentials appear before the booking decision",
         "tone": "neutral",
         "x": 79,
         "y": 70
@@ -165,121 +105,63 @@
     "slug": "ibadat",
     "title": "Ibadat",
     "order": 2,
-    "summary": "A prayer and lifestyle app for Muslims: prayer times, authentic duas, smart notifications.",
+    "summary": "I designed a daily prayer app around three moments: checking prayer times, finding trustworthy duas, and silencing the phone automatically inside a mosque.",
     "projectType": "Mobile App Design",
     "industry": "App",
     "platform": "iOS and Android",
     "year": "2024",
     "duration": "3 months",
     "externalLabel": "View Prototype",
-    "goal": "A modern Islamic app for daily prayer, authentic duas, and smart features that make the day easier.",
+    "goal": "The brief was not to add more features to another prayer app. It was to remove small interruptions from daily practice while keeping prayer times and religious content dependable.",
     "targetUsers": [
       {
-        "label": "Muslims (15–65)",
-        "description": "Accurate prayer times, duas to hand, no distractions while praying."
+        "label": "People building a daily prayer routine",
+        "description": "Need dependable prayer times, useful reminders and authentic duas without a cluttered experience."
       },
       {
-        "label": "Mosque-goers",
-        "description": "The phone goes silent on its own when they arrive."
+        "label": "People praying at a mosque",
+        "description": "Need their phone to stop interrupting prayer without remembering to change settings every time."
       }
     ],
-    "discoveryNote": "Worked with the client to sharpen the vision and what users expected.",
+    "discoveryNote": "Working with the client clarified a simple product principle: every feature had to earn its place in a daily religious routine, where trust and low effort matter more than novelty.",
     "insights": [
-      "People wanted to pray without touching their phone.",
-      "Prayer-time accuracy and localisation were non-negotiable.",
-      "Duas had to be clearly authentic, with Quran and Hadith references.",
-      "A personal feed tied to Islamic dates could keep people coming back."
+      "Prayer times needed to be dependable and local; anything less would undermine the whole app.",
+      "Dua sources needed to appear at the point of reading, not in a separate reference area.",
+      "Mosque silent mode had to work with almost no effort from the user."
     ],
     "competitorAnalysis": [
-      "Existing apps gave prayer times, little else, and no personalisation.",
-      "Almost none had mosque-based silent mode or custom dua collections."
-    ],
-    "personas": [
-      {
-        "name": "Ayesha",
-        "context": "25, University Student",
-        "wants": "Accurate alerts, referenced duas, a distraction-free mosque.",
-        "preferences": "Clean, modern, easy to move around.",
-        "motivations": "Staying consistent with prayer around student life."
-      },
-      {
-        "name": "Karim",
-        "context": "45, Business Professional",
-        "wants": "Silent mode in the mosque and a personal dua collection.",
-        "preferences": "Reliable, minimal effort.",
-        "motivations": "Fitting faith into a full work schedule."
-      }
+      "The comparison focused on prayer-time setup, source visibility for duas, custom collections and silent-mode controls."
     ],
     "userFlows": [
       {
-        "name": "Prayer Times & Alerts",
-        "steps": "Launch app → Enable location → Prayer times displayed → Notifications set"
+        "name": "Set Up Prayer Times",
+        "steps": "Open app → Confirm location → Review prayer times → Set reminders"
       },
       {
-        "name": "Mosque Silent Mode",
-        "steps": "User enters mosque → App detects location → Phone switches to silent automatically"
-      },
-      {
-        "name": "Browse Duas",
-        "steps": "Homepage → Dua collection → Select dua → View reference and translation → Save to personal list"
-      },
-      {
-        "name": "Explore Feed",
-        "steps": "Homepage → Feed section → Weekly / monthly / yearly Islamic insights → Engage with content"
+        "name": "Find and Save a Dua",
+        "steps": "Browse collection → Open dua → Read translation and source → Save"
       }
     ],
     "wireframes": [
-      "Low-fidelity wireframes for prayer times, duas and the feed.",
-      "Less clutter, more readability.",
-      "High-fidelity designs with a consistent Islamic visual style."
+      "Mapped the prayer-time, dua and feed experiences in low fidelity before adding visual detail.",
+      "Used high-fidelity prototypes to test hierarchy across the main daily-use screens."
     ],
     "visualDirection": [
-      "Minimal, spiritual, modern.",
-      "Calm colour, clean type, clear icons.",
-      "Accessible and easy to navigate across a wide age range."
+      "Used a calm palette, clear type and restrained Islamic references rather than heavy ornament.",
+      "Kept navigation and controls simple enough to scan quickly across a wide age range."
     ],
     "keyScreens": [
       {
-        "name": "Prayer Times Screen",
-        "description": "Location-based times with alerts."
+        "name": "Prayer at a glance",
+        "description": "Made today's times and the next prayer immediately visible, with reminder controls close by."
       },
       {
-        "name": "Dua Collection",
-        "description": "Indexed library with references, translations and edits."
+        "name": "Silent mode without another ritual",
+        "description": "Turned mosque silent mode into a simple, location-aware setting instead of another manual task to remember."
       },
       {
-        "name": "Feed",
-        "description": "Weekly, monthly and yearly insights tied to Islamic events."
-      },
-      {
-        "name": "Silent Mode Feature",
-        "description": "Detects mosque entry; one toggle."
-      },
-      {
-        "name": "Settings",
-        "description": "Calculation methods, alerts, personalisation."
-      }
-    ],
-    "expectedOutcomes": [
-      {
-        "label": "Distraction-free prayers",
-        "description": "Silent mode handles the phone in the mosque."
-      },
-      {
-        "label": "Authenticity",
-        "description": "Referenced duas people can trust."
-      },
-      {
-        "label": "Personalization",
-        "description": "Translations and settings to suit each user."
-      },
-      {
-        "label": "Engagement",
-        "description": "A feed that gives a reason to return."
-      },
-      {
-        "label": "Scalability",
-        "description": "Room for community and event features later."
+        "name": "Trustworthy duas in context",
+        "description": "Kept Arabic, transliteration, translation and source references together, with saving available in the same view."
       }
     ],
     "coverAlt": "Ibadat app splash, welcome, and prophetic ritual acts screens on mobile",
@@ -299,14 +181,14 @@
     "coverAnnotations": [
       {
         "label": "Silent mode, no manual step",
-        "note": "Phone switches itself on mosque entry",
+        "note": "Designed to switch when the user enters a mosque",
         "tone": "positive",
         "x": 21,
         "y": 33
       },
       {
         "label": "One-tap start",
-        "note": "Wide age range, so no onboarding maze",
+        "note": "Core value appears before a long setup",
         "tone": "neutral",
         "x": 50,
         "y": 72
@@ -325,121 +207,67 @@
     "slug": "alokito-teacher",
     "title": "Alokito Teacher",
     "order": 3,
-    "summary": "A redesign of Alokito Teacher's site, with a new job portal linking teachers to work.",
+    "summary": "I redesigned Alokito Teacher and added a job marketplace, giving teachers one place to build skills and find work while schools got a direct hiring path.",
     "projectType": "Website Redesign + Job Portal",
     "industry": "Edtech",
     "platform": "Desktop & Mobile",
     "year": "2024",
     "duration": "4 months",
     "externalLabel": "Visit Website",
-    "goal": "A modern, consistent brand refresh, plus pricing plans and a job portal for teachers.",
+    "goal": "The product had to do two connected jobs: help teachers choose and buy courses, and help institutions hire them. The redesign needed to make both paths clear without turning the site into two separate products.",
     "targetUsers": [
       {
-        "label": "Teachers (22–50)",
-        "description": "Training, resources and career opportunities."
+        "label": "Teachers",
+        "description": "Need a clear way to compare courses, understand pricing and move from learning to job opportunities."
       },
       {
         "label": "Institutions and schools",
-        "description": "Trained teachers to hire, through the portal."
+        "description": "Need a focused way to publish roles and review applicants with relevant training."
       }
     ],
-    "discoveryNote": "Worked directly with the client on feedback and requirements.",
+    "discoveryNote": "The client brief brought two experiences together: an education business selling courses and a new marketplace connecting teachers with schools. The information architecture had to make that relationship understandable.",
     "insights": [
-      "The old site felt dated and off-brand for a fun, modern identity.",
-      "Teachers wanted a simple way to browse and buy courses.",
-      "The job portal had to make search-and-apply easy.",
-      "High-value course bundles needed a prominent home."
+      "Course discovery, pricing and job search needed to feel connected because the same teachers moved between them.",
+      "The job marketplace needed distinct paths for teachers and institutions.",
+      "Individual courses and higher-value packages needed to be easy to compare without crowding the homepage."
     ],
     "competitorAnalysis": [
-      "Education platforms with strong branding and clear navigation set the bar.",
-      "The best job portals keep search and filtering frictionless."
-    ],
-    "personas": [
-      {
-        "name": "Rina",
-        "context": "28, Primary School Teacher",
-        "wants": "Affordable courses, easy to buy.",
-        "preferences": "Fun, engaging, simple to navigate.",
-        "motivations": "Career growth through certified courses."
-      },
-      {
-        "name": "Arif",
-        "context": "40, School Administrator",
-        "wants": "A reliable place to find trained teachers.",
-        "preferences": "Good filters and application tracking.",
-        "motivations": "Hiring competent teachers faster."
-      }
+      "The comparison focused on how education platforms organise course discovery and how job portals separate search, application and hiring tasks."
     ],
     "userFlows": [
       {
-        "name": "Browse Courses",
-        "steps": "Homepage → Courses page → Course detail → Enroll / Purchase"
+        "name": "Choose a Course",
+        "steps": "Homepage → Browse courses → Compare details and price → Enrol"
       },
       {
-        "name": "Explore Pricing Packages",
-        "steps": "Homepage → Pricing page → Select plan → Checkout"
+        "name": "Find and Apply for Work",
+        "steps": "Job marketplace → Search and filter → Review role → Apply"
       },
       {
-        "name": "Job Search & Apply",
-        "steps": "Homepage → Job portal → Search and filter jobs → Apply"
-      },
-      {
-        "name": "Institution Hiring Flow",
-        "steps": "Job portal → Post job listing → Manage applications"
+        "name": "Hire a Teacher",
+        "steps": "Institution portal → Publish role → Review applicants → Manage applications"
       }
     ],
     "wireframes": [
-      "Low-fidelity wireframes for home, courses, pricing and the portal.",
-      "Consistent layouts that carry the fun, educational brand.",
-      "High-fidelity prototypes shaped by client and stakeholder feedback."
+      "Used low-fidelity layouts to connect the homepage, course catalogue, pricing and job marketplace.",
+      "Refined the high-fidelity prototype with direct client feedback."
     ],
     "visualDirection": [
-      "Fun, modern, on-brand.",
-      "Clean type, bright accents, approachable UI.",
-      "Mobile-first and fully responsive."
+      "Balanced an energetic education brand with clear type, controlled colour and predictable page patterns.",
+      "Designed the main teacher journeys mobile-first."
     ],
     "keyScreens": [
       {
-        "name": "Homepage",
-        "description": "Courses, job portal and pricing up front."
+        "name": "One path from learning to work",
+        "description": "Connected course discovery, pricing and job opportunities instead of presenting them as unrelated destinations."
       },
       {
-        "name": "Courses Page",
-        "description": "Grid with categories and quick enrol."
+        "name": "Faster job search for teachers",
+        "description": "Designed search, filters and application steps around the information a teacher needs to decide whether a role fits."
       },
       {
-        "name": "Pricing Page",
-        "description": "Single courses and bundles side by side."
-      },
-      {
-        "name": "Job Portal",
-        "description": "Search, filter, apply."
-      },
-      {
-        "name": "Application Form",
-        "description": "A short apply form built for teachers."
-      }
-    ],
-    "expectedOutcomes": [
-      {
-        "label": "Improved usability",
-        "description": "Shorter course purchase and job application flows."
-      },
-      {
-        "label": "Modern design",
-        "description": "Consistent, fun branding on every page."
-      },
-      {
-        "label": "New revenue opportunities",
-        "description": "Bundles and plans given prominence."
-      },
-      {
-        "label": "Career connection",
-        "description": "Teachers can find and apply for jobs on the platform."
-      },
-      {
-        "label": "Responsive experience",
-        "description": "Works well on the phones teachers use."
+        "name": "A separate hiring path for institutions",
+        "description": "Gave schools a focused route to publish jobs and manage applicants without mixing those actions into the teacher experience."
       }
     ],
     "coverAlt": "Alokito Teacher homepage showing courses, the job platform for teachers and recruiters, badges, and pricing plans",
@@ -459,21 +287,21 @@
     "coverAnnotations": [
       {
         "label": "Courses lead the page",
-        "note": "Teachers wanted to browse and buy quickly",
+        "note": "The clearest first action for teachers",
         "tone": "positive",
         "x": 22,
         "y": 56
       },
       {
         "label": "Job portal — new feature",
-        "note": "Added to connect teachers with schools",
+        "note": "Connects teachers and schools in one product",
         "tone": "positive",
         "x": 78,
         "y": 29
       },
       {
         "label": "Bundles made visible",
-        "note": "Client needed high-value plans pushed",
+        "note": "Plans are easier to find and compare",
         "tone": "neutral",
         "x": 78,
         "y": 78
@@ -485,124 +313,63 @@
     "slug": "taxrise",
     "title": "TaxRise",
     "order": 4,
-    "summary": "A redesign of TaxRise Inc's website to modernise the brand, tighten consistency and lift conversions.",
+    "summary": "I redesigned TaxRise's marketing site around clearer service paths, stronger proof and a consultation flow that makes the next step obvious.",
     "projectType": "Website Redesign",
     "industry": "Fintech",
     "platform": "Desktop & Mobile",
     "year": "2024",
     "duration": "6 months",
     "externalLabel": "Visit Website",
-    "goal": "A modern, consistent site that converts better and holds its own in the market.",
+    "goal": "Tax relief is already hard to understand. The website added another layer of friction through inconsistent pages, scattered proof and unclear next steps. The redesign had to make the path to expert help feel simpler and more credible.",
     "targetUsers": [
       {
-        "label": "Clients (25–60)",
-        "description": "Trustworthy tax help, clear information, an easy first step."
+        "label": "People looking for tax relief",
+        "description": "Need to understand their options, judge whether the company is credible and know how to start."
       },
       {
         "label": "Internal teams (SEO and marketing)",
-        "description": "A site on brand, built to convert, easy to extend for campaigns."
+        "description": "Need repeatable page structures they can extend for new services, content and campaigns."
       }
     ],
-    "discoveryNote": "Worked closely with stakeholders and the SEO and marketing teams.",
+    "discoveryNote": "Conversations with stakeholders, SEO and marketing surfaced one shared problem: the site had grown page by page, without a consistent route from a tax question to a consultation.",
     "insights": [
-      "Inconsistency between pages was costing trust.",
-      "Conversion flows leaked people along the way.",
-      "SEO and marketing needed a structure they could build campaigns on."
+      "Service pages used different patterns, so the next step changed as people moved through the site.",
+      "Customer stories, case results and enrolled-agent credentials were separated from the moments when people were deciding whether to trust the company.",
+      "Marketing needed a page system that could support new campaigns without redesigning each one from scratch."
     ],
     "competitorAnalysis": [
-      "Competitors used modern, professional layouts with strong trust signals and clear CTAs.",
-      "The gap: a stronger visual identity and a smoother way in."
-    ],
-    "personas": [
-      {
-        "name": "John",
-        "context": "35, Small Business Owner",
-        "wants": "Services explained plainly and a fast way to reach an expert.",
-        "preferences": "Professional, modern, trustworthy.",
-        "motivations": "Credibility, testimonials, transparency."
-      },
-      {
-        "name": "Linda",
-        "context": "50, Salaried Professional",
-        "wants": "Clear steps to resolve a tax problem.",
-        "preferences": "Simple navigation, accessible information.",
-        "motivations": "Reviews, case studies, visible expertise."
-      }
+      "The comparison focused on how tax-relief sites explain services, place customer proof and repeat the consultation action."
     ],
     "userFlows": [
       {
-        "name": "Request Consultation",
-        "steps": "Homepage → Services → Select service → Contact form"
+        "name": "Find the Right Service",
+        "steps": "Homepage → Explore tax problem → Review service → Start consultation"
       },
       {
-        "name": "Learn About Services",
-        "steps": "Homepage → Services overview → Individual service detail page"
-      },
-      {
-        "name": "Build Trust",
-        "steps": "Homepage → Reviews / Testimonials → Case Studies → Contact"
-      },
-      {
-        "name": "Resources Access",
-        "steps": "Homepage → Blog / Knowledge Base → Read articles → Lead capture form"
+        "name": "Evaluate Trust",
+        "steps": "Service page → Customer story or case result → Team credentials → Consultation"
       }
     ],
     "wireframes": [
-      "Low-fidelity wireframes to set structure and layout.",
-      "CTAs and trust elements — reviews, credentials — placed first.",
-      "High-fidelity prototypes refined with stakeholders."
+      "Started with low-fidelity page structures for services, proof and consultation.",
+      "Refined the high-fidelity system with stakeholder feedback across roughly 30 screens."
     ],
     "visualDirection": [
-      "Modern, consistent, professional.",
-      "A full style guide: type, colour, components, layouts.",
-      "Trust made visible: testimonials, success metrics, case highlights."
+      "Built a consistent visual system for type, colour, components and page hierarchy.",
+      "Used customer stories, case results and team credentials as part of the information hierarchy, not as decoration."
     ],
     "keyScreens": [
       {
-        "name": "Homepage",
-        "description": "Clean hero, clear CTA, services and trust elements."
+        "name": "A consistent service-page system",
+        "description": "Created a repeatable hierarchy for complex tax topics, supporting proof and a clear next step."
       },
       {
-        "name": "Services Page",
-        "description": "Grid with detail and direct CTAs."
+        "name": "Trust before conversion",
+        "description": "Brought customer stories, case results and enrolled-agent credentials into the points where people decide whether to continue."
       },
       {
-        "name": "About Page",
-        "description": "Company story, credibility, team."
-      },
-      {
-        "name": "Testimonials / Case Studies",
-        "description": "Easy to browse; there to reinforce credibility."
-      },
-      {
-        "name": "Blog / Resources",
-        "description": "Structured for SEO and easy reading."
-      },
-      {
-        "name": "Contact Page",
-        "description": "Simple, mobile-friendly forms."
-      }
-    ],
-    "expectedOutcomes": [
-      {
-        "label": "Improved usability",
-        "description": "Simpler navigation and conversion flows."
-      },
-      {
-        "label": "Consistency",
-        "description": "One style across roughly 30 screens."
-      },
-      {
-        "label": "Increased trust",
-        "description": "A modern presence, backed by testimonials."
-      },
-      {
-        "label": "Conversion-focused",
-        "description": "Clearer CTAs, better-structured service pages."
-      },
-      {
-        "label": "Scalability",
-        "description": "Ready for SEO and marketing campaigns."
+        "name": "A clearer consultation handoff",
+        "description": "Reworked the consultation page around a focused form and a straightforward explanation of what happens next."
       }
     ],
     "coverAlt": "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
@@ -622,21 +389,21 @@
     "coverAnnotations": [
       {
         "label": "One clear CTA",
-        "note": "Old conversion flows were dropping off",
+        "note": "The primary action stays consistent across pages",
         "tone": "positive",
         "x": 21,
         "y": 27
       },
       {
         "label": "Results lead with proof",
-        "note": "Credibility was what both personas asked for",
+        "note": "Customer proof appears near service decisions",
         "tone": "positive",
         "x": 23,
         "y": 72
       },
       {
         "label": "~30 screens, one style guide",
-        "note": "Inconsistency was actively reducing trust",
+        "note": "A reusable hierarchy across the redesign",
         "tone": "neutral",
         "x": 79,
         "y": 48

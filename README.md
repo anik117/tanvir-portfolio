@@ -65,8 +65,8 @@ Studio while signed in registers it automatically; if it does not, add it by han
 To re-import or repair content:
 
 ```bash
-npx sanity login
-npx sanity exec scripts/import-content.ts --with-user-token
+npx sanity login          # first time only
+npm run publish:projects  # updates project records without touching site settings
 ```
 
 ## Layout
@@ -84,6 +84,8 @@ docs/           what to build — the source of truth
 ├── brief.md            goal, audience, principles, evidence rules
 ├── profile.md          bio, experience, capabilities, contact
 ├── content.md          page copy for every route
+├── case-study-copy-strategy.md
+│                       public case-study hierarchy and evidence rules
 ├── design-direction.md visual, interaction, motion, Three.js
 ├── build-spec.md       stack, IA, components, responsive, a11y, performance
 └── projects/           one case study per file, plus _template.md

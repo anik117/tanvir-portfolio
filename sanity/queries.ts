@@ -15,8 +15,8 @@ export const PROJECT_BY_SLUG_QUERY = groq`
     ${CARD},
     platform, duration, role, externalUrl, externalLabel,
     goal, targetUsers, discoveryNote, insights, competitorAnalysis,
-    personas, userFlows, wireframes, visualDirection, keyScreens,
-    expectedOutcomes, outcomes, body,
+    userFlows, wireframes, visualDirection, keyScreens,
+    outcomes, body,
     gallery[] { ..., annotations },
     "others": *[_type == "project" && slug.current != $slug] | order(order asc)[0...3] { ${CARD} }
   }

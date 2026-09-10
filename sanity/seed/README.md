@@ -3,8 +3,8 @@
 Imports project content and images into Sanity.
 
 ```bash
-npx sanity login                                              # once
-npx sanity exec scripts/import-content.ts --with-user-token
+npx sanity login          # first time only
+npm run publish:projects  # leaves site settings unchanged
 ```
 
 Idempotent. Documents use fixed `_id`s and are replaced on re-run; images are only
@@ -21,18 +21,21 @@ live in `assets/projects/<slug>/`.
 
 | Field | Why |
 | --- | --- |
-| `outcomes` (measured) | No real numbers exist. The schema requires evidence on every metric, so these stay empty until there are sources. |
+| `outcomes` (measured) | No sourced numbers are available. The public case study omits the impact section until evidence is added. |
 
 ## Role — read this
 
-Set to **"UI/UX Designer"** on all four projects. That is Tanvir's own stated title applied to
-work the case studies show he did end to end: discovery, personas, flows, wireframes, design
-system, final UI. Each one says "I collaborated…", and no other designer is ever mentioned.
+The current seed says **"Sole UI/UX Designer"** on all four projects. Keep that wording only
+if it is verified. Otherwise use a title that does not claim team structure.
 
-It deliberately makes **no claim about team structure**, because the source never states one.
-If he was the sole designer, or led other designers, that is materially stronger and should be
-said explicitly in the Studio — "Sole designer" and "Lead designer" are the two upgrades worth
-making, and both are the kind of thing an interviewer will ask about directly.
+## Public case-study narrative
+
+The public page is intentionally narrower than the CMS schema:
+
+- no demographic personas unless they come from documented research;
+- no expected-outcome checklist presented as impact;
+- three concrete design decisions instead of a screen inventory;
+- user flows and process notes are available on demand, not in the main reading path.
 
 ## Notes
 
@@ -46,6 +49,4 @@ duplicating them — and repairs a document that lost its image references.
 **The availability chip is a claim.** `availabilityShow` is on with the label "Available for
 new work". Turn it off in the Studio the moment it stops being true.
 
-**Expected outcomes are not results.** The old site said "the expected outcomes included" —
-that framing is honest and the site preserves it, rendering them under a heading that says
-so. Do not promote them to measured results without evidence.
+**Measured impact needs evidence.** Add a result only when its source can be included with it.

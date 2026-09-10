@@ -2,9 +2,12 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Case study in progress |
-| Blocked on | Figma audit |
+| Status | Public narrative revised; evidence worksheet incomplete |
+| Blocked on | Role, research source and measured-impact verification |
 | Assets | `assets/projects/taxrise/` |
+
+The concise public copy now lives in `sanity/seed/projects.json`. This document remains the
+evidence worksheet; its unresolved fields must not be filled by inference.
 
 ## Summary
 

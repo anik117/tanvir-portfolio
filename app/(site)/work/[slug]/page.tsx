@@ -137,10 +137,9 @@ function readingTime(project: Project) {
     ...(project.wireframes ?? []),
     ...(project.visualDirection ?? []),
     ...(project.targetUsers ?? []).map((u) => `${u.label} ${u.description ?? ""}`),
-    ...(project.personas ?? []).map((p) => `${p.wants ?? ""} ${p.preferences ?? ""} ${p.motivations ?? ""}`),
     ...(project.userFlows ?? []).map((f) => `${f.name} ${f.steps ?? ""}`),
     ...(project.keyScreens ?? []).map((k) => `${k.name} ${k.description ?? ""}`),
-    ...(project.expectedOutcomes ?? []).map((o) => `${o.label} ${o.description ?? ""}`),
+    ...(project.outcomes ?? []).map((o) => `${o.value} ${o.label} ${o.evidence}`),
   ]
     .filter(Boolean)
     .join(" ");
@@ -187,9 +186,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
   ].filter(([, v]) => Boolean(v)) as [string, string][];
 
   const hasBrief = Boolean(project.goal || project.targetUsers?.length);
-  const hasResearch = Boolean(
-    project.insights?.length || project.competitorAnalysis?.length || project.personas?.length,
-  );
+  const hasResearch = Boolean(project.insights?.length || project.competitorAnalysis?.length);
   const hasBuild = Boolean(
     project.userFlows?.length ||
       project.wireframes?.length ||
@@ -197,13 +194,13 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
       project.keyScreens?.length ||
       project.gallery?.length,
   );
-  const hasOutcome = Boolean(project.outcomes?.length || project.expectedOutcomes?.length);
+  const hasOutcome = Boolean(project.outcomes?.length);
 
   const acts: ActLink[] = [
-    hasBrief && { id: "act-01", n: "01", title: "The brief" },
-    hasResearch && { id: "act-02", n: "02", title: "What I found" },
-    hasBuild && { id: "act-03", n: "03", title: "How I built it" },
-    hasOutcome && { id: "act-04", n: "04", title: "What it set out to do" },
+    hasBrief && { id: "act-01", n: "01", title: "The challenge" },
+    hasResearch && { id: "act-02", n: "02", title: "What shaped the work" },
+    hasBuild && { id: "act-03", n: "03", title: "Key decisions" },
+    hasOutcome && { id: "act-04", n: "04", title: "Measured impact" },
   ].filter(Boolean) as ActLink[];
 
   return (
@@ -281,42 +278,8 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
         )}
       </div>
 
-      {/* ---- At a glance ---------------------------------------------------
-           The whole study in three cells, built from fields it already has,
-           for the reader who will not scroll. */}
-      {(project.goal || project.targetUsers?.length || project.expectedOutcomes?.length) && (
-        <div className="mx-auto mt-10 max-w-page px-5 sm:px-10">
-          <Reveal delay={360}>
-            <dl className="panel-soft grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:gap-10 sm:p-8">
-              {project.goal && (
-                <div>
-                  <dt className="mono text-[11px] uppercase tracking-[0.16em] text-muted-strong">The goal</dt>
-                  <dd className="mt-2 text-[15px] leading-relaxed">{project.goal}</dd>
-                </div>
-              )}
-              {project.targetUsers?.length ? (
-                <div>
-                  <dt className="mono text-[11px] uppercase tracking-[0.16em] text-muted-strong">Designed for</dt>
-                  <dd className="mt-2 text-[15px] leading-relaxed">
-                    {project.targetUsers.map((u) => u.label).join(" · ")}
-                  </dd>
-                </div>
-              ) : null}
-              {project.expectedOutcomes?.length ? (
-                <div>
-                  <dt className="mono text-[11px] uppercase tracking-[0.16em] text-muted-strong">Set out to</dt>
-                  <dd className="mt-2 text-[15px] leading-relaxed">
-                    {project.expectedOutcomes.map((o) => o.label).join(" · ")}
-                  </dd>
-                </div>
-              ) : null}
-            </dl>
-          </Reveal>
-        </div>
-      )}
-
       {/* ---- Story --------------------------------------------------------- */}
-      <div className="mx-auto mt-24 max-w-page px-5 sm:px-10 xl:grid xl:grid-cols-[14rem_1fr] xl:gap-16">
+      <div className="mx-auto mt-16 max-w-page px-5 sm:px-10 xl:grid xl:grid-cols-[14rem_1fr] xl:gap-16">
         <aside className="hidden xl:block">
           <div className="sticky top-[calc(var(--nav-h)+1.5rem)]">
             <ActNav acts={acts} />
@@ -325,10 +288,11 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         <div className="max-w-read space-y-20">
           {hasBrief && (
-            <Act id="act-01" title="The brief">
+            <Act id="act-01" title="The challenge">
+              {project.goal && <Lead>{project.goal}</Lead>}
               {project.targetUsers?.length ? (
                 <>
-                  <Sub>Who it had to work for</Sub>
+                  <Sub>Primary audiences</Sub>
                   <Rows
                     items={project.targetUsers.map((u) => ({
                       key: u._key ?? u.label,
@@ -342,7 +306,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
 
           {hasResearch && (
-            <Act id="act-02" title="What I found">
+            <Act id="act-02" title="What shaped the work">
               {project.discoveryNote && <Lead>{project.discoveryNote}</Lead>}
 
               {project.insights?.length ? (
@@ -357,65 +321,22 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                   <Points items={project.competitorAnalysis} />
                 </Folded>
               ) : null}
-
-              {project.personas?.length ? (
-                <div className="mt-12">
-                  <Sub>Who I designed for</Sub>
-                  <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-                    {project.personas.map((p) => (
-                      <div key={p._key ?? p.name} className="border-t border-border pt-5">
-                        <p className="text-lg font-medium tracking-tight">{p.name}</p>
-                        {p.context && <p className="mt-0.5 text-sm text-muted-strong">{p.context}</p>}
-                        <dl className="mt-4 space-y-2.5 text-[15px] leading-relaxed">
-                          {[
-                            ["Wants", p.wants],
-                            ["Prefers", p.preferences],
-                            ["Motivated by", p.motivations],
-                          ]
-                            .filter(([, v]) => Boolean(v))
-                            .map(([label, value]) => (
-                              <div key={label as string}>
-                                <dt className="text-[11px] uppercase tracking-wider text-muted">
-                                  {label}
-                                </dt>
-                                <dd className="mt-0.5">{value}</dd>
-                              </div>
-                            ))}
-                        </dl>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
             </Act>
           )}
 
           {hasBuild && (
-            <Act id="act-03" title="How I built it">
-              {project.userFlows?.length ? (
+            <Act id="act-03" title="Key decisions">
+              {project.keyScreens?.length ? (
                 <div>
-                  <Sub>Critical flows</Sub>
-                  <ol className="divide-y divide-border border-y border-border">
-                    {project.userFlows.map((f) => (
-                      <li key={f._key ?? f.name} className="grid gap-2 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-                        <p className="font-semibold">{f.name}</p>
-                        {f.steps && <Steps steps={f.steps} />}
-                      </li>
-                    ))}
-                  </ol>
+                  <Sub>What I changed and why</Sub>
+                  <Rows
+                    items={project.keyScreens.map((s) => ({
+                      key: s._key ?? s.name,
+                      label: s.name,
+                      description: s.description,
+                    }))}
+                  />
                 </div>
-              ) : null}
-
-              {project.wireframes?.length ? (
-                <Folded label="Wireframes" count={project.wireframes.length}>
-                  <Points items={project.wireframes} />
-                </Folded>
-              ) : null}
-
-              {project.visualDirection?.length ? (
-                <Folded label="Visual direction" count={project.visualDirection.length}>
-                  <Points items={project.visualDirection} />
-                </Folded>
               ) : null}
 
               {project.gallery?.length ? (
@@ -435,23 +356,35 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                 </div>
               ) : null}
 
-              {project.keyScreens?.length ? (
-                <div className="mt-14">
-                  <Sub>Key screens</Sub>
-                  <Rows
-                    items={project.keyScreens.map((s) => ({
-                      key: s._key ?? s.name,
-                      label: s.name,
-                      description: s.description,
-                    }))}
-                  />
-                </div>
+              {project.userFlows?.length ? (
+                <Folded label="Selected user flows" count={project.userFlows.length}>
+                  <ol className="divide-y divide-border border-y border-border">
+                    {project.userFlows.map((f) => (
+                      <li key={f._key ?? f.name} className="grid gap-2 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                        <p className="font-semibold">{f.name}</p>
+                        {f.steps && <Steps steps={f.steps} />}
+                      </li>
+                    ))}
+                  </ol>
+                </Folded>
+              ) : null}
+
+              {project.wireframes?.length ? (
+                <Folded label="Wireframes" count={project.wireframes.length}>
+                  <Points items={project.wireframes} />
+                </Folded>
+              ) : null}
+
+              {project.visualDirection?.length ? (
+                <Folded label="Visual direction" count={project.visualDirection.length}>
+                  <Points items={project.visualDirection} />
+                </Folded>
               ) : null}
             </Act>
           )}
 
           {hasOutcome && (
-            <Act id="act-04" title="What it set out to do">
+            <Act id="act-04" title="Measured impact">
               {project.outcomes?.length ? (
                 <ul className="panel-soft mb-8 grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:p-8">
                   {project.outcomes.map((o) => (
@@ -462,19 +395,6 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                     </li>
                   ))}
                 </ul>
-              ) : null}
-
-              {project.expectedOutcomes?.length ? (
-                <>
-                  <p className="mb-5 text-[14px] text-muted">Designed for, not measured.</p>
-                  <Rows
-                    items={project.expectedOutcomes.map((o) => ({
-                      key: o._key ?? o.label,
-                      label: o.label,
-                      description: o.description,
-                    }))}
-                  />
-                </>
               ) : null}
             </Act>
           )}

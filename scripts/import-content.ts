@@ -2,6 +2,7 @@
  * Imports project content and images into Sanity.
  *
  *   npx sanity exec scripts/import-content.ts --with-user-token
+ *   SANITY_PROJECTS_ONLY=1 npx sanity exec scripts/import-content.ts --with-user-token
  *
  * Idempotent: documents use fixed _ids and are replaced on re-run. Images are
  * only uploaded when the document does not already reference one, so re-running
@@ -132,6 +133,11 @@ async function main() {
 
     await client.createOrReplace(doc as never);
     console.log(`${p.slug}: document written`);
+  }
+
+  if (process.env.SANITY_PROJECTS_ONLY === "1") {
+    console.log("\nDone. Project records written; site settings left unchanged.");
+    return;
   }
 
   await client.createOrReplace({

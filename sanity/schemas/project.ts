@@ -151,6 +151,8 @@ export const project = defineType({
     { ...bullets("visualDirection", "Visual direction"), group: "design" },
     defineField({
       name: "keyScreens",
+      title: "Key design decisions",
+      description: "Three concise decisions. Name the move, then explain what changed and why.",
       type: "array",
       group: "design",
       of: [
