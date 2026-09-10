@@ -30,7 +30,7 @@ function Relation({ item, dark }: { item: Item; dark?: boolean }) {
     <span
       className={`mono inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.14em] ${
         dark
-          ? "bg-white text-muted-strong ring-1 ring-border"
+          ? "border border-border bg-white text-muted-strong"
           : "bg-panel text-muted-strong"
       }`}
     >
