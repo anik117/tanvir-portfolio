@@ -90,7 +90,7 @@ function Card({
           <span
             aria-hidden
             className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[14px] font-semibold text-foreground ${
-              dark ? "ring-1 ring-border" : ""
+              dark ? "border border-border" : ""
             }`}
             style={{ background: dark ? "#fff" : tints[index % tints.length] }}
           >
