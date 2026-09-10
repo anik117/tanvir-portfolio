@@ -222,7 +222,7 @@ async function main() {
     ...aboutContent,
     // Only tools there is actual evidence for: Figma (the Ibadat prototype link),
     // Framer (the old site), Sanity (this one). Add the rest in the Studio.
-    toolkit: ["Figma", "Framer", "Sanity"],
+    toolkit: ["Figma", "Framer", "AI tools: Claude, Codex"],
     // From LinkedIn, 2026-09-08. Most recent first.
     experience: [
       {

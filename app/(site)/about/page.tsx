@@ -157,73 +157,79 @@ export default async function AboutPage() {
         </Reveal>
       </div>
 
-      {/* ---- The record ---------------------------------------------------- */}
+      {/* ---- The record ----------------------------------------------------
+           Left: where he has worked, then studied. Right: what he does, then
+           what he uses. */}
       <div className="mt-24 grid gap-x-20 gap-y-20 lg:grid-cols-2">
-        {settings?.experience?.length ? (
-          <Reveal>
-            <section>
-              <Label>Experience</Label>
-              <ul className="mt-5 border-b border-border">
-                {settings.experience.map((job) => (
-                  <Row
-                    key={job._key ?? job.role}
-                    when={job.years}
-                    title={job.role}
-                    where={job.organization}
-                    note={job.summary}
-                  />
-                ))}
-              </ul>
-            </section>
-          </Reveal>
-        ) : null}
+        <div className="space-y-20">
+          {settings?.experience?.length ? (
+            <Reveal>
+              <section>
+                <Label>Experience</Label>
+                <ul className="mt-5 border-b border-border">
+                  {settings.experience.map((job) => (
+                    <Row
+                      key={job._key ?? job.role}
+                      when={job.years}
+                      title={job.role}
+                      where={job.organization}
+                      note={job.summary}
+                    />
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+          ) : null}
 
-        {settings?.education?.length ? (
-          <Reveal>
-            <section>
-              <Label>Education</Label>
-              <ul className="mt-5 border-b border-border">
-                {settings.education.map((ed) => (
-                  <Row
-                    key={ed._key ?? ed.qualification}
-                    when={ed.years}
-                    title={ed.qualification}
-                    where={ed.institution}
-                    note={ed.note}
-                  />
-                ))}
-              </ul>
-            </section>
-          </Reveal>
-        ) : null}
+          {settings?.education?.length ? (
+            <Reveal>
+              <section>
+                <Label>Education</Label>
+                <ul className="mt-5 border-b border-border">
+                  {settings.education.map((ed) => (
+                    <Row
+                      key={ed._key ?? ed.qualification}
+                      when={ed.years}
+                      title={ed.qualification}
+                      where={ed.institution}
+                      note={ed.note}
+                    />
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+          ) : null}
+        </div>
 
-        {services.length ? (
-          <Reveal>
-            <section>
-              <Label>How I help</Label>
-              <ul className="mt-5 border-b border-border">
-                {services.map((service) => (
-                  <Row
-                    key={service._key ?? service.name}
-                    title={service.name}
-                    note={service.description}
-                  />
-                ))}
-              </ul>
-            </section>
-          </Reveal>
-        ) : null}
+        <div className="space-y-20">
+          {services.length ? (
+            <Reveal>
+              <section>
+                <Label>How I help</Label>
+                <ul className="mt-5 border-b border-border">
+                  {services.map((service) => (
+                    <Row
+                      key={service._key ?? service.name}
+                      title={service.name}
+                      note={service.description}
+                    />
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+          ) : null}
 
-        {settings?.toolkit?.length ? (
-          <Reveal>
-            <section>
-              <Label>Toolkit</Label>
-              <p className="mt-5 text-[17px] leading-relaxed text-muted-strong">
-                {settings.toolkit.join("  ·  ")}
-              </p>
-            </section>
-          </Reveal>
-        ) : null}
+          {settings?.toolkit?.length ? (
+            <Reveal>
+              <section>
+                <Label>Toolkit</Label>
+                <p className="mt-5 text-[17px] leading-relaxed text-muted-strong">
+                  {settings.toolkit.join("  ·  ")}
+                </p>
+              </section>
+            </Reveal>
+          ) : null}
+        </div>
       </div>
     </main>
   );
