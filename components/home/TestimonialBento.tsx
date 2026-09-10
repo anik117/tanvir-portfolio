@@ -65,9 +65,11 @@ function Card({
       style={
         dark
           ? {
-              // The hero sheet's gradient, sky down into pale yellow.
+              // The hero sheet's gradient, flipped and lightened: pale yellow
+              // at the top running down into a soft sky blue, mostly white
+              // through the middle.
               background:
-                "linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 18%, var(--sky-3) 42%, var(--mint) 58%, var(--cream) 78%, var(--peach) 100%)",
+                "linear-gradient(180deg, var(--cream) 0%, #fdfcf8 22%, #fbfbfa 50%, var(--sky-3) 74%, var(--sky-2) 100%)",
             }
           : undefined
       }
