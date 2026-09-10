@@ -13,7 +13,7 @@ import { SanityImage } from "@/components/SanityImage";
  */
 export function WorkStack({ projects }: { projects: ProjectCard[] }) {
   return (
-    <ul className="mx-auto max-w-[880px] space-y-8">
+    <ul className="space-y-8">
       {projects.map((project, i) => (
         <li key={project._id} className="sticky" style={{ top: "calc(var(--nav-h) + 1.5rem)" }}>
           <Link

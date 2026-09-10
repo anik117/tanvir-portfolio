@@ -241,7 +241,7 @@ Hero sheet back to full width inside a 12–16px margin; the warm stops are a pa
 (`#fffbef` → `#fff3d6`), lighter and less orange.
 
 The sky-to-yellow gradient is the hero's and the footer's only. Every other panel — the
-work stack, the case study's at-a-glance strip and outcome numbers, the contact card — sits
+work stack (until 2026-09-10, when it lost its panel and the cards took the full container), the case study's at-a-glance strip and outcome numbers, the contact card — sits
 on a soft warm grey `#f4f3f0` (`.panel-soft`).
 
 All greys are the same warm family now: ground `#faf9f7`, panels `#f4f3f0` and `#f8f7f4`
