@@ -6,6 +6,9 @@ import { Reveal } from "@/components/Reveal";
 
 type Item = NonNullable<SiteSettings["testimonials"]>[number];
 
+/* Soft avatar tints, cycled by position; ink initials on all of them. */
+const tints = ["#dbeafe", "#fff3d6", "#dcfce7", "#fce7f3", "#ede9fe", "#ffedd5"];
+
 function initials(name: string) {
   return name
     .split(/\s+/)
@@ -19,7 +22,7 @@ function QuoteMark({ dark }: { dark?: boolean }) {
   return (
     <span
       aria-hidden
-      className={`serif block text-[44px] leading-[0.6] ${dark ? "text-white/70" : "text-accent"}`}
+      className={`serif block text-[44px] leading-[0.6] ${dark ? "text-white/60" : "text-accent"}`}
     >
       &rdquo;
     </span>
@@ -28,12 +31,12 @@ function QuoteMark({ dark }: { dark?: boolean }) {
 
 function Card({
   item,
-  featured = false,
+  index,
   dark = false,
   className = "",
 }: {
   item: Item;
-  featured?: boolean;
+  index: number;
   dark?: boolean;
   className?: string;
 }) {
@@ -42,16 +45,12 @@ function Card({
   return (
     <figure
       className={`flex h-full flex-col justify-between rounded-[28px] p-7 sm:p-8 ${
-        dark ? "bg-accent shadow-[var(--shadow-lift)]" : "card"
+        dark ? "bg-dark shadow-[var(--shadow-lift)]" : "card"
       } ${className}`}
     >
       <div>
         <QuoteMark dark={dark} />
-        <blockquote
-          className={`mt-4 leading-[1.6] ${ink} ${
-            featured ? "text-[17px] sm:text-[19px] sm:leading-[1.55]" : "text-[15px]"
-          }`}
-        >
+        <blockquote className={`mt-4 text-[15.5px] font-normal leading-[1.65] ${ink}`}>
           &ldquo;{item.quote}&rdquo;
         </blockquote>
       </div>
@@ -60,9 +59,8 @@ function Card({
         <div className="flex items-center gap-3.5">
           <span
             aria-hidden
-            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[14px] font-bold ${
-              dark ? "bg-white text-accent-hover" : "bg-accent text-white"
-            }`}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[14px] font-semibold text-foreground"
+            style={{ background: tints[index % tints.length] }}
           >
             {initials(item.name)}
           </span>
@@ -105,8 +103,9 @@ function Card({
 /**
  * A bento of quotes: the first stands tall on the left across two rows, the
  * second runs wide across the top right, the next two sit under it, and any
- * after that run the full width. The last card is set in blue. Rows size to
- * their content, so long quotes never stretch their neighbours.
+ * after that run the full width. The tall one is set in ink so it stands
+ * out; every quote is the same size and weight. Rows size to their content,
+ * so long quotes never stretch their neighbours.
  */
 export function TestimonialBento({ items }: { items: Item[] }) {
   const [first, second, ...rest] = items;
@@ -118,17 +117,16 @@ export function TestimonialBento({ items }: { items: Item[] }) {
 
       <div className="mt-12 grid gap-5 lg:grid-cols-3">
         <Reveal className="lg:col-span-1 lg:row-span-2">
-          <Card item={first} featured />
+          <Card item={first} index={0} dark />
         </Reveal>
 
         {second && (
           <Reveal delay={80} className="lg:col-span-2">
-            <Card item={second} />
+            <Card item={second} index={1} />
           </Reveal>
         )}
 
         {rest.map((item, i) => {
-          const last = i === rest.length - 1;
           // The first two sit beside the tall card; anything after runs full width.
           const wide = i >= 2;
           return (
@@ -137,7 +135,7 @@ export function TestimonialBento({ items }: { items: Item[] }) {
               delay={160 + i * 80}
               className={wide ? "lg:col-span-3" : ""}
             >
-              <Card item={item} dark={last} />
+              <Card item={item} index={i + 2} />
             </Reveal>
           );
         })}
