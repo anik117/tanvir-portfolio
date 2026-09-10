@@ -29,7 +29,7 @@ function Relation({ item, dark }: { item: Item; dark?: boolean }) {
   return (
     <span
       className={`mono inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.14em] ${
-        dark ? "bg-white/70 text-accent-hover" : "bg-panel text-muted-strong"
+        dark ? "bg-accent-soft text-accent-hover" : "bg-panel text-muted-strong"
       }`}
     >
       {item.relationship}
@@ -61,31 +61,41 @@ function Card({
   const soft = "text-muted-strong";
   return (
     <figure
-      className={`relative flex h-full flex-col justify-between overflow-hidden p-9 sm:p-11 ${
-        dark ? "bg-accent-soft" : "bg-white"
-      } ${className}`}
+      className={`relative flex h-full flex-col justify-between overflow-hidden bg-white p-10 sm:p-14 ${className}`}
     >
+      {dark && (
+        // A soft blue glow rising from the foot, so the featured quote reads
+        // as lit rather than boxed.
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[60%]"
+          style={{
+            background:
+              "radial-gradient(120% 90% at 50% 110%, rgb(186 219 252 / 0.9) 0%, rgb(219 234 254 / 0.5) 40%, transparent 72%)",
+          }}
+        />
+      )}
       <div className="relative">
         <Relation item={item} dark={dark} />
         <blockquote
-          className={`mt-5 text-[15.5px] font-normal leading-[1.65] ${ink}`}
+          className={`mt-7 text-[17px] font-normal leading-[1.7] ${ink}`}
         >
           &ldquo;{item.quote}&rdquo;
         </blockquote>
       </div>
 
-      <figcaption className="relative mt-8 flex items-end justify-between gap-4">
+      <figcaption className="relative mt-12 flex items-end justify-between gap-4">
         <div className="flex items-center gap-3.5">
           <span
             aria-hidden
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[14px] font-semibold text-foreground"
-            style={{ background: dark ? "#fff" : tints[index % tints.length] }}
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[14px] font-semibold text-foreground"
+            style={{ background: tints[index % tints.length] }}
           >
             {initials(item.name)}
           </span>
           <div className="min-w-0">
-            <p className={`text-[15px] font-semibold ${ink}`}>{item.name}</p>
-            <p className={`text-[13px] leading-snug ${soft}`}>
+            <p className={`text-[16px] font-semibold ${ink}`}>{item.name}</p>
+            <p className={`mt-0.5 text-[14px] leading-snug ${soft}`}>
               {[item.title, item.company].filter(Boolean).join(", ")}
             </p>
             {item.projectSlug && (
@@ -144,7 +154,7 @@ export function TestimonialBento({ items }: { items: Item[] }) {
           className="grid gap-px lg:grid-cols-3"
           style={{ background: "var(--border)" }}
         >
-          <div className="bg-accent-soft lg:col-span-1 lg:row-span-2">
+          <div className="bg-white lg:col-span-1 lg:row-span-2">
             <Card item={first} index={0} dark />
           </div>
 
