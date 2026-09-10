@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { SocialIcon } from "@/components/SocialIcon";
 import type { SiteSettings } from "@/sanity/types";
 import { SanityImage } from "@/components/SanityImage";
 import { Reveal } from "@/components/Reveal";
@@ -25,11 +24,25 @@ function initials(name: string) {
     .join("");
 }
 
-/** The LinkedIn mark, where these recommendations come from, in the neutral grey. */
-function QuoteMark({ dark }: { dark?: boolean }) {
+/** Who this person is to him, as a small pill that opens the card. */
+function Relation({ item, dark }: { item: Item; dark?: boolean }) {
+  if (!item.relationship) return null;
   return (
-    <span className={`block ${dark ? "text-accent-hover/60" : "text-muted"}`}>
-      <SocialIcon platform="linkedin" size={28} />
+    <span
+      className={`mono inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.14em] ${
+        dark ? "bg-white/70 text-accent-hover" : "bg-panel text-muted-strong"
+      }`}
+    >
+      {item.relationship}
+      {item.date && (
+        <>
+          <span
+            aria-hidden
+            className="h-0.5 w-0.5 rounded-full bg-current opacity-60"
+          />
+          {item.date}
+        </>
+      )}
     </span>
   );
 }
@@ -54,7 +67,7 @@ function Card({
       } ${className}`}
     >
       <div className="relative">
-        <QuoteMark dark={dark} />
+        <Relation item={item} dark={dark} />
         <blockquote
           className={`mt-5 text-[15.5px] font-normal leading-[1.65] ${ink}`}
         >
@@ -76,16 +89,10 @@ function Card({
             <p className={`text-[13px] leading-snug ${soft}`}>
               {[item.title, item.company].filter(Boolean).join(", ")}
             </p>
-            {(item.relationship || item.projectSlug) && (
+            {item.projectSlug && (
               <p
                 className={`mono mt-1.5 flex flex-wrap gap-x-3 text-[10.5px] uppercase tracking-[0.12em] text-muted`}
               >
-                {item.relationship && (
-                  <span>
-                    {item.relationship}
-                    {item.date ? ` · ${item.date}` : ""}
-                  </span>
-                )}
                 {item.projectSlug && (
                   <Link
                     href={`/work/${item.projectSlug}`}
