@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight, Quote } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { SocialIcon } from "@/components/SocialIcon";
 import type { SiteSettings } from "@/sanity/types";
 import { SanityImage } from "@/components/SanityImage";
 import { Reveal } from "@/components/Reveal";
@@ -17,16 +18,12 @@ function initials(name: string) {
     .join("");
 }
 
-/** An opening quotation mark, solid, in the neutral grey. */
+/** The LinkedIn mark, where these recommendations come from, in the neutral grey. */
 function QuoteMark({ dark }: { dark?: boolean }) {
   return (
-    <Quote
-      aria-hidden
-      size={30}
-      strokeWidth={0}
-      fill="currentColor"
-      className={`-scale-x-100 ${dark ? "text-white/40" : "text-muted"}`}
-    />
+    <span className={`block ${dark ? "text-white/40" : "text-muted"}`}>
+      <SocialIcon platform="linkedin" size={28} />
+    </span>
   );
 }
 
