@@ -28,6 +28,9 @@ type Project = {
 const projects: Project[] = JSON.parse(
   readFileSync(join(process.cwd(), "sanity/seed/projects.json"), "utf8"),
 );
+const aboutContent = JSON.parse(
+  readFileSync(join(process.cwd(), "sanity/seed/about.json"), "utf8"),
+);
 
 /**
  * Resolves an image asset by its original filename, uploading it only if the
@@ -216,8 +219,7 @@ async function main() {
         date: "Feb 2026",
       },
     ],
-    aboutIntro:
-      "I started with a degree in Software Engineering, which gave me a foundation in technology, problem-solving, and systems thinking. Working in tech is where I found my interest in how people actually use digital products, and that is what moved me into UI/UX design.",
+    ...aboutContent,
     // Only tools there is actual evidence for: Figma (the Ibadat prototype link),
     // Framer (the old site), Sanity (this one). Add the rest in the Studio.
     toolkit: ["Figma", "Framer", "Sanity"],
@@ -270,15 +272,6 @@ async function main() {
         years: "2014 — 2018",
         note: 'General member of the Dhaka University IT Society.',
       },
-    ],
-    aboutHeading: "Designing Digital Solutions With Impact",
-    aboutParagraphs: [
-      "Collaboration is at the heart of my work. I enjoy partnering with developers, product managers, and stakeholders to create seamless workflows and efficient design systems. My goal is always to bridge the gap between creativity and functionality — delivering designs that are visually appealing, intuitive, and aligned with both business objectives and user expectations.",
-    ],
-    services: [
-      { _key: "s1", name: "UI/UX Design", description: "Crafting user-centered digital experiences through research, wireframing, prototyping, and testing. Every design decision is made with the user in mind." },
-      { _key: "s2", name: "Design System", description: "Building scalable design systems to ensure consistency, efficiency, and seamless collaboration between design and development teams." },
-      { _key: "s3", name: "Design Consultation", description: "Helping startups and businesses refine their digital products by identifying usability issues, improving workflows, and aligning design with business goals." },
     ],
     stats: [
       { _key: "st1", value: "7+", label: "Years designing" },

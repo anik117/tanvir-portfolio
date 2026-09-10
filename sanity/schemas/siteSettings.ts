@@ -130,6 +130,35 @@ export const siteSettings = defineType({
 
     defineField({ name: "aboutIntro", type: "text", rows: 3, group: "about" }),
     defineField({
+      name: "aboutAiHeading",
+      title: "AI workflow heading",
+      type: "string",
+      group: "about",
+    }),
+    defineField({
+      name: "aboutAiIntro",
+      title: "AI workflow introduction",
+      type: "text",
+      rows: 3,
+      group: "about",
+    }),
+    defineField({
+      name: "aboutAiSteps",
+      title: "AI workflow steps",
+      type: "array",
+      group: "about",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "name", type: "string", validation: (r) => r.required() }),
+            defineField({ name: "description", type: "text", rows: 3 }),
+          ],
+          preview: { select: { title: "name", subtitle: "description" } },
+        }),
+      ],
+    }),
+    defineField({
       name: "education",
       type: "array",
       group: "about",

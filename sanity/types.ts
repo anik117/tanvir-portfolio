@@ -87,6 +87,9 @@ export type SiteSettings = {
   clientsNote?: string;
   processSteps?: Named[];
   aboutIntro?: string;
+  aboutAiHeading?: string;
+  aboutAiIntro?: string;
+  aboutAiSteps?: Named[];
   education?: { _key?: string; qualification: string; institution?: string; years?: string; note?: string }[];
   experience?: { _key?: string; role: string; organization?: string; years?: string; summary?: string }[];
   toolkit?: string[];

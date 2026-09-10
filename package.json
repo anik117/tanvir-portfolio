@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "publish:about": "sanity exec scripts/publish-about.ts --with-user-token",
     "publish:projects": "SANITY_PROJECTS_ONLY=1 sanity exec scripts/import-content.ts --with-user-token",
     "typecheck": "tsc --noEmit"
   },

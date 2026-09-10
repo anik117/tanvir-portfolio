@@ -3,10 +3,12 @@ import { SITE_SETTINGS_QUERY } from "@/sanity/queries";
 import type { SiteSettings } from "@/sanity/types";
 import { Reveal } from "@/components/Reveal";
 import { Highlight } from "@/components/Highlight";
+import aboutContent from "@/sanity/seed/about.json";
 
 export const metadata = {
   title: "About | Tanvir Ahassan",
-  description: "Background, education, and experience.",
+  description:
+    "How Tanvir Ahassan combines product design, software engineering, and AI-assisted workflows to create clear, buildable digital experiences.",
 };
 
 /** A small mono label above a group of rows. */
@@ -48,30 +50,69 @@ function Row({
  */
 export default async function AboutPage() {
   const settings = await safeFetch<SiteSettings>(SITE_SETTINGS_QUERY);
+  const aboutHeading = settings?.aboutHeading ?? aboutContent.aboutHeading;
+  const aboutIntro = settings?.aboutIntro ?? aboutContent.aboutIntro;
+  const aboutParagraphs = settings?.aboutParagraphs ?? aboutContent.aboutParagraphs;
+  const aboutAiHeading = settings?.aboutAiHeading ?? aboutContent.aboutAiHeading;
+  const aboutAiIntro = settings?.aboutAiIntro ?? aboutContent.aboutAiIntro;
+  const aboutAiSteps = settings?.aboutAiSteps ?? aboutContent.aboutAiSteps;
+  const services = settings?.services ?? aboutContent.services;
 
   return (
     <main className="mx-auto max-w-read px-5 py-16 sm:px-10 sm:py-24">
       <Reveal y={12}>
         <h1 className="text-[2.3rem] font-semibold leading-[1.08] sm:text-[3.2rem]">
-          <Highlight text={settings?.aboutHeading ?? "About"} words={2} />
+          <Highlight text={aboutHeading} words={2} />
         </h1>
       </Reveal>
 
-      {settings?.aboutIntro && (
+      {aboutIntro && (
         <Reveal delay={120} y={12}>
-          <p className="mt-8 text-xl leading-relaxed sm:text-[22px]">{settings.aboutIntro}</p>
+          <p className="mt-8 text-xl leading-relaxed sm:text-[22px]">{aboutIntro}</p>
         </Reveal>
       )}
 
-      {settings?.aboutParagraphs?.length ? (
+      {aboutParagraphs.length ? (
         <Reveal delay={200} y={12}>
           <div className="mt-6 space-y-5 text-[17px] leading-relaxed text-muted-strong">
-            {settings.aboutParagraphs.map((p, i) => (
+            {aboutParagraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
         </Reveal>
       ) : null}
+
+      <Reveal>
+        <section className="mt-16 overflow-hidden rounded-[1.75rem] bg-dark px-6 py-8 text-dark-fg sm:px-10 sm:py-10">
+          <p className="mono text-[11px] uppercase tracking-[0.18em] text-dark-muted">
+            AI in my process
+          </p>
+          <h2 className="mt-4 text-[2rem] font-semibold leading-[1.08] sm:text-[2.6rem]">
+            {aboutAiHeading}
+          </h2>
+          <p className="mt-5 max-w-[36rem] text-[16px] leading-relaxed text-dark-muted sm:text-[17px]">
+            {aboutAiIntro}
+          </p>
+          <ol className="mt-8 border-b border-white/15">
+            {aboutAiSteps.map((step, index) => (
+              <li
+                className="grid gap-3 border-t border-white/15 py-5 sm:grid-cols-[2rem_12rem_1fr] sm:gap-5"
+                key={step._key ?? step.name}
+              >
+                <span className="mono text-[12px] text-dark-muted">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-[16px] font-semibold leading-snug text-dark-fg">
+                  {step.name}
+                </h3>
+                {step.description && (
+                  <p className="text-[15px] leading-relaxed text-dark-muted">{step.description}</p>
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
+      </Reveal>
 
       {settings?.stats?.length ? (
         <Reveal delay={280}>
@@ -124,12 +165,12 @@ export default async function AboutPage() {
         </Reveal>
       ) : null}
 
-      {settings?.services?.length ? (
+      {services.length ? (
         <Reveal>
           <section className="mt-20">
-            <Label>What I do</Label>
+            <Label>How I help</Label>
             <ul className="mt-5 border-b border-border">
-              {settings.services.map((service) => (
+              {services.map((service) => (
                 <Row
                   key={service._key ?? service.name}
                   title={service.name}

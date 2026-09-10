@@ -1,0 +1,44 @@
+{
+  "aboutHeading": "Engineering taught me how products work. Design taught me who they work for.",
+  "aboutIntro": "I’m Tanvir, a UI/UX designer with a background in software engineering. Over the past seven years, I’ve helped teams turn complex requirements into digital products that feel clear to use and realistic to build.",
+  "aboutParagraphs": [
+    "That technical foundation still shapes how I work. I think in systems, involve developers early, and ask what must happen behind the interface—not only what the finished screen should look like.",
+    "I care about the details people notice and the constraints teams live with. The best outcome is not the most decorated interface; it is one people understand and a team can confidently ship."
+  ],
+  "aboutAiHeading": "I use AI as leverage, not authority.",
+  "aboutAiIntro": "AI helps me streamline the design flow by speeding up repetitive and exploratory work. I stay responsible for the product judgment, accessibility, and final decisions.",
+  "aboutAiSteps": [
+    {
+      "_key": "ai-explore",
+      "name": "Explore with more range",
+      "description": "Challenge assumptions, generate alternative flows, and surface questions before I commit to a direction."
+    },
+    {
+      "_key": "ai-synthesize",
+      "name": "Synthesize with more clarity",
+      "description": "Organise research and requirements, compare patterns, and turn scattered inputs into a useful point of view."
+    },
+    {
+      "_key": "ai-ship",
+      "name": "Ship with better context",
+      "description": "Refine interface copy, check edge cases, and prepare design rationale and handoff notes that teams can act on."
+    }
+  ],
+  "services": [
+    {
+      "_key": "s1",
+      "name": "Product design",
+      "description": "Turning complex requirements into clear flows, useful interactions, and interfaces that help people complete real tasks."
+    },
+    {
+      "_key": "s2",
+      "name": "Design systems",
+      "description": "Creating reusable patterns, components, and guidance that help product and engineering teams move consistently."
+    },
+    {
+      "_key": "s3",
+      "name": "Product critique",
+      "description": "Finding friction, challenging assumptions, and giving teams a practical path from a rough product to a stronger experience."
+    }
+  ]
+}
