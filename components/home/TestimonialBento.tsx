@@ -28,7 +28,7 @@ function initials(name: string) {
 /** The LinkedIn mark, where these recommendations come from, in the neutral grey. */
 function QuoteMark({ dark }: { dark?: boolean }) {
   return (
-    <span className={`block ${dark ? "text-white/40" : "text-muted"}`}>
+    <span className={`block ${dark ? "text-accent-hover/60" : "text-muted"}`}>
       <SocialIcon platform="linkedin" size={28} />
     </span>
   );
@@ -45,26 +45,14 @@ function Card({
   dark?: boolean;
   className?: string;
 }) {
-  const ink = dark ? "text-white" : "text-foreground";
-  const soft = dark ? "text-white/65" : "text-muted-strong";
+  const ink = "text-foreground";
+  const soft = "text-muted-strong";
   return (
     <figure
-      className={`relative flex h-full flex-col justify-between overflow-hidden p-7 sm:p-8 ${
-        dark ? "bg-dark" : "bg-white"
+      className={`relative flex h-full flex-col justify-between overflow-hidden p-9 sm:p-11 ${
+        dark ? "bg-accent-soft" : "bg-white"
       } ${className}`}
     >
-      {dark && (
-        // A soft blue glow rising from the foot of the ink card, so the
-        // attribution sits in light rather than in the dark.
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%]"
-          style={{
-            background:
-              "radial-gradient(120% 90% at 50% 110%, rgb(47 108 246 / 0.55) 0%, rgb(47 108 246 / 0.22) 40%, transparent 72%)",
-          }}
-        />
-      )}
       <div className="relative">
         <QuoteMark dark={dark} />
         <blockquote
@@ -90,7 +78,7 @@ function Card({
             </p>
             {(item.relationship || item.projectSlug) && (
               <p
-                className={`mono mt-1.5 flex flex-wrap gap-x-3 text-[10.5px] uppercase tracking-[0.12em] ${dark ? "text-white/50" : "text-muted"}`}
+                className={`mono mt-1.5 flex flex-wrap gap-x-3 text-[10.5px] uppercase tracking-[0.12em] text-muted`}
               >
                 {item.relationship && (
                   <span>
@@ -101,7 +89,7 @@ function Card({
                 {item.projectSlug && (
                   <Link
                     href={`/work/${item.projectSlug}`}
-                    className={`inline-flex items-center gap-1 ${dark ? "text-white/80 hover:text-white" : "text-accent hover:text-accent-hover"}`}
+                    className={`inline-flex items-center gap-1 text-accent hover:text-accent-hover`}
                   >
                     Project
                     <ArrowUpRight aria-hidden size={10} />
@@ -131,8 +119,8 @@ function Card({
 /**
  * One card of quotes, ruled into cells: the first stands tall on the left across two rows, the
  * second runs wide across the top right, the next two sit under it, and any
- * after that run the full width. The tall one is set in ink so it stands
- * out; every quote is the same size and weight. Rows size to their content,
+ * after that run the full width. The tall one sits on a soft blue so it
+ * leads without shouting; every quote is the same size and weight. Rows size to their content,
  * so long quotes never stretch their neighbours.
  */
 export function TestimonialBento({ items }: { items: Item[] }) {
@@ -150,7 +138,7 @@ export function TestimonialBento({ items }: { items: Item[] }) {
           className="grid gap-px lg:grid-cols-3"
           style={{ background: "var(--border)" }}
         >
-          <Reveal className="bg-dark lg:col-span-1 lg:row-span-2">
+          <Reveal className="bg-accent-soft lg:col-span-1 lg:row-span-2">
             <Card item={first} index={0} dark />
           </Reveal>
 
