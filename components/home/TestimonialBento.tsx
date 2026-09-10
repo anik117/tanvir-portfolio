@@ -42,18 +42,30 @@ function Card({
   const soft = dark ? "text-white/65" : "text-muted-strong";
   return (
     <figure
-      className={`flex h-full flex-col justify-between rounded-[28px] p-7 sm:p-8 ${
+      className={`relative flex h-full flex-col justify-between overflow-hidden rounded-[28px] p-7 sm:p-8 ${
         dark ? "bg-dark shadow-[var(--shadow-lift)]" : "card"
       } ${className}`}
     >
-      <div>
+      {dark && (
+        // A soft blue glow rising from the foot of the ink card, so the
+        // attribution sits in light rather than in the dark.
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%]"
+          style={{
+            background:
+              "radial-gradient(120% 90% at 50% 110%, rgb(47 108 246 / 0.55) 0%, rgb(47 108 246 / 0.22) 40%, transparent 72%)",
+          }}
+        />
+      )}
+      <div className="relative">
         <QuoteMark dark={dark} />
         <blockquote className={`mt-5 text-[15.5px] font-normal leading-[1.65] ${ink}`}>
           &ldquo;{item.quote}&rdquo;
         </blockquote>
       </div>
 
-      <figcaption className="mt-8 flex items-end justify-between gap-4">
+      <figcaption className="relative mt-8 flex items-end justify-between gap-4">
         <div className="flex items-center gap-3.5">
           <span
             aria-hidden
