@@ -20,7 +20,7 @@ export function WorkStack({ projects }: { projects: ProjectCard[] }) {
             href={`/work/${project.slug}`}
             className="card group grid overflow-hidden shadow-[var(--shadow-lift)] transition-transform duration-500 ease-[var(--ease)] hover:-translate-y-1 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
           >
-            <div className="flex flex-col justify-between p-6 sm:min-h-[400px] sm:p-8">
+            <div className="flex flex-col justify-between p-8 sm:min-h-[520px] sm:p-12 lg:p-14">
               <div>
                 <p className="mono flex items-center justify-between text-[12px] text-muted-strong">
                   <span>
@@ -28,25 +28,25 @@ export function WorkStack({ projects }: { projects: ProjectCard[] }) {
                   </span>
                   <span>{project.year}</span>
                 </p>
-                <h3 className="mt-12 text-[28px] font-semibold leading-tight sm:mt-16 sm:text-[34px]">
+                <h3 className="mt-14 text-[30px] font-semibold leading-tight sm:mt-20 sm:text-[40px]">
                   {project.title}
                 </h3>
-                <p className="mono mt-3 text-[12px] text-muted-strong">
+                <p className="mono mt-3 text-[13px] text-muted-strong">
                   {[project.projectType, project.industry].filter(Boolean).join("  •  ")}
                 </p>
                 {project.summary && (
-                  <p className="mt-5 max-w-[30ch] text-[15px] leading-relaxed text-muted-strong">
+                  <p className="mt-6 max-w-[34ch] text-[17px] leading-relaxed text-muted-strong">
                     {project.summary}
                   </p>
                 )}
               </div>
-              <p className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-accent">
+              <p className="mt-10 inline-flex items-center gap-2 text-[15px] font-semibold text-accent">
                 Read the case study
                 <ArrowUpRight aria-hidden size={15} className="arrow-up" />
               </p>
             </div>
 
-            <div className="border-l border-border bg-white p-4 sm:p-5">
+            <div className="border-l border-border bg-white p-5 sm:p-7">
               {project.coverImage && (
                 <div className="h-[220px] overflow-hidden rounded-2xl sm:h-full">
                   <SanityImage
