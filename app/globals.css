@@ -381,9 +381,8 @@ a:hover > .arrow-up {
   position: fixed;
   inset: 0;
   margin: auto;
-  width: fit-content;
+  width: min(96vw, 1800px);
   height: fit-content;
-  max-width: 100vw;
   max-height: 100vh;
   padding: 0;
   border: none;

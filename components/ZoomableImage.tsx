@@ -58,17 +58,18 @@ export function ZoomableImage({
         }}
       >
         <div className="relative">
-          <button
-            type="button"
-            onClick={close}
-            aria-label="Close"
-            className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-foreground shadow-md transition-transform hover:scale-105"
-          >
-            <X aria-hidden size={18} />
-          </button>
-
-          <div className="overflow-hidden rounded-2xl bg-white shadow-2xl">
-            <SanityImage image={image} width={2000} sizes="96vw" contain />
+          {/* Scrolls when the shot is taller than the viewport; the close
+              button stays put at the top-right of the frame. */}
+          <div className="no-scrollbar max-h-[92vh] overflow-y-auto rounded-2xl bg-white shadow-2xl">
+            <button
+              type="button"
+              onClick={close}
+              aria-label="Close"
+              className="sticky top-3 z-10 float-right mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-foreground shadow-md transition-transform hover:scale-105"
+            >
+              <X aria-hidden size={18} />
+            </button>
+            <SanityImage image={image} width={2400} sizes="96vw" contain />
           </div>
 
           {image.caption && (

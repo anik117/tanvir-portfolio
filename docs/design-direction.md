@@ -89,8 +89,9 @@ Fifth pass:
 - **Contact opens with "Hi, I'm Tanvir."** in the serif, the heading, the Studio's message,
   a mono status line (availability, current employer), then the actions. Beside it a paper
   card with what a good first message includes and the channels as coloured discs.
-- **Lightbox** is pinned to the viewport and centred both ways; the image scales to fit
-  84vh so it never sits off-centre on a tall screenshot.
+- **Lightbox** is pinned to the viewport and centred; it takes 96vw up to 1800px, the image
+  fills that width, and a tall screenshot scrolls inside the frame with the close button
+  pinned at its top-right.
 
 Sixth pass:
 

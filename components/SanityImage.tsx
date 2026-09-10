@@ -15,7 +15,7 @@ type Props = {
   priority?: boolean;
   /** Fill the parent box, cropping with object-fit. The parent needs a size. */
   fill?: boolean;
-  /** Scale to fit the viewport, keeping the whole image visible. For the lightbox. */
+  /** Fill the lightbox frame's width; tall images scroll inside it. */
   contain?: boolean;
 };
 
@@ -52,7 +52,7 @@ export function SanityImage({
         fill
           ? { width: "100%", height: "100%", objectFit: "cover" }
           : contain
-            ? { width: "auto", height: "auto", maxWidth: "min(96vw, 1600px)", maxHeight: "84vh" }
+            ? { width: "100%", height: "auto", display: "block" }
             : { width: "100%", height: "auto" }
       }
     />
