@@ -264,6 +264,11 @@ headings stay Plus Jakarta Sans at −0.025em; the serif and mono are unchanged.
 reading measure; it takes the whole grid column beside the act index, so gallery images run
 ~1120px wide on a 1400px container and are fetched at 1800px. Leads keep a 64rem measure.
 
+**About is two columns (2026-09-10)**, on the same 1400px container as Contact: heading,
+intro, paragraphs and the numbers on the left; the "AI in my process" card on the right,
+sticky as the left column scrolls. Underneath, Experience and Education side by side, then
+How I help and Toolkit side by side, all as the same hairline rows.
+
 Attention callouts, if ever used again, are ink on panel grey. A flagged problem is a meaning, not a decoration, and
 turning it blue would say "resolved". The hero's four props are kept, but the sticky note
 became the annotated screen and the portrait became the numbers; there is no portrait yet.
