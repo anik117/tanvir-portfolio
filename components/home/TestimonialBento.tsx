@@ -29,7 +29,9 @@ function Relation({ item, dark }: { item: Item; dark?: boolean }) {
   return (
     <span
       className={`mono inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.14em] ${
-        dark ? "bg-white/70 text-accent-hover" : "bg-panel text-muted-strong"
+        dark
+          ? "bg-white text-muted-strong ring-1 ring-border"
+          : "bg-panel text-muted-strong"
       }`}
     >
       {item.relationship}
@@ -87,8 +89,10 @@ function Card({
         <div className="flex items-center gap-3.5">
           <span
             aria-hidden
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[14px] font-semibold text-foreground"
-            style={{ background: tints[index % tints.length] }}
+            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[14px] font-semibold text-foreground ${
+              dark ? "ring-1 ring-border" : ""
+            }`}
+            style={{ background: dark ? "#fff" : tints[index % tints.length] }}
           >
             {initials(item.name)}
           </span>
