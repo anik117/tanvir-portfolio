@@ -162,7 +162,7 @@ Refinement, same day: **orange out, lilac in.** The cream and peach stops are `#
 now sits inside an even 12–16px margin with 32–48px corners on all four sides, and the nav
 sits above it on the ground rather than over it.
 
-Links are 600 everywhere (nav pills 700); the page container is 1200px. The active nav
+Links are 600 everywhere (nav pills 700); the page container is 1400px on large screens. The active nav
 pill is tinted soft blue.
 
 **The hero artboard is gone (2026-09-09).** In its place a row of the brands Tanvir has
