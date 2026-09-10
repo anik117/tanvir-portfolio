@@ -5,10 +5,11 @@ import { ArrowUpRight, CalendarDays, Mail } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Highlight } from "@/components/Highlight";
 import { SocialIcon } from "@/components/SocialIcon";
+import contactContent from "@/sanity/seed/contact.json";
 
 export const metadata = {
   title: "Contact | Tanvir Ahassan",
-  description: "Get in touch about a role or a project.",
+  description: "Have a product, role, or idea to discuss? Get in touch with Tanvir Ahassan.",
 };
 
 function Channel({
@@ -41,20 +42,11 @@ function Channel({
   );
 }
 
-/** "Currently at X" from the most recent experience entry, if there is one. */
-function tenure(settings: SiteSettings | null) {
-  const job = settings?.experience?.[0];
-  if (!job?.organization) return null;
-  const current = /present|now|current/i.test(job.years ?? "");
-  const org = job.organization.split(/\s[·•|]\s/)[0].trim();
-  return `${current ? "Currently at" : "Previously at"} ${org}`;
-}
-
 export default async function ContactPage() {
   const settings = await safeFetch<SiteSettings>(SITE_SETTINGS_QUERY);
-  const heading = settings?.contactHeading ?? "Have a project in mind or just want to connect?";
+  const heading = settings?.contactHeading ?? contactContent.contactHeading;
+  const message = settings?.contactMessage ?? contactContent.contactMessage;
   const first = (settings?.siteTitle ?? "Tanvir Ahassan").split(/\s+/)[0];
-  const at = tenure(settings);
 
   return (
     <main className="mx-auto max-w-page px-5 py-16 sm:px-10 sm:py-24">
@@ -63,7 +55,7 @@ export default async function ContactPage() {
         <div>
           <Reveal y={10}>
             <p className="serif text-[30px] leading-none sm:text-[38px]">
-              Hi, I&rsquo;m {first}. Good to meet you.
+              Hello, I&rsquo;m {first}.
             </p>
           </Reveal>
           <Reveal delay={80} y={16}>
@@ -72,17 +64,17 @@ export default async function ContactPage() {
             </h1>
           </Reveal>
 
-          {settings?.contactMessage && (
+          {message && (
             <Reveal delay={160} y={12}>
               <p className="mt-8 max-w-lg text-[17px] leading-relaxed text-muted-strong">
-                {settings.contactMessage}
+                {message}
               </p>
             </Reveal>
           )}
 
-          <Reveal delay={240} y={12}>
-            <ul className="mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.16em] text-muted-strong">
-              {settings?.availabilityShow && settings.availabilityLabel && (
+          {settings?.availabilityShow && settings.availabilityLabel && (
+            <Reveal delay={240} y={12}>
+              <ul className="mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.16em] text-muted-strong">
                 <li className="inline-flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="annotation-dot absolute inset-0 rounded-full bg-accent" />
@@ -90,17 +82,16 @@ export default async function ContactPage() {
                   </span>
                   {settings.availabilityLabel}
                 </li>
-              )}
-              {at && <li>{at}</li>}
-            </ul>
-          </Reveal>
+              </ul>
+            </Reveal>
+          )}
 
           {settings?.email && (
             <Reveal delay={320} y={12}>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <a href={`mailto:${settings.email}`} className="group btn btn-primary">
                   <Mail aria-hidden size={16} />
-                  Say hello
+                  Email me
                   <ArrowUpRight aria-hidden size={15} className="arrow-up" />
                 </a>
                 {settings.ctaUrl && (
@@ -116,7 +107,7 @@ export default async function ContactPage() {
                 )}
               </div>
               <p className="mt-4 text-[14px] text-muted-strong">
-                I read everything myself and reply within a couple of days.
+                I read every message myself.
               </p>
             </Reveal>
           )}
@@ -126,35 +117,9 @@ export default async function ContactPage() {
         <Reveal delay={200}>
           <div className="panel-soft rounded-[32px] p-6 sm:p-8">
             <p className="mono text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-              Not sure what to write?
-            </p>
-            <p className="mt-3 text-[15px] leading-relaxed text-muted-strong">
-              A few lines are plenty. Tell me:
-            </p>
-            <ol className="mt-4 space-y-2.5 text-[15px] leading-relaxed">
-              {[
-                "what you're building, and who it's for",
-                "where it is — an idea, a redesign, or something live",
-                "roughly when you need it. Rough is fine.",
-              ].map((line, i) => (
-                <li key={line} className="flex gap-3">
-                  <span className="mono mt-0.5 shrink-0 text-[12px] text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span>{line}</span>
-                </li>
-              ))}
-            </ol>
-
-            <p className="mono mt-10 text-[11px] uppercase tracking-[0.18em] text-muted-strong">
-              Elsewhere
+              Find me elsewhere
             </p>
             <ul className="mt-3 -mx-3">
-              {settings?.email && (
-                <li>
-                  <Channel href={`mailto:${settings.email}`} label="Email" value={settings.email} />
-                </li>
-              )}
               {settings?.socials?.map((s) => (
                 <li key={s._key ?? s.platform}>
                   <Channel

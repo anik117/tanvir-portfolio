@@ -34,6 +34,9 @@ const aboutContent = JSON.parse(
 const homeContent = JSON.parse(
   readFileSync(join(process.cwd(), "sanity/seed/home.json"), "utf8"),
 );
+const contactContent = JSON.parse(
+  readFileSync(join(process.cwd(), "sanity/seed/contact.json"), "utf8"),
+);
 
 /**
  * Resolves an image asset by its original filename, uploading it only if the
@@ -164,9 +167,7 @@ async function main() {
       { _key: "so3", platform: "Dribbble", url: "https://dribbble.com/anik117" },
       { _key: "so4", platform: "Behance", url: "https://www.behance.net/anik117" },
     ],
-    contactHeading: "Have a project in mind or just want to connect?",
-    contactMessage:
-      "I'm currently looking for a new remote role. If you're hiring, or you have a project that needs a designer, I'd like to hear about it.",
+    ...contactContent,
     // From LinkedIn recommendations, read 2026-09-08. Verbatim.
     testimonials: [
       {
