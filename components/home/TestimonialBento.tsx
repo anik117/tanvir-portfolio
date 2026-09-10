@@ -29,7 +29,7 @@ function Relation({ item, dark }: { item: Item; dark?: boolean }) {
   return (
     <span
       className={`mono inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.14em] ${
-        dark ? "bg-accent-soft text-accent-hover" : "bg-panel text-muted-strong"
+        dark ? "bg-white/70 text-accent-hover" : "bg-panel text-muted-strong"
       }`}
     >
       {item.relationship}
@@ -62,19 +62,16 @@ function Card({
   return (
     <figure
       className={`relative flex h-full flex-col justify-between overflow-hidden bg-white p-10 sm:p-14 ${className}`}
+      style={
+        dark
+          ? {
+              // The hero sheet's gradient, sky down into pale yellow.
+              background:
+                "linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 18%, var(--sky-3) 42%, var(--mint) 58%, var(--cream) 78%, var(--peach) 100%)",
+            }
+          : undefined
+      }
     >
-      {dark && (
-        // A soft blue glow rising from the foot, so the featured quote reads
-        // as lit rather than boxed.
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[60%]"
-          style={{
-            background:
-              "radial-gradient(120% 90% at 50% 110%, rgb(186 219 252 / 0.9) 0%, rgb(219 234 254 / 0.5) 40%, transparent 72%)",
-          }}
-        />
-      )}
       <div className="relative">
         <Relation item={item} dark={dark} />
         <blockquote
