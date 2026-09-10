@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { SiteSettings } from "@/sanity/types";
 import { SanityImage } from "@/components/SanityImage";
-import { Reveal } from "@/components/Reveal";
 
 type Item = NonNullable<SiteSettings["testimonials"]>[number];
 
@@ -145,27 +144,26 @@ export function TestimonialBento({ items }: { items: Item[] }) {
           className="grid gap-px lg:grid-cols-3"
           style={{ background: "var(--border)" }}
         >
-          <Reveal className="bg-accent-soft lg:col-span-1 lg:row-span-2">
+          <div className="bg-accent-soft lg:col-span-1 lg:row-span-2">
             <Card item={first} index={0} dark />
-          </Reveal>
+          </div>
 
           {second && (
-            <Reveal delay={80} className="bg-white lg:col-span-2">
+            <div className="bg-white lg:col-span-2">
               <Card item={second} index={1} />
-            </Reveal>
+            </div>
           )}
 
           {rest.map((item, i) => {
             // The first two sit beside the tall card; anything after runs full width.
             const wide = i >= 2;
             return (
-              <Reveal
+              <div
                 key={item._key ?? item.name}
-                delay={160 + i * 80}
                 className={`bg-white ${wide ? "lg:col-span-3" : ""}`}
               >
                 <Card item={item} index={i + 2} />
-              </Reveal>
+              </div>
             );
           })}
         </div>
