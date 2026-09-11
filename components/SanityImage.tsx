@@ -17,6 +17,8 @@ type Props = {
   fill?: boolean;
   /** Fill the lightbox frame's width; tall images scroll inside it. */
   contain?: boolean;
+  /** JPEG quality asked of the CDN. Raise it where the image is shown large. */
+  quality?: number;
 };
 
 export function SanityImage({
@@ -29,6 +31,7 @@ export function SanityImage({
   priority = false,
   fill = false,
   contain = false,
+  quality = 82,
 }: Props) {
   const builder = urlFor(image);
   if (!builder) return null;
@@ -36,7 +39,7 @@ export function SanityImage({
   const height = Math.round(width * aspect);
   let b = builder.width(width);
   if (crop) b = b.height(height).fit("crop");
-  const src = b.auto("format").quality(82).url();
+  const src = b.auto("format").quality(quality).url();
   const alt = image.alt ?? "";
 
   return (

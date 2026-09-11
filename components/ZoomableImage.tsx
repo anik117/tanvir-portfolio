@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Maximize2, X } from "lucide-react";
 import { SanityImage } from "@/components/SanityImage";
+import { imageDimensions } from "@/sanity/image";
 import type { SanityImage as SanityImageType } from "@/sanity/types";
 
 /**
@@ -21,9 +22,25 @@ export function ZoomableImage({
   sizes?: string;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
+  // The full-size copy is mounted only once the dialog has been opened, so a
+  // case study does not fetch a second, larger version of every screenshot that
+  // nobody may enlarge. It stays mounted afterwards, so reopening costs nothing.
+  const [loaded, setLoaded] = useState(false);
 
-  const open = () => ref.current?.showModal();
+  const open = () => {
+    setLoaded(true);
+    ref.current?.showModal();
+  };
   const close = () => ref.current?.close();
+
+  // Size the frame from the picture itself, so the dialog takes the shape of
+  // what is in it. Three limits, whichever bites first: the viewport's width,
+  // the image's own pixel width — past that it is only being stretched — and
+  // the width at which its height fills the viewport, leaving the caption room.
+  const size = imageDimensions(image);
+  const frameWidth = size
+    ? `min(96vw, ${size.width}px, calc(86vh * ${(size.width / size.height).toFixed(4)}))`
+    : undefined;
 
   return (
     <>
@@ -47,6 +64,7 @@ export function ZoomableImage({
       <dialog
         ref={ref}
         className="lightbox"
+        style={frameWidth ? { width: frameWidth } : undefined}
         // <dialog> closes on Escape on its own; this makes it explicit rather
         // than resting on UA behaviour we cannot exercise in tests.
         onKeyDown={(e) => {
@@ -58,19 +76,30 @@ export function ZoomableImage({
         }}
       >
         <div className="relative">
-          {/* Scrolls when the shot is taller than the viewport; the close
-              button stays put at the top-right of the frame. */}
-          <div className="no-scrollbar max-h-[92vh] overflow-y-auto rounded-2xl bg-white shadow-2xl">
-            <button
-              type="button"
-              onClick={close}
-              aria-label="Close"
-              className="sticky top-3 z-10 float-right mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-foreground shadow-md transition-transform hover:scale-105"
-            >
-              <X aria-hidden size={18} />
-            </button>
-            <SanityImage image={image} width={2400} sizes="96vw" contain />
+          {/* The picture fills the frame edge to edge. max-height is only a
+              guard for an image whose dimensions we could not read. */}
+          <div className="no-scrollbar max-h-[90vh] overflow-y-auto rounded-2xl bg-white shadow-2xl">
+            {loaded && (
+              <SanityImage
+                image={image}
+                width={size?.width ?? 2400}
+                aspect={size ? size.height / size.width : undefined}
+                sizes={size ? `(max-width: ${size.width}px) 96vw, ${size.width}px` : "96vw"}
+                quality={90}
+                contain
+              />
+            )}
           </div>
+
+          {/* Outside the scroller, so it stays on the corner of the frame. */}
+          <button
+            type="button"
+            onClick={close}
+            aria-label="Close"
+            className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-foreground shadow-md transition-transform hover:scale-105"
+          >
+            <X aria-hidden size={18} />
+          </button>
 
           {image.caption && (
             <p className="mt-3 text-center text-sm text-white/80">{image.caption}</p>

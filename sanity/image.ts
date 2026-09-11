@@ -11,3 +11,21 @@ const builder =
 export function urlFor(source: SanityImageSource) {
   return builder ? builder.image(source) : null;
 }
+
+/**
+ * The image's real pixel size, read straight out of the asset id — Sanity
+ * encodes it there as `image-<hash>-1600x900-jpg`. Saves a join in every query
+ * that only needs the shape of a picture. Null when the id is not in reach.
+ */
+export function imageDimensions(
+  source: SanityImageSource,
+): { width: number; height: number } | null {
+  const asset = (source as { asset?: { _ref?: string; _id?: string } })?.asset;
+  const ref =
+    typeof source === "string"
+      ? source
+      : (asset?._ref ?? asset?._id ?? (source as { _ref?: string })?._ref);
+  const size = typeof ref === "string" ? /-(\d+)x(\d+)-[a-z]+$/.exec(ref) : null;
+  if (!size) return null;
+  return { width: Number(size[1]), height: Number(size[2]) };
+}

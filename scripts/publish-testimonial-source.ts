@@ -24,10 +24,11 @@ async function main() {
     return;
   }
 
-  const updated = testimonials.map(({ date: _date, ...t }) => ({
-    ...t,
-    source: t.source ?? "LinkedIn",
-  }));
+  const updated = testimonials.map((t) => {
+    const next = { ...t, source: t.source ?? "LinkedIn" };
+    delete next.date;
+    return next;
+  });
 
   await client.patch("siteSettings").set({ testimonials: updated }).commit();
   console.log(`testimonials: ${updated.length} updated with a source; date removed.`);
