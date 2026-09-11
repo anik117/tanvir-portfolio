@@ -139,7 +139,13 @@ export const siteSettings = defineType({
               options: { list: ["Client", "Colleague", "Collaborator"] },
               initialValue: "Client",
             }),
-            defineField({ name: "date", type: "string" }),
+            defineField({
+              name: "source",
+              type: "string",
+              initialValue: "LinkedIn",
+              description:
+                "Where the recommendation came from, e.g. LinkedIn. Shown on the chip in place of a date.",
+            }),
             defineField({
               name: "projectSlug",
               type: "string",

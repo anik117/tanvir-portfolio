@@ -26,6 +26,8 @@ function initials(name: string) {
 /** Who this person is to him, as a small pill that opens the card. */
 function Relation({ item, dark }: { item: Item; dark?: boolean }) {
   if (!item.relationship) return null;
+  // These recommendations come from LinkedIn; show the source, not a date.
+  const source = item.source ?? "LinkedIn";
   return (
     <span
       className={`mono inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.14em] ${
@@ -35,13 +37,13 @@ function Relation({ item, dark }: { item: Item; dark?: boolean }) {
       }`}
     >
       {item.relationship}
-      {item.date && (
+      {source && (
         <>
           <span
             aria-hidden
             className="h-0.5 w-0.5 rounded-full bg-current opacity-60"
           />
-          {item.date}
+          {source}
         </>
       )}
     </span>
@@ -79,7 +81,8 @@ function Card({
       <div className="relative">
         <Relation item={item} dark={dark} />
         <blockquote
-          className={`mt-7 text-[17px] font-normal leading-[1.7] ${ink}`}
+          className="mt-7 text-[17px] font-normal leading-[1.7]"
+          style={{ color: "#0a1220" }}
         >
           &ldquo;{item.quote}&rdquo;
         </blockquote>
