@@ -7,8 +7,9 @@ npx sanity login          # first time only
 npm run publish:projects  # leaves site settings unchanged
 ```
 
-Idempotent. Documents use fixed `_id`s and are replaced on re-run; images are only
-uploaded when the document has no cover yet, so re-running does not duplicate assets.
+Idempotent. Documents use fixed `_id`s and are replaced on re-run; images are uploaded
+only when the dataset does not already hold those exact bytes, so re-running does not
+duplicate assets.
 
 ## Where this came from
 
@@ -40,11 +41,20 @@ The public page is intentionally narrower than the CMS schema:
 ## Notes
 
 **Alt text was written from the images, not carried over.** The old site had none on any of
-the 20 screenshots. Every image now has a real description and the gallery has captions.
+its screenshots. Every image now has a real description and the gallery has captions.
 
-**Assets are keyed by filename.** `resolveAsset` looks up `sanity.imageAsset` by
-`originalFilename` before uploading, so re-running relinks existing assets rather than
-duplicating them — and repairs a document that lost its image references.
+**The first scrape was shifted by one slot.** It skipped each case study's hero, so the
+first in-content image became the cover and the rest moved up; the last gallery image was
+dropped entirely. Fixed 2026-09-12: each project now carries its real hero as `cover.jpg`
+and five gallery images, `screen-1.jpg` … `screen-5.jpg`, in the order the old site showed
+them. The alt text moved with the images, and the annotations written about the old cover
+now sit on `galleryAnnotations[0]` — the same picture, in its new slot.
+
+**Assets are keyed by content, not filename.** `resolveAsset` hashes the local file and
+looks up `sanity.imageAsset` by `sha1hash` before uploading, so re-running relinks existing
+assets rather than duplicating them — and repairs a document that lost its image
+references. Filename keying was wrong here: `cover.jpg` and `screen-N.jpg` are stable
+slots whose contents change, so a name lookup handed back the previous image.
 
 **The availability chip is a claim.** `availabilityShow` is on with the label "Available for
 new work". Turn it off in the Studio the moment it stops being true.

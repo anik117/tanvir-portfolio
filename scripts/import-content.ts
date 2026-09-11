@@ -8,6 +8,7 @@
  * only uploaded when the document does not already reference one, so re-running
  * does not duplicate assets.
  */
+import { createHash } from "node:crypto";
 import { createReadStream, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { getCliClient } from "sanity/cli";
@@ -21,7 +22,8 @@ type Project = {
   coverAlt: string;
   galleryAlt: string[];
   galleryCaption?: string[];
-  coverAnnotations?: Annotation[];
+  /** Annotations per gallery slot; index 0 is screen-1. */
+  galleryAnnotations?: Annotation[][];
   [key: string]: unknown;
 };
 
@@ -39,22 +41,25 @@ const contactContent = JSON.parse(
 );
 
 /**
- * Resolves an image asset by its original filename, uploading it only if the
- * dataset does not already hold one. Keyed on filename rather than on what the
- * document currently references, so a document that lost its reference is
- * relinked instead of re-uploaded.
+ * Resolves an image asset by its *contents*, uploading it only if the dataset
+ * does not already hold those bytes. Keyed on the hash rather than the filename
+ * because the filenames here are stable slots — cover.jpg, screen-1.jpg … —
+ * whose contents can change; a name lookup would hand back the previous image.
+ * Hashing also relinks a document that lost its reference instead of
+ * re-uploading, and never duplicates an asset that is already there.
  */
 async function resolveAsset(path: string, filename: string) {
-  const existing = await client.fetch<{ _id: string } | null>(
-    `*[_type == "sanity.imageAsset" && originalFilename == $filename][0]{_id}`,
-    { filename },
-  );
-  if (existing?._id) return existing._id;
-
   if (!existsSync(path)) {
     console.warn(`  ! missing ${path} — skipping`);
     return null;
   }
+  const sha1 = createHash("sha1").update(readFileSync(path)).digest("hex");
+  const existing = await client.fetch<{ _id: string } | null>(
+    `*[_type == "sanity.imageAsset" && sha1hash == $sha1][0]{_id}`,
+    { sha1 },
+  );
+  if (existing?._id) return existing._id;
+
   const asset = await client.assets.upload("image", createReadStream(path), { filename });
   console.log(`  ↑ uploaded ${filename}`);
   return asset._id;
@@ -84,12 +89,10 @@ async function main() {
     const id = `project-${p.slug}`;
     const dir = join(process.cwd(), "assets/projects", p.slug);
     const coverId = await resolveAsset(join(dir, "cover.jpg"), `${p.slug}-cover.jpg`);
-    const coverImage = coverId
-      ? imageField(coverId, p.coverAlt, undefined, p.coverAnnotations)
-      : undefined;
+    const coverImage = coverId ? imageField(coverId, p.coverAlt) : undefined;
 
     const gallery: unknown[] = [];
-    for (let i = 1; i <= 4; i++) {
+    for (let i = 1; i <= 5; i++) {
       const assetId = await resolveAsset(join(dir, `screen-${i}.jpg`), `${p.slug}-screen-${i}.jpg`);
       if (!assetId) continue;
       gallery.push({
@@ -98,6 +101,7 @@ async function main() {
           assetId,
           p.galleryAlt[i - 1] ?? `${p.title} screen ${i}`,
           p.galleryCaption?.[i - 1],
+          p.galleryAnnotations?.[i - 1],
         ),
       });
     }

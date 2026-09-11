@@ -62,8 +62,9 @@
         "description": "Kept booking actions visible and made the form easier to complete on mobile."
       }
     ],
-    "coverAlt": "ZO Skin Centre homepage with a facial treatment hero, a clinic locations grid, and practitioner profiles",
+    "coverAlt": "Three ZO Skin Centre screens on a blue field — the treatments homepage with clinic locations, Zein Obagi's practitioner profile, and the Beverly Hills clinic page",
     "galleryAlt": [
+      "ZO Skin Centre homepage with a facial treatment hero, a clinic locations grid, and practitioner profiles",
       "Before and after comparison of the ZO Skin Centre homepage — the old dark blue layout beside the redesigned version with a treatment hero and a clinic locations grid",
       "Practitioner profile for Zein Obagi, M.D. on mobile, beside an About panel and a locations list with map",
       "Treatment results page showing before and after photos of a ZO Controlled Depth Peel, beside a practitioner card and clinic contact details",
@@ -71,35 +72,38 @@
     ],
     "externalUrl": "https://zoskincentre.com/",
     "galleryCaption": [
+      "Homepage — treatments and locations",
       "Before and after — homepage",
       "Practitioner profile and locations",
       "Treatment results",
       "Mobile flow"
     ],
-    "coverAnnotations": [
-      {
-        "label": "Booking CTA above the fold",
-        "note": "Booking stays within reach as patients browse",
-        "tone": "positive",
-        "x": 21,
-        "y": 31
-      },
-      {
-        "label": "All four clinics on one page",
-        "note": "Patients can compare clinics without restarting",
-        "tone": "positive",
-        "x": 24,
-        "y": 74
-      },
-      {
-        "label": "Practitioners surfaced early",
-        "note": "Credentials appear before the booking decision",
-        "tone": "neutral",
-        "x": 79,
-        "y": 70
-      }
-    ],
-    "role": "Sole UI/UX Designer"
+    "role": "Sole UI/UX Designer",
+    "galleryAnnotations": [
+      [
+        {
+          "label": "Booking CTA above the fold",
+          "note": "Booking stays within reach as patients browse",
+          "tone": "positive",
+          "x": 21,
+          "y": 31
+        },
+        {
+          "label": "All four clinics on one page",
+          "note": "Patients can compare clinics without restarting",
+          "tone": "positive",
+          "x": 24,
+          "y": 74
+        },
+        {
+          "label": "Practitioners surfaced early",
+          "note": "Credentials appear before the booking decision",
+          "tone": "neutral",
+          "x": 79,
+          "y": 70
+        }
+      ]
+    ]
   },
   {
     "slug": "ibadat",
@@ -164,8 +168,9 @@
         "description": "Kept Arabic, transliteration, translation and source references together, with saving available in the same view."
       }
     ],
-    "coverAlt": "Ibadat app splash, welcome, and prophetic ritual acts screens on mobile",
+    "coverAlt": "Three Ibadat screens on a blue field — the dua collection browsed by category, prayer times counting down to Duhr in Dhaka, and the feed of ritual acts",
     "galleryAlt": [
+      "Ibadat app splash, welcome, and prophetic ritual acts screens on mobile",
       "Prayer Times screen counting down to Dhuhr with the daily prayer list, beside a Silence Mode screen with per-prayer toggles",
       "Dua collection screen with browsable categories, beside an open prayer showing Arabic text, transliteration, translation, and source reference",
       "Feed screen with Daily, Weekly, Monthly, and Yearly tabs listing ritual acts and Islamic events",
@@ -173,35 +178,38 @@
     ],
     "externalUrl": "https://www.figma.com/proto/rSlXsfvsPDTz0P7m5RLHnK/Islamic-Prayer-App?page-id=1%3A2&node-id=458-5081&p=f&viewport=282%2C362%2C0.02&t=tRp6q0Yvyn8jAbD2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=10%3A29&show-proto-sidebar=1",
     "galleryCaption": [
+      "Splash, welcome, and ritual acts",
       "Prayer times and silence mode",
       "Dua collection with references",
       "Feed",
       "Key screens"
     ],
-    "coverAnnotations": [
-      {
-        "label": "Silent mode, no manual step",
-        "note": "Designed to switch when the user enters a mosque",
-        "tone": "positive",
-        "x": 21,
-        "y": 33
-      },
-      {
-        "label": "One-tap start",
-        "note": "Core value appears before a long setup",
-        "tone": "neutral",
-        "x": 50,
-        "y": 72
-      },
-      {
-        "label": "Sources on every dua",
-        "note": "Quran and Hadith references shown inline",
-        "tone": "positive",
-        "x": 80,
-        "y": 40
-      }
-    ],
-    "role": "Sole UI/UX Designer"
+    "role": "Sole UI/UX Designer",
+    "galleryAnnotations": [
+      [
+        {
+          "label": "Silent mode, no manual step",
+          "note": "Designed to switch when the user enters a mosque",
+          "tone": "positive",
+          "x": 21,
+          "y": 33
+        },
+        {
+          "label": "One-tap start",
+          "note": "Core value appears before a long setup",
+          "tone": "neutral",
+          "x": 50,
+          "y": 72
+        },
+        {
+          "label": "Sources on every dua",
+          "note": "Quran and Hadith references shown inline",
+          "tone": "positive",
+          "x": 80,
+          "y": 40
+        }
+      ]
+    ]
   },
   {
     "slug": "alokito-teacher",
@@ -270,8 +278,9 @@
         "description": "Gave schools a focused route to publish jobs and manage applicants without mixing those actions into the teacher experience."
       }
     ],
-    "coverAlt": "Alokito Teacher homepage showing courses, the job platform for teachers and recruiters, badges, and pricing plans",
+    "coverAlt": "Three Alokito Teachers screens on a maroon field — job search with live vacancy counts, the join-us homepage, and the employer hiring page",
     "galleryAlt": [
+      "Alokito Teacher homepage showing courses, the job platform for teachers and recruiters, badges, and pricing plans",
       "Before and after comparison of the Alokito Teacher homepage — the old illustration-led layout beside the redesigned version with photography and course cards",
       "Alokito Teacher homepage on mobile, beside the Job Platform page explaining benefits for teachers and recruiters",
       "Job search screen with keyword and location filters and live job counts, beside a course detail page for Inquiry-based learning with pricing",
@@ -279,35 +288,38 @@
     ],
     "externalUrl": "https://www.alokitoteachers.com/",
     "galleryCaption": [
+      "Homepage — courses and job platform",
       "Before and after — homepage",
       "Homepage and job platform",
       "Job search and course detail",
       "Mobile flow"
     ],
-    "coverAnnotations": [
-      {
-        "label": "Courses lead the page",
-        "note": "The clearest first action for teachers",
-        "tone": "positive",
-        "x": 22,
-        "y": 56
-      },
-      {
-        "label": "Job portal — new feature",
-        "note": "Connects teachers and schools in one product",
-        "tone": "positive",
-        "x": 78,
-        "y": 29
-      },
-      {
-        "label": "Bundles made visible",
-        "note": "Plans are easier to find and compare",
-        "tone": "neutral",
-        "x": 78,
-        "y": 78
-      }
-    ],
-    "role": "Sole UI/UX Designer"
+    "role": "Sole UI/UX Designer",
+    "galleryAnnotations": [
+      [
+        {
+          "label": "Courses lead the page",
+          "note": "The clearest first action for teachers",
+          "tone": "positive",
+          "x": 22,
+          "y": 56
+        },
+        {
+          "label": "Job portal — new feature",
+          "note": "Connects teachers and schools in one product",
+          "tone": "positive",
+          "x": 78,
+          "y": 29
+        },
+        {
+          "label": "Bundles made visible",
+          "note": "Plans are easier to find and compare",
+          "tone": "neutral",
+          "x": 78,
+          "y": 78
+        }
+      ]
+    ]
   },
   {
     "slug": "taxrise",
@@ -372,8 +384,9 @@
         "description": "Reworked the consultation page around a focused form and a straightforward explanation of what happens next."
       }
     ],
-    "coverAlt": "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
+    "coverAlt": "Three TaxRise screens on a blue field — a customer stories feature, the executive team page, and a featured blog post on tax relief programs",
     "galleryAlt": [
+      "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
       "Before and after comparison of the TaxRise free consultation page — the dense old layout beside the redesigned version with a clearer form and an expectations section",
       "TaxRise customer stories page on mobile, beside a full story about a $206,000 IRS liability settled for $650",
       "Team page on mobile showing the executive team, beside enrolled agent profiles with case counts",
@@ -381,34 +394,37 @@
     ],
     "externalUrl": "https://taxrise.com/",
     "galleryCaption": [
+      "Homepage — desktop and mobile",
       "Before and after — free consultation",
       "Customer stories",
       "Team and enrolled agents",
       "Mobile flow"
     ],
-    "coverAnnotations": [
-      {
-        "label": "One clear CTA",
-        "note": "The primary action stays consistent across pages",
-        "tone": "positive",
-        "x": 21,
-        "y": 27
-      },
-      {
-        "label": "Results lead with proof",
-        "note": "Customer proof appears near service decisions",
-        "tone": "positive",
-        "x": 23,
-        "y": 72
-      },
-      {
-        "label": "~30 screens, one style guide",
-        "note": "A reusable hierarchy across the redesign",
-        "tone": "neutral",
-        "x": 79,
-        "y": 48
-      }
-    ],
-    "role": "Sole UI/UX Designer"
+    "role": "Sole UI/UX Designer",
+    "galleryAnnotations": [
+      [
+        {
+          "label": "One clear CTA",
+          "note": "The primary action stays consistent across pages",
+          "tone": "positive",
+          "x": 21,
+          "y": 27
+        },
+        {
+          "label": "Results lead with proof",
+          "note": "Customer proof appears near service decisions",
+          "tone": "positive",
+          "x": 23,
+          "y": 72
+        },
+        {
+          "label": "~30 screens, one style guide",
+          "note": "A reusable hierarchy across the redesign",
+          "tone": "neutral",
+          "x": 79,
+          "y": 48
+        }
+      ]
+    ]
   }
 ]
