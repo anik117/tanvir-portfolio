@@ -3,6 +3,23 @@
 The project pages are written for a design leader scanning quickly, then deciding whether the
 work is worth a closer read.
 
+## Two layouts
+
+A project can be written either way.
+
+**Chapters** (`chapters` in the Studio) — an ordered list of typed sections that the page renders
+in sequence: statement, cards, media, flow or timeline, metrics, team. Use this for a full
+case study. TaxRise is the reference.
+
+**Four acts** — the original layout, driven by `goal`, `insights`, `keyScreens` and the rest.
+It renders whenever a project has no chapters.
+
+A project with chapters ignores the act fields on its page; keep one source of truth rather than
+two. `summary` still feeds the work cards and the page description in both layouts.
+
+A chapter that needs an image it does not have yet lists it under `pending`, and the page draws a
+labelled empty slot. A gap shown as a gap is better than a placeholder image pretending to be work.
+
 ## Public reading path
 
 1. **Project summary** — one specific sentence about the intervention, not a list of adjectives.

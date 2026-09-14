@@ -9,6 +9,7 @@ import { SanityImage } from "@/components/SanityImage";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { Reveal } from "@/components/Reveal";
 import { ActNav, type ActLink } from "@/components/case-study/ActNav";
+import { Chapters, chapterAnchor } from "@/components/case-study/Chapters";
 
 export async function generateStaticParams() {
   const slugs = await safeFetch<string[]>(PROJECT_SLUGS_QUERY);
@@ -128,9 +129,38 @@ function Lead({ children }: { children: ReactNode }) {
   );
 }
 
+/** Every string a chapter puts on the page, for the reading estimate. */
+function chapterText(project: Project) {
+  return (project.chapters ?? []).flatMap((c) => {
+    const head = [c.eyebrow, c.heading, c.lead];
+    switch (c._type) {
+      case "statementChapter":
+        return [...head, ...(c.points ?? []), ...(c.facts ?? [])];
+      case "cardsChapter":
+        return [...head, ...(c.items ?? []).map((i) => `${i.title} ${i.body ?? ""}`)];
+      case "mediaChapter":
+        return [
+          ...head,
+          c.note,
+          ...(c.facts ?? []),
+          ...[...(c.feature ?? []), ...(c.images ?? [])].map((i) => i.caption ?? ""),
+        ];
+      case "flowChapter":
+        return [...head, ...(c.steps ?? []).map((st) => `${st.label} ${st.note ?? ""}`)];
+      case "metricsChapter":
+        return [...head, c.note, ...(c.items ?? []).map((m) => `${m.value ?? ""} ${m.label}`)];
+      case "teamChapter":
+        return [...head, c.leadRole, ...(c.responsibilities ?? [])];
+      default:
+        return head;
+    }
+  });
+}
+
 /** Roughly how long the study takes to read, from its own text. */
 function readingTime(project: Project) {
   const text = [
+    ...chapterText(project),
     project.summary,
     project.goal,
     project.discoveryNote,
@@ -178,14 +208,27 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
   }
   if (!project.title) notFound();
 
-  const meta = [
-    ["Role", project.role],
-    ["Industry", project.industry],
-    ["Platform", project.platform],
-    ["Year", project.year],
-    ["Duration", project.duration],
-    ["Read", `${readingTime(project)} min`],
-  ].filter(([, v]) => Boolean(v)) as [string, string][];
+  const chapters = project.chapters ?? [];
+  const hasChapters = chapters.length > 0;
+
+  const meta = (
+    hasChapters
+      ? [
+          ["Role", project.role],
+          ["Team", project.team],
+          ["Timeline", project.duration],
+          ["Scope", project.scope],
+          ["Read", `${readingTime(project)} min`],
+        ]
+      : [
+          ["Role", project.role],
+          ["Industry", project.industry],
+          ["Platform", project.platform],
+          ["Year", project.year],
+          ["Duration", project.duration],
+          ["Read", `${readingTime(project)} min`],
+        ]
+  ).filter(([, v]) => Boolean(v)) as [string, string][];
 
   const hasBrief = Boolean(project.goal || project.targetUsers?.length);
   const hasResearch = Boolean(project.insights?.length || project.competitorAnalysis?.length);
@@ -198,12 +241,21 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
   );
   const hasOutcome = Boolean(project.outcomes?.length);
 
-  const acts: ActLink[] = [
-    hasBrief && { id: "act-01", n: "01", title: "The challenge" },
-    hasResearch && { id: "act-02", n: "02", title: "What shaped the work" },
-    hasBuild && { id: "act-03", n: "03", title: "Key decisions" },
-    hasOutcome && { id: "act-04", n: "04", title: "Measured impact" },
-  ].filter(Boolean) as ActLink[];
+  // A chapter joins the index only if it was given a label, so a fifteen-part
+  // study still shows a rail you can take in at a glance.
+  const acts: ActLink[] = hasChapters
+    ? chapters
+        .map((c, i) =>
+          c.navLabel ? { id: chapterAnchor(i), n: "", title: c.navLabel } : null,
+        )
+        .filter(Boolean as unknown as (v: ActLink | null) => v is ActLink)
+        .map((a, i) => ({ ...a, n: String(i + 1).padStart(2, "0") }))
+    : ([
+        hasBrief && { id: "act-01", n: "01", title: "The challenge" },
+        hasResearch && { id: "act-02", n: "02", title: "What shaped the work" },
+        hasBuild && { id: "act-03", n: "03", title: "Key decisions" },
+        hasOutcome && { id: "act-04", n: "04", title: "Measured impact" },
+      ].filter(Boolean) as ActLink[]);
 
   return (
     <main className="pb-10">
@@ -219,13 +271,24 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         <header className="mt-10 max-w-4xl">
           <Reveal y={10}>
-            <p className="mono text-[12px] text-muted">
-              {[project.year, project.projectType, project.industry].filter(Boolean).join("  •  ")}
+            <p className="mono text-[12px] uppercase tracking-[0.16em] text-muted">
+              {(project.headline
+                ? [project.title, project.industry]
+                : [project.year, project.projectType, project.industry]
+              )
+                .filter(Boolean)
+                .join("  ·  ")}
             </p>
           </Reveal>
           <Reveal delay={80} y={14}>
-            <h1 className="mt-5 text-balance text-4xl font-medium leading-[1.05] tracking-[-0.03em] sm:text-6xl">
-              {project.title}
+            {/* A headline is a sentence and needs to stay readable; a bare
+                project name can carry the display size. */}
+            <h1
+              className={`mt-5 text-balance font-medium leading-[1.05] tracking-[-0.03em] ${
+                project.headline ? "text-[2rem] sm:text-5xl" : "text-4xl sm:text-6xl"
+              }`}
+            >
+              {project.headline ?? project.title}
             </h1>
           </Reveal>
           {project.summary && (
@@ -250,12 +313,12 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
         </header>
 
-        {project.coverImage && (
+        {(project.heroImage ?? project.coverImage) && (
           <Reveal delay={200} className="mt-14">
             <div className="card group overflow-hidden p-3 sm:p-4">
               <div className="overflow-hidden rounded-xl border border-border bg-white">
                 <SanityImage
-                  image={project.coverImage}
+                  image={(project.heroImage ?? project.coverImage)!}
                   width={1800}
                   sizes="(max-width: 1280px) 100vw, 1200px"
                   priority
@@ -268,7 +331,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         {meta.length > 0 && (
           <Reveal delay={300}>
-            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-border py-5 sm:grid-cols-3 lg:grid-cols-6">
+            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-border py-5 sm:grid-cols-3 lg:grid-cols-5">
               {meta.map(([label, value]) => (
                 <div key={label} className="min-w-0">
                   <dt className="mono text-[11px] uppercase tracking-[0.14em] text-muted">{label}</dt>
@@ -276,6 +339,14 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                 </div>
               ))}
             </dl>
+          </Reveal>
+        )}
+
+        {project.snapshotNote && (
+          <Reveal delay={340}>
+            <p className="mt-8 max-w-3xl text-[17px] leading-[1.65] text-muted-strong">
+              {project.snapshotNote}
+            </p>
           </Reveal>
         )}
       </div>
@@ -289,120 +360,126 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
         </aside>
 
         <div className="min-w-0 space-y-20">
-          {hasBrief && (
-            <Act id="act-01" title="The challenge">
-              {project.goal && <Lead>{project.goal}</Lead>}
-              {project.targetUsers?.length ? (
-                <>
-                  <Sub>Primary audiences</Sub>
-                  <Rows
-                    items={project.targetUsers.map((u) => ({
-                      key: u._key ?? u.label,
-                      label: u.label,
-                      description: u.description,
-                    }))}
-                  />
-                </>
-              ) : null}
-            </Act>
-          )}
+          {hasChapters ? (
+            <Chapters chapters={chapters} />
+          ) : (
+            <>
+            {hasBrief && (
+              <Act id="act-01" title="The challenge">
+                {project.goal && <Lead>{project.goal}</Lead>}
+                {project.targetUsers?.length ? (
+                  <>
+                    <Sub>Primary audiences</Sub>
+                    <Rows
+                      items={project.targetUsers.map((u) => ({
+                        key: u._key ?? u.label,
+                        label: u.label,
+                        description: u.description,
+                      }))}
+                    />
+                  </>
+                ) : null}
+              </Act>
+            )}
 
-          {hasResearch && (
-            <Act id="act-02" title="What shaped the work">
-              {project.discoveryNote && <Lead>{project.discoveryNote}</Lead>}
+            {hasResearch && (
+              <Act id="act-02" title="What shaped the work">
+                {project.discoveryNote && <Lead>{project.discoveryNote}</Lead>}
 
-              {project.insights?.length ? (
-                <>
-                  <Sub>Insights</Sub>
-                  <Points items={project.insights} />
-                </>
-              ) : null}
+                {project.insights?.length ? (
+                  <>
+                    <Sub>Insights</Sub>
+                    <Points items={project.insights} />
+                  </>
+                ) : null}
 
-              {project.competitorAnalysis?.length ? (
-                <Folded label="Competitor analysis" count={project.competitorAnalysis.length}>
-                  <Points items={project.competitorAnalysis} />
-                </Folded>
-              ) : null}
-            </Act>
-          )}
+                {project.competitorAnalysis?.length ? (
+                  <Folded label="Competitor analysis" count={project.competitorAnalysis.length}>
+                    <Points items={project.competitorAnalysis} />
+                  </Folded>
+                ) : null}
+              </Act>
+            )}
 
-          {hasBuild && (
-            <Act id="act-03" title="Key decisions">
-              {project.keyScreens?.length ? (
-                <div>
-                  <Sub>What I changed and why</Sub>
-                  <Rows
-                    items={project.keyScreens.map((s) => ({
-                      key: s._key ?? s.name,
-                      label: s.name,
-                      description: s.description,
-                    }))}
-                  />
-                </div>
-              ) : null}
+            {hasBuild && (
+              <Act id="act-03" title="Key decisions">
+                {project.keyScreens?.length ? (
+                  <div>
+                    <Sub>What I changed and why</Sub>
+                    <Rows
+                      items={project.keyScreens.map((s) => ({
+                        key: s._key ?? s.name,
+                        label: s.name,
+                        description: s.description,
+                      }))}
+                    />
+                  </div>
+                ) : null}
 
-              {project.gallery?.length ? (
-                <div className="mt-14 space-y-8">
-                  {project.gallery.map((img, i) => (
-                    <Reveal key={i} amount={0.2}>
-                      <figure>
-                        <ZoomableImage
-                          image={img}
-                          width={1800}
-                          sizes="(max-width: 1280px) 100vw, 1120px"
-                        />
-                        {img.caption && (
-                          <figcaption className="mt-3 text-sm text-muted-strong">
-                            {img.caption} — click to enlarge
-                          </figcaption>
-                        )}
-                      </figure>
-                    </Reveal>
-                  ))}
-                </div>
-              ) : null}
+                {project.gallery?.length ? (
+                  <div className="mt-14 space-y-8">
+                    {project.gallery.map((img, i) => (
+                      <Reveal key={i} amount={0.2}>
+                        <figure>
+                          <ZoomableImage
+                            image={img}
+                            width={1800}
+                            sizes="(max-width: 1280px) 100vw, 1120px"
+                          />
+                          {img.caption && (
+                            <figcaption className="mt-3 text-sm text-muted-strong">
+                              {img.caption} — click to enlarge
+                            </figcaption>
+                          )}
+                        </figure>
+                      </Reveal>
+                    ))}
+                  </div>
+                ) : null}
 
-              {project.userFlows?.length ? (
-                <Folded label="Selected user flows" count={project.userFlows.length}>
-                  <ol className="divide-y divide-border border-y border-border">
-                    {project.userFlows.map((f) => (
-                      <li key={f._key ?? f.name} className="grid gap-2 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
-                        <p className="font-semibold">{f.name}</p>
-                        {f.steps && <Steps steps={f.steps} />}
+                {project.userFlows?.length ? (
+                  <Folded label="Selected user flows" count={project.userFlows.length}>
+                    <ol className="divide-y divide-border border-y border-border">
+                      {project.userFlows.map((f) => (
+                        <li key={f._key ?? f.name} className="grid gap-2 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                          <p className="font-semibold">{f.name}</p>
+                          {f.steps && <Steps steps={f.steps} />}
+                        </li>
+                      ))}
+                    </ol>
+                  </Folded>
+                ) : null}
+
+                {project.wireframes?.length ? (
+                  <Folded label="Wireframes" count={project.wireframes.length}>
+                    <Points items={project.wireframes} />
+                  </Folded>
+                ) : null}
+
+                {project.visualDirection?.length ? (
+                  <Folded label="Visual direction" count={project.visualDirection.length}>
+                    <Points items={project.visualDirection} />
+                  </Folded>
+                ) : null}
+              </Act>
+            )}
+
+            {hasOutcome && (
+              <Act id="act-04" title="Measured impact">
+                {project.outcomes?.length ? (
+                  <ul className="panel-soft mb-8 grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:p-8">
+                    {project.outcomes.map((o) => (
+                      <li key={o._key ?? o.label}>
+                        <p className="mono text-4xl font-medium tracking-[-0.03em] text-accent-hover">{o.value}</p>
+                        <p className="mt-2 text-sm">{o.label}</p>
+                        <p className="mono mt-2 text-xs text-muted-strong">{o.evidence}</p>
                       </li>
                     ))}
-                  </ol>
-                </Folded>
-              ) : null}
-
-              {project.wireframes?.length ? (
-                <Folded label="Wireframes" count={project.wireframes.length}>
-                  <Points items={project.wireframes} />
-                </Folded>
-              ) : null}
-
-              {project.visualDirection?.length ? (
-                <Folded label="Visual direction" count={project.visualDirection.length}>
-                  <Points items={project.visualDirection} />
-                </Folded>
-              ) : null}
-            </Act>
-          )}
-
-          {hasOutcome && (
-            <Act id="act-04" title="Measured impact">
-              {project.outcomes?.length ? (
-                <ul className="panel-soft mb-8 grid gap-6 rounded-[28px] p-6 sm:grid-cols-3 sm:p-8">
-                  {project.outcomes.map((o) => (
-                    <li key={o._key ?? o.label}>
-                      <p className="mono text-4xl font-medium tracking-[-0.03em] text-accent-hover">{o.value}</p>
-                      <p className="mt-2 text-sm">{o.label}</p>
-                      <p className="mono mt-2 text-xs text-muted-strong">{o.evidence}</p>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </Act>
+                  </ul>
+                ) : null}
+              </Act>
+            )}
+            </>
           )}
         </div>
       </div>

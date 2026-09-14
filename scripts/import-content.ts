@@ -9,8 +9,8 @@
  * does not duplicate assets.
  */
 import { createHash } from "node:crypto";
-import { createReadStream, existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { createReadStream, existsSync, readdirSync, readFileSync } from "node:fs";
+import { dirname, join, parse } from "node:path";
 import { getCliClient } from "sanity/cli";
 
 const client = getCliClient({ apiVersion: "2026-09-08" });
@@ -24,6 +24,30 @@ type Project = {
   galleryCaption?: string[];
   /** Annotations per gallery slot; index 0 is screen-1. */
   galleryAnnotations?: Annotation[][];
+  /** Big image at the top of the case study; falls back to cover.jpg. */
+  heroFile?: string;
+  heroAlt?: string;
+  chapters?: SeedChapter[];
+  [key: string]: unknown;
+};
+
+/** A chapter as written in the seed: images name a file in the project's
+    asset folder rather than a Sanity asset id. */
+type SeedImage = {
+  file: string;
+  alt: string;
+  caption?: string;
+  label?: string;
+  /** Shown in the dashed slot that stands in for this image until the file
+      exists. Falls back to the corner label, then to the filename. */
+  pendingLabel?: string;
+  annotations?: Annotation[];
+};
+
+type SeedChapter = {
+  _type: string;
+  images?: SeedImage[];
+  feature?: SeedImage[];
   [key: string]: unknown;
 };
 
@@ -48,9 +72,10 @@ const contactContent = JSON.parse(
  * Hashing also relinks a document that lost its reference instead of
  * re-uploading, and never duplicates an asset that is already there.
  */
-async function resolveAsset(path: string, filename: string) {
-  if (!existsSync(path)) {
-    console.warn(`  ! missing ${path} — skipping`);
+async function resolveAsset(wanted: string, filename: string) {
+  const path = withAnyExtension(wanted);
+  if (!path) {
+    console.warn(`  ! missing ${wanted} — skipping`);
     return null;
   }
   const sha1 = createHash("sha1").update(readFileSync(path)).digest("hex");
@@ -65,6 +90,22 @@ async function resolveAsset(path: string, filename: string) {
   return asset._id;
 }
 
+/**
+ * The seed names a file; the export tool decides the extension. Match on the
+ * basename so a .webp on disk still answers to `foo.jpg` in the seed, and the
+ * two never have to be kept in step by hand.
+ */
+function withAnyExtension(wanted: string) {
+  if (existsSync(wanted)) return wanted;
+  const dir = dirname(wanted);
+  if (!existsSync(dir)) return null;
+  const base = parse(wanted).name.toLowerCase();
+  const match = readdirSync(dir).find(
+    (f) => parse(f).name.toLowerCase() === base && /\.(jpe?g|png|webp|avif|gif)$/i.test(f),
+  );
+  return match ? join(dir, match) : null;
+}
+
 type Annotation = { label: string; note?: string; tone?: string; x: number; y: number };
 
 function imageField(
@@ -72,16 +113,99 @@ function imageField(
   alt: string,
   caption?: string,
   annotations?: Annotation[],
+  label?: string,
 ) {
   return {
     _type: "image",
     asset: { _type: "reference", _ref: assetId },
     alt,
     ...(caption ? { caption } : {}),
+    ...(label ? { label } : {}),
     ...(annotations?.length
       ? { annotations: annotations.map((a, i) => ({ _key: `ann-${i}`, ...a })) }
       : {}),
   };
+}
+
+/**
+ * Stamps a _key on every object inside an array, recursively. Sanity needs one
+ * per array member; writing them by hand in the seed would be noise.
+ */
+function keyArrays(value: unknown, prefix: string): unknown {
+  if (Array.isArray(value)) {
+    return value.map((item, i) =>
+      item && typeof item === "object"
+        ? { _key: `${prefix}-${i}`, ...(keyArrays(item, `${prefix}-${i}`) as object) }
+        : item,
+    );
+  }
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>).map(([k, v]) => [
+        k,
+        k === "_key" ? v : keyArrays(v, `${prefix}-${k}`),
+      ]),
+    );
+  }
+  return value;
+}
+
+/** What the dashed stand-in says while an image's file does not exist yet. */
+function slotLabel(img: SeedImage) {
+  if (img.pendingLabel) return img.pendingLabel;
+  if (img.label) return img.label;
+  return img.file.replace(/\.[a-z]+$/i, "").replace(/[-_]/g, " ");
+}
+
+/** Resolves each chapter's `file` references into uploaded Sanity images. */
+async function buildChapters(chapters: SeedChapter[], dir: string, slug: string) {
+  const out: unknown[] = [];
+
+  for (const [ci, chapter] of chapters.entries()) {
+    const { images, feature, ...rest } = chapter;
+    const built = keyArrays(rest, `ch${ci}`) as Record<string, unknown>;
+    built._key = `ch-${String(ci + 1).padStart(2, "0")}`;
+
+    for (const [field, list] of [
+      ["images", images],
+      ["feature", feature],
+    ] as const) {
+      if (!list?.length) continue;
+      const resolved: unknown[] = [];
+      const absent: string[] = [];
+
+      for (const [ii, img] of list.entries()) {
+        const assetId = await resolveAsset(join(dir, img.file), `${slug}-${img.file}`);
+        if (!assetId) {
+          absent.push(slotLabel(img));
+          continue;
+        }
+        resolved.push({
+          ...imageField(assetId, img.alt, img.caption, img.annotations, img.label),
+          _key: `ch-${ci}-${field}-${ii}`,
+          // imageField writes the generic "image" type; inside a chapter the
+          // member type is the named one the schema declares.
+          _type: "chapterImage",
+        });
+      }
+
+      if (resolved.length) built[field] = resolved;
+
+      // An image whose file is not on disk yet becomes a dashed slot rather
+      // than a hole, so the seed only ever lists the assets it actually wants
+      // and the page stays honest about which of them exist.
+      if (!absent.length) continue;
+      if (field === "feature") {
+        built.featurePending = built.featurePending ?? absent[0];
+      } else {
+        built.pending = [...((built.pending as string[] | undefined) ?? []), ...absent];
+      }
+    }
+
+    out.push(built);
+  }
+
+  return out;
 }
 
 async function main() {
@@ -124,6 +248,10 @@ async function main() {
       year: p.year,
       duration: p.duration,
       role: p.role,
+      team: p.team,
+      scope: p.scope,
+      headline: p.headline,
+      snapshotNote: p.snapshotNote,
       externalLabel: p.externalLabel,
       externalUrl: p.externalUrl,
       goal: p.goal,
@@ -143,6 +271,14 @@ async function main() {
 
     if (coverImage) doc.coverImage = coverImage;
     if (gallery?.length) doc.gallery = gallery;
+
+    if (p.heroFile) {
+      const heroId = await resolveAsset(join(dir, p.heroFile), `${p.slug}-${p.heroFile}`);
+      if (heroId) doc.heroImage = imageField(heroId, p.heroAlt ?? p.coverAlt);
+    }
+    if (p.chapters?.length) {
+      doc.chapters = await buildChapters(p.chapters, dir, p.slug);
+    }
 
     await client.createOrReplace(doc as never);
     console.log(`${p.slug}: document written`);

@@ -1,41 +1,6 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
-
-/** Callouts pinned to an image, positioned as percentages of its box. */
-const annotations = defineField({
-  name: "annotations",
-  title: "Annotations",
-  description:
-    "Design decisions pinned to the screen. This is the signature device — a screenshot shows what shipped, an annotation shows what you decided.",
-  type: "array",
-  of: [
-    defineArrayMember({
-      type: "object",
-      fields: [
-        defineField({ name: "label", type: "string", validation: (r) => r.required() }),
-        defineField({ name: "note", type: "string", description: "One short line of reasoning." }),
-        defineField({
-          name: "tone",
-          type: "string",
-          initialValue: "neutral",
-          options: { list: ["positive", "attention", "neutral"], layout: "radio" },
-        }),
-        defineField({
-          name: "x",
-          type: "number",
-          description: "Horizontal position, 0–100 (% from left).",
-          validation: (r) => r.required().min(0).max(100),
-        }),
-        defineField({
-          name: "y",
-          type: "number",
-          description: "Vertical position, 0–100 (% from top).",
-          validation: (r) => r.required().min(0).max(100),
-        }),
-      ],
-      preview: { select: { title: "label", subtitle: "note" } },
-    }),
-  ],
-});
+import { annotations } from "./annotations";
+import { chapterMemberNames } from "./chapters";
 
 const bullets = (name: string, title: string, description?: string) =>
   defineField({
@@ -52,6 +17,7 @@ export const project = defineType({
   type: "document",
   groups: [
     { name: "meta", title: "Meta", default: true },
+    { name: "story", title: "Story" },
     { name: "process", title: "Process" },
     { name: "design", title: "Design" },
     { name: "media", title: "Media" },
@@ -85,6 +51,18 @@ export const project = defineType({
     defineField({ name: "year", type: "string", group: "meta" }),
     defineField({ name: "duration", type: "string", group: "meta" }),
     defineField({ name: "role", type: "string", group: "meta", description: "Your role. Not on the old site — fill in." }),
+    defineField({
+      name: "team",
+      type: "string",
+      group: "meta",
+      description: 'Who was on it, plainly — e.g. "1 lead designer + 2 junior designers".',
+    }),
+    defineField({
+      name: "scope",
+      type: "string",
+      group: "meta",
+      description: 'What the work covered — e.g. "Website · Lead form · Design system".',
+    }),
     defineField({ name: "externalUrl", type: "url", group: "meta", title: "External link" }),
     defineField({
       name: "externalLabel",
@@ -92,6 +70,46 @@ export const project = defineType({
       group: "meta",
       initialValue: "Visit Website",
       options: { list: ["Visit Website", "View Prototype", "View on App Store"] },
+    }),
+
+    defineField({
+      name: "headline",
+      type: "text",
+      rows: 2,
+      group: "story",
+      description:
+        "The one line at the top of the case study — what the work was, in the project's own terms. Falls back to the title.",
+    }),
+    defineField({
+      name: "snapshotNote",
+      title: "Snapshot note",
+      type: "text",
+      rows: 3,
+      group: "story",
+      description: "Two or three sentences under the fact row. Do not repeat the summary.",
+    }),
+    defineField({
+      name: "heroImage",
+      title: "Hero image",
+      type: "image",
+      group: "story",
+      options: { hotspot: true },
+      description:
+        "The big image at the top of the case study. Falls back to the cover image, which is what the work cards use.",
+      fields: [
+        defineField({ name: "alt", type: "string", title: "Alt text", validation: (r) => r.required() }),
+        defineField({ name: "caption", type: "string" }),
+        annotations,
+      ],
+    }),
+    defineField({
+      name: "chapters",
+      title: "Chapters",
+      type: "array",
+      group: "story",
+      description:
+        "The long-form case study, in order. When a project has chapters they replace the four-act layout below; the process and design fields then only feed the work cards and search.",
+      of: chapterMemberNames.map((name) => defineArrayMember({ type: name })),
     }),
 
     defineField({ name: "goal", type: "text", rows: 3, group: "process" }),

@@ -13,7 +13,10 @@ export const PROJECTS_QUERY = groq`
 export const PROJECT_BY_SLUG_QUERY = groq`
   *[_type == "project" && slug.current == $slug][0] {
     ${CARD},
-    platform, duration, role, externalUrl, externalLabel,
+    platform, duration, role, team, scope, externalUrl, externalLabel,
+    headline, snapshotNote,
+    heroImage { ..., annotations },
+    chapters[] { ..., feature[] { ..., annotations }, images[] { ..., annotations } },
     goal, targetUsers, discoveryNote, insights, competitorAnalysis,
     userFlows, wireframes, visualDirection, keyScreens,
     outcomes, body,

@@ -1,8 +1,241 @@
 [
   {
+    "slug": "taxrise",
+    "title": "TaxRise",
+    "order": 1,
+    "projectType": "Website Redesign",
+    "industry": "Fintech / Tax resolution",
+    "platform": "Responsive web",
+    "year": "2026",
+    "duration": "6–12 months",
+    "role": "Lead Product & UX Designer",
+    "team": "1 lead + 2 junior designers",
+    "scope": "Website · Lead form · Design system",
+    "externalLabel": "Visit Website",
+    "externalUrl": "https://taxrise.com/",
+    "headline": "Rebranding a high-intent website and simplifying the path to conversion",
+    "summary": "A website and lead-form redesign that translated a new brand identity into a more consistent experience and a clearer path to conversion.",
+    "heroFile": "screen-1.jpg",
+    "heroAlt": "TaxRise homepage — a 'Let's resolve your tax issues' hero, a client results section, the two-phase resolution process and the FAQ",
+    "coverAlt": "Three TaxRise screens on a blue field — a customer stories feature, the executive team page, and a featured blog post on tax relief programs",
+    "galleryAlt": [
+      "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
+      "Before and after comparison of the TaxRise free consultation page — the dense old layout beside the redesigned version with a clearer form and an expectations section",
+      "TaxRise customer stories page on mobile, beside a full story about a $206,000 IRS liability settled for $650",
+      "Team page on mobile showing the executive team, beside enrolled agent profiles with case counts",
+      "Angled view of mobile screens — tax relief services, blog listing, and about page"
+    ],
+    "galleryCaption": [
+      "Homepage — desktop and mobile",
+      "Before and after — free consultation",
+      "Customer stories",
+      "Team and enrolled agents",
+      "Mobile flow"
+    ],
+    "chapters": [
+      {
+        "_type": "statementChapter",
+        "navLabel": "The challenge",
+        "layout": "split",
+        "tone": "plain",
+        "heading": "The challenge",
+        "lead": "TaxRise had recently refreshed its brand, but the website had become inconsistent across pages. At the same time, the journey from the website into the lead form wasn't converting users as effectively as the business needed.\n\nWe had to bring the new brand to life while making the path to conversion simpler and easier to follow. I led the design direction alongside two junior designers.",
+        "facts": [
+          "20+ pages",
+          "1 design system",
+          "Lead-form redesign"
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "layout": "single",
+        "images": [
+          {
+            "file": "explorations-landing.jpg",
+            "pendingLabel": "The four landing directions, side by side",
+            "alt": "Four TaxRise landing page directions side by side, labelled v1 to v4 — a light compact layout, a dark blue hero, a green gradient hero and a light gradient hero",
+            "caption": "Four full landing directions. The same sections in each — what moved was the arrangement, and the weight given to proof."
+          }
+        ],
+        "navLabel": "Approach",
+        "heading": "From brand refresh to scalable system",
+        "lead": "We started with stakeholder requirements, visual research and mood boards, then went wide on direction.\n\nOnce one was agreed, I built the design system and used the finalised homepage as the foundation for the rest of the site."
+      },
+      {
+        "_type": "mediaChapter",
+        "navLabel": "The system",
+        "layout": "duo",
+        "heading": "Designed as a system, not a collection of pages",
+        "lead": "After finalising the homepage direction, we extended the system across 20+ pages. Reusable templates handled the common structures, while pages whose content or user journey needed something different got their own layout.",
+        "images": [
+          {
+            "file": "system-typography.jpg",
+            "label": "Typography",
+            "pendingLabel": "Typography sheet",
+            "alt": "TaxRise design system typography sheet — headings H1 to H6 from 64 down to 24, and paragraph sizes XXL to S, each in bold, medium and regular",
+            "caption": "One scale for headings, one for paragraphs, with the weights fixed per size."
+          },
+          {
+            "file": "system-colors.jpg",
+            "label": "Colour",
+            "pendingLabel": "Colour sheet",
+            "alt": "TaxRise design system colour sheet — primary, gray, red, green and white, each in three steps with hex values",
+            "caption": "Every swatch carries its hex, so nothing has to be eyedropped later."
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "layout": "grid3",
+        "images": [
+          {
+            "file": "system-button.jpg",
+            "label": "Button",
+            "pendingLabel": "Button sheet",
+            "alt": "TaxRise design system button sheet — filled, white, ghost and outline buttons in default, hover and disabled states"
+          },
+          {
+            "file": "system-accordion.jpg",
+            "label": "Accordion",
+            "pendingLabel": "Accordion sheet",
+            "alt": "TaxRise design system accordion sheet — collapsed and expanded question rows, and a two-column FAQ variant"
+          },
+          {
+            "file": "system-card.jpg",
+            "label": "Card",
+            "pendingLabel": "Card sheet",
+            "alt": "TaxRise design system card sheet — cards with and without icons, in resting and raised states"
+          }
+        ],
+        "note": "Every state drawn once, so a page is composed rather than redrawn."
+      },
+      {
+        "_type": "mediaChapter",
+        "layout": "duo",
+        "images": [
+          {
+            "file": "screen-5.jpg",
+            "label": "Reusable page pattern",
+            "alt": "Angled view of TaxRise mobile screens — a customer story, tax relief services, the blog listing and the about page"
+          },
+          {
+            "file": "screen-4.jpg",
+            "label": "Content-heavy page",
+            "alt": "TaxRise team page on mobile showing the executive team, beside enrolled agent profiles with case counts"
+          }
+        ],
+        "note": "Designed once, reused across 20+ pages."
+      },
+      {
+        "_type": "mediaChapter",
+        "navLabel": "Lead form",
+        "layout": "single",
+        "heading": "Turning intent into action",
+        "lead": "The lead form was a critical part of the customer journey. I mapped the flow before designing the interface, to understand how people move through it and where unnecessary complexity could come out.\n\nTwo answers change the path. Someone who isn't sure which tax years are unfiled skips that question instead of guessing at it. Someone in bankruptcy can't be helped yet, so the form tells them and gives them a way back, rather than collecting details it cannot act on.",
+        "facts": [
+          "Clearer progression",
+          "Simpler interactions",
+          "Less cognitive load"
+        ],
+        "images": [
+          {
+            "file": "screen-2.jpg",
+            "alt": "Before and after of the TaxRise free consultation page — the dense original beside the redesigned version",
+            "caption": "The free consultation page, before and after — the front door to the form."
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "layout": "single",
+        "images": [
+          {
+            "file": "form-flow.jpg",
+            "alt": "User flow diagram for the TaxRise lead form — start, reasons for seeking relief, an unfiled-years decision with yes, no and not-sure paths, tax debt, federal or state, issue type, then a bankruptcy decision splitting into a wait-and-return ending and a qualified-and-schedule ending",
+            "caption": "The flow, mapped and reviewed with stakeholders before any of the interface existed. The bankruptcy question splits it into two endings.",
+            "pendingLabel": "The lead-form flow diagram"
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "layout": "grid",
+        "images": [
+          {
+            "file": "form-1-entry.jpg",
+            "label": "Entry",
+            "alt": "TaxRise lead form entry screen — 'Interested in tax relief?' with a Get Started button, beside a panel showing a Trustpilot rating and BBB, NAEA and NATP accreditations",
+            "caption": "Proof sits beside the form and stays there for every step.",
+            "pendingLabel": "Form — entry screen"
+          },
+          {
+            "file": "form-2-multiselect.jpg",
+            "label": "Question",
+            "alt": "TaxRise lead form question — 'Which tax years are unfiled?' with year checkboxes in two columns and a 'Not sure' option, under a progress bar",
+            "caption": "One question per screen, a progress bar, and a way to say 'Not sure'.",
+            "pendingLabel": "Form — a question step"
+          },
+          {
+            "file": "form-3-branch.jpg",
+            "label": "Branch",
+            "alt": "TaxRise lead form question — 'When do you expect your bankruptcy to discharge?' with month ranges and a 'Not Sure' option",
+            "caption": "The branching question. The answer decides which ending someone gets.",
+            "pendingLabel": "Form — the branching question"
+          },
+          {
+            "file": "form-4-complete.jpg",
+            "label": "Completion",
+            "alt": "TaxRise lead form completion screen — 'Thank you, David!' with a message that a call is coming and a Schedule Appointment button",
+            "caption": "The proof panel drops away. The screen's only job now is to say what happens next.",
+            "pendingLabel": "Form — completion screen"
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "navLabel": "Final experience",
+        "layout": "single",
+        "heading": "The final experience",
+        "images": [
+          {
+            "file": "cover.jpg",
+            "alt": "Three TaxRise mobile screens on a blue field — customer stories, the executive team page, and a featured blog post",
+            "caption": "Establishing the new visual language across the site."
+          },
+          {
+            "file": "screen-3.jpg",
+            "alt": "TaxRise customer stories page on mobile, beside a full story about a $206,000 IRS liability settled for $650",
+            "caption": "Extending the system across content-heavy pages."
+          }
+        ]
+      },
+      {
+        "_type": "metricsChapter",
+        "navLabel": "Outcome",
+        "heading": "A more cohesive experience with a stronger path to conversion",
+        "lead": "After roughly 6–12 months of design, iteration and stakeholder review, the work was handed to development and launched. Post-launch, Google Analytics showed more people moving from the website into the lead form than before.",
+        "items": [
+          {
+            "label": "Lead-form conversion, before",
+            "value": "~55%",
+            "evidence": "Google Analytics after launch — approximate",
+            "status": "verified"
+          },
+          {
+            "label": "Lead-form conversion, after",
+            "value": "~70%",
+            "evidence": "Google Analytics after launch — approximate",
+            "status": "verified"
+          }
+        ],
+        "note": "The project reinforced that effective redesign is about more than visual change. The biggest opportunity was connecting brand, UX and conversion into one scalable system."
+      }
+    ]
+  },
+  {
     "slug": "zo-skin-centre",
     "title": "ZO Skin Centre",
-    "order": 1,
+    "order": 2,
     "summary": "I brought four clinic locations into one browsing and booking experience, so patients could compare treatments, practitioners and results without losing their place.",
     "projectType": "Website Redesign",
     "industry": "Health",
@@ -108,7 +341,7 @@
   {
     "slug": "ibadat",
     "title": "Ibadat",
-    "order": 2,
+    "order": 3,
     "summary": "I designed a daily prayer app around three moments: checking prayer times, finding trustworthy duas, and silencing the phone automatically inside a mosque.",
     "projectType": "Mobile App Design",
     "industry": "App",
@@ -214,7 +447,7 @@
   {
     "slug": "alokito-teacher",
     "title": "Alokito Teacher",
-    "order": 3,
+    "order": 4,
     "summary": "I redesigned Alokito Teacher and added a job marketplace, giving teachers one place to build skills and find work while schools got a direct hiring path.",
     "projectType": "Website Redesign + Job Portal",
     "industry": "Edtech",
@@ -317,112 +550,6 @@
           "tone": "neutral",
           "x": 78,
           "y": 78
-        }
-      ]
-    ]
-  },
-  {
-    "slug": "taxrise",
-    "title": "TaxRise",
-    "order": 4,
-    "summary": "I redesigned TaxRise's marketing site around clearer service paths, stronger proof and a consultation flow that makes the next step obvious.",
-    "projectType": "Website Redesign",
-    "industry": "Fintech",
-    "platform": "Desktop & Mobile",
-    "year": "2024",
-    "duration": "6 months",
-    "externalLabel": "Visit Website",
-    "goal": "Tax relief is already hard to understand. The website added another layer of friction through inconsistent pages, scattered proof and unclear next steps. The redesign had to make the path to expert help feel simpler and more credible.",
-    "targetUsers": [
-      {
-        "label": "People looking for tax relief",
-        "description": "Need to understand their options, judge whether the company is credible and know how to start."
-      },
-      {
-        "label": "Internal teams (SEO and marketing)",
-        "description": "Need repeatable page structures they can extend for new services, content and campaigns."
-      }
-    ],
-    "discoveryNote": "Conversations with stakeholders, SEO and marketing surfaced one shared problem: the site had grown page by page, without a consistent route from a tax question to a consultation.",
-    "insights": [
-      "Service pages used different patterns, so the next step changed as people moved through the site.",
-      "Customer stories, case results and enrolled-agent credentials were separated from the moments when people were deciding whether to trust the company.",
-      "Marketing needed a page system that could support new campaigns without redesigning each one from scratch."
-    ],
-    "competitorAnalysis": [
-      "The comparison focused on how tax-relief sites explain services, place customer proof and repeat the consultation action."
-    ],
-    "userFlows": [
-      {
-        "name": "Find the Right Service",
-        "steps": "Homepage → Explore tax problem → Review service → Start consultation"
-      },
-      {
-        "name": "Evaluate Trust",
-        "steps": "Service page → Customer story or case result → Team credentials → Consultation"
-      }
-    ],
-    "wireframes": [
-      "Started with low-fidelity page structures for services, proof and consultation.",
-      "Refined the high-fidelity system with stakeholder feedback across roughly 30 screens."
-    ],
-    "visualDirection": [
-      "Built a consistent visual system for type, colour, components and page hierarchy.",
-      "Used customer stories, case results and team credentials as part of the information hierarchy, not as decoration."
-    ],
-    "keyScreens": [
-      {
-        "name": "A consistent service-page system",
-        "description": "Created a repeatable hierarchy for complex tax topics, supporting proof and a clear next step."
-      },
-      {
-        "name": "Trust before conversion",
-        "description": "Brought customer stories, case results and enrolled-agent credentials into the points where people decide whether to continue."
-      },
-      {
-        "name": "A clearer consultation handoff",
-        "description": "Reworked the consultation page around a focused form and a straightforward explanation of what happens next."
-      }
-    ],
-    "coverAlt": "Three TaxRise screens on a blue field — a customer stories feature, the executive team page, and a featured blog post on tax relief programs",
-    "galleryAlt": [
-      "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
-      "Before and after comparison of the TaxRise free consultation page — the dense old layout beside the redesigned version with a clearer form and an expectations section",
-      "TaxRise customer stories page on mobile, beside a full story about a $206,000 IRS liability settled for $650",
-      "Team page on mobile showing the executive team, beside enrolled agent profiles with case counts",
-      "Angled view of mobile screens — tax relief services, blog listing, and about page"
-    ],
-    "externalUrl": "https://taxrise.com/",
-    "galleryCaption": [
-      "Homepage — desktop and mobile",
-      "Before and after — free consultation",
-      "Customer stories",
-      "Team and enrolled agents",
-      "Mobile flow"
-    ],
-    "role": "Sole UI/UX Designer",
-    "galleryAnnotations": [
-      [
-        {
-          "label": "One clear CTA",
-          "note": "The primary action stays consistent across pages",
-          "tone": "positive",
-          "x": 21,
-          "y": 27
-        },
-        {
-          "label": "Results lead with proof",
-          "note": "Customer proof appears near service decisions",
-          "tone": "positive",
-          "x": 23,
-          "y": 72
-        },
-        {
-          "label": "~30 screens, one style guide",
-          "note": "A reusable hierarchy across the redesign",
-          "tone": "neutral",
-          "x": 79,
-          "y": 48
         }
       ]
     ]

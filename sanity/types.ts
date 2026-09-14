@@ -40,10 +40,92 @@ export type Named = { _key?: string; name: string; description?: string };
 export type Flow = { _key?: string; name: string; steps?: string };
 export type Metric = { _key?: string; label: string; value: string; evidence: string };
 
+
+/* ---- Case-study chapters -------------------------------------------------
+   One entry per section of a long-form study. `_type` discriminates. */
+
+type ChapterHead = {
+  _key?: string;
+  navLabel?: string;
+  eyebrow?: string;
+  heading?: string;
+  lead?: string;
+};
+
+export type ChapterImage = SanityImage & { label?: string };
+
+export type StatementChapter = ChapterHead & {
+  _type: "statementChapter";
+  points?: string[];
+  facts?: string[];
+  layout?: "split" | "stacked" | "pull";
+  tone?: "plain" | "soft" | "dark";
+};
+
+export type CardsChapter = ChapterHead & {
+  _type: "cardsChapter";
+  numbered?: boolean;
+  columns?: number;
+  items?: { _key?: string; title: string; body?: string }[];
+};
+
+export type MediaChapter = ChapterHead & {
+  _type: "mediaChapter";
+  layout?: "single" | "duo" | "grid" | "grid3" | "beforeAfter" | "featureGrid";
+  feature?: ChapterImage[];
+  featurePending?: string;
+  facts?: string[];
+  images?: ChapterImage[];
+  pending?: string[];
+  note?: string;
+};
+
+export type FlowChapter = ChapterHead & {
+  _type: "flowChapter";
+  variant?: "flow" | "timeline";
+  steps?: { _key?: string; label: string; note?: string }[];
+  images?: ChapterImage[];
+  pending?: string[];
+};
+
+export type MetricsChapter = ChapterHead & {
+  _type: "metricsChapter";
+  items?: {
+    _key?: string;
+    label: string;
+    value?: string;
+    evidence?: string;
+    status?: "verified" | "pending";
+  }[];
+  note?: string;
+};
+
+export type TeamChapter = ChapterHead & {
+  _type: "teamChapter";
+  leadName?: string;
+  leadRole?: string;
+  responsibilities?: string[];
+  members?: { _key?: string; name: string; role?: string }[];
+};
+
+export type Chapter =
+  | StatementChapter
+  | CardsChapter
+  | MediaChapter
+  | FlowChapter
+  | MetricsChapter
+  | TeamChapter;
+
 export type Project = ProjectCard & {
   platform?: string;
   duration?: string;
   role?: string;
+  team?: string;
+  scope?: string;
+  headline?: string;
+  snapshotNote?: string;
+  heroImage?: SanityImage;
+  chapters?: Chapter[];
   externalUrl?: string;
   externalLabel?: string;
   goal?: string;
