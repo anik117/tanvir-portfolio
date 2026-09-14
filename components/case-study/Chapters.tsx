@@ -125,15 +125,25 @@ function PendingSlot({ label, tall = false }: { label: string; tall?: boolean })
 /** Roughly one viewport and a bit — past this a single picture owns the page. */
 const MAX_FIGURE_HEIGHT = 1250;
 
+/** A capture this narrow came off a phone, and reads as one beside its siblings. */
+const PHONE_WIDTH = 600;
+
+function isPhone(image: ChapterImage) {
+  const size = imageDimensions(image);
+  return Boolean(size && size.width <= PHONE_WIDTH);
+}
+
 /** One screenshot. The label sits above it, not on top of it. */
 function Figure({
   image,
   width = 1600,
   sizes = "(max-width: 1280px) 100vw, 1100px",
+  className = "",
 }: {
   image: ChapterImage;
   width?: number;
   sizes?: string;
+  className?: string;
 }) {
   const annotated = Boolean(image.annotations?.length);
 
@@ -156,7 +166,7 @@ function Figure({
   const cap = caps.length ? Math.min(...caps) : undefined;
 
   return (
-    <figure style={cap ? { maxWidth: cap } : undefined}>
+    <figure className={className} style={cap ? { maxWidth: cap } : undefined}>
       {image.label && (
         <span className="mono mb-3 inline-flex rounded-full bg-dark px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-dark-fg">
           {image.label}
@@ -297,11 +307,21 @@ function Cards({ c }: { c: CardsChapter }) {
 }
 
 function Media({ c }: { c: MediaChapter }) {
-  // One column, full width. A screenshot put beside another is two small
-  // screenshots; the work is the point, so it gets the whole measure.
+  // One column, full width. Two screenshots side by side are two small
+  // screenshots, and the work is the point — except for phone captures, which
+  // are small already and read as a set.
   const images = [...(c.feature ?? []), ...(c.images ?? [])];
   const pending = [c.featurePending, ...(c.pending ?? [])].filter(Boolean) as string[];
   const hasHead = Boolean(c.eyebrow || c.heading || c.lead);
+
+  // Runs of consecutive phone captures become one row; everything else keeps
+  // the whole measure to itself.
+  const rows: ChapterImage[][] = [];
+  for (const img of images) {
+    const last = rows.at(-1);
+    if (isPhone(img) && last && isPhone(last[0])) last.push(img);
+    else rows.push([img]);
+  }
 
   return (
     <div>
@@ -309,11 +329,27 @@ function Media({ c }: { c: MediaChapter }) {
       {c.facts?.length ? <Facts items={c.facts} /> : null}
 
       <div className={`space-y-12 ${hasHead || c.facts?.length ? "mt-10" : ""}`}>
-        {images.map((img, i) => (
-          <Reveal key={i} delay={i * 60} amount={0.12}>
-            <Figure image={img} width={1800} />
-          </Reveal>
-        ))}
+        {rows.map((row, i) =>
+          row.length > 1 || isPhone(row[0]) ? (
+            <Reveal key={i} delay={i * 60} amount={0.12}>
+              <div className="flex flex-wrap gap-5 sm:gap-6">
+                {row.map((img, j) => (
+                  <Figure
+                    key={j}
+                    image={img}
+                    width={700}
+                    sizes="(max-width: 640px) 45vw, 260px"
+                    className="basis-[calc(50%-10px)] sm:basis-[260px]"
+                  />
+                ))}
+              </div>
+            </Reveal>
+          ) : (
+            <Reveal key={i} delay={i * 60} amount={0.12}>
+              <Figure image={row[0]} width={1800} />
+            </Reveal>
+          ),
+        )}
         {pending.map((label, i) => (
           <PendingSlot key={`p${i}`} label={label} tall />
         ))}

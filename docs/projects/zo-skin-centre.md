@@ -111,7 +111,7 @@ Seven sections a reader can see, twelve chapters in the data.
 | Four sites to one | The old gateway and an old location site as Before, three wireframes, then the location selector and the new location page as After — all stacked |
 | The decisions | Service, practitioner, gallery and one result, in that order |
 | The system | Hero, location card, service card and consultation form sheets, one to a row |
-| Final experience | Five key images (`screen-1`…`screen-5`) in order, then the new homepage and the reviews page, then three mobile screens |
+| Final experience | Five key images (`screen-1`…`screen-5`) in order, then the new homepage and the reviews page, then three phone captures in a row |
 | Outcome | Four outcome cards, then the takeaway on a dark band |
 
 ## A note on the screenshots
