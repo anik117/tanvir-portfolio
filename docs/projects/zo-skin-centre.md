@@ -5,7 +5,7 @@
 | Status | Rewritten as a seven-section chapter study, 2026-09-14 |
 | Source | Tanvir's own brief, `Claude Prompt — ZO Skin Centre Case Study.md`, 2026-09-14 |
 | Shape | Seven sections, roughly three minutes, weighted toward the work rather than the writing |
-| Blocked on | Nothing to publish. Two facts to confirm, one asset unused |
+| Blocked on | Nothing. A prototype GIF is coming and will need the renderer to pass animation through |
 | Assets | `assets/projects/zo-skin-centre/` |
 
 The public copy lives in `sanity/seed/projects.json` under the `chapters` array. This document is
@@ -64,37 +64,22 @@ Read straight off the screenshots, so it is safe to state on the page:
 
 | Question | Why it matters |
 | --- | --- |
-| **Year: changed from 2025 to 2024 — confirm.** | The brief gives no date. The change is an inference from the assets: the component sheets are stamped 2024, the old site footer reads ©2024, and the BBB badge is dated 7/22/2024. If the portfolio's `year` means something else — when you are presenting it, as with TaxRise's 2026 — say so and it goes back. |
 | Team | The brief has `[ADD IF AVAILABLE]`. The Team row is omitted from the hero rather than shown as a placeholder. Add it if there was a team. |
 | Outcome metrics | None exist. The outcome section is four qualitative results and no numbers — no placeholder, because inventing a slot for a metric that may never arrive is worse than not claiming one. |
 
-## Overlap in the final experience
+## The prototype recording
 
-The five key images were added on request and run first, in order. They overlap what is already
-there, and the page is longer for it — 15,300 px and four minutes, against the brief's two to three.
+`Prototype.mp4` has been moved out of the project to `~/Desktop/` — 38 MB, unreferenced, and too
+large to load on a page. A GIF replaces it.
 
-The clearest duplicates, and what cutting them would buy:
+**One thing to know before exporting it.** A GIF dropped into a chapter would go through Sanity's
+image pipeline like any other picture, and a transformed GIF usually comes back as its first frame —
+a still. Motion needs the file served untransformed, or a `<video>` element. Say when the GIF is
+ready and the renderer can pass an animated one straight through; it is a small change, but it is
+not automatic.
 
-| Cut | Why | Saves |
-| --- | --- | --- |
-| `New Design Screenshots/ZOSC Homepage.jpg` | The same homepage as `screen-1`, in the same section, one as a raw capture and one as a composed key image | ~700 px |
-| The three mobile screens | `screen-3`, `screen-4` and `screen-5` are already mobile renderings of the same pages | ~600 px |
-| `New Design Screenshots/ZOSC Reviews.jpg` | Reviews appear inside `screen-5` | ~700 px |
-
-That would leave the five key images and nothing else in the final experience, which is what a
-showcase section is for. The raw full-page captures would still be doing their work in *The
-decisions* and *Four sites to one*, where a caption says what each is evidence of.
-
-Not done — it removes material that was not asked to be removed.
-
-## Unused asset
-
-`New Design Screenshots/Prototype.mp4` — 38 MB. Not on the page. Two reasons: the chapter schema
-carries images, not video; and 38 MB is far too large to load on a portfolio page regardless.
-
-To use it, either compress it hard (a 5–10 second loop of the location selector, a few MB, would be
-the strongest single moment) or upload it to Vimeo or YouTube and it can be embedded. Say which and
-the video support is a small addition.
+Keep the GIF short and small — a five to ten second loop of the location selector is the strongest
+single moment, and a few megabytes is the budget.
 
 Also unused, deliberately: six of the nine wireframes, five of the eight mobile screens, and eight
 of the eleven old-site captures. The brief asked for the strongest, not all of them.
@@ -111,7 +96,7 @@ Seven sections a reader can see, twelve chapters in the data.
 | Four sites to one | The old gateway and an old location site as Before, three wireframes, then the location selector and the new location page as After — all stacked |
 | The decisions | Service, practitioner, gallery and one result, in that order |
 | The system | Hero, location card, service card and consultation form sheets, one to a row |
-| Final experience | Five key images (`screen-1`…`screen-5`) in order, then the new homepage and the reviews page, then three phone captures in a row |
+| Final experience | Five key images (`screen-1`…`screen-5`) in order, then three phone captures in a row |
 | Outcome | Four outcome cards, then the takeaway on a dark band |
 
 ## A note on the screenshots

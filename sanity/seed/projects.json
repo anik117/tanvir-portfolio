@@ -229,7 +229,7 @@
     "projectType": "Website Redesign",
     "industry": "Healthcare / Wellness",
     "platform": "Responsive web",
-    "year": "2024",
+    "year": "2025",
     "duration": "6–8 months",
     "externalLabel": "Visit Website",
     "coverAlt": "Three ZO Skin Centre mobile screens on a blue field — the homepage with its locations list, Zein Obagi's practitioner profile, and the Beverly Hills location page",
@@ -449,18 +449,6 @@
             "file": "screen-5.jpg",
             "alt": "Angled view of ZO Skin Centre mobile screens — a practitioner profile, a before-and-after result, filtered reviews, and a consultation request confirmation with next steps",
             "caption": "Practitioners, results, filtered reviews, and the confirmation that closes the loop."
-          },
-          {
-            "file": "New Design Screenshots/ZOSC Homepage.jpg",
-            "previewAspect": 0.62,
-            "alt": "The redesigned ZO Skin Centre homepage — a treatment hero, all four locations as cards, a services grid, practitioners, before-and-after photos and patient reviews on one page",
-            "caption": "One homepage now answers the questions all four sites used to split between them."
-          },
-          {
-            "file": "New Design Screenshots/ZOSC Reviews.jpg",
-            "alt": "The reviews page, with reviews drawn from Google and Yelp and filtering across sources",
-            "caption": "Reviews pulled together across sources, rather than a different set on each location site.",
-            "previewAspect": 0.62
           }
         ]
       },
