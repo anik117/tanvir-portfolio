@@ -443,6 +443,31 @@
         "heading": "The final experience",
         "images": [
           {
+            "file": "screen-1.jpg",
+            "alt": "The redesigned ZO Skin Centre homepage on desktop — the treatment hero, all four locations as cards, the services grid and the practitioners section",
+            "caption": "Homepage — one entry point for four locations."
+          },
+          {
+            "file": "screen-2.jpg",
+            "alt": "Before and after of the ZO Skin Centre homepage — the old welcome page with four location blocks beside the redesigned homepage",
+            "caption": "Before and after: the page that sent you away, beside the one that answers instead."
+          },
+          {
+            "file": "screen-3.jpg",
+            "alt": "The practitioner profile on mobile beside its About and Locations sections, with all four centres on a map",
+            "caption": "Practitioner — profile, every location they work from, and the map."
+          },
+          {
+            "file": "screen-4.jpg",
+            "alt": "A before-and-after result on mobile, beside the practitioner who performed it and the location details",
+            "caption": "A result on the phone, with who performed it and how to reach them beside it."
+          },
+          {
+            "file": "screen-5.jpg",
+            "alt": "Angled view of ZO Skin Centre mobile screens — a practitioner profile, a before-and-after result, filtered reviews, and a consultation request confirmation with next steps",
+            "caption": "Practitioners, results, filtered reviews, and the confirmation that closes the loop."
+          },
+          {
             "file": "New Design Screenshots/ZOSC Homepage.jpg",
             "previewAspect": 0.62,
             "alt": "The redesigned ZO Skin Centre homepage — a treatment hero, all four locations as cards, a services grid, practitioners, before-and-after photos and patient reviews on one page",

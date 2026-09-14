@@ -68,6 +68,25 @@ Read straight off the screenshots, so it is safe to state on the page:
 | Team | The brief has `[ADD IF AVAILABLE]`. The Team row is omitted from the hero rather than shown as a placeholder. Add it if there was a team. |
 | Outcome metrics | None exist. The outcome section is four qualitative results and no numbers — no placeholder, because inventing a slot for a metric that may never arrive is worse than not claiming one. |
 
+## Overlap in the final experience
+
+The five key images were added on request and run first, in order. They overlap what is already
+there, and the page is longer for it — 15,300 px and four minutes, against the brief's two to three.
+
+The clearest duplicates, and what cutting them would buy:
+
+| Cut | Why | Saves |
+| --- | --- | --- |
+| `New Design Screenshots/ZOSC Homepage.jpg` | The same homepage as `screen-1`, in the same section, one as a raw capture and one as a composed key image | ~700 px |
+| The three mobile screens | `screen-3`, `screen-4` and `screen-5` are already mobile renderings of the same pages | ~600 px |
+| `New Design Screenshots/ZOSC Reviews.jpg` | Reviews appear inside `screen-5` | ~700 px |
+
+That would leave the five key images and nothing else in the final experience, which is what a
+showcase section is for. The raw full-page captures would still be doing their work in *The
+decisions* and *Four sites to one*, where a caption says what each is evidence of.
+
+Not done — it removes material that was not asked to be removed.
+
 ## Unused asset
 
 `New Design Screenshots/Prototype.mp4` — 38 MB. Not on the page. Two reasons: the chapter schema
@@ -92,7 +111,7 @@ Seven sections a reader can see, twelve chapters in the data.
 | Four sites to one | The old gateway and an old location site as Before, three wireframes, then the location selector and the new location page as After |
 | The decisions | Service, practitioner, gallery and one result in a 2×2 grid |
 | The system | Hero, location card, service card and consultation form sheets |
-| Final experience | The new homepage and the reviews page, then three mobile screens |
+| Final experience | Five key images (`screen-1`…`screen-5`) in order, then the new homepage and the reviews page, then three mobile screens |
 | Outcome | Four outcome cards, then the takeaway on a dark band |
 
 ## A note on the screenshots
