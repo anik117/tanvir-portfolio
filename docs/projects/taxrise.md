@@ -89,8 +89,8 @@ continuations that read as part of the section above).
 | Hero | Headline, one supporting line, Role / Team / Timeline / Scope / Read, the cover image |
 | The challenge | Two-column copy, then 20+ pages · 1 design system · Lead-form redesign |
 | Approach | The landing round full width, the two hero rounds beside each other |
-| The system | Foundations sheet full width, Button / Accordion / Card in a row, then two pages built from them |
-| Lead form | The consultation page before and after, the flow diagram, four form screens |
+| The system | Typography and colour, then Button, Accordion and Card, then two pages built from them |
+| Lead form | The consultation page before and after, the flow diagram, then four form screens |
 | The final experience | The homepage and a customer story, minimal captions |
 | Outcome | Dark band — three metrics, the Google Analytics statement, the takeaway |
 

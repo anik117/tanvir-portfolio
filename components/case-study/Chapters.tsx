@@ -3,6 +3,7 @@ import { ImageOff } from "lucide-react";
 import { AnnotatedImage } from "@/components/AnnotatedImage";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { Reveal } from "@/components/Reveal";
+import { imageDimensions } from "@/sanity/image";
 import type {
   CardsChapter,
   Chapter,
@@ -121,7 +122,7 @@ function PendingSlot({ label, tall = false }: { label: string; tall?: boolean })
   );
 }
 
-/** One screenshot: annotated in a card, or plain and zoomable. */
+/** One screenshot. The label sits above it, not on top of it. */
 function Figure({
   image,
   width = 1600,
@@ -133,10 +134,21 @@ function Figure({
 }) {
   const annotated = Boolean(image.annotations?.length);
 
+  // Never blow a picture up past its own pixels. A phone capture is 402px
+  // wide; stretched across the column it is only a blurrier phone.
+  const size = imageDimensions(image);
+  const cap = size && size.width < width ? size.width : undefined;
+
   return (
-    <figure className="relative">
+    <figure style={cap ? { maxWidth: cap } : undefined}>
+      {image.label && (
+        <span className="mono mb-3 inline-flex rounded-full bg-dark px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-dark-fg">
+          {image.label}
+        </span>
+      )}
+
       {annotated ? (
-        <div className="card group overflow-hidden p-2 sm:p-3">
+        <div className="img-plain group">
           <AnnotatedImage image={image} width={width} sizes={sizes} />
         </div>
       ) : (
@@ -148,12 +160,6 @@ function Figure({
           sizes={sizes}
           previewAspect={image.previewAspect}
         />
-      )}
-
-      {image.label && (
-        <span className="mono absolute left-5 top-5 z-10 rounded-full bg-dark/85 px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-dark-fg backdrop-blur">
-          {image.label}
-        </span>
       )}
 
       {image.caption && (
@@ -275,56 +281,18 @@ function Cards({ c }: { c: CardsChapter }) {
 }
 
 function Media({ c }: { c: MediaChapter }) {
-  const images = c.images ?? [];
-  const pending = c.pending ?? [];
-  const feature = c.feature?.[0];
+  // One column, full width. A screenshot put beside another is two small
+  // screenshots; the work is the point, so it gets the whole measure.
+  const images = [...(c.feature ?? []), ...(c.images ?? [])];
+  const pending = [c.featurePending, ...(c.pending ?? [])].filter(Boolean) as string[];
+  const hasHead = Boolean(c.eyebrow || c.heading || c.lead);
 
-  const grid = (cols: string, width: number, sizes: string) => (
-    <div className={`grid gap-5 ${cols}`}>
-      {images.map((img, i) => (
-        <Reveal key={i} delay={i * 80} amount={0.15}>
-          <Figure image={img} width={width} sizes={sizes} />
-        </Reveal>
-      ))}
-      {pending.map((label, i) => (
-        <PendingSlot key={`p${i}`} label={label} />
-      ))}
-    </div>
-  );
+  return (
+    <div>
+      <Head eyebrow={c.eyebrow} heading={c.heading} lead={c.lead} />
+      {c.facts?.length ? <Facts items={c.facts} /> : null}
 
-  const body = (() => {
-    if (c.layout === "featureGrid") {
-      // One tile below the feature is not a grid — let it run full width
-      // rather than sit in a half-width column beside nothing.
-      const tiles = images.length + pending.length;
-      return (
-        <div className="space-y-5">
-          <Reveal amount={0.12}>
-            {feature ? (
-              <Figure image={feature} width={1800} />
-            ) : c.featurePending ? (
-              <PendingSlot label={c.featurePending} tall />
-            ) : null}
-          </Reveal>
-          {tiles > 2
-            ? grid("sm:grid-cols-2 lg:grid-cols-3", 800, "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px")
-            : tiles === 2
-              ? grid("sm:grid-cols-2", 1100, "(max-width: 640px) 100vw, 540px")
-              : grid("", 1800, "(max-width: 1280px) 100vw, 1100px")}
-        </div>
-      );
-    }
-    if (c.layout === "beforeAfter" || c.layout === "duo") {
-      return grid("lg:grid-cols-2", 1100, "(max-width: 1024px) 100vw, 540px");
-    }
-    if (c.layout === "grid") {
-      return grid("sm:grid-cols-2", 1100, "(max-width: 640px) 100vw, 540px");
-    }
-    if (c.layout === "grid3") {
-      return grid("sm:grid-cols-2 lg:grid-cols-3", 800, "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px");
-    }
-    return (
-      <div className="space-y-6">
+      <div className={`space-y-12 ${hasHead || c.facts?.length ? "mt-10" : ""}`}>
         {images.map((img, i) => (
           <Reveal key={i} delay={i * 60} amount={0.12}>
             <Figure image={img} width={1800} />
@@ -334,16 +302,7 @@ function Media({ c }: { c: MediaChapter }) {
           <PendingSlot key={`p${i}`} label={label} tall />
         ))}
       </div>
-    );
-  })();
 
-  const hasHead = Boolean(c.eyebrow || c.heading || c.lead);
-
-  return (
-    <div>
-      <Head eyebrow={c.eyebrow} heading={c.heading} lead={c.lead} />
-      {c.facts?.length ? <Facts items={c.facts} /> : null}
-      <div className={hasHead || c.facts?.length ? "mt-10" : ""}>{body}</div>
       {c.note && <p className="mono mt-5 text-[12px] tracking-wide text-muted-strong">{c.note}</p>}
     </div>
   );

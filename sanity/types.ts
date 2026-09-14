@@ -71,7 +71,6 @@ export type CardsChapter = ChapterHead & {
 
 export type MediaChapter = ChapterHead & {
   _type: "mediaChapter";
-  layout?: "single" | "duo" | "grid" | "grid3" | "beforeAfter" | "featureGrid";
   feature?: ChapterImage[];
   featurePending?: string;
   facts?: string[];

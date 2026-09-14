@@ -320,8 +320,8 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
 
         {hero && (
           <Reveal delay={200} className="mt-14">
-            <div className="card group overflow-hidden p-3 sm:p-4">
-              <div className="relative overflow-hidden rounded-xl border border-border bg-white">
+            <div className="group">
+              <div className="img-plain relative">
                 <SanityImage
                   image={hero}
                   width={1800}
@@ -337,7 +337,7 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
                 {heroIsTall && (
                   <span
                     aria-hidden
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 to-transparent"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent"
                   />
                 )}
               </div>

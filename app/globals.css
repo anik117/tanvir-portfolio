@@ -43,6 +43,11 @@
     0 1px 2px rgb(18 31 49 / 0.04),
     0 12px 24px -12px rgb(18 31 49 / 0.1),
     0 40px 60px -30px rgb(18 31 49 / 0.12);
+  /* A picture on the page carries no frame; hover lifts it just enough to
+     say it opens. */
+  --shadow-soft:
+    0 2px 8px rgb(18 31 49 / 0.05),
+    0 18px 36px -18px rgb(18 31 49 / 0.16);
   --shadow-lift:
     0 1px 2px rgb(18 31 49 / 0.05),
     0 16px 32px -12px rgb(18 31 49 / 0.14),
@@ -306,6 +311,18 @@ h3,
 .group:hover .arrow-up,
 a:hover > .arrow-up {
   transform: translate(3px, -3px);
+}
+
+/* Screenshots sit straight on the page: no card, no border, no resting
+   shadow. Hover is the only hint that there is more inside. */
+.img-plain {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: box-shadow 420ms var(--ease);
+}
+
+.img-plain:hover {
+  box-shadow: var(--shadow-soft);
 }
 
 .cover-img {

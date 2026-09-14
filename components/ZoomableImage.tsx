@@ -52,10 +52,10 @@ export function ZoomableImage({
       <button
         type="button"
         onClick={open}
-        className="zoomable card card-hover group relative block w-full overflow-hidden rounded-2xl p-2 sm:p-3"
+        className="zoomable img-plain group relative block w-full"
         aria-label={`Enlarge: ${image.alt ?? "screenshot"}`}
       >
-        <div className="relative overflow-hidden rounded-xl">
+        <div className="relative">
           <SanityImage
             image={image}
             width={width}
@@ -69,7 +69,7 @@ export function ZoomableImage({
             // Says there is more below the cut without a label having to.
             <span
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent"
             />
           )}
         </div>

@@ -34,7 +34,6 @@
       {
         "_type": "statementChapter",
         "navLabel": "The challenge",
-        "layout": "split",
         "tone": "plain",
         "heading": "The challenge",
         "lead": "TaxRise had recently refreshed its brand, but the website had become inconsistent across pages. At the same time, the journey from the website into the lead form wasn't converting users as effectively as the business needed.\n\nWe had to bring the new brand to life while making the path to conversion simpler and easier to follow. I led the design direction alongside two junior designers.",
@@ -46,7 +45,6 @@
       },
       {
         "_type": "mediaChapter",
-        "layout": "single",
         "images": [
           {
             "file": "explorations-landing.jpg",
@@ -62,7 +60,6 @@
       {
         "_type": "mediaChapter",
         "navLabel": "The system",
-        "layout": "duo",
         "heading": "Designed as a system, not a collection of pages",
         "lead": "After finalising the homepage direction, we extended the system across 20+ pages. Reusable templates handled the common structures, while pages whose content or user journey needed something different got their own layout.",
         "images": [
@@ -84,7 +81,6 @@
       },
       {
         "_type": "mediaChapter",
-        "layout": "grid3",
         "images": [
           {
             "file": "system-button.jpg",
@@ -109,7 +105,6 @@
       },
       {
         "_type": "mediaChapter",
-        "layout": "duo",
         "images": [
           {
             "file": "screen-5.jpg",
@@ -127,7 +122,6 @@
       {
         "_type": "mediaChapter",
         "navLabel": "Lead form",
-        "layout": "single",
         "heading": "Turning intent into action",
         "lead": "The lead form was a critical part of the customer journey. I mapped the flow before designing the interface, to understand how people move through it and where unnecessary complexity could come out.\n\nTwo answers change the path. Someone who isn't sure which tax years are unfiled skips that question instead of guessing at it. Someone in bankruptcy can't be helped yet, so the form tells them and gives them a way back, rather than collecting details it cannot act on.",
         "facts": [
@@ -145,7 +139,6 @@
       },
       {
         "_type": "mediaChapter",
-        "layout": "single",
         "images": [
           {
             "file": "form-flow.jpg",
@@ -157,7 +150,6 @@
       },
       {
         "_type": "mediaChapter",
-        "layout": "grid",
         "images": [
           {
             "file": "form-1-entry.jpg",
@@ -192,7 +184,6 @@
       {
         "_type": "mediaChapter",
         "navLabel": "Final experience",
-        "layout": "single",
         "heading": "The final experience",
         "images": [
           {
@@ -264,7 +255,6 @@
       {
         "_type": "statementChapter",
         "navLabel": "The challenge",
-        "layout": "split",
         "heading": "The challenge",
         "lead": "Four locations meant four websites. Each had its own navigation, its own copy of the services, its own practitioner pages — and the main site was little more than a fork that sent you to one of them.\n\nThe catalogue was largely shared. The structure was organised around which clinic owned the page, not around what someone was deciding. The visual system had drifted from ZO Skin Health too.",
         "facts": [
@@ -292,7 +282,6 @@
       {
         "_type": "statementChapter",
         "navLabel": "The goal",
-        "layout": "pull",
         "tone": "soft",
         "eyebrow": "The goal",
         "heading": "One experience where people can find what they need, see where it is available, and take the next step — without starting over."
@@ -300,7 +289,6 @@
       {
         "_type": "mediaChapter",
         "navLabel": "Four sites to one",
-        "layout": "duo",
         "heading": "From four location experiences to one platform",
         "lead": "The old main site could not answer a single question about a treatment. Everything that mattered lived inside whichever location site you landed on, duplicated four times over.",
         "images": [
@@ -322,7 +310,6 @@
       },
       {
         "_type": "mediaChapter",
-        "layout": "grid3",
         "eyebrow": "Where the structure was settled",
         "lead": "The architecture was settled in wireframes before anything was styled — a service knows its locations, a practitioner knows theirs, a result knows both.",
         "images": [
@@ -330,25 +317,24 @@
             "file": "New Design Screenshots/Wireframes/ZOSC Homepage.jpg",
             "label": "Homepage",
             "alt": "Wireframe of the unified ZO Skin Centre homepage, blocking out locations, services, practitioners, photos and reviews",
-            "previewAspect": 1.0
+            "previewAspect": 0.62
           },
           {
             "file": "New Design Screenshots/Wireframes/ZOSC Services.jpg",
             "label": "Services",
             "alt": "Wireframe of the services listing with a filter rail and service cards",
-            "previewAspect": 1.0
+            "previewAspect": 0.62
           },
           {
             "file": "New Design Screenshots/Wireframes/ZOSC Practitioners Profile.jpg",
             "label": "Practitioner",
             "alt": "Wireframe of a practitioner profile with a consultation form, locations list and reviews",
-            "previewAspect": 1.0
+            "previewAspect": 0.62
           }
         ]
       },
       {
         "_type": "mediaChapter",
-        "layout": "duo",
         "images": [
           {
             "file": "New Design Screenshots/Manual Location Select Modal.jpg",
@@ -361,14 +347,13 @@
             "label": "After",
             "alt": "The redesigned Beverly Hills location page — location imagery, treatments and services, the practitioner, before-and-after photos, patient reviews and a map",
             "caption": "One location page now carries the whole decision: treatments, practitioners, results, reviews, directions.",
-            "previewAspect": 0.75
+            "previewAspect": 0.62
           }
         ]
       },
       {
         "_type": "mediaChapter",
         "navLabel": "The decisions",
-        "layout": "grid",
         "heading": "Connecting the decisions people actually make",
         "lead": "Choosing a treatment, choosing who performs it and choosing where to go are one decision in three parts. Each became a first-class thing that knows about the other two.",
         "images": [
@@ -377,35 +362,34 @@
             "label": "Service",
             "alt": "A service detail page for Custom ZO Facial Enhancements — rating, imagery, a Request a Consultation form at the top right, section tabs, add-ons, reviews and related treatments",
             "caption": "The consultation form sits beside the treatment, with the service already selected.",
-            "previewAspect": 0.75
+            "previewAspect": 0.62
           },
           {
             "file": "New Design Screenshots/ZOSC Practitioners Profile.jpg",
             "label": "Practitioner",
             "alt": "A practitioner profile for Zein Obagi, M.D. — consultation form, about, a Locations section listing all four centres with a map, specialties, training, awards and reviews",
             "caption": "A practitioner is no longer filed under one clinic. The profile lists every location they work from.",
-            "previewAspect": 0.75
+            "previewAspect": 0.62
           },
           {
             "file": "New Design Screenshots/ZOSC Photo Galleries.jpg",
             "label": "Results",
             "alt": "The before-and-after gallery with a filter rail covering treatment categories, age, gender and location, showing 68 results with a Beverly Hills filter applied",
             "caption": "Location is a filter here, not a separate site. So are treatment, age and gender.",
-            "previewAspect": 0.75
+            "previewAspect": 0.62
           },
           {
             "file": "New Design Screenshots/ZOSC Photos.jpg",
             "label": "One result",
             "alt": "A single before-and-after result page — patient age, gender and ethnicity, the procedures used, the practitioner who performed it, a consultation form and the location with a map",
             "caption": "A result is a junction: the treatment, the practitioner, the place, and the way to ask about it.",
-            "previewAspect": 0.75
+            "previewAspect": 0.62
           }
         ]
       },
       {
         "_type": "mediaChapter",
         "navLabel": "The system",
-        "layout": "grid",
         "heading": "Built on the parent brand, extended for the centre",
         "lead": "ZO Skin Health is the foundation. The centre needed what the parent brand did not have: location cards, service cards, filter rails, consultation forms, and the states each moves through.",
         "images": [
@@ -413,25 +397,25 @@
             "file": "New Design Screenshots/Components/Hero.jpg",
             "label": "Hero",
             "alt": "Design system sheet for hero components, with variants and states",
-            "previewAspect": 1.1
+            "previewAspect": 0.7
           },
           {
             "file": "New Design Screenshots/Components/Card/Location.jpg",
             "label": "Location card",
             "alt": "Design system sheet for the location card — location thumbnails for all four centres, and the card in its default, hover and compact forms",
-            "previewAspect": 1.1
+            "previewAspect": 0.7
           },
           {
             "file": "New Design Screenshots/Components/Card/Service.jpg",
             "label": "Service card",
             "alt": "Design system sheet for the service card and its variants",
-            "previewAspect": 1.1
+            "previewAspect": 0.7
           },
           {
             "file": "New Design Screenshots/Components/Form/Request Consultation.jpg",
             "label": "Consultation form",
             "alt": "Design system sheet for the request a consultation form, with field states",
-            "previewAspect": 1.1
+            "previewAspect": 0.7
           }
         ],
         "note": "Built as reusable components and prototyped in Figma."
@@ -439,7 +423,6 @@
       {
         "_type": "mediaChapter",
         "navLabel": "Final experience",
-        "layout": "single",
         "heading": "The final experience",
         "images": [
           {
@@ -483,25 +466,24 @@
       },
       {
         "_type": "mediaChapter",
-        "layout": "grid3",
         "images": [
           {
             "file": "New Design Screenshots/Mobile/ZOSC Homepage.jpg",
             "label": "Mobile",
             "alt": "The unified homepage on mobile",
-            "previewAspect": 1.5
+            "previewAspect": 1.8
           },
           {
             "file": "New Design Screenshots/Mobile/ZOSC Location details.jpg",
             "label": "Mobile",
             "alt": "A location page on mobile",
-            "previewAspect": 1.5
+            "previewAspect": 1.8
           },
           {
             "file": "New Design Screenshots/Mobile/ZOSC Request a Consultation.jpg",
             "label": "Mobile",
             "alt": "The request a consultation form on mobile",
-            "previewAspect": 1.5
+            "previewAspect": 1.8
           }
         ],
         "note": "The same system, narrowed."
@@ -534,7 +516,6 @@
       },
       {
         "_type": "statementChapter",
-        "layout": "pull",
         "tone": "dark",
         "eyebrow": "Key takeaway",
         "heading": "Organise the experience around what people are trying to do, not around how the business is arranged.",

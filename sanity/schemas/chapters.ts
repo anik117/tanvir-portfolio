@@ -147,7 +147,7 @@ export const cardsChapter = defineType({
   preview: preview("Cards"),
 });
 
-/** Screens. One big one, a pair, a grid, or a before/after. */
+/** Screens, stacked one to a row at the full width of the column. */
 export const mediaChapter = defineType({
   name: "mediaChapter",
   title: "Media",
@@ -155,27 +155,12 @@ export const mediaChapter = defineType({
   fields: [
     ...head(),
     defineField({
-      name: "layout",
-      type: "string",
-      initialValue: "single",
-      options: {
-        list: [
-          { title: "One full-width image", value: "single" },
-          { title: "Two side by side", value: "duo" },
-          { title: "Grid — two columns", value: "grid" },
-          { title: "Grid — three columns", value: "grid3" },
-          { title: "Before / after", value: "beforeAfter" },
-          { title: "One large image, then a grid", value: "featureGrid" },
-        ],
-      },
-    }),
-    defineField({
       name: "feature",
       title: "Feature image",
       type: "array",
       of: [defineArrayMember({ type: "chapterImage" })],
       validation: (r) => r.max(1),
-      description: "Layout \"One large image, then a grid\" only: the image that runs full width above the grid.",
+      description: "Runs first, above the rest. Images stack in one column, full width.",
     }),
     defineField({
       name: "featurePending",
