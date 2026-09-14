@@ -122,6 +122,9 @@ function PendingSlot({ label, tall = false }: { label: string; tall?: boolean })
   );
 }
 
+/** Roughly one viewport and a bit — past this a single picture owns the page. */
+const MAX_FIGURE_HEIGHT = 1250;
+
 /** One screenshot. The label sits above it, not on top of it. */
 function Figure({
   image,
@@ -134,10 +137,23 @@ function Figure({
 }) {
   const annotated = Boolean(image.annotations?.length);
 
-  // Never blow a picture up past its own pixels. A phone capture is 402px
-  // wide; stretched across the column it is only a blurrier phone.
   const size = imageDimensions(image);
-  const cap = size && size.width < width ? size.width : undefined;
+
+  // Two caps on how wide a picture may run.
+  //
+  // Never past its own pixels: a 402px phone capture stretched across the
+  // column is only a blurrier phone.
+  //
+  // And never so wide that a portrait image runs for screens — a type sheet
+  // two and a half times its own width would be nearly three thousand pixels
+  // tall at full measure. Bound the height instead and let the width follow;
+  // the whole sheet is still one click away.
+  const ratio = image.previewAspect ?? (size ? size.height / size.width : 0);
+  const caps = [
+    size?.width,
+    ratio > 1.25 ? Math.round(MAX_FIGURE_HEIGHT / ratio) : undefined,
+  ].filter((n): n is number => typeof n === "number" && n < width);
+  const cap = caps.length ? Math.min(...caps) : undefined;
 
   return (
     <figure style={cap ? { maxWidth: cap } : undefined}>
