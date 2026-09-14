@@ -95,7 +95,7 @@ export const project = defineType({
       group: "story",
       options: { hotspot: true },
       description:
-        "The big image at the top of the case study. Falls back to the cover image, which is what the work cards use.",
+        "Leave this empty. The case study opens on the cover image — a purpose-made key image at 16:9, the same one the work cards use. Set this only for a project whose cover is wrong at that size.",
       fields: [
         defineField({ name: "alt", type: "string", title: "Alt text", validation: (r) => r.required() }),
         defineField({ name: "caption", type: "string" }),

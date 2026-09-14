@@ -86,56 +86,47 @@ continuations that read as part of the section above).
 
 | Section | Carries |
 | --- | --- |
-| Hero | Headline, one supporting line, Role / Team / Timeline / Scope / Read, the homepage screenshot |
+| Hero | Headline, one supporting line, Role / Team / Timeline / Scope / Read, the cover image |
 | The challenge | Two-column copy, then 20+ pages · 1 design system · Lead-form redesign |
 | Approach | The landing round full width, the two hero rounds beside each other |
 | The system | Foundations sheet full width, Button / Accordion / Card in a row, then two pages built from them |
 | Lead form | The consultation page before and after, the flow diagram, four form screens |
-| The final experience | Two screenshots, minimal captions |
+| The final experience | The homepage and a customer story, minimal captions |
 | Outcome | Dark band — three metrics, the Google Analytics statement, the takeaway |
 
 The step chips that used to sit in Approach (Moodboard → Wireframes → Visual direction → Design
 system → Homepage) were removed once real exploration sheets existed. A generic process diagram
 standing next to the actual work only weakens it, and both briefs asked not to use one.
 
-## Open question: which homepage is the one this study is about
+## Which homepage is the one this study is about
 
 Tanvir sent a homepage headed **"Your financial freedom is our mission."** and called it the final
-homepage hero. That is the v1–v4 landing line, refined. It is not the headline in `screen-1.jpg`,
-which the case study currently uses as its hero image.
+homepage hero. That is the v1–v4 landing line, refined. It is not the headline in `screen-1.jpg`.
 
 The proof numbers separate the two families cleanly:
 
 | | Headline | Numbers shown |
 | --- | --- | --- |
 | Landing v1 | Your freedom is our mission | 25k+ customers served · $1.8M tax resolved · 4k+ reviews |
-| "Final" homepage | Your financial freedom is our mission | 25k+ clients onboarded · $132M+ saved · 4.8 (1k+) · 100% money-back |
+| "Final" homepage | Your financial freedom is our mission | 25k+ clients onboarded · $132M+ saved · 4.8 (1k+) |
 | Hero rounds 1–12 | Let's resolve your tax issues | 100K+ Americans helped · $2.1B+ resolved · 4.6 (7,631 reviews) |
 | `screen-1.jpg` | Let's resolve your tax issues | Google 4.6 · 7,631 reviews |
 
 The numbers grow from 25k+/$132M+ to 100K+/$2.1B+, which puts the hero rounds and `screen-1.jpg`
-*later* than the "financial freedom" homepage. That matches Tanvir describing the hero variations as
-recent work.
+*later* than the "financial freedom" homepage. The hero rounds were removed from the study on that
+basis.
 
-**Reading to confirm:** this case study covers the redesign that shipped as "Your financial freedom
-is our mission." The "Let's resolve your tax issues" work — the twelve hero directions and
-`screen-1.jpg` — is a later, separate round.
-
-If that is right, three things change:
-
-1. The case study's hero image becomes the "financial freedom" homepage, not `screen-1.jpg`.
-2. The hero-direction sheets either get labelled as a later round, or come out of this study.
-3. `screen-1.jpg` either moves to the final-experience section as the current site, or comes out.
-
-Nothing has been changed on this yet. The file for the final homepage is also not in
-`assets/projects/taxrise/`.
+This stopped being urgent once the case study went back to opening on `cover.jpg`: no single
+homepage screenshot carries the top of the page any more. `screen-1.jpg` now sits in the final
+experience, captioned as the homepage the rest of the site was built from. If the "financial
+freedom" homepage is the one that should be there instead, the file is still not in the assets
+folder.
 
 ## Other open questions
 
 | Question | Why it matters |
 | --- | --- |
 | Was the persistent trust panel beside the form Tanvir's decision? | It is the most notable UX move visible in the form screens. The copy describes it; it does not yet claim it as his call. |
-| Should the hero image be the "financial freedom" homepage? | The case study still opens on `screen-1.jpg`. See the section above. |
 
 
 ## What the landing sheet establishes
@@ -167,9 +158,9 @@ helped yet is given a way back instead of a dead end.
 
 | File | What it shows | Where it is used |
 | --- | --- | --- |
-| `screen-1.jpg` | Homepage desktop — hero, client results, two-phase process, FAQ | Hero image at the top of the case study |
+| `screen-1.jpg` | Homepage desktop — hero, client results, two-phase process, FAQ | Final experience |
 | `screen-2.jpg` | Free consultation page, before and after | Lead form — the front door, feature image |
 | `screen-3.jpg` | Customer stories on mobile, beside a full story | Final experience |
 | `screen-4.jpg` | Team page and enrolled agents | The system — "Content-heavy page" |
 | `screen-5.jpg` | Angled mobile montage — services, blog, story, about | The system — "Reusable page pattern" |
-| `cover.jpg` | Three mobile screens on blue | Work cards, and the final-experience opener |
+| `cover.jpg` | Three mobile screens on blue | Work cards, and the case study's opening image |

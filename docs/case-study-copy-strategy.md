@@ -26,6 +26,15 @@ the CDN and faded at the cut; the whole page is still one click away in the ligh
 image in one grid row the same value so the row lines up. Leave it empty for anything meant to be
 read in place, such as a design-system sheet.
 
+## The opening image
+
+A case study opens on its cover — the key image made for the work cards, 16:9, composed rather than
+captured. `heroImage` exists as an override and should stay empty; a full-page screenshot at the top
+of the page is a picture of a website, not a piece of design.
+
+The screenshots then do their work inside the sections, where a caption can say what each one is
+evidence of.
+
 ## Public reading path
 
 1. **Project summary** — one specific sentence about the intervention, not a list of adjectives.

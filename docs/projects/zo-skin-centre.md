@@ -86,19 +86,25 @@ Seven sections a reader can see, twelve chapters in the data.
 
 | Section | Carries |
 | --- | --- |
-| Hero | Headline, one supporting line, Role / Timeline / Scope / Read, the new homepage cropped to the fold |
+| Hero | Headline, one supporting line, Role / Timeline / Scope / Read, the cover image |
 | The challenge | Two-column copy, a fact row, then two problem cards |
 | The goal | Soft pull-quote |
 | Four sites to one | The old gateway and an old location site as Before, three wireframes, then the location selector and the new location page as After |
 | The decisions | Service, practitioner, gallery and one result in a 2×2 grid |
 | The system | Hero, location card, service card and consultation form sheets |
-| Final experience | The reviews page, then three mobile screens |
+| Final experience | The new homepage and the reviews page, then three mobile screens |
 | Outcome | Four outcome cards, then the takeaway on a dark band |
 
 ## A note on the screenshots
 
-ZO's exports are full-page — `ZOSC Homepage.jpg` is 1440 × 7813. Shown at full width that is six
-screens of one picture. The page now detects any image taller than 1.6× its width and shows the top
-of it at a readable height with a soft fade, cropped by the Sanity CDN rather than by CSS so the
-browser never downloads the full height for a thumbnail. The whole page is still one click away in
-the lightbox. The hero does the same at 16:9.
+ZO's exports are full-page — `ZOSC Homepage.jpg` is 1440 × 7813, and the mobile captures reach
+eighteen times their own width. An image can set `previewAspect`, and the page then shows a band of
+it at that height-over-width, cropped by the Sanity CDN rather than by CSS so no browser downloads
+eight thousand pixels for a thumbnail, faded at the cut. The whole page stays one click away in the
+lightbox.
+
+Every image in one grid row carries the same value, so rows line up. Anything meant to be read in
+place — a design-system sheet — leaves it empty.
+
+The case study opens on `cover.jpg`, as every study does. A full-page screenshot at the top of the
+page is a picture of a website; the cover is a piece of design.

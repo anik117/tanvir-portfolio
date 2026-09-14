@@ -15,8 +15,6 @@
     "externalUrl": "https://taxrise.com/",
     "headline": "Rebranding a high-intent website and simplifying the path to conversion",
     "summary": "A website and lead-form redesign that translated a new brand identity into a more consistent experience and a clearer path to conversion.",
-    "heroFile": "screen-1.jpg",
-    "heroAlt": "TaxRise homepage — a 'Let's resolve your tax issues' hero, a client results section, the two-phase resolution process and the FAQ",
     "coverAlt": "Three TaxRise screens on a blue field — a customer stories feature, the executive team page, and a featured blog post on tax relief programs",
     "galleryAlt": [
       "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
@@ -198,9 +196,9 @@
         "heading": "The final experience",
         "images": [
           {
-            "file": "cover.jpg",
-            "alt": "Three TaxRise mobile screens on a blue field — customer stories, the executive team page, and a featured blog post",
-            "caption": "Establishing the new visual language across the site."
+            "file": "screen-1.jpg",
+            "alt": "TaxRise homepage — a 'Let's resolve your tax issues' hero, a client results section, the two-phase resolution process and the FAQ",
+            "caption": "The homepage the rest of the site was built from."
           },
           {
             "file": "screen-3.jpg",
@@ -243,7 +241,7 @@
     "year": "2024",
     "duration": "6–8 months",
     "externalLabel": "Visit Website",
-    "coverAlt": "Three ZO Skin Centre screens on a blue field — the treatments homepage with clinic locations, Zein Obagi's practitioner profile, and the Beverly Hills clinic page",
+    "coverAlt": "Three ZO Skin Centre mobile screens on a blue field — the homepage with its locations list, Zein Obagi's practitioner profile, and the Beverly Hills location page",
     "galleryAlt": [
       "ZO Skin Centre homepage with a facial treatment hero, a clinic locations grid, and practitioner profiles",
       "Before and after comparison of the ZO Skin Centre homepage — the old dark blue layout beside the redesigned version with a treatment hero and a clinic locations grid",
@@ -262,8 +260,6 @@
     "role": "Lead Product & UX Designer",
     "scope": "UX strategy · IA · UI · Design system · Prototyping",
     "headline": "Unifying four locations into one clearer experience for discovering treatments and booking care",
-    "heroFile": "New Design Screenshots/ZOSC Homepage.jpg",
-    "heroAlt": "The redesigned ZO Skin Centre homepage — a treatment hero, all four locations as cards, a services grid, practitioners, before-and-after photos and patient reviews on one page",
     "chapters": [
       {
         "_type": "statementChapter",
@@ -446,6 +442,12 @@
         "layout": "single",
         "heading": "The final experience",
         "images": [
+          {
+            "file": "New Design Screenshots/ZOSC Homepage.jpg",
+            "previewAspect": 0.62,
+            "alt": "The redesigned ZO Skin Centre homepage — a treatment hero, all four locations as cards, a services grid, practitioners, before-and-after photos and patient reviews on one page",
+            "caption": "One homepage now answers the questions all four sites used to split between them."
+          },
           {
             "file": "New Design Screenshots/ZOSC Reviews.jpg",
             "alt": "The reviews page, with reviews drawn from Google and Yelp and filtering across sources",
