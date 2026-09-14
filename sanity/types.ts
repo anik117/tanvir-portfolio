@@ -52,7 +52,7 @@ type ChapterHead = {
   lead?: string;
 };
 
-export type ChapterImage = SanityImage & { label?: string };
+export type ChapterImage = SanityImage & { label?: string; previewAspect?: number };
 
 export type StatementChapter = ChapterHead & {
   _type: "statementChapter";

@@ -20,6 +20,12 @@ two. `summary` still feeds the work cards and the page description in both layou
 A chapter that needs an image it does not have yet lists it under `pending`, and the page draws a
 labelled empty slot. A gap shown as a gap is better than a placeholder image pretending to be work.
 
+A full-page screenshot can be several screens tall — ZO's homepage export is 1440 × 7813. Set
+`previewAspect` on that image and the page shows a band of it at that height-over-width, cropped by
+the CDN and faded at the cut; the whole page is still one click away in the lightbox. Give every
+image in one grid row the same value so the row lines up. Leave it empty for anything meant to be
+read in place, such as a design-system sheet.
+
 ## Public reading path
 
 1. **Project summary** — one specific sentence about the intervention, not a list of adjectives.

@@ -74,22 +74,10 @@ not on disk renders as a dashed slot carrying its `pendingLabel`; drop the file 
 `assets/projects/taxrise/` under the name below and re-run `npm run publish:projects`, and the slot
 becomes the image. No JSON editing.
 
-| File to add | Section | Slot label |
-| --- | --- | --- |
-_All named files are now on disk and published. Nothing is outstanding._
-| `system-foundations.jpg` | The system — feature | Design system foundations — type, colour and spacing |
-| `system-button.jpg` | The system | Button sheet |
-| `system-accordion.jpg` | The system | Accordion sheet |
-| `system-card.jpg` | The system | Card sheet |
-| `form-flow.jpg` | Lead form | The lead-form flow diagram |
-| `form-1-entry.jpg` | Lead form | Form — entry screen |
-| `form-2-multiselect.jpg` | Lead form | Form — a question step ("Which tax years are unfiled?") |
-| `form-3-branch.jpg` | Lead form | Form — the branching question (bankruptcy discharge) |
-| `form-4-complete.jpg` | Lead form | Form — completion screen |
+_All named files are on disk and published. Nothing is outstanding._
 
-Every slot on the page now points at a named file. The mood boards and wireframes are described in
-the Approach copy but have no slot, because no file was named for them — add one to the seed if
-those artifacts exist and should be shown.
+The mood boards and wireframes are described in the Approach copy but have no slot, because no file
+was named for them — add one to the seed if those artifacts exist and should be shown.
 
 ## Page shape
 

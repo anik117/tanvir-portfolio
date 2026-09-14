@@ -236,65 +236,13 @@
     "slug": "zo-skin-centre",
     "title": "ZO Skin Centre",
     "order": 2,
-    "summary": "I brought four clinic locations into one browsing and booking experience, so patients could compare treatments, practitioners and results without losing their place.",
+    "summary": "ZO Skin Centre ran four locations as four separate websites. I restructured the platform around what people are actually deciding — a treatment, a practitioner, a place — rather than around which clinic owns the page.",
     "projectType": "Website Redesign",
-    "industry": "Health",
-    "platform": "Desktop & Mobile",
-    "year": "2025",
-    "duration": "4 months",
+    "industry": "Healthcare / Wellness",
+    "platform": "Responsive web",
+    "year": "2024",
+    "duration": "6–8 months",
     "externalLabel": "Visit Website",
-    "goal": "The existing site split the clinic experience across separate locations and made booking harder than it needed to be. The redesign had to create one clear path from treatment research to consultation.",
-    "targetUsers": [
-      {
-        "label": "Patients",
-        "description": "People comparing treatments, practitioners, results and clinic locations before they book."
-      },
-      {
-        "label": "Dermatologists",
-        "description": "Practitioners whose credentials and experience need to be easy for patients to evaluate."
-      }
-    ],
-    "discoveryNote": "The clinic manager pointed to three recurring problems: booking took too much effort, each location felt separate, and the proof patients looked for was scattered across the site.",
-    "insights": [
-      "Separate location pages made comparison harder and forced patients to restart their journey.",
-      "Treatment information, practitioners, reviews and results worked better when they supported the same decision.",
-      "The booking path needed to stay visible and work cleanly on a phone."
-    ],
-    "competitorAnalysis": [
-      "The comparison focused on how clinic sites bring treatment details, practitioner credibility, results and booking into one journey."
-    ],
-    "userFlows": [
-      {
-        "name": "Book a Consultation",
-        "steps": "Homepage → Select service → Choose doctor → Fill booking form"
-      },
-      {
-        "name": "Compare Treatment Options",
-        "steps": "Homepage → Treatment → Practitioner and results → Choose clinic"
-      }
-    ],
-    "wireframes": [
-      "Started with low-fidelity layouts to settle the relationship between treatments, locations and booking.",
-      "Moved into high-fidelity prototypes after the main path was clear."
-    ],
-    "visualDirection": [
-      "Used a quiet, premium visual language with generous space and restrained medical cues.",
-      "Stayed close to the parent brand while giving the clinic a clearer identity of its own."
-    ],
-    "keyScreens": [
-      {
-        "name": "One front door for every clinic",
-        "description": "Placed all four locations on the homepage so patients could compare them without moving between separate sites."
-      },
-      {
-        "name": "Proof close to the decision",
-        "description": "Brought practitioners, reviews and before-and-after results into the treatment journey instead of leaving them in isolated sections."
-      },
-      {
-        "name": "A shorter route to consultation",
-        "description": "Kept booking actions visible and made the form easier to complete on mobile."
-      }
-    ],
     "coverAlt": "Three ZO Skin Centre screens on a blue field — the treatments homepage with clinic locations, Zein Obagi's practitioner profile, and the Beverly Hills clinic page",
     "galleryAlt": [
       "ZO Skin Centre homepage with a facial treatment hero, a clinic locations grid, and practitioner profiles",
@@ -311,31 +259,260 @@
       "Treatment results",
       "Mobile flow"
     ],
-    "role": "Sole UI/UX Designer",
-    "galleryAnnotations": [
-      [
-        {
-          "label": "Booking CTA above the fold",
-          "note": "Booking stays within reach as patients browse",
-          "tone": "positive",
-          "x": 21,
-          "y": 31
-        },
-        {
-          "label": "All four clinics on one page",
-          "note": "Patients can compare clinics without restarting",
-          "tone": "positive",
-          "x": 24,
-          "y": 74
-        },
-        {
-          "label": "Practitioners surfaced early",
-          "note": "Credentials appear before the booking decision",
-          "tone": "neutral",
-          "x": 79,
-          "y": 70
-        }
-      ]
+    "role": "Lead Product & UX Designer",
+    "scope": "UX strategy · IA · UI · Design system · Prototyping",
+    "headline": "Unifying four locations into one clearer experience for discovering treatments and booking care",
+    "heroFile": "New Design Screenshots/ZOSC Homepage.jpg",
+    "heroAlt": "The redesigned ZO Skin Centre homepage — a treatment hero, all four locations as cards, a services grid, practitioners, before-and-after photos and patient reviews on one page",
+    "chapters": [
+      {
+        "_type": "statementChapter",
+        "navLabel": "The challenge",
+        "layout": "split",
+        "heading": "The challenge",
+        "lead": "Four locations meant four websites. Each had its own navigation, its own copy of the services, its own practitioner pages — and the main site was little more than a fork that sent you to one of them.\n\nThe catalogue was largely shared. The structure was organised around which clinic owned the page, not around what someone was deciding. The visual system had drifted from ZO Skin Health too.",
+        "facts": [
+          "4 locations, 4 sites",
+          "1 shared service catalogue",
+          "1 design system"
+        ]
+      },
+      {
+        "_type": "cardsChapter",
+        "eyebrow": "Two problems, one redesign",
+        "numbered": true,
+        "columns": 2,
+        "items": [
+          {
+            "title": "A fragmented experience",
+            "body": "Finding which clinic offered a treatment meant leaving one site and starting again on another."
+          },
+          {
+            "title": "A system adrift from the brand",
+            "body": "Components and patterns had diverged from ZO Skin Health, so the centre read as a separate company."
+          }
+        ]
+      },
+      {
+        "_type": "statementChapter",
+        "navLabel": "The goal",
+        "layout": "pull",
+        "tone": "soft",
+        "eyebrow": "The goal",
+        "heading": "One experience where people can find what they need, see where it is available, and take the next step — without starting over."
+      },
+      {
+        "_type": "mediaChapter",
+        "navLabel": "Four sites to one",
+        "layout": "duo",
+        "heading": "From four location experiences to one platform",
+        "lead": "The old main site could not answer a single question about a treatment. Everything that mattered lived inside whichever location site you landed on, duplicated four times over.",
+        "images": [
+          {
+            "file": "Old Website UI/image 1.jpg",
+            "label": "Before",
+            "alt": "The old ZO Skin Centre main page — a welcome message, 'Find your nearest location', and four large location blocks each with an address, hours and a Visit Location button",
+            "caption": "A fork in the road. Four addresses, four exits, nothing else.",
+            "previewAspect": 0.62
+          },
+          {
+            "file": "Old Website UI/image 2.jpg",
+            "label": "Before",
+            "alt": "The old Beverly Hills location site — its own navigation, hero, treatments grid, a Dr. Zein Obagi feature, reviews and an about section",
+            "caption": "Behind each exit, a separate site with its own nav and its own copy of the services.",
+            "previewAspect": 0.62
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "layout": "grid3",
+        "eyebrow": "Where the structure was settled",
+        "lead": "The architecture was settled in wireframes before anything was styled — a service knows its locations, a practitioner knows theirs, a result knows both.",
+        "images": [
+          {
+            "file": "New Design Screenshots/Wireframes/ZOSC Homepage.jpg",
+            "label": "Homepage",
+            "alt": "Wireframe of the unified ZO Skin Centre homepage, blocking out locations, services, practitioners, photos and reviews",
+            "previewAspect": 1.0
+          },
+          {
+            "file": "New Design Screenshots/Wireframes/ZOSC Services.jpg",
+            "label": "Services",
+            "alt": "Wireframe of the services listing with a filter rail and service cards",
+            "previewAspect": 1.0
+          },
+          {
+            "file": "New Design Screenshots/Wireframes/ZOSC Practitioners Profile.jpg",
+            "label": "Practitioner",
+            "alt": "Wireframe of a practitioner profile with a consultation form, locations list and reviews",
+            "previewAspect": 1.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "layout": "duo",
+        "images": [
+          {
+            "file": "New Design Screenshots/Manual Location Select Modal.jpg",
+            "label": "After",
+            "alt": "The location selection modal — Laguna Beach, Beverly Hills, Newport Beach and Pasadena as radio options with address and hours, and Cancel and Save actions",
+            "caption": "Location became a preference you set once and can change from the nav — not a website you get sent to."
+          },
+          {
+            "file": "New Design Screenshots/ZOSC Location details.jpg",
+            "label": "After",
+            "alt": "The redesigned Beverly Hills location page — location imagery, treatments and services, the practitioner, before-and-after photos, patient reviews and a map",
+            "caption": "One location page now carries the whole decision: treatments, practitioners, results, reviews, directions.",
+            "previewAspect": 0.75
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "navLabel": "The decisions",
+        "layout": "grid",
+        "heading": "Connecting the decisions people actually make",
+        "lead": "Choosing a treatment, choosing who performs it and choosing where to go are one decision in three parts. Each became a first-class thing that knows about the other two.",
+        "images": [
+          {
+            "file": "New Design Screenshots/ZOSC Service Details.jpg",
+            "label": "Service",
+            "alt": "A service detail page for Custom ZO Facial Enhancements — rating, imagery, a Request a Consultation form at the top right, section tabs, add-ons, reviews and related treatments",
+            "caption": "The consultation form sits beside the treatment, with the service already selected.",
+            "previewAspect": 0.75
+          },
+          {
+            "file": "New Design Screenshots/ZOSC Practitioners Profile.jpg",
+            "label": "Practitioner",
+            "alt": "A practitioner profile for Zein Obagi, M.D. — consultation form, about, a Locations section listing all four centres with a map, specialties, training, awards and reviews",
+            "caption": "A practitioner is no longer filed under one clinic. The profile lists every location they work from.",
+            "previewAspect": 0.75
+          },
+          {
+            "file": "New Design Screenshots/ZOSC Photo Galleries.jpg",
+            "label": "Results",
+            "alt": "The before-and-after gallery with a filter rail covering treatment categories, age, gender and location, showing 68 results with a Beverly Hills filter applied",
+            "caption": "Location is a filter here, not a separate site. So are treatment, age and gender.",
+            "previewAspect": 0.75
+          },
+          {
+            "file": "New Design Screenshots/ZOSC Photos.jpg",
+            "label": "One result",
+            "alt": "A single before-and-after result page — patient age, gender and ethnicity, the procedures used, the practitioner who performed it, a consultation form and the location with a map",
+            "caption": "A result is a junction: the treatment, the practitioner, the place, and the way to ask about it.",
+            "previewAspect": 0.75
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "navLabel": "The system",
+        "layout": "grid",
+        "heading": "Built on the parent brand, extended for the centre",
+        "lead": "ZO Skin Health is the foundation. The centre needed what the parent brand did not have: location cards, service cards, filter rails, consultation forms, and the states each moves through.",
+        "images": [
+          {
+            "file": "New Design Screenshots/Components/Hero.jpg",
+            "label": "Hero",
+            "alt": "Design system sheet for hero components, with variants and states",
+            "previewAspect": 1.1
+          },
+          {
+            "file": "New Design Screenshots/Components/Card/Location.jpg",
+            "label": "Location card",
+            "alt": "Design system sheet for the location card — location thumbnails for all four centres, and the card in its default, hover and compact forms",
+            "previewAspect": 1.1
+          },
+          {
+            "file": "New Design Screenshots/Components/Card/Service.jpg",
+            "label": "Service card",
+            "alt": "Design system sheet for the service card and its variants",
+            "previewAspect": 1.1
+          },
+          {
+            "file": "New Design Screenshots/Components/Form/Request Consultation.jpg",
+            "label": "Consultation form",
+            "alt": "Design system sheet for the request a consultation form, with field states",
+            "previewAspect": 1.1
+          }
+        ],
+        "note": "Built as reusable components and prototyped in Figma."
+      },
+      {
+        "_type": "mediaChapter",
+        "navLabel": "Final experience",
+        "layout": "single",
+        "heading": "The final experience",
+        "images": [
+          {
+            "file": "New Design Screenshots/ZOSC Reviews.jpg",
+            "alt": "The reviews page, with reviews drawn from Google and Yelp and filtering across sources",
+            "caption": "Reviews pulled together across sources, rather than a different set on each location site.",
+            "previewAspect": 0.62
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "layout": "grid3",
+        "images": [
+          {
+            "file": "New Design Screenshots/Mobile/ZOSC Homepage.jpg",
+            "label": "Mobile",
+            "alt": "The unified homepage on mobile",
+            "previewAspect": 1.5
+          },
+          {
+            "file": "New Design Screenshots/Mobile/ZOSC Location details.jpg",
+            "label": "Mobile",
+            "alt": "A location page on mobile",
+            "previewAspect": 1.5
+          },
+          {
+            "file": "New Design Screenshots/Mobile/ZOSC Request a Consultation.jpg",
+            "label": "Mobile",
+            "alt": "The request a consultation form on mobile",
+            "previewAspect": 1.5
+          }
+        ],
+        "note": "The same system, narrowed."
+      },
+      {
+        "_type": "cardsChapter",
+        "navLabel": "Outcome",
+        "heading": "A unified foundation for location, service and consultation discovery",
+        "lead": "After six to eight months of exploration, design, prototyping and stakeholder review, the experience was finalised and handed to development.",
+        "numbered": true,
+        "columns": 2,
+        "items": [
+          {
+            "title": "One experience",
+            "body": "Four sites became one platform, with location as a preference rather than a destination."
+          },
+          {
+            "title": "Discovery that connects",
+            "body": "Services, practitioners, results and reviews point at each other instead of sitting in silos."
+          },
+          {
+            "title": "A system that scales",
+            "body": "The patterns can carry a fifth location without a fifth design."
+          },
+          {
+            "title": "Back inside the brand",
+            "body": "The centre reads as part of ZO Skin Health again."
+          }
+        ]
+      },
+      {
+        "_type": "statementChapter",
+        "layout": "pull",
+        "tone": "dark",
+        "eyebrow": "Key takeaway",
+        "heading": "Organise the experience around what people are trying to do, not around how the business is arranged.",
+        "lead": "The hard part was never a page. It was a structure that could hold four locations, one shared catalogue, practitioners who work across several clinics, and the results attached to all of it — without any of that showing."
+      }
     ]
   },
   {

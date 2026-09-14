@@ -45,3 +45,8 @@ coverage/
 .idea/
 *.swp
 *.swo
+
+# Source video kept locally. Prototype.mp4 is 38 MB and nothing on the site
+# reads it; a compressed clip or a hosted URL is what a page would use.
+assets/**/*.mp4
+assets/**/*.mov

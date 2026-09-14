@@ -10,6 +10,9 @@ type Props = {
       crops to this ratio around the hotspot instead of letterboxing. */
   aspect?: number;
   crop?: boolean;
+  /** Where `crop` takes its window from. "top" suits a full-page screenshot,
+      whose subject is the fold rather than the middle. */
+  focus?: "hotspot" | "top";
   sizes?: string;
   className?: string;
   priority?: boolean;
@@ -26,6 +29,7 @@ export function SanityImage({
   width = 1600,
   aspect = 0.5625,
   crop = false,
+  focus = "hotspot",
   sizes = "100vw",
   className,
   priority = false,
@@ -38,7 +42,10 @@ export function SanityImage({
 
   const height = Math.round(width * aspect);
   let b = builder.width(width);
-  if (crop) b = b.height(height).fit("crop");
+  if (crop) {
+    b = b.height(height).fit("crop");
+    if (focus === "top") b = b.crop("top");
+  }
   const src = b.auto("format").quality(quality).url();
   const alt = image.alt ?? "";
 

@@ -16,10 +16,15 @@ export function ZoomableImage({
   image,
   width = 900,
   sizes = "(max-width: 768px) 100vw, 736px",
+  previewAspect,
 }: {
   image: SanityImageType;
   width?: number;
   sizes?: string;
+  /** Show only the top of the picture, at this height-over-width ratio, and
+      leave the whole of it to the lightbox. For a full-page screenshot, whose
+      inline height would otherwise run to several screens. */
+  previewAspect?: number;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   // The full-size copy is mounted only once the dialog has been opened, so a
@@ -50,8 +55,23 @@ export function ZoomableImage({
         className="zoomable card card-hover group relative block w-full overflow-hidden rounded-2xl p-2 sm:p-3"
         aria-label={`Enlarge: ${image.alt ?? "screenshot"}`}
       >
-        <div className="overflow-hidden rounded-xl">
-          <SanityImage image={image} width={width} sizes={sizes} className="cover-img" />
+        <div className="relative overflow-hidden rounded-xl">
+          <SanityImage
+            image={image}
+            width={width}
+            sizes={sizes}
+            aspect={previewAspect}
+            crop={Boolean(previewAspect)}
+            focus="top"
+            className="cover-img"
+          />
+          {previewAspect && (
+            // Says there is more below the cut without a label having to.
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent"
+            />
+          )}
         </div>
         <span
           aria-hidden

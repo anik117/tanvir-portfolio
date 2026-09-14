@@ -2,161 +2,103 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Public narrative revised; evidence worksheet incomplete |
-| Blocked on | Source verification and measured impact |
+| Status | Rewritten as a seven-section chapter study, 2026-09-14 |
+| Source | Tanvir's own brief, `Claude Prompt — ZO Skin Centre Case Study.md`, 2026-09-14 |
+| Shape | Seven sections, roughly three minutes, weighted toward the work rather than the writing |
+| Blocked on | Nothing to publish. Two facts to confirm, one asset unused |
 | Assets | `assets/projects/zo-skin-centre/` |
 
-The concise public copy now lives in `sanity/seed/projects.json`. This document remains the
-evidence worksheet; its unresolved fields must not be filled by inference.
+The public copy lives in `sanity/seed/projects.json` under the `chapters` array. This document is
+the evidence worksheet.
 
-## Summary
-
-**From the live site** (<https://tanvirux.framer.website/>, read 2026-09-08) — existing teaser
-copy, not a verified case study:
-
-> A premium website redesign aimed at increasing online appointment bookings and creating a seamless experience.
-
-| Field | Value | Status |
-| --- | --- | --- |
-| Full title | ZO Skin Centre Website Redesign | From live site |
-| Type | Website redesign | From live site |
-| Stated goal | See teaser above | From live site |
-| My role | — | REQUIRES VERIFICATION |
-| Timeline | — | REQUIRES VERIFICATION |
-| Team and collaborators | — | REQUIRES VERIFICATION |
-| Scope boundaries | — | REQUIRES VERIFICATION |
-| Outcome / results | — | REQUIRES VERIFICATION |
-
-The teaser claims outcomes (bookings, conversions, consistency). Do not repeat those on the new
-site as results unless there is evidence behind them — an unbacked metric is the first thing a
-design leader will probe in an interview.
-
-## Context
-
-**Background:** REQUIRES VERIFICATION
-
-**Problem:** REQUIRES VERIFICATION
-
-**Goal:** REQUIRES VERIFICATION
-
-### Constraints
-
-Do not present assumed limitations as facts.
-
-| Constraint | Source | Design implication |
-| --- | --- | --- |
-| REQUIRES VERIFICATION | — | — |
-
-## Research
-
-Evidence first, then insights traceable to it. Do not turn assumptions into findings.
-
-### Evidence
-
-| Source | Date | Method | Observation | Limitations |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-### Insights
-
-| Insight | Supporting evidence | Confidence | Design implication |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-### Open Questions
-
-| Question | Why it matters | Evidence needed | Next step |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-## Strategy
-
-**UX goal:** REQUIRES VERIFICATION
-
-**Success criteria:** REQUIRES VERIFICATION
-
-### Principles
-
-| Principle | Meaning | Evidence | Application |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-### Decisions
-
-Do not reverse-engineer rationale without labeling it an assumption.
-
-| Decision | Context | Alternatives | Rationale and evidence | Status |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-## Information Architecture
-
-Do not present reconstructed structure as final.
-
-**Hierarchy:** REQUIRES VERIFICATION
-
-**Relationships:** REQUIRES VERIFICATION
-
-## User Flows
-
-Reconstruct only what the designs actually show. Do not invent steps or states.
-
-### Primary Flow
+## Verified from the brief
 
 | Field | Value |
 | --- | --- |
-| Actor and goal | REQUIRES VERIFICATION |
-| Entry conditions | REQUIRES VERIFICATION |
-| Steps and states | REQUIRES VERIFICATION |
-| Exceptions and outcomes | REQUIRES VERIFICATION |
+| Project | ZO Skin Centre Website Redesign |
+| Company | ZO Skin Centre / ZO Skin Health, Los Angeles |
+| What it is | A network of skincare centres where people explore treatments, find locations and practitioners, view results, and request a consultation |
+| Role | Lead Product & UX Designer |
+| Timeline | 6–8 months |
+| Scope | UX strategy, information architecture, UI, design system, prototyping, responsive web |
+| Owned | IA, user flows, wireframes, visual direction, design system, interaction design, high-fidelity UI, responsive design, Figma prototyping, stakeholder presentations, refinement, developer handoff |
+| Problem | Four locations ran as four separate experiences on separate URLs, sharing most of their services. The IA was organised by location rather than by intent. |
+| Second problem | The centre's visual language had drifted from the wider ZO Skin Health brand. |
+| Process | Stakeholder discussions, brainstorming, IA exploration, wireframes, rounds of feedback, visual direction, design system, high fidelity, prototype, review, handoff. |
+| Outcome | Finalised and handed to development. No business metrics were provided. |
 
-### Secondary Flows
+## What the assets establish
 
-| Flow | Trigger | Steps | Outcome | Design reference |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
+Read straight off the screenshots, so it is safe to state on the page:
 
-## Design System
+- **The old main site was a gateway, not a homepage.** `Old Website UI/image 1.jpg` has no
+  navigation beyond Contact. It offers a welcome paragraph, "4 locations to serve you", "Find your
+  nearest location", and four blocks whose only action is **Visit Location**. Nothing about a
+  treatment can be answered there.
+- **Each location was a whole website.** `Old Website UI/image 2.jpg` is the Beverly Hills site with
+  its own nav — Home, About, Locations, Services, Photos, Practitioners, Shop, Reviews, Contact,
+  Book Now — its own hero, its own services grid, its own reviews. Four of these existed.
+- **A practitioner lived inside one location.** `Old Website UI/image 3.jpg` is Zein Obagi filed
+  under Beverly Hills' *about us* breadcrumb.
+- **In the redesign the practitioner owns a Locations section.** `ZOSC Practitioners Profile.jpg`
+  lists all four centres with a map, on the practitioner's own page.
+- **Location became a filter.** `ZOSC Photo Galleries.jpg` has Location as one filter among
+  treatment category, age and gender — 68 results, a removable "Beverly Hills" chip.
+- **A result connects four things.** `ZOSC Photos.jpg` puts patient details, the procedures used,
+  the practitioner who performed it, a consultation form and the location with a map on one page.
+- **Location is a stored preference.** `Manual Location Select Modal.jpg` is a radio list with
+  Cancel and Save, and the chosen centre then appears in the top-left of every page.
 
-### Foundations
+## Conflicts with the previous version of this case study
 
-Do not invent tokens or normalize values without approval.
-
-| Category | Token or value | Usage | Source |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-### Components
-
-| Component | Purpose | Variants and states | Behavior | Design reference |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-### Interaction Notes
-
-Do not infer motion from static screens without labeling it unverified.
-
-| Trigger | Behavior | States and feedback | Accessibility notes | Source |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-## Handoff
-
-### Figma Reference
-
-An unverified Figma page or node is not final.
-
-| Field | Value |
+| Previous claim | Why it was removed |
 | --- | --- |
-| File URL | REQUIRES VERIFICATION |
-| Version or date | REQUIRES VERIFICATION |
-| Final node names and IDs | REQUIRES VERIFICATION |
+| Duration: "4 months" | The brief says 6–8 months. Direct conflict; the brief wins. |
+| "The clinic manager pointed to three recurring problems…" | No such discovery source is in the brief. Presented as a finding with nothing behind it. |
+| Competitor analysis of clinic sites | Not in the brief and no record of it. |
+| Target users: Patients / Dermatologists | Plausible, but written as research output with no research behind it. |
+| "Booking took too much effort" as a stated problem | The brief's problem is fragmentation and brand drift, not booking effort. |
+| Platform: "Desktop & Mobile" | Now "Responsive web", which is what the brief says. |
 
-### Implementation
+## Open questions
 
-| Field | Value |
+| Question | Why it matters |
 | --- | --- |
-| Final references | REQUIRES VERIFICATION |
-| Required behavior | REQUIRES VERIFICATION |
-| Missing information | REQUIRES VERIFICATION |
-| Decisions needed | REQUIRES VERIFICATION |
+| **Year: changed from 2025 to 2024 — confirm.** | The brief gives no date. The change is an inference from the assets: the component sheets are stamped 2024, the old site footer reads ©2024, and the BBB badge is dated 7/22/2024. If the portfolio's `year` means something else — when you are presenting it, as with TaxRise's 2026 — say so and it goes back. |
+| Team | The brief has `[ADD IF AVAILABLE]`. The Team row is omitted from the hero rather than shown as a placeholder. Add it if there was a team. |
+| Outcome metrics | None exist. The outcome section is four qualitative results and no numbers — no placeholder, because inventing a slot for a metric that may never arrive is worse than not claiming one. |
+
+## Unused asset
+
+`New Design Screenshots/Prototype.mp4` — 38 MB. Not on the page. Two reasons: the chapter schema
+carries images, not video; and 38 MB is far too large to load on a portfolio page regardless.
+
+To use it, either compress it hard (a 5–10 second loop of the location selector, a few MB, would be
+the strongest single moment) or upload it to Vimeo or YouTube and it can be embedded. Say which and
+the video support is a small addition.
+
+Also unused, deliberately: six of the nine wireframes, five of the eight mobile screens, and eight
+of the eleven old-site captures. The brief asked for the strongest, not all of them.
+
+## Page shape
+
+Seven sections a reader can see, twelve chapters in the data.
+
+| Section | Carries |
+| --- | --- |
+| Hero | Headline, one supporting line, Role / Timeline / Scope / Read, the new homepage cropped to the fold |
+| The challenge | Two-column copy, a fact row, then two problem cards |
+| The goal | Soft pull-quote |
+| Four sites to one | The old gateway and an old location site as Before, three wireframes, then the location selector and the new location page as After |
+| The decisions | Service, practitioner, gallery and one result in a 2×2 grid |
+| The system | Hero, location card, service card and consultation form sheets |
+| Final experience | The reviews page, then three mobile screens |
+| Outcome | Four outcome cards, then the takeaway on a dark band |
+
+## A note on the screenshots
+
+ZO's exports are full-page — `ZOSC Homepage.jpg` is 1440 × 7813. Shown at full width that is six
+screens of one picture. The page now detects any image taller than 1.6× its width and shows the top
+of it at a readable height with a soft fade, cropped by the Sanity CDN rather than by CSS so the
+browser never downloads the full height for a thumbnail. The whole page is still one click away in
+the lightbox. The hero does the same at 16:9.

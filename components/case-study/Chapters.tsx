@@ -132,6 +132,7 @@ function Figure({
   sizes?: string;
 }) {
   const annotated = Boolean(image.annotations?.length);
+
   return (
     <figure className="relative">
       {annotated ? (
@@ -139,7 +140,14 @@ function Figure({
           <AnnotatedImage image={image} width={width} sizes={sizes} />
         </div>
       ) : (
-        <ZoomableImage image={image} width={width} sizes={sizes} />
+        // A full-page screenshot sets previewAspect so it shows its top at a
+        // readable height; the lightbox still carries the whole page.
+        <ZoomableImage
+          image={image}
+          width={width}
+          sizes={sizes}
+          previewAspect={image.previewAspect}
+        />
       )}
 
       {image.label && (

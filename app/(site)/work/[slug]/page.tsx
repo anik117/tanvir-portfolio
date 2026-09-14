@@ -8,6 +8,7 @@ import type { Project } from "@/sanity/types";
 import { SanityImage } from "@/components/SanityImage";
 import { ZoomableImage } from "@/components/ZoomableImage";
 import { Reveal } from "@/components/Reveal";
+import { imageDimensions } from "@/sanity/image";
 import { ActNav, type ActLink } from "@/components/case-study/ActNav";
 import { Chapters, chapterAnchor } from "@/components/case-study/Chapters";
 
@@ -211,6 +212,10 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
   const chapters = project.chapters ?? [];
   const hasChapters = chapters.length > 0;
 
+  const hero = project.heroImage ?? project.coverImage;
+  const heroSize = hero ? imageDimensions(hero) : null;
+  const heroIsTall = heroSize ? heroSize.height / heroSize.width > 1.6 : false;
+
   const meta = (
     hasChapters
       ? [
@@ -313,17 +318,28 @@ export default async function ProjectPage({ params }: PageProps<"/work/[slug]">)
           )}
         </header>
 
-        {(project.heroImage ?? project.coverImage) && (
+        {hero && (
           <Reveal delay={200} className="mt-14">
             <div className="card group overflow-hidden p-3 sm:p-4">
-              <div className="overflow-hidden rounded-xl border border-border bg-white">
+              <div className="relative overflow-hidden rounded-xl border border-border bg-white">
                 <SanityImage
-                  image={(project.heroImage ?? project.coverImage)!}
+                  image={hero}
                   width={1800}
                   sizes="(max-width: 1280px) 100vw, 1200px"
+                  // A full-page screenshot would otherwise open the study with
+                  // six screens of picture. Show the fold; the rest is inside.
+                  aspect={heroIsTall ? 0.56 : undefined}
+                  crop={heroIsTall}
+                  focus="top"
                   priority
                   className="cover-img"
                 />
+                {heroIsTall && (
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 to-transparent"
+                  />
+                )}
               </div>
             </div>
           </Reveal>

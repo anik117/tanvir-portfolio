@@ -53,6 +53,14 @@ export const chapterImage = defineType({
       type: "string",
       description: 'Corner tag — e.g. "Before", "After", "Reusable template".',
     }),
+    defineField({
+      name: "previewAspect",
+      title: "Preview height",
+      type: "number",
+      description:
+        "How much of the picture to show inline, as height over width — 0.6 is a wide band, 1.2 a tall one. The whole image is always one click away in the lightbox. Leave empty to show all of it; set it for a full-page screenshot that would otherwise run several screens.",
+      validation: (r) => r.min(0.2).max(4),
+    }),
     annotations,
   ],
 });

@@ -41,6 +41,8 @@ type SeedImage = {
   /** Shown in the dashed slot that stands in for this image until the file
       exists. Falls back to the corner label, then to the filename. */
   pendingLabel?: string;
+  /** Inline preview height as a fraction of width; the lightbox shows all. */
+  previewAspect?: number;
   annotations?: Annotation[];
 };
 
@@ -150,6 +152,22 @@ function keyArrays(value: unknown, prefix: string): unknown {
   return value;
 }
 
+/**
+ * A seed file may sit in a subfolder with spaces in its name — the assets are
+ * organised for the person who exported them, not for a URL. Flatten that into
+ * one lowercase, hyphenated filename for the upload.
+ */
+function assetName(slug: string, file: string) {
+  const flat = file
+    .replace(/\\/g, "/")
+    .replace(/\.[a-z]+$/i, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  const ext = parse(file).ext || ".jpg";
+  return `${slug}-${flat}${ext}`;
+}
+
 /** What the dashed stand-in says while an image's file does not exist yet. */
 function slotLabel(img: SeedImage) {
   if (img.pendingLabel) return img.pendingLabel;
@@ -175,13 +193,14 @@ async function buildChapters(chapters: SeedChapter[], dir: string, slug: string)
       const absent: string[] = [];
 
       for (const [ii, img] of list.entries()) {
-        const assetId = await resolveAsset(join(dir, img.file), `${slug}-${img.file}`);
+        const assetId = await resolveAsset(join(dir, img.file), assetName(slug, img.file));
         if (!assetId) {
           absent.push(slotLabel(img));
           continue;
         }
         resolved.push({
           ...imageField(assetId, img.alt, img.caption, img.annotations, img.label),
+          ...(img.previewAspect ? { previewAspect: img.previewAspect } : {}),
           _key: `ch-${ci}-${field}-${ii}`,
           // imageField writes the generic "image" type; inside a chapter the
           // member type is the named one the schema declares.
@@ -273,7 +292,7 @@ async function main() {
     if (gallery?.length) doc.gallery = gallery;
 
     if (p.heroFile) {
-      const heroId = await resolveAsset(join(dir, p.heroFile), `${p.slug}-${p.heroFile}`);
+      const heroId = await resolveAsset(join(dir, p.heroFile), assetName(p.slug, p.heroFile));
       if (heroId) doc.heroImage = imageField(heroId, p.heroAlt ?? p.coverAlt);
     }
     if (p.chapters?.length) {
