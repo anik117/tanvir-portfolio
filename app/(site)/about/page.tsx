@@ -11,9 +11,44 @@ export const metadata = {
     "Tanvir Ahassan is a product designer with a software engineering background, working across fintech, healthcare, education, SaaS and consumer products.",
 };
 
+/** A small label above a run of rows. */
+function Label({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="mono text-[13px] font-semibold uppercase tracking-[0.18em] text-accent">
+      {children}
+    </h2>
+  );
+}
+
+/** Years on the left, the entry on the right, a hairline between rows. */
+function Row({
+  when,
+  title,
+  where,
+  note,
+}: {
+  when?: string;
+  title: string;
+  where?: string;
+  note?: string;
+}) {
+  return (
+    <li className="grid gap-x-6 gap-y-1 border-t border-border py-5 sm:grid-cols-[7rem_1fr]">
+      <span className="mono text-[13px] leading-relaxed text-muted">{when}</span>
+      <span>
+        <span className="block font-semibold">{title}</span>
+        {where && <span className="block text-[15px] text-muted-strong">{where}</span>}
+        {note && (
+          <span className="mt-2 block text-[15px] leading-relaxed text-muted-strong">{note}</span>
+        )}
+      </span>
+    </li>
+  );
+}
+
 /**
- * One column of prose. The record — where he has worked, what he uses — is a
- * CV's job; this page is the part a CV cannot do.
+ * One column: the prose first, then the record underneath it. The prose is
+ * the part a CV cannot do; the record is there for the reader who wants it.
  */
 export default async function AboutPage() {
   const settings = await safeFetch<SiteSettings>(SITE_SETTINGS_QUERY);
@@ -21,6 +56,8 @@ export default async function AboutPage() {
   const paragraphs = settings?.aboutParagraphs ?? aboutContent.aboutParagraphs;
   const availability = settings?.aboutAvailability ?? aboutContent.aboutAvailability;
   const outside = settings?.aboutOutside ?? aboutContent.aboutOutside;
+  const experience = settings?.experience ?? [];
+  const education = settings?.education ?? [];
 
   return (
     <main className="mx-auto max-w-read px-5 py-20 sm:px-10 sm:py-28">
@@ -62,6 +99,44 @@ export default async function AboutPage() {
                 <p key={i}>{p}</p>
               ))}
             </div>
+          </section>
+        </Reveal>
+      )}
+
+      {experience.length > 0 && (
+        <Reveal delay={60}>
+          <section className="mt-20">
+            <Label>Experience</Label>
+            <ul className="mt-5 border-b border-border">
+              {experience.map((job) => (
+                <Row
+                  key={job._key ?? job.role}
+                  when={job.years}
+                  title={job.role}
+                  where={job.organization}
+                  note={job.summary}
+                />
+              ))}
+            </ul>
+          </section>
+        </Reveal>
+      )}
+
+      {education.length > 0 && (
+        <Reveal delay={60}>
+          <section className="mt-16">
+            <Label>Education</Label>
+            <ul className="mt-5 border-b border-border">
+              {education.map((ed) => (
+                <Row
+                  key={ed._key ?? ed.qualification}
+                  when={ed.years}
+                  title={ed.qualification}
+                  where={ed.institution}
+                  note={ed.note}
+                />
+              ))}
+            </ul>
           </section>
         </Reveal>
       )}
