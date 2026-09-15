@@ -157,7 +157,29 @@ export const siteSettings = defineType({
       ],
     }),
 
-    defineField({ name: "aboutIntro", type: "text", rows: 3, group: "about" }),
+    defineField({
+      name: "aboutIntro",
+      title: "Homepage about line",
+      type: "text",
+      rows: 3,
+      group: "about",
+      description: "The paragraph that darkens word by word on the homepage. Not used on the About page.",
+    }),
+    defineField({
+      name: "aboutAvailability",
+      title: "What you are looking for",
+      type: "string",
+      group: "about",
+      description: "One line, set apart at the end of the About copy.",
+    }),
+    defineField({
+      name: "aboutOutside",
+      title: "Outside of work",
+      type: "array",
+      group: "about",
+      of: [{ type: "text" }],
+      description: "A paragraph or two. Leave empty to drop the section.",
+    }),
     defineField({
       name: "aboutAiHeading",
       title: "AI workflow heading",

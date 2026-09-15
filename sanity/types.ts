@@ -169,6 +169,8 @@ export type SiteSettings = {
   clientsNote?: string;
   processSteps?: Named[];
   aboutIntro?: string;
+  aboutAvailability?: string;
+  aboutOutside?: string[];
   aboutAiHeading?: string;
   aboutAiIntro?: string;
   aboutAiSteps?: Named[];

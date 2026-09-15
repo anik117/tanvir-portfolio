@@ -1,9 +1,13 @@
 {
-  "aboutHeading": "Engineering taught me how products work. Design taught me who they work for.",
-  "aboutIntro": "I’m Tanvir, a UI/UX designer with a background in software engineering. Over the past seven years, I’ve helped teams turn complex requirements into digital products that feel clear to use and realistic to build.",
+  "aboutHeading": "Hey, I'm Tanvir.",
+  "aboutIntro": "I'm a product designer who likes figuring out messy problems and turning them into things that make sense.",
   "aboutParagraphs": [
-    "That technical foundation still shapes how I work. I think in systems, involve developers early, and ask what must happen behind the interface—not only what the finished screen should look like.",
-    "I care about the details people notice and the constraints teams live with. The best outcome is not the most decorated interface; it is one people understand and a team can confidently ship."
+    "I'm a product designer who likes figuring out messy problems and turning them into things that make sense.",
+    "I've been designing digital products for 7+ years, working across fintech, healthcare, education, SaaS, and consumer products.",
+    "I started out with a software engineering background, which still influences how I design today. I naturally think about how things work behind the interface, how a system scales, and what will actually make it into production.",
+    "Most of my work sits somewhere between UX, UI, and product thinking. Sometimes that means restructuring a complicated workflow. Sometimes it's building a design system from scratch. Sometimes it's figuring out why a perfectly good-looking screen isn't actually working.",
+    "I've also spent a lot of time working with distributed teams, developers, stakeholders, and other designers. I enjoy that part of the work as much as the actual designing.",
+    "These days, I'm particularly interested in product teams where I can take ownership of a problem, work closely with engineering, and help turn something complicated into something simple."
   ],
   "aboutAiHeading": "I use AI as leverage, not authority.",
   "aboutAiIntro": "AI helps me streamline the design flow by speeding up repetitive and exploratory work. I stay responsible for the product judgment, accessibility, and final decisions.",
@@ -40,5 +44,10 @@
       "name": "Product critique",
       "description": "Finding friction, challenging assumptions, and giving teams a practical path from a rough product to a stronger experience."
     }
+  ],
+  "aboutAvailability": "I'm currently open to remote Senior Product / UX Design opportunities.",
+  "aboutOutside": [
+    "I'm usually exploring new technology, building little side projects, or finding ways to make everyday things work a little better.",
+    "I also enjoy cars, which has probably resulted in more spreadsheets, comparisons, and unnecessary research than I'd like to admit."
   ]
 }

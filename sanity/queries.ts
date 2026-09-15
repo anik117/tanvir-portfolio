@@ -36,7 +36,8 @@ export const SITE_SETTINGS_QUERY = groq`
     testimonials, services, aboutHeading, aboutParagraphs, stats,
     brands[]{ name, "logo": logo.asset->url },
     clientsNote, processSteps,
-    aboutIntro, aboutAiHeading, aboutAiIntro, aboutAiSteps, education, experience, toolkit,
+    aboutIntro, aboutAvailability, aboutOutside,
+    aboutAiHeading, aboutAiIntro, aboutAiSteps, education, experience, toolkit,
     contactHeading, contactMessage, ctaLabel, ctaUrl, email, socials
   }
 `;
