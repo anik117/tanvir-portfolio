@@ -47,6 +47,20 @@ evidence of.
 User flows, wireframes, competitor notes, and visual-direction notes remain available in
 collapsed sections. They support the story without interrupting it.
 
+## Voice
+
+Less reading, more evidence. Short paragraphs, short statements, first person, no hedging.
+
+> Four locations. Four separate experiences.
+
+not
+
+> The previous experience created friction across multiple location-specific experiences.
+
+A fragment is allowed when it lands harder than a sentence. Seniority comes from the substance —
+ownership, a decision and why, a constraint named — never from the vocabulary. If a paragraph could
+be an image, use the image.
+
 ## Writing rules
 
 - Prefer concrete nouns and verbs over phrases such as “modern,” “seamless,” “user-friendly,”

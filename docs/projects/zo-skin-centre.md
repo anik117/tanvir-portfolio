@@ -5,6 +5,7 @@
 | Status | Rewritten as a seven-section chapter study, 2026-09-14 |
 | Source | Tanvir's own brief, `Claude Prompt — ZO Skin Centre Case Study.md`, 2026-09-14 |
 | Shape | Seven sections, roughly three minutes, weighted toward the work rather than the writing |
+| Voice | Rewritten 2026-09-15 against `Portfolio Master Prompt — TaxRise & ZO Skin Centre.md` — shorter statements, fragments where they land harder |
 | Blocked on | Nothing. A prototype GIF is coming and will need the renderer to pass animation through |
 | Assets | `assets/projects/zo-skin-centre/` |
 

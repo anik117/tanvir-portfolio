@@ -14,7 +14,7 @@
     "externalLabel": "Visit Website",
     "externalUrl": "https://taxrise.com/",
     "headline": "Rebranding a high-intent website and simplifying the path to conversion",
-    "summary": "A website and lead-form redesign that translated a new brand identity into a more consistent experience and a clearer path to conversion.",
+    "summary": "TaxRise refreshed its brand. The website hadn't caught up, and people weren't reaching the lead form. I led the design direction with two junior designers.",
     "coverAlt": "Three TaxRise screens on a blue field — a customer stories feature, the executive team page, and a featured blog post on tax relief programs",
     "galleryAlt": [
       "TaxRise homepage with a 'Let's resolve your tax issues' hero and a client results section, shown on desktop and mobile",
@@ -35,12 +35,17 @@
         "_type": "statementChapter",
         "navLabel": "The challenge",
         "tone": "plain",
-        "heading": "The challenge",
-        "lead": "TaxRise had recently refreshed its brand, but the website had become inconsistent across pages. At the same time, the journey from the website into the lead form wasn't converting users as effectively as the business needed.\n\nWe had to bring the new brand to life while making the path to conversion simpler and easier to follow. I led the design direction alongside two junior designers.",
+        "heading": "The brand had moved forward. The website hadn't.",
+        "lead": "Pages built at different times used different layouts, different components, different calls to action. One company, several ways of doing the same thing.\n\nPeople weren't making it from the site into the lead form either. That was the part the business cared about.\n\nI led the design direction with two junior designers — the system, the key flows, the lead form, and the reviews that kept the rest consistent.\n\nThree things had to happen:",
         "facts": [
           "20+ pages",
           "1 design system",
           "Lead-form redesign"
+        ],
+        "points": [
+          "Strengthen the brand.",
+          "Create consistency at scale.",
+          "Reduce conversion friction."
         ]
       },
       {
@@ -55,13 +60,13 @@
         ],
         "navLabel": "Approach",
         "heading": "From brand refresh to scalable system",
-        "lead": "We started with stakeholder requirements, visual research and mood boards, then went wide on direction.\n\nOnce one was agreed, I built the design system and used the finalised homepage as the foundation for the rest of the site."
+        "lead": "Stakeholder requirements, visual research, mood boards. Then we went wide on direction.\n\nI started with the structure. Once that settled, the visual system went around it — and the finished homepage became the foundation for everything else."
       },
       {
         "_type": "mediaChapter",
         "navLabel": "The system",
         "heading": "Designed as a system, not a collection of pages",
-        "lead": "After finalising the homepage direction, we extended the system across 20+ pages. Reusable templates handled the common structures, while pages whose content or user journey needed something different got their own layout.",
+        "lead": "The homepage settled the arguments. After that, 20+ pages: templates for the shapes that repeat, custom layouts where the content needed something else.",
         "images": [
           {
             "file": "system-typography.jpg",
@@ -123,7 +128,7 @@
         "_type": "mediaChapter",
         "navLabel": "Lead form",
         "heading": "Turning intent into action",
-        "lead": "The lead form was a critical part of the customer journey. I mapped the flow before designing the interface, to understand how people move through it and where unnecessary complexity could come out.\n\nTwo answers change the path. Someone who isn't sure which tax years are unfiled skips that question instead of guessing at it. Someone in bankruptcy can't be helped yet, so the form tells them and gives them a way back, rather than collecting details it cannot act on.",
+        "lead": "The form was where the journey paid off or ended. So I mapped it before I designed it.\n\nTwo answers change the path. Not sure which tax years are unfiled? The question gets skipped rather than guessed at. In bankruptcy? The form says so and offers a way back, instead of collecting details it can't act on.",
         "facts": [
           "Clearer progression",
           "Simpler interactions",
@@ -202,7 +207,7 @@
         "_type": "metricsChapter",
         "navLabel": "Outcome",
         "heading": "A more cohesive experience with a stronger path to conversion",
-        "lead": "After roughly 6–12 months of design, iteration and stakeholder review, the work was handed to development and launched. Post-launch, Google Analytics showed more people moving from the website into the lead form than before.",
+        "lead": "Six to twelve months of design, review and iteration. Then handoff. After launch, Google Analytics showed more people reaching the lead form than before.",
         "items": [
           {
             "label": "Lead-form conversion, before",
@@ -217,7 +222,7 @@
             "status": "verified"
           }
         ],
-        "note": "The project reinforced that effective redesign is about more than visual change. The biggest opportunity was connecting brand, UX and conversion into one scalable system."
+        "note": "A redesign is easy to mistake for a visual problem. The useful work was connecting brand, experience and conversion so they stopped pulling in different directions.\n\nAnd designing the system before the screens. Small team, 20+ pages — the foundation is what let it scale."
       }
     ]
   },
@@ -225,7 +230,7 @@
     "slug": "zo-skin-centre",
     "title": "ZO Skin Centre",
     "order": 2,
-    "summary": "ZO Skin Centre ran four locations as four separate websites. I restructured the platform around what people are actually deciding — a treatment, a practitioner, a place — rather than around which clinic owns the page.",
+    "summary": "Four locations. Four separate websites. I restructured the platform around what people are deciding — a treatment, a practitioner, a place — not around which clinic owns the page.",
     "projectType": "Website Redesign",
     "industry": "Healthcare / Wellness",
     "platform": "Responsive web",
@@ -255,8 +260,8 @@
       {
         "_type": "statementChapter",
         "navLabel": "The challenge",
-        "heading": "The challenge",
-        "lead": "Four locations meant four websites. Each had its own navigation, its own copy of the services, its own practitioner pages — and the main site was little more than a fork that sent you to one of them.\n\nThe catalogue was largely shared. The structure was organised around which clinic owned the page, not around what someone was deciding. The visual system had drifted from ZO Skin Health too.",
+        "heading": "Four locations. Four separate experiences.",
+        "lead": "Each had its own navigation, its own copy of the services, its own practitioner pages. The main site was a fork that sent you to one of them.\n\nThe services were mostly the same. The structure was built around which clinic owned the page, not around what someone was trying to decide.\n\nThe visual system had drifted from ZO Skin Health too.",
         "facts": [
           "4 locations, 4 sites",
           "1 shared service catalogue",
@@ -275,7 +280,7 @@
           },
           {
             "title": "A system adrift from the brand",
-            "body": "Components and patterns had diverged from ZO Skin Health, so the centre read as a separate company."
+            "body": "Components had diverged from ZO Skin Health. The centre read as a separate company."
           }
         ]
       },
@@ -284,13 +289,34 @@
         "navLabel": "The goal",
         "tone": "soft",
         "eyebrow": "The goal",
-        "heading": "One experience where people can find what they need, see where it is available, and take the next step — without starting over."
+        "heading": "I wanted to bring everything back into one place."
+      },
+      {
+        "_type": "flowChapter",
+        "variant": "flow",
+        "steps": [
+          {
+            "label": "Choose a location"
+          },
+          {
+            "label": "Browse treatments"
+          },
+          {
+            "label": "Find practitioners"
+          },
+          {
+            "label": "Explore results"
+          },
+          {
+            "label": "Request a consultation"
+          }
+        ]
       },
       {
         "_type": "mediaChapter",
         "navLabel": "Four sites to one",
         "heading": "From four location experiences to one platform",
-        "lead": "The old main site could not answer a single question about a treatment. Everything that mattered lived inside whichever location site you landed on, duplicated four times over.",
+        "lead": "The old main site couldn't answer one question about a treatment. Everything that mattered lived inside whichever location site you landed on, copied four times over.",
         "images": [
           {
             "file": "Old Website UI/image 1.jpg",
@@ -355,7 +381,7 @@
         "_type": "mediaChapter",
         "navLabel": "The decisions",
         "heading": "Connecting the decisions people actually make",
-        "lead": "Choosing a treatment, choosing who performs it and choosing where to go are one decision in three parts. Each became a first-class thing that knows about the other two.",
+        "lead": "A treatment. Who performs it. Where to go. One decision in three parts — and each part now knows about the other two.",
         "images": [
           {
             "file": "New Design Screenshots/ZOSC Service Details.jpg",
@@ -391,7 +417,7 @@
         "_type": "mediaChapter",
         "navLabel": "The system",
         "heading": "Built on the parent brand, extended for the centre",
-        "lead": "ZO Skin Health is the foundation. The centre needed what the parent brand did not have: location cards, service cards, filter rails, consultation forms, and the states each moves through.",
+        "lead": "I used the ZO Skin Health site as the starting point, then built the components ZO Skin Centre actually needed: location cards, service cards, filter rails, consultation forms, and every state each one moves through.",
         "images": [
           {
             "file": "New Design Screenshots/Components/Hero.jpg",
@@ -480,7 +506,7 @@
         "_type": "cardsChapter",
         "navLabel": "Outcome",
         "heading": "A unified foundation for location, service and consultation discovery",
-        "lead": "After six to eight months of exploration, design, prototyping and stakeholder review, the experience was finalised and handed to development.",
+        "lead": "Six to eight months of exploration, design, prototyping and review. Then handoff.",
         "numbered": true,
         "columns": 2,
         "items": [

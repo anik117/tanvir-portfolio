@@ -4,7 +4,8 @@
 | --- | --- |
 | Status | Rewritten as a seven-section chapter study, 2026-09-14 |
 | Source | Tanvir's own briefs, `Claude Prompt — Rebuild TaxRise Case Study.md` then `Claude Prompt — Minimal Senior TaxRise Case Study.md`, both 2026-09-14 |
-| Shape | Seven sections, roughly two minutes, weighted toward the work rather than the writing |
+| Shape | Seven sections, roughly three minutes, weighted toward the work rather than the writing |
+| Voice | Rewritten 2026-09-15 against `Portfolio Master Prompt — TaxRise & ZO Skin Centre.md` — shorter statements, fragments where they land harder |
 | Blocked on | Verified GA4 figures to replace the two approximate ones, and the final homepage image |
 | Assets | `assets/projects/taxrise/` |
 

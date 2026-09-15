@@ -393,15 +393,18 @@ function Flow({ c }: { c: FlowChapter }) {
           <ol className="panel-soft no-scrollbar mt-10 flex items-stretch overflow-x-auto rounded-[28px] p-5 sm:flex-wrap sm:gap-y-3 sm:overflow-visible sm:p-7">
             {steps.map((s, i) => (
               <li key={s._key ?? s.label} className="flex shrink-0 items-center sm:shrink">
-                <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
-                  <p className="text-[15px] font-semibold leading-snug">{s.label}</p>
-                  {s.note && <p className="mt-0.5 text-[13px] text-muted-strong">{s.note}</p>}
-                </div>
-                {i < steps.length - 1 && (
+                {/* The arrow leads its step rather than trailing the one before,
+                    so a wrapped row starts with "→ next" instead of ending on a
+                    pointer to nothing. */}
+                {i > 0 && (
                   <span aria-hidden className="mx-2 text-muted sm:mx-3">
                     →
                   </span>
                 )}
+                <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
+                  <p className="text-[15px] font-semibold leading-snug">{s.label}</p>
+                  {s.note && <p className="mt-0.5 text-[13px] text-muted-strong">{s.note}</p>}
+                </div>
               </li>
             ))}
           </ol>
