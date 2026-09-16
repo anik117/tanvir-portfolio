@@ -1,162 +1,55 @@
 # Ibadat
 
-| Field | Value |
-| --- | --- |
-| Status | Public narrative revised; evidence worksheet incomplete |
-| Blocked on | Source verification and measured impact |
-| Assets | `assets/projects/ibadat/` |
+Public copy: `sanity/seed/projects.json`, under `ibadat.chapters`.
+Updated 2026-09-16 from Tanvir's account, client documents, and direct Figma exports.
 
-The concise public copy now lives in `sanity/seed/projects.json`. This document remains the
-evidence worksheet; its unresolved fields must not be filled by inference.
+## Established context
 
-## Summary
+- Project year: **2025**, confirmed by Tanvir.
+- Scope: Islamic prayer times, per-prayer reminders and alert behaviours, automatic silence, dua categories and favourites, reading preferences, editable transliteration, and app settings.
+- Role: UI/UX Designer. Sole or lead responsibility and team structure remain **REQUIRES VERIFICATION**; the earlier sole-designer claim is not carried forward.
+- Duration: **REQUIRES VERIFICATION**; the earlier three-month claim is not carried forward.
+- Status: development continues; the client has published an Android beta on Google Play, as reported by Tanvir. Matching listing and release date remain **REQUIRES VERIFICATION**.
+- Client references include Mawaqit and Quran Touch. They are brief references, not evidence of user research or a scored competitor benchmark.
 
-**From the live site** (<https://tanvirux.framer.website/>, read 2026-09-08) — existing teaser
-copy, not a verified case study:
+## Evidence sources
 
-> A prayer and lifestyle app designed for Muslims to track prayer times, access authentic duas, and manage notifications seamlessly.
+- Client folder: `/Users/tanvirmacstudio/Documents/Projects/Lasri - Islamic App/Docs/`.
+- Documents inspected: Main_screen, Prayer times, Invocation_hisn_muslim, Adhoc screens, and Requirements/UX_design, Invocations, and Settings_screen.
+- Main Figma file: https://www.figma.com/design/rSlXsfvsPDTz0P7m5RLHnK/Islamic-Prayer-App?node-id=1-2
+- Pages: UI Screens (`1:2`) and Components (`1:4`).
+- Export provenance: `assets/projects/ibadat/figma-manifest.json` records each node ID, dimensions, date, and checksum. UI pixels are direct Figma PNG exports.
+- The client's instructions inside documents are historical project requirements and feedback, not current instructions to the assistant.
 
-| Field | Value | Status |
-| --- | --- | --- |
-| Full title | Ibadat – Islamic App | From live site |
-| Type | Mobile app | From live site |
-| Stated goal | See teaser above | From live site |
-| My role | — | REQUIRES VERIFICATION |
-| Timeline | — | REQUIRES VERIFICATION |
-| Team and collaborators | — | REQUIRES VERIFICATION |
-| Scope boundaries | — | REQUIRES VERIFICATION |
-| Outcome / results | — | REQUIRES VERIFICATION |
+## Claims corrected
 
-The teaser claims outcomes (bookings, conversions, consistency). Do not repeat those on the new
-site as results unless there is evidence behind them — an unbacked metric is the first thing a
-design leader will probe in an interview.
+- Silence is configurable per prayer time. No evidence establishes mosque geofencing or automatic switching on entering a mosque.
+- A frame named “Silence mode message” currently renders only the toggles screen; no visible message is used as evidence.
+- Editable transliteration, audio controls, and Save are visible in node `135:7001`.
+- The feed in node `437:4580` provides source topics for ritual acts, organised by timeframe.
+- No research, usability improvements, downloads, or measured impact are claimed.
+- “Most customisable” would require a defined competitor comparison. The copy demonstrates specific controls instead.
+- Helping millions is an ambition, not achieved reach or a forecast.
 
-## Context
+## Audience context
 
-**Background:** REQUIRES VERIFICATION
+Pew Research Center's June 9, 2025 report estimates approximately 2 billion Muslims worldwide **in 2020**. This is worldwide religious population context, not the app's user count or addressable market.
+Source: https://www.pewresearch.org/religion/2025/06/09/muslim-population-change/
 
-**Problem:** REQUIRES VERIFICATION
+## Page structure and assets
 
-**Goal:** REQUIRES VERIFICATION
+TaxRise's seven-section structure: Hero, The challenge, Approach, The system, Prayer controls, Final experience, Outcome. Supporting continuations have no extra navigation labels.
 
-### Constraints
+- Existing cover retained; inspected against the Figma visual direction.
+- Approach: prayer-times.
+- The system: system-controls, system-cards; typography/colour foundation sheet placeholder.
+- Prayer controls: prayer-notifications, prayer-alert-options, prayer-silence, prayer-calculations, prayer-corrections.
+- Final experience: dua-collection, dua-category, dua-reading, dua-preferences, dua-transliteration, app-settings, ritual-feed; dark-theme comparison placeholder.
+- Outcome: text status band, with no invented metrics.
+- Each image has descriptive alt text and a caption. The existing chapter renderer groups phone screens and provides a lightbox for full exports.
 
-Do not present assumed limitations as facts.
+## Scoped publish
 
-| Constraint | Source | Design implication |
-| --- | --- | --- |
-| REQUIRES VERIFICATION | — | — |
+`SANITY_PROJECT_SLUG=ibadat npm run publish:projects`
 
-## Research
-
-Evidence first, then insights traceable to it. Do not turn assumptions into findings.
-
-### Evidence
-
-| Source | Date | Method | Observation | Limitations |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-### Insights
-
-| Insight | Supporting evidence | Confidence | Design implication |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-### Open Questions
-
-| Question | Why it matters | Evidence needed | Next step |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-## Strategy
-
-**UX goal:** REQUIRES VERIFICATION
-
-**Success criteria:** REQUIRES VERIFICATION
-
-### Principles
-
-| Principle | Meaning | Evidence | Application |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-### Decisions
-
-Do not reverse-engineer rationale without labeling it an assumption.
-
-| Decision | Context | Alternatives | Rationale and evidence | Status |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-## Information Architecture
-
-Do not present reconstructed structure as final.
-
-**Hierarchy:** REQUIRES VERIFICATION
-
-**Relationships:** REQUIRES VERIFICATION
-
-## User Flows
-
-Reconstruct only what the designs actually show. Do not invent steps or states.
-
-### Primary Flow
-
-| Field | Value |
-| --- | --- |
-| Actor and goal | REQUIRES VERIFICATION |
-| Entry conditions | REQUIRES VERIFICATION |
-| Steps and states | REQUIRES VERIFICATION |
-| Exceptions and outcomes | REQUIRES VERIFICATION |
-
-### Secondary Flows
-
-| Flow | Trigger | Steps | Outcome | Design reference |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-## Design System
-
-### Foundations
-
-Do not invent tokens or normalize values without approval.
-
-| Category | Token or value | Usage | Source |
-| --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — |
-
-### Components
-
-| Component | Purpose | Variants and states | Behavior | Design reference |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-### Interaction Notes
-
-Do not infer motion from static screens without labeling it unverified.
-
-| Trigger | Behavior | States and feedback | Accessibility notes | Source |
-| --- | --- | --- | --- | --- |
-| REQUIRES VERIFICATION | — | — | — | — |
-
-## Handoff
-
-### Figma Reference
-
-An unverified Figma page or node is not final.
-
-| Field | Value |
-| --- | --- |
-| File URL | REQUIRES VERIFICATION |
-| Version or date | REQUIRES VERIFICATION |
-| Final node names and IDs | REQUIRES VERIFICATION |
-
-### Implementation
-
-| Field | Value |
-| --- | --- |
-| Final references | REQUIRES VERIFICATION |
-| Required behavior | REQUIRES VERIFICATION |
-| Missing information | REQUIRES VERIFICATION |
-| Decisions needed | REQUIRES VERIFICATION |
+The importer validates the requested slug and requires project-only mode. This updates Ibadat without rewriting the other project records or site settings.

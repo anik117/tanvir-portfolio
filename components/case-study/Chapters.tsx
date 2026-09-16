@@ -338,8 +338,8 @@ function Media({ c }: { c: MediaChapter }) {
                     key={j}
                     image={img}
                     width={700}
-                    sizes="(max-width: 640px) 45vw, 260px"
-                    className="basis-[calc(50%-10px)] sm:basis-[260px]"
+                    sizes="(max-width: 640px) 100vw, 260px"
+                    className="basis-full sm:basis-[260px]"
                   />
                 ))}
               </div>

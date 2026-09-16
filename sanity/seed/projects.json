@@ -541,63 +541,179 @@
     "slug": "ibadat",
     "title": "Ibadat",
     "order": 3,
-    "summary": "I designed a daily prayer app around three moments: checking prayer times, finding trustworthy duas, and silencing the phone automatically inside a mosque.",
     "projectType": "Mobile App Design",
-    "industry": "App",
-    "platform": "iOS and Android",
-    "year": "2024",
-    "duration": "3 months",
-    "externalLabel": "View Prototype",
-    "goal": "The brief was not to add more features to another prayer app. It was to remove small interruptions from daily practice while keeping prayer times and religious content dependable.",
-    "targetUsers": [
+    "industry": "Islamic prayer app",
+    "platform": "Mobile app · Android beta",
+    "year": "2025",
+    "role": "UI/UX Designer",
+    "scope": "Prayer times · Reminders · Silence mode · Dua reading · Settings",
+    "headline": "A prayer app that fits the way you practise",
+    "summary": "I designed Ibadat to give people more control over their daily prayer routine—from advance reminders and automatic silence to a dua reader they can personalise.",
+    "snapshotNote": "2025 · In development · Android beta published by the client",
+    "chapters": [
       {
-        "label": "People building a daily prayer routine",
-        "description": "Need dependable prayer times, useful reminders and authentic duas without a cluttered experience."
+        "_type": "statementChapter",
+        "navLabel": "The challenge",
+        "tone": "plain",
+        "heading": "More control, without a crowded interface",
+        "lead": "The client wanted more than a prayer-time display. People needed to choose when an alert arrived, how it behaved, and which prayers would automatically silence their phone.\n\nDua reading needed the same flexibility: browse by category, save favourites, and adjust the script, translation, and transliteration.\n\nThe challenge was to make those choices easy to find while giving the app a more elegant visual direction."
       },
       {
-        "label": "People praying at a mosque",
-        "description": "Need their phone to stop interrupting prayer without remembering to change settings every time."
-      }
-    ],
-    "discoveryNote": "Working with the client clarified a simple product principle: every feature had to earn its place in a daily religious routine, where trust and low effort matter more than novelty.",
-    "insights": [
-      "Prayer times needed to be dependable and local; anything less would undermine the whole app.",
-      "Dua sources needed to appear at the point of reading, not in a separate reference area.",
-      "Mosque silent mode had to work with almost no effort from the user."
-    ],
-    "competitorAnalysis": [
-      "The comparison focused on prayer-time setup, source visibility for duas, custom collections and silent-mode controls."
-    ],
-    "userFlows": [
-      {
-        "name": "Set Up Prayer Times",
-        "steps": "Open app → Confirm location → Review prayer times → Set reminders"
+        "_type": "statementChapter",
+        "eyebrow": "The wider community",
+        "heading": "~2 billion Muslims worldwide",
+        "lead": "Pew Research Center estimated the worldwide Muslim population at approximately 2 billion in 2020. This is the wider community Ibadat aims to serve, rather than a count of its users.\n\nSource: Pew Research Center, “Muslim population change,” published June 9, 2025; population reference year: 2020.",
+        "tone": "soft"
       },
       {
-        "name": "Find and Save a Dua",
-        "steps": "Browse collection → Open dua → Read translation and source → Save"
-      }
-    ],
-    "wireframes": [
-      "Mapped the prayer-time, dua and feed experiences in low fidelity before adding visual detail.",
-      "Used high-fidelity prototypes to test hierarchy across the main daily-use screens."
-    ],
-    "visualDirection": [
-      "Used a calm palette, clear type and restrained Islamic references rather than heavy ornament.",
-      "Kept navigation and controls simple enough to scan quickly across a wide age range."
-    ],
-    "keyScreens": [
-      {
-        "name": "Prayer at a glance",
-        "description": "Made today's times and the next prayer immediately visible, with reminder controls close by."
+        "_type": "mediaChapter",
+        "navLabel": "Approach",
+        "heading": "Turning a detailed brief into distinct daily tasks",
+        "lead": "The client supplied feature requirements and references from existing Islamic apps, including Mawaqit and Quran Touch. The brief covered prayer schedules, notifications, silence mode, invocations, and app settings.\n\nIn the design, prayer times, notifications, and silence mode sit within one prayer area. Each has its own view, while the date, location, and next-prayer countdown remain visible above them.\n\nThis keeps checking a time and changing its behaviour connected, without putting every control on the same screen.",
+        "images": [
+          {
+            "file": "figma/prayer-times.png",
+            "alt": "Ibadat prayer times with a countdown, local schedule, and separate tabs for prayer times, silence mode, and notifications.",
+            "caption": "The date, location, and next-prayer countdown stay above the prayer controls.",
+            "label": "Prayer times"
+          }
+        ]
       },
       {
-        "name": "Silent mode without another ritual",
-        "description": "Turned mosque silent mode into a simple, location-aware setting instead of another manual task to remember."
+        "_type": "mediaChapter",
+        "navLabel": "The system",
+        "heading": "A shared visual language across the app",
+        "lead": "I used pale backgrounds, blue accents, rounded cards, and restrained Islamic patterns to give the app a calm, recognisable character.\n\nThe Figma file includes a dedicated Components page. Repeated controls—from tabs and switches to icons and navigation—give the prayer, dua, and settings screens a consistent language.\n\nArabic text has its own space in the reading view, with transliteration, translation, and source information grouped beneath it.",
+        "images": [
+          {
+            "file": "figma/system-controls.png",
+            "alt": "Ibadat Figma component sheet showing tabs, alert chips, segmented controls, buttons, checkboxes, switches, inputs, number controls, and a slider.",
+            "caption": "The actual control variants from the Figma Components page.",
+            "label": "Controls"
+          },
+          {
+            "file": "figma/system-cards.png",
+            "alt": "Ibadat Figma card sheet with a calendar and dua cards in default and favourite states.",
+            "caption": "Shared cards keep Arabic, transliteration, translation, and source information together.",
+            "label": "Cards"
+          }
+        ],
+        "pending": [
+          "Typography and colour — add a sheet exported from the actual Figma foundations, showing Arabic and Latin type treatments and the app palette."
+        ]
       },
       {
-        "name": "Trustworthy duas in context",
-        "description": "Kept Arabic, transliteration, translation and source references together, with saving available in the same view."
+        "_type": "mediaChapter",
+        "navLabel": "Prayer controls",
+        "heading": "Decide when the phone alerts you—and when it stays quiet",
+        "lead": "The notification design lets people set an advance reminder for each prayer and choose its behaviour: no notification, a silent message, vibration, a beep, or sound.\n\nI kept the timing and alert choices together, so people can see what they are configuring for each prayer.\n\nAutomatic silence has a separate view, with an individual switch for each prayer. Users can enable it for the prayers they choose, rather than applying one setting to the whole day.\n\nPrayer settings also let users configure the calculation method and timing preferences for their routine.",
+        "images": [
+          {
+            "file": "figma/prayer-notifications.png",
+            "alt": "Ibadat notification screen with separate reminder timings for Fajr routines and the other prayer times.",
+            "caption": "Reminders include separate Fajr prompts for prayer, the last part of the night, and suhoor.",
+            "label": "Reminder timing"
+          },
+          {
+            "file": "figma/prayer-alert-options.png",
+            "alt": "Ibadat Fajr reminder set to five minutes early, with None, Silent, Vibrate, Beep, and Sound options.",
+            "caption": "Choose how early a reminder arrives and how it alerts you.",
+            "label": "Alert behaviour"
+          },
+          {
+            "file": "figma/prayer-silence.png",
+            "alt": "Ibadat silence mode with individual toggles for Fajr, Duhr, Asr, Maghrib, and Isha.",
+            "caption": "Enable automatic silence for individual prayers.",
+            "label": "Automatic silence"
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "images": [
+          {
+            "file": "figma/prayer-calculations.png",
+            "alt": "Ibadat calculation settings organised into location, Fajr and Isha, Asr, Maghrib, and prayer-time corrections.",
+            "caption": "Prayer calculations are organised into distinct configuration steps.",
+            "label": "Calculations"
+          },
+          {
+            "file": "figma/prayer-corrections.png",
+            "alt": "Ibadat timing corrections screen with per-prayer adjustments and a Save All Adjustments button.",
+            "caption": "Timing adjustments sit beside the prayer they affect.",
+            "label": "Timing corrections"
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "navLabel": "Final experience",
+        "heading": "Dua reading, on your terms",
+        "lead": "People can browse duas by category and save favourites for later. The reading view brings Arabic, transliteration, translation, and the source reference together, with audio and favourite controls close to the text.\n\nReading settings support changes to fonts, translation, and transliteration. Editable transliteration is supported by audio playback, so people can personalise how they read the pronunciation.\n\nApp settings bring together broader preferences, including language and theme, alongside prayer and dua settings.",
+        "images": [
+          {
+            "file": "figma/dua-collection.png",
+            "alt": "Ibadat dua collection with categories including Prayer, Travel, Home and Family, Morning and Evening, and Sickness and Death.",
+            "caption": "Browse duas by category.",
+            "label": "Collection"
+          },
+          {
+            "file": "figma/dua-category.png",
+            "alt": "Ibadat Prayer dua category listing individual supplications with All Duas and Favorites tabs.",
+            "caption": "Find a specific dua within a category.",
+            "label": "Category"
+          },
+          {
+            "file": "figma/dua-reading.png",
+            "alt": "Ibadat dua reading screen with Arabic text, transliteration, translation, source reference, audio playback, editing, and favourite controls.",
+            "caption": "The text, pronunciation, meaning, and source stay together.",
+            "label": "Reading"
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "images": [
+          {
+            "file": "figma/dua-preferences.png",
+            "alt": "Ibadat dua settings with font-size sliders, Arabic script and font selectors, and controls to show transliteration, translation, and references.",
+            "caption": "Choose the script, font sizes, and reading layers to display.",
+            "label": "Reading preferences"
+          },
+          {
+            "file": "figma/dua-transliteration.png",
+            "alt": "Ibadat editable transliteration sheet with a text area, audio playback, speed and repeat controls, and Cancel and Save buttons.",
+            "caption": "Listen while editing transliteration, then save the pronunciation text.",
+            "label": "Editable transliteration"
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "images": [
+          {
+            "file": "figma/app-settings.png",
+            "alt": "Ibadat settings with light and dark themes, time and number formats, language, location, notification controls, and prayer and dua settings.",
+            "caption": "Theme, language, time format, and app preferences.",
+            "label": "App preferences"
+          },
+          {
+            "file": "figma/ritual-feed.png",
+            "alt": "Ibadat source feed with Daily, Weekly, Monthly, and Yearly tabs and lists of ritual topics supported by Quran and Sunnah references.",
+            "caption": "Source material for ritual acts, organised by timeframe.",
+            "label": "Sources feed"
+          }
+        ],
+        "pending": [
+          "Dark theme — add the same final screen in light and dark modes from Figma for a direct comparison."
+        ]
+      },
+      {
+        "_type": "statementChapter",
+        "navLabel": "Outcome",
+        "tone": "dark",
+        "heading": "In development, with an Android beta",
+        "lead": "The client has published an Android beta on Google Play, and development is continuing.\n\nThe ambition is to make daily worship easier for millions of Muslims through an app they can adapt to their routine. The beta is an early step towards that goal; reach and impact have not yet been measured.\n\nThe design brings prayer schedules, configurable reminders, automatic silence, and personalised dua reading into one app. The useful work was making that flexibility understandable: separate controls, consistent patterns, and reading preferences close to the content."
       }
     ],
     "coverAlt": "Three Ibadat screens on a blue field — the dua collection browsed by category, prayer times counting down to Duhr in Dhaka, and the feed of ritual acts",
@@ -608,7 +724,6 @@
       "Feed screen with Daily, Weekly, Monthly, and Yearly tabs listing ritual acts and Islamic events",
       "Angled view of app screens — welcome, prophetic ritual acts, prayer times, and supplications"
     ],
-    "externalUrl": "https://www.figma.com/proto/rSlXsfvsPDTz0P7m5RLHnK/Islamic-Prayer-App?page-id=1%3A2&node-id=458-5081&p=f&viewport=282%2C362%2C0.02&t=tRp6q0Yvyn8jAbD2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=10%3A29&show-proto-sidebar=1",
     "galleryCaption": [
       "Splash, welcome, and ritual acts",
       "Prayer times and silence mode",
@@ -616,32 +731,8 @@
       "Feed",
       "Key screens"
     ],
-    "role": "Sole UI/UX Designer",
-    "galleryAnnotations": [
-      [
-        {
-          "label": "Silent mode, no manual step",
-          "note": "Designed to switch when the user enters a mosque",
-          "tone": "positive",
-          "x": 21,
-          "y": 33
-        },
-        {
-          "label": "One-tap start",
-          "note": "Core value appears before a long setup",
-          "tone": "neutral",
-          "x": 50,
-          "y": 72
-        },
-        {
-          "label": "Sources on every dua",
-          "note": "Quran and Hadith references shown inline",
-          "tone": "positive",
-          "x": 80,
-          "y": 40
-        }
-      ]
-    ]
+    "externalLabel": "View Prototype",
+    "externalUrl": "https://www.figma.com/proto/rSlXsfvsPDTz0P7m5RLHnK/Islamic-Prayer-App?page-id=1%3A2&node-id=458-5081&p=f&viewport=282%2C362%2C0.02&t=tRp6q0Yvyn8jAbD2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=10%3A29&show-proto-sidebar=1"
   },
   {
     "slug": "alokito-teacher",

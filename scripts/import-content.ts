@@ -228,7 +228,17 @@ async function buildChapters(chapters: SeedChapter[], dir: string, slug: string)
 }
 
 async function main() {
-  for (const p of projects) {
+  const requestedSlug = process.env.SANITY_PROJECT_SLUG;
+  const selectedProjects = requestedSlug
+    ? projects.filter((p) => p.slug === requestedSlug)
+    : projects;
+  if (requestedSlug && selectedProjects.length !== 1) {
+    throw new Error(`Expected one project for ${requestedSlug}; found ${selectedProjects.length}`);
+  }
+  if (requestedSlug && process.env.SANITY_PROJECTS_ONLY !== "1") {
+    throw new Error("A scoped project publish requires SANITY_PROJECTS_ONLY=1");
+  }
+  for (const p of selectedProjects) {
     const id = `project-${p.slug}`;
     const dir = join(process.cwd(), "assets/projects", p.slug);
     const coverId = await resolveAsset(join(dir, "cover.jpg"), `${p.slug}-cover.jpg`);

@@ -1,0 +1,126 @@
+{
+  "fileKey": "rSlXsfvsPDTz0P7m5RLHnK",
+  "exportedOn": "2026-09-16",
+  "assets": [
+    {
+      "file": "figma/app-settings.png",
+      "nodeId": "183:3110",
+      "width": 402,
+      "height": 1595,
+      "bytes": 112612,
+      "sha256": "535361b77503a0477f992a82d0ea600f0c4dede4ebb48d32080e998251723e23"
+    },
+    {
+      "file": "figma/dua-category.png",
+      "nodeId": "120:7984",
+      "width": 402,
+      "height": 964,
+      "bytes": 69870,
+      "sha256": "d950d1c9527aef206b6e620b3f2c9a411e5803cc4ce3def5046024bea81e42a2"
+    },
+    {
+      "file": "figma/dua-collection.png",
+      "nodeId": "120:3381",
+      "width": 402,
+      "height": 898,
+      "bytes": 91732,
+      "sha256": "55855dbda58818795b144b306e3940f1974868c5a9644261f71d5f9ec94d5f6a"
+    },
+    {
+      "file": "figma/dua-preferences.png",
+      "nodeId": "132:8027",
+      "width": 402,
+      "height": 688,
+      "bytes": 27300,
+      "sha256": "b69a2a0d81f5f45b67b4a476a123347aad0270a5b1adbf074e12c7ea6f4395be"
+    },
+    {
+      "file": "figma/dua-reading.png",
+      "nodeId": "128:11307",
+      "width": 402,
+      "height": 874,
+      "bytes": 62361,
+      "sha256": "af7be4cd0af58ae2489486980f8e4100ed50c5fb2ef9282aee42739c9f5892aa"
+    },
+    {
+      "file": "figma/dua-transliteration.png",
+      "nodeId": "135:7001",
+      "width": 402,
+      "height": 484,
+      "bytes": 19109,
+      "sha256": "c1d15a7e3cb91a4ae1d7aae759072de8d04c2268881e49d09c7200b451c4a5a0"
+    },
+    {
+      "file": "figma/prayer-alert-options.png",
+      "nodeId": "110:1745",
+      "width": 402,
+      "height": 1499,
+      "bytes": 122469,
+      "sha256": "0a7f5dc5716f1c177f8e7923838072cba5f556c6be5016de02f387ee4abedb20"
+    },
+    {
+      "file": "figma/prayer-calculations.png",
+      "nodeId": "351:3880",
+      "width": 402,
+      "height": 874,
+      "bytes": 42409,
+      "sha256": "f9685bdd9f308111fb62c021920699ce7bcb4b1ec5ce0560f7ebb37012382949"
+    },
+    {
+      "file": "figma/prayer-corrections.png",
+      "nodeId": "359:4396",
+      "width": 402,
+      "height": 1688,
+      "bytes": 135260,
+      "sha256": "deeddb523aa0c31865c0250c55f6ef8262cdcd4b132bc03ad6d4d99c54141e12"
+    },
+    {
+      "file": "figma/prayer-notifications.png",
+      "nodeId": "91:3962",
+      "width": 402,
+      "height": 1404,
+      "bytes": 117634,
+      "sha256": "40b667968468c7b0e76d11847b6817b140bddce8d611d8f91883575ac67cc86a"
+    },
+    {
+      "file": "figma/prayer-silence.png",
+      "nodeId": "91:1417",
+      "width": 402,
+      "height": 890,
+      "bytes": 92585,
+      "sha256": "a434bbb3ab1b32dba43ae7895109b4fb63fdb018b0263d2c08588883689319c7"
+    },
+    {
+      "file": "figma/prayer-times.png",
+      "nodeId": "30:77",
+      "width": 402,
+      "height": 1121,
+      "bytes": 100977,
+      "sha256": "6ce622acf4ad4b33cbb422e1b7530a7bea794181938ce6a63e46099e284647c6"
+    },
+    {
+      "file": "figma/ritual-feed.png",
+      "nodeId": "437:4580",
+      "width": 402,
+      "height": 874,
+      "bytes": 84433,
+      "sha256": "a47b458c01fe4574ff7b0cd5983bd48048fe2ed3acd2433a0661fb6c6bb9f21f"
+    },
+    {
+      "file": "figma/system-cards.png",
+      "nodeId": "202:5843",
+      "width": 1600,
+      "height": 1634,
+      "bytes": 88662,
+      "sha256": "cdaf1e2ed7df112ecf25286be3d77a21ab4e065e7624a5313fc7df5aa40aa10f"
+    },
+    {
+      "file": "figma/system-controls.png",
+      "nodeId": "202:5658",
+      "width": 1600,
+      "height": 2609,
+      "bytes": 79343,
+      "sha256": "f3261daba810b61bab0e60ba98bb70e881043bb15bb2c5021fedb1c40dd5d100"
+    }
+  ]
+}
