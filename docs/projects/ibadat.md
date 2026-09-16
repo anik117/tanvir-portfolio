@@ -43,9 +43,9 @@ TaxRise's seven-section structure: Hero, The challenge, Approach, The system, Pr
 - Existing cover retained. UI screens re-exported at 3× (1206px width); component sheets at 2× (3200px width).
 - `displayWidth` preserves logical layout widths and requests lossless PNG delivery for these UI exports. The reader opens at logical width and scrolls vertically instead of shrinking a tall screen to fit its full height.
 - Approach: prayer-times.
-- The system: system-controls, system-cards; typography/colour foundation sheet placeholder.
+- The system: system-controls, system-cards.
 - Prayer controls: prayer-notifications, prayer-alert-options, prayer-silence, home-silence-active, notification-help, prayer-calculations, prayer-corrections, hijri-correction.
-- Final experience: dua-collection, dua-category, dua-reading, dua-preferences, dua-transliteration, app-settings, ritual-feed; dark-theme comparison placeholder.
+- Final experience: dua-collection, dua-category, dua-reading, dua-preferences, dua-transliteration, app-settings, ritual-feed.
 - Outcome: text status band, with no invented metrics.
 - Each image has descriptive alt text and a caption. The existing chapter renderer groups phone screens and provides a lightbox for full exports.
 
@@ -67,3 +67,7 @@ All seven client requirement documents were re-extracted in this run, including 
 - The optional Last Read entry and downloadable PDF prayer-calendar template are not established by the selected final frames. Coming Soon items remain future scope.
 - Hidden text layers are not evidence of visible UI. The Hijri frame has explanatory text in its layer data that does not appear in the exported screen; public copy now describes the visible controls only.
 - No app UI was modified during this portfolio pass. Static Figma screens do not establish Android alarm delivery, permission handling, or calculation correctness.
+
+## Placeholder removal
+
+The typography/colour sheet and light/dark comparison placeholder slots were removed from the public Ibadat chapters at Tanvir’s request. Existing UI images and chapter copy remain.

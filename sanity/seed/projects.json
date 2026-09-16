@@ -600,9 +600,6 @@
             "label": "Cards",
             "displayWidth": 1600
           }
-        ],
-        "pending": [
-          "Typography and colour — add a sheet exported from the actual Figma foundations, showing Arabic and Latin type treatments and the app palette."
         ]
       },
       {
@@ -750,9 +747,6 @@
             "label": "Sources feed",
             "displayWidth": 402
           }
-        ],
-        "pending": [
-          "Dark theme — add the same final screen in light and dark modes from Figma for a direct comparison."
         ],
         "heading": "Guidance for the moment, with sources to check",
         "lead": "The Home design groups ritual guidance into Now, Weekly, Monthly, and Yearly views. The Sources feed uses the corresponding Daily, Weekly, Monthly, and Yearly groups for the supporting Quran and Sunnah material. Guidance and its evidence have distinct places in the app.\n\nSettings bring language, number and time formats, and theme choices together. Home, prayer, and dua preferences remain separate, with links such as “Facing incorrect prayer time?” leading people towards the relevant help."
