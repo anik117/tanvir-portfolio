@@ -43,6 +43,7 @@ type SeedImage = {
   pendingLabel?: string;
   /** Inline preview height as a fraction of width; the lightbox shows all. */
   previewAspect?: number;
+  displayWidth?: number;
   annotations?: Annotation[];
 };
 
@@ -201,6 +202,7 @@ async function buildChapters(chapters: SeedChapter[], dir: string, slug: string)
         resolved.push({
           ...imageField(assetId, img.alt, img.caption, img.annotations, img.label),
           ...(img.previewAspect ? { previewAspect: img.previewAspect } : {}),
+          ...(img.displayWidth ? { displayWidth: img.displayWidth } : {}),
           _key: `ch-${ci}-${field}-${ii}`,
           // imageField writes the generic "image" type; inside a chapter the
           // member type is the named one the schema declares.

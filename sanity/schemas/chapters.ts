@@ -61,6 +61,13 @@ export const chapterImage = defineType({
         "How much of the picture to show inline, as height over width — 0.6 is a wide band, 1.2 a tall one. The whole image is always one click away in the lightbox. Leave empty to show all of it; set it for a full-page screenshot that would otherwise run several screens.",
       validation: (r) => r.min(0.2).max(4),
     }),
+    defineField({
+      name: "displayWidth",
+      title: "UI screen width",
+      type: "number",
+      description: "Original Figma width before export scaling. Keeps high-resolution screens at their intended size and delivers them as lossless PNGs. Leave empty for photographs.",
+      validation: (r) => r.min(200).max(2400),
+    }),
     annotations,
   ],
 });

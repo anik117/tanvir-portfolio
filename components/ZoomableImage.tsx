@@ -38,14 +38,15 @@ export function ZoomableImage({
   };
   const close = () => ref.current?.close();
 
-  // Size the frame from the picture itself, so the dialog takes the shape of
-  // what is in it. Three limits, whichever bites first: the viewport's width,
-  // the image's own pixel width — past that it is only being stretched — and
-  // the width at which its height fills the viewport, leaving the caption room.
+  // UI exports open at their logical width and scroll vertically, so fitting
+  // a long screen into one viewport does not shrink its lettering. Other
+  // images retain the existing fit-to-viewport behaviour.
   const size = imageDimensions(image);
-  const frameWidth = size
-    ? `min(96vw, ${size.width}px, calc(86vh * ${(size.width / size.height).toFixed(4)}))`
-    : undefined;
+  const frameWidth = image.displayWidth
+    ? `min(96vw, ${image.displayWidth}px)`
+    : size
+      ? `min(96vw, ${size.width}px, calc(86vh * ${(size.width / size.height).toFixed(4)}))`
+      : undefined;
 
   return (
     <>
@@ -60,7 +61,7 @@ export function ZoomableImage({
             image={image}
             width={width}
             sizes={sizes}
-            aspect={previewAspect}
+            aspect={previewAspect ?? (size ? size.height / size.width : undefined)}
             crop={Boolean(previewAspect)}
             focus="top"
             className="cover-img"

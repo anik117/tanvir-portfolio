@@ -125,12 +125,12 @@ function PendingSlot({ label, tall = false }: { label: string; tall?: boolean })
 /** Roughly one viewport and a bit — past this a single picture owns the page. */
 const MAX_FIGURE_HEIGHT = 1250;
 
-/** A capture this narrow came off a phone, and reads as one beside its siblings. */
+/** Use the logical screen width when an export contains extra pixels for detail. */
 const PHONE_WIDTH = 600;
 
 function isPhone(image: ChapterImage) {
   const size = imageDimensions(image);
-  return Boolean(size && size.width <= PHONE_WIDTH);
+  return Boolean(size && (image.displayWidth ?? size.width) <= PHONE_WIDTH);
 }
 
 /** One screenshot. The label sits above it, not on top of it. */
@@ -160,8 +160,8 @@ function Figure({
   // the whole sheet is still one click away.
   const ratio = image.previewAspect ?? (size ? size.height / size.width : 0);
   const caps = [
-    size?.width,
-    ratio > 1.25 ? Math.round(MAX_FIGURE_HEIGHT / ratio) : undefined,
+    image.displayWidth ?? size?.width,
+    ratio > 1.25 && !isPhone(image) ? Math.round(MAX_FIGURE_HEIGHT / ratio) : undefined,
   ].filter((n): n is number => typeof n === "number" && n < width);
   const cap = caps.length ? Math.min(...caps) : undefined;
 

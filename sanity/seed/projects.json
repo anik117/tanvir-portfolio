@@ -569,13 +569,14 @@
         "_type": "mediaChapter",
         "navLabel": "Approach",
         "heading": "Turning a detailed brief into distinct daily tasks",
-        "lead": "The client supplied feature requirements and references from existing Islamic apps, including Mawaqit and Quran Touch. The brief covered prayer schedules, notifications, silence mode, invocations, and app settings.\n\nIn the design, prayer times, notifications, and silence mode sit within one prayer area. Each has its own view, while the date, location, and next-prayer countdown remain visible above them.\n\nThis keeps checking a time and changing its behaviour connected, without putting every control on the same screen.",
+        "lead": "The client supplied a detailed brief, with references from Mawaqit and Quran Touch. I organised it around the tasks people return to: checking a prayer time, configuring an alert, reading a dua, and changing preferences.\n\nPrayer times, notifications, and silence mode share one prayer area. The date, location, and next-prayer countdown stay above its tabs. Alert and silence icons beside each prayer make the current choices visible in the schedule.\n\nCalendar and location shortcuts sit beside the information they change, while broader settings remain available from the main navigation.",
         "images": [
           {
             "file": "figma/prayer-times.png",
             "alt": "Ibadat prayer times with a countdown, local schedule, and separate tabs for prayer times, silence mode, and notifications.",
-            "caption": "The date, location, and next-prayer countdown stay above the prayer controls.",
-            "label": "Prayer times"
+            "caption": "The schedule shows each prayer’s alert and silence state, with date and location shortcuts above it.",
+            "label": "Prayer times",
+            "displayWidth": 402
           }
         ]
       },
@@ -589,13 +590,15 @@
             "file": "figma/system-controls.png",
             "alt": "Ibadat Figma component sheet showing tabs, alert chips, segmented controls, buttons, checkboxes, switches, inputs, number controls, and a slider.",
             "caption": "The actual control variants from the Figma Components page.",
-            "label": "Controls"
+            "label": "Controls",
+            "displayWidth": 1600
           },
           {
             "file": "figma/system-cards.png",
             "alt": "Ibadat Figma card sheet with a calendar and dua cards in default and favourite states.",
             "caption": "Shared cards keep Arabic, transliteration, translation, and source information together.",
-            "label": "Cards"
+            "label": "Cards",
+            "displayWidth": 1600
           }
         ],
         "pending": [
@@ -606,25 +609,49 @@
         "_type": "mediaChapter",
         "navLabel": "Prayer controls",
         "heading": "Decide when the phone alerts you—and when it stays quiet",
-        "lead": "The notification design lets people set an advance reminder for each prayer and choose its behaviour: no notification, a silent message, vibration, a beep, or sound.\n\nI kept the timing and alert choices together, so people can see what they are configuring for each prayer.\n\nAutomatic silence has a separate view, with an individual switch for each prayer. Users can enable it for the prayers they choose, rather than applying one setting to the whole day.\n\nPrayer settings also let users configure the calculation method and timing preferences for their routine.",
+        "lead": "Fajr is not one reminder for everyone. The brief separated waking for prayer, the last part of the night, suhoor, and an Imsak alert for someone already awake. I kept those purposes distinct instead of asking one alarm to cover them all.\n\nEach reminder combines its timing with an alert choice: None, Silent, Vibrate, Beep, or Sound. “None” turns the notification off; “Silent” still delivers a message. The expanded controls appear beneath the reminder being edited.\n\nAutomatic silence has its own view, with a switch for each prayer. A person can keep the reminders they need and choose separately when their phone should stay quiet.",
         "images": [
           {
             "file": "figma/prayer-notifications.png",
             "alt": "Ibadat notification screen with separate reminder timings for Fajr routines and the other prayer times.",
-            "caption": "Reminders include separate Fajr prompts for prayer, the last part of the night, and suhoor.",
-            "label": "Reminder timing"
+            "caption": "Four separate Fajr reminders cover prayer, night worship, suhoor, and Imsak.",
+            "label": "Reminder timing",
+            "displayWidth": 402
           },
           {
             "file": "figma/prayer-alert-options.png",
             "alt": "Ibadat Fajr reminder set to five minutes early, with None, Silent, Vibrate, Beep, and Sound options.",
-            "caption": "Choose how early a reminder arrives and how it alerts you.",
-            "label": "Alert behaviour"
+            "caption": "Timing and behaviour expand within the selected reminder; None and Silent have different purposes.",
+            "label": "Alert behaviour",
+            "displayWidth": 402
           },
           {
             "file": "figma/prayer-silence.png",
             "alt": "Ibadat silence mode with individual toggles for Fajr, Duhr, Asr, Maghrib, and Isha.",
             "caption": "Enable automatic silence for individual prayers.",
-            "label": "Automatic silence"
+            "label": "Automatic silence",
+            "displayWidth": 402
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Make automation visible—and provide a way back",
+        "lead": "When silence mode is active, the Home screen shows a status card with an “Okay” action to return to normal mode. This gives people a visible way to undo the change.\n\nA separate “Notification not received” screen addresses another practical part of the brief: device battery restrictions can interfere with reminders. It explains the checks in order and provides shortcuts to battery optimisation and power management settings.",
+        "images": [
+          {
+            "file": "figma/home-silence-active.png",
+            "alt": "Ibadat Home screen showing Silence mode is now active, an Okay button to return to normal mode, and time-based ritual guidance cards.",
+            "caption": "The active state names what changed and keeps the return-to-normal action visible.",
+            "label": "Silence active",
+            "displayWidth": 402
+          },
+          {
+            "file": "figma/notification-help.png",
+            "alt": "Ibadat notification troubleshooting screen with explanations and shortcuts to battery optimisation and power management settings.",
+            "caption": "Troubleshooting links the app’s reminder settings with the device settings that may affect delivery.",
+            "label": "Notification help",
+            "displayWidth": 402
           }
         ]
       },
@@ -634,40 +661,54 @@
           {
             "file": "figma/prayer-calculations.png",
             "alt": "Ibadat calculation settings organised into location, Fajr and Isha, Asr, Maghrib, and prayer-time corrections.",
-            "caption": "Prayer calculations are organised into distinct configuration steps.",
-            "label": "Calculations"
+            "caption": "Five ordered checks make a technical calculation task easier to approach.",
+            "label": "Calculations",
+            "displayWidth": 402
           },
           {
             "file": "figma/prayer-corrections.png",
             "alt": "Ibadat timing corrections screen with per-prayer adjustments and a Save All Adjustments button.",
-            "caption": "Timing adjustments sit beside the prayer they affect.",
-            "label": "Timing corrections"
+            "caption": "Corrections stay beside their prayer times, with explanations for local differences and sunset-dependent features.",
+            "label": "Timing corrections",
+            "displayWidth": 402
+          },
+          {
+            "file": "figma/hijri-correction.png",
+            "alt": "Ibadat Hijri correction screen with minus two to plus two day choices, Save Correction, and Gregorian-to-Hijri date conversion.",
+            "caption": "A bounded calendar correction stays separate from prayer calculations, with its own Save action.",
+            "label": "Hijri correction",
+            "displayWidth": 402
           }
-        ]
+        ],
+        "heading": "Match local prayer times, one step at a time",
+        "lead": "Calculation settings begin with a clear order: check location, review Fajr and Isha, then Asr, Maghrib, and any remaining corrections. The screen explains that automatic settings may need to match a local mosque or religious authority.\n\nThe correction view shows an adjustment beside the prayer time it affects. Its Maghrib explanation calls out a specific dependency: sunset also informs the Hijri calendar and other features.\n\nHijri correction is a separate control, with a small −2 to +2 day range, an explicit Save action, and a date conversion view. Adjusting the calendar date stays distinct from changing prayer calculations."
       },
       {
         "_type": "mediaChapter",
         "navLabel": "Final experience",
         "heading": "Dua reading, on your terms",
-        "lead": "People can browse duas by category and save favourites for later. The reading view brings Arabic, transliteration, translation, and the source reference together, with audio and favourite controls close to the text.\n\nReading settings support changes to fonts, translation, and transliteration. Editable transliteration is supported by audio playback, so people can personalise how they read the pronunciation.\n\nApp settings bring together broader preferences, including language and theme, alongside prayer and dua settings.",
+        "lead": "The client scoped the reader around Hisn al-Muslim invocations. Categories such as Prayer, Travel, and Morning & Evening help people start with the situation they are in; favourites provide a way back to the duas they use often.\n\nThe reading view keeps Arabic, transliteration, translation, and the source together. Audio, editing, and favourite controls sit close to the text, so the reader can act without leaving the dua.",
         "images": [
           {
             "file": "figma/dua-collection.png",
             "alt": "Ibadat dua collection with categories including Prayer, Travel, Home and Family, Morning and Evening, and Sickness and Death.",
             "caption": "Browse duas by category.",
-            "label": "Collection"
+            "label": "Collection",
+            "displayWidth": 402
           },
           {
             "file": "figma/dua-category.png",
             "alt": "Ibadat Prayer dua category listing individual supplications with All Duas and Favorites tabs.",
             "caption": "Find a specific dua within a category.",
-            "label": "Category"
+            "label": "Category",
+            "displayWidth": 402
           },
           {
             "file": "figma/dua-reading.png",
             "alt": "Ibadat dua reading screen with Arabic text, transliteration, translation, source reference, audio playback, editing, and favourite controls.",
             "caption": "The text, pronunciation, meaning, and source stay together.",
-            "label": "Reading"
+            "label": "Reading",
+            "displayWidth": 402
           }
         ]
       },
@@ -678,15 +719,19 @@
             "file": "figma/dua-preferences.png",
             "alt": "Ibadat dua settings with font-size sliders, Arabic script and font selectors, and controls to show transliteration, translation, and references.",
             "caption": "Choose the script, font sizes, and reading layers to display.",
-            "label": "Reading preferences"
+            "label": "Reading preferences",
+            "displayWidth": 402
           },
           {
             "file": "figma/dua-transliteration.png",
             "alt": "Ibadat editable transliteration sheet with a text area, audio playback, speed and repeat controls, and Cancel and Save buttons.",
             "caption": "Listen while editing transliteration, then save the pronunciation text.",
-            "label": "Editable transliteration"
+            "label": "Editable transliteration",
+            "displayWidth": 402
           }
-        ]
+        ],
+        "heading": "Let people shape how they read",
+        "lead": "Reading preferences separate Arabic size from translation and transliteration size. People can choose the script and font, then show the reading layers they need. These controls are available in a sheet beside the reading experience.\n\nEditable transliteration was a specific client requirement. I paired the text field with audio, speed, and repeat controls, so someone can listen while adjusting their pronunciation text, then choose Save or Cancel."
       },
       {
         "_type": "mediaChapter",
@@ -694,19 +739,23 @@
           {
             "file": "figma/app-settings.png",
             "alt": "Ibadat settings with light and dark themes, time and number formats, language, location, notification controls, and prayer and dua settings.",
-            "caption": "Theme, language, time format, and app preferences.",
-            "label": "App preferences"
+            "caption": "Broader preferences sit alongside separate Home, prayer, and dua settings, with contextual help links.",
+            "label": "App preferences",
+            "displayWidth": 402
           },
           {
             "file": "figma/ritual-feed.png",
             "alt": "Ibadat source feed with Daily, Weekly, Monthly, and Yearly tabs and lists of ritual topics supported by Quran and Sunnah references.",
-            "caption": "Source material for ritual acts, organised by timeframe.",
-            "label": "Sources feed"
+            "caption": "The feed groups source topics by timeframe, corresponding to the ritual guidance on Home.",
+            "label": "Sources feed",
+            "displayWidth": 402
           }
         ],
         "pending": [
           "Dark theme — add the same final screen in light and dark modes from Figma for a direct comparison."
-        ]
+        ],
+        "heading": "Guidance for the moment, with sources to check",
+        "lead": "The Home design groups ritual guidance into Now, Weekly, Monthly, and Yearly views. The Sources feed uses the corresponding Daily, Weekly, Monthly, and Yearly groups for the supporting Quran and Sunnah material. Guidance and its evidence have distinct places in the app.\n\nSettings bring language, number and time formats, and theme choices together. Home, prayer, and dua preferences remain separate, with links such as “Facing incorrect prayer time?” leading people towards the relevant help."
       },
       {
         "_type": "statementChapter",

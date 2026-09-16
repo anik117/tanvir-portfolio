@@ -12,6 +12,8 @@ export type Annotation = {
 export type SanityImage = SanityImageSource & {
   alt?: string;
   caption?: string;
+  /** Logical width of a high-resolution UI export; preserves PNG detail. */
+  displayWidth?: number;
   annotations?: Annotation[];
 };
 

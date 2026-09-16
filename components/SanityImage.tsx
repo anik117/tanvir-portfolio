@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { urlFor } from "@/sanity/image";
+import { imageDimensions, urlFor } from "@/sanity/image";
 import type { SanityImage as SanityImageType } from "@/sanity/types";
 
 type Props = {
@@ -41,12 +41,16 @@ export function SanityImage({
   if (!builder) return null;
 
   const height = Math.round(width * aspect);
-  let b = builder.width(width);
+  // UI lettering needs the original export pixels, without two lossy encodes.
+  // These images are lazy-loaded and have their own logical display width.
+  const preserveDetail = Boolean(image.displayWidth);
+  const exportWidth = preserveDetail ? imageDimensions(image)?.width ?? width : width;
+  let b = builder.width(exportWidth);
   if (crop) {
-    b = b.height(height).fit("crop");
+    b = b.height(Math.round(exportWidth * aspect)).fit("crop");
     if (focus === "top") b = b.crop("top");
   }
-  const src = b.auto("format").quality(quality).url();
+  const src = preserveDetail ? b.format("png").url() : b.auto("format").quality(quality).url();
   const alt = image.alt ?? "";
 
   return (
@@ -57,6 +61,7 @@ export function SanityImage({
       height={height}
       sizes={sizes}
       priority={priority}
+      unoptimized={preserveDetail}
       className={className}
       style={
         fill
