@@ -318,10 +318,10 @@ a:hover > .arrow-up {
 .img-plain {
   --media-padding: clamp(12px, 2vw, 24px);
   padding: var(--media-padding);
-  border: 1px solid #e8e8eb;
-  border-radius: 20px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
   overflow: hidden;
-  background-color: #fafafa;
+  background-color: color-mix(in srgb, var(--background) 92%, #756e60 8%);
   background-image: radial-gradient(circle, rgb(100 116 139 / 0.28) 1px, transparent 1.1px);
   background-size: 16px 16px;
   transition: box-shadow 420ms var(--ease);
