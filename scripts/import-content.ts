@@ -26,6 +26,9 @@ type Project = {
   galleryAnnotations?: Annotation[][];
   /** Big image at the top of the case study; falls back to cover.jpg. */
   heroFile?: string;
+  coverFile?: string;
+  coverDisplayWidth?: number;
+  coverCrop?: { top: number; bottom: number; left: number; right: number };
   heroAlt?: string;
   chapters?: SeedChapter[];
   [key: string]: unknown;
@@ -44,6 +47,8 @@ type SeedImage = {
   /** Inline preview height as a fraction of width; the lightbox shows all. */
   previewAspect?: number;
   displayWidth?: number;
+  presentation?: "screen" | "phone" | "detail";
+  maxWidth?: number;
   annotations?: Annotation[];
 };
 
@@ -203,6 +208,8 @@ async function buildChapters(chapters: SeedChapter[], dir: string, slug: string)
           ...imageField(assetId, img.alt, img.caption, img.annotations, img.label),
           ...(img.previewAspect ? { previewAspect: img.previewAspect } : {}),
           ...(img.displayWidth ? { displayWidth: img.displayWidth } : {}),
+          ...(img.presentation ? { presentation: img.presentation } : {}),
+          ...(img.maxWidth ? { maxWidth: img.maxWidth } : {}),
           _key: `ch-${ci}-${field}-${ii}`,
           // imageField writes the generic "image" type; inside a chapter the
           // member type is the named one the schema declares.
@@ -243,8 +250,13 @@ async function main() {
   for (const p of selectedProjects) {
     const id = `project-${p.slug}`;
     const dir = join(process.cwd(), "assets/projects", p.slug);
-    const coverId = await resolveAsset(join(dir, "cover.jpg"), `${p.slug}-cover.jpg`);
-    const coverImage = coverId ? imageField(coverId, p.coverAlt) : undefined;
+    const coverFile = p.coverFile ?? "cover.jpg";
+    const coverId = await resolveAsset(join(dir, coverFile), assetName(p.slug, coverFile));
+    const coverImage = coverId ? {
+      ...imageField(coverId, p.coverAlt),
+      ...(p.coverDisplayWidth ? { displayWidth: p.coverDisplayWidth } : {}),
+      ...(p.coverCrop ? { crop: p.coverCrop } : {}),
+    } : undefined;
 
     const gallery: unknown[] = [];
     for (let i = 1; i <= 5; i++) {

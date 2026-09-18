@@ -50,3 +50,19 @@ coverage/
 # reads it; a compressed clip or a hosted URL is what a page would use.
 assets/**/*.mp4
 assets/**/*.mov
+
+# Alokito: Figma frames that show individual people's records — names, photos,
+# phone numbers, emails, and in one case date of birth, religion and marital
+# status. The data is almost certainly mock, but it reads as real and this repo
+# is public, so committing it would publish it regardless of what the site
+# renders. Kept locally for reference; never committed.
+assets/projects/alokito-job-portal/figma/job-applicant-cv.png
+assets/projects/alokito-job-portal/figma/job-applicant-cv-edit.png
+assets/projects/alokito-job-portal/figma/recruiter-applicant-review.png
+assets/projects/alokito-job-portal/figma/job-application-form.png
+assets/projects/alokito-job-portal/figma/recruiter-posting-details.png
+assets/projects/alokito-teacher/figma/dash-admin-users.png
+assets/projects/alokito-teacher/figma/dash-trainer.png
+assets/projects/alokito-teacher/figma/dash-admin.png
+assets/projects/alokito-teacher/figma/dash-institute.png
+assets/projects/alokito-teacher/figma/dash-teacher-report.png

@@ -1,8 +1,527 @@
 [
   {
+    "slug": "alokito-teacher",
+    "title": "Alokito Teacher",
+    "order": 1,
+    "projectType": "Training Platform + Website",
+    "industry": "Edtech",
+    "platform": "Desktop & Mobile",
+    "year": "2025",
+    "duration": "2025 · 6–8 months",
+    "role": "UI/UX Designer",
+    "team": "Worked with 2 developers",
+    "scope": "Design system · Website · 4 dashboard roles",
+    "externalLabel": "Visit Website",
+    "externalUrl": "https://www.alokitoteachers.com/",
+    "headline": "Designing a training platform for four different roles",
+    "summary": "I redesigned Alokito Teacher’s website and training experience, bringing teacher learning, institute enrollment, and training management into one shared design system.",
+    "coverFile": "figma/featured/training-progress.png",
+    "coverDisplayWidth": 1600,
+    "coverCrop": {
+      "top": 0,
+      "bottom": 0.25,
+      "left": 0,
+      "right": 0
+    },
+    "coverAlt": "Alokito Teacher training dashboard with learning resources, course progress, and four phases",
+    "galleryAlt": [],
+    "chapters": [
+      {
+        "_type": "statementChapter",
+        "heading": "One platform, different responsibilities",
+        "lead": "The existing homepage was outdated. The team needed a unified website that explained its courses, plans, and job platform.\n\nThe harder problem was behind the homepage. Teachers needed a learning path, institutes needed enrollment and progress views, and trainers and admins needed to manage assessments, content, and records.\n\nI had to keep those responsibilities distinct while working through access rules, enrollment limits, and assessment logic.",
+        "layout": "stacked",
+        "tone": "plain",
+        "navLabel": "The challenge",
+        "facts": [
+          "4 roles",
+          "4 training phases",
+          "Desktop + mobile"
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Map the rules before the screens",
+        "lead": "I reviewed local education, training, and job platforms, then worked with the client to turn the requirements into flows for each role.\n\nI started with signup, the initial assessment, and the four-phase teacher journey. From there, I mapped the enrollment and management work around it.\n\nI built the initial design system before exploring homepage variations, giving courses, plans, and the two job-platform audiences clear routes into the product.",
+        "images": [
+          {
+            "file": "figma/featured/landing-homepage.png",
+            "alt": "Alokito homepage with courses, teacher and recruiter routes, badges, and plans",
+            "presentation": "screen",
+            "previewAspect": 0.65,
+            "caption": "Courses, plans, and job opportunities have clear routes from the homepage.",
+            "displayWidth": 1600.0
+          }
+        ],
+        "navLabel": "Approach"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Build the patterns that new screens can grow from",
+        "lead": "With four dashboard roles and a growing set of flows, consistency needed to come from reusable parts.\n\nI defined colour scales and a text hierarchy, then built buttons, inputs, form controls, tables, navigation, and progress indicators. These became the foundation for learning cards, enrollment summaries, and assessment questions.",
+        "images": [
+          {
+            "file": "figma/featured/system-colors.png",
+            "alt": "Alokito design-system colour scales for primary, secondary, and feedback colours",
+            "presentation": "detail",
+            "previewAspect": 0.55,
+            "label": "Colour scales",
+            "displayWidth": 1600.0
+          },
+          {
+            "file": "figma/featured/system-typography.png",
+            "alt": "Alokito type hierarchy with display, heading, paragraph, and caption styles",
+            "presentation": "detail",
+            "previewAspect": 0.55,
+            "label": "Text hierarchy",
+            "displayWidth": 1600.0
+          }
+        ],
+        "navLabel": "The system",
+        "layout": "grid"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Define the interaction states as well",
+        "lead": "Buttons included default, hover, focus, and disabled states. Inputs covered typing, validation, and read-only states.\n\nDefining those states gave developers a clearer specification for what happens during use, alongside the full-experience prototype.",
+        "images": [
+          {
+            "file": "figma/featured/system-buttons.png",
+            "alt": "Primary button variants in two sizes, with default, hover, focus, and disabled states",
+            "presentation": "detail",
+            "maxWidth": 468,
+            "caption": "Button sizes, icon positions, and interaction states.",
+            "displayWidth": 468.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Validation belongs in the component",
+        "lead": "The same input pattern supports filled, successful, and error states, keeping feedback consistent across the longer forms.",
+        "images": [
+          {
+            "file": "figma/featured/system-input-filled.png",
+            "alt": "Filled input component",
+            "presentation": "detail",
+            "label": "Filled",
+            "maxWidth": 375,
+            "displayWidth": 375.0
+          },
+          {
+            "file": "figma/featured/system-input-success.png",
+            "alt": "Input with success feedback",
+            "presentation": "detail",
+            "label": "Success",
+            "maxWidth": 375,
+            "displayWidth": 375.0
+          },
+          {
+            "file": "figma/featured/system-input-error.png",
+            "alt": "Input with error feedback",
+            "presentation": "detail",
+            "label": "Error",
+            "maxWidth": 375,
+            "displayWidth": 375.0
+          }
+        ],
+        "layout": "grid"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Explain what is available and what comes next",
+        "lead": "The program combines online courses, offline workshops, and assessments across four phases, with plan-based access to later phases.\n\nI made the initial assessment the starting dashboard’s primary action. Once training begins, the dashboard shows the active phase, overall progress, and individual course states.",
+        "images": [
+          {
+            "file": "figma/featured/training-assessment-entry.png",
+            "alt": "Initial teacher dashboard prompting completion of the assessment",
+            "presentation": "screen",
+            "previewAspect": 0.75,
+            "label": "Starting point",
+            "displayWidth": 1600.0
+          },
+          {
+            "file": "figma/featured/training-progress.png",
+            "alt": "Teacher dashboard with phase progress, active courses, and locked later activities",
+            "presentation": "screen",
+            "previewAspect": 0.75,
+            "label": "Training in progress",
+            "displayWidth": 1600.0
+          }
+        ],
+        "navLabel": "Learning journey"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "A lock needs an explanation",
+        "lead": "Some activities depend on earlier work. The locked card explains the prerequisite, while later phases remain visible so teachers can see the path ahead.",
+        "images": [
+          {
+            "file": "figma/featured/system-resource-available.png",
+            "alt": "Available course card with progress and status",
+            "presentation": "detail",
+            "maxWidth": 298,
+            "label": "Available",
+            "displayWidth": 298.0
+          },
+          {
+            "file": "figma/featured/system-resource-locked.png",
+            "alt": "Locked course card explaining that the previous course must be completed",
+            "presentation": "detail",
+            "maxWidth": 298,
+            "label": "Prerequisite required",
+            "displayWidth": 298.0
+          }
+        ],
+        "layout": "grid"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Connect the score to the work behind it",
+        "lead": "I paired the final score with phase-level and activity-level breakdowns, keeping the result connected to courses, assignments, and workshops.\n\nThe wider program links training with certification and a profile teachers can use when applying for jobs.",
+        "images": [
+          {
+            "file": "figma/featured/training-phase-score.png",
+            "alt": "Anonymous phase report listing course, assignment, and workshop scores",
+            "presentation": "detail",
+            "caption": "A phase result with the activity scores behind it.",
+            "maxWidth": 1000,
+            "displayWidth": 1264.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Put capacity beside the enrollment decision",
+        "lead": "Institute enrollment depends on purchased seats. I placed the current plan and remaining capacity above the teacher list, alongside distinct enrollment, pending, review, and rejected states.\n\nPlans and billing have their own view for teacher quantities, additional capacity, purchase history, and invoices.",
+        "images": [
+          {
+            "file": "figma/featured/training-enrollment-summary.png",
+            "alt": "Institute plan summary displaying remaining teacher enrollment capacity",
+            "presentation": "detail",
+            "caption": "Remaining capacity stays visible before enrollment decisions.",
+            "displayWidth": 1264.0
+          },
+          {
+            "file": "figma/featured/training-billing.png",
+            "alt": "Institute plans and billing with teacher quantity, per-teacher plans, and purchase history",
+            "presentation": "screen",
+            "previewAspect": 0.7,
+            "caption": "Purchasing capacity and finding invoices have their own space.",
+            "displayWidth": 1600.0
+          }
+        ],
+        "navLabel": "Platform operations"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Make a complex form manageable to create",
+        "lead": "The assessment builder needed multiple question types, editable options, helper text, and required or optional fields.\n\nI organized it around individual questions. The selected question opens for editing while the rest of the form remains visible. Reusable types cover text responses, multiple choice, ratings, video, and links.",
+        "images": [
+          {
+            "file": "figma/featured/training-builder.png",
+            "alt": "Assessment builder with editable question titles, helper text, options, and required toggles",
+            "presentation": "screen",
+            "previewAspect": 0.85,
+            "caption": "Configure one question while keeping the rest of the form in view.",
+            "displayWidth": 1600.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Keep the structure across screen sizes",
+        "lead": "I designed desktop and mobile versions and prototyped the full experience. Progress and prerequisite messages remain visible as cards and summaries stack vertically.\n\nTrainers and admins also have searchable, filterable views for moving from an overview into records, reports, and phase content. I worked closely with two developers to hand over the designs and connected flows.",
+        "images": [
+          {
+            "file": "figma/featured/training-mobile-teacher.png",
+            "alt": "Mobile teacher dashboard with assessment status, progress, and training cards",
+            "presentation": "phone",
+            "previewAspect": 2.5,
+            "label": "Teacher",
+            "displayWidth": 393.0
+          },
+          {
+            "file": "figma/featured/training-mobile-billing.png",
+            "alt": "Mobile institute billing with plan quantity and purchase history",
+            "presentation": "phone",
+            "previewAspect": 2.5,
+            "label": "Institute",
+            "displayWidth": 393.0
+          }
+        ],
+        "navLabel": "Final experience"
+      },
+      {
+        "_type": "statementChapter",
+        "heading": "Live, well received, and followed by further funding",
+        "lead": "The website and training platform are now live. The client loved the final experience. After development, Alokito raised funding to support further scaling.\n\nMy contribution covered the shared design system, role-specific flows, responsive interfaces, full-experience prototype, and close handoff with two developers.\n\nThe work made the program’s rules visible: what to complete next, why an activity is locked, how many seats remain, and what contributes to a teacher’s score.",
+        "layout": "stacked",
+        "tone": "dark",
+        "navLabel": "Outcome"
+      }
+    ]
+  },
+  {
+    "slug": "alokito-job-portal",
+    "title": "Alokito Job Portal",
+    "order": 2,
+    "projectType": "Recruitment Platform",
+    "industry": "Edtech",
+    "platform": "Desktop & Mobile",
+    "year": "2025",
+    "duration": "2025 · Part of the 6–8 month Alokito project",
+    "role": "UI/UX Designer",
+    "team": "Worked with 2 developers",
+    "scope": "Applicant + recruiter flows · Responsive UI",
+    "externalLabel": "Visit Website",
+    "externalUrl": "https://www.alokitoteachers.com/",
+    "headline": "Designing both sides of teacher recruitment",
+    "summary": "I designed Alokito’s job portal for educators finding work and schools hiring, connecting discovery, applications, job posting, and candidate review.",
+    "coverFile": "figma/featured/jobs-search.png",
+    "coverDisplayWidth": 1600,
+    "coverCrop": {
+      "top": 0,
+      "bottom": 0.6191282268303004,
+      "left": 0,
+      "right": 0
+    },
+    "coverAlt": "Alokito job search with keyword and location controls, filters, and teaching roles",
+    "galleryAlt": [],
+    "chapters": [
+      {
+        "_type": "statementChapter",
+        "heading": "Connect two journeys with different decisions",
+        "lead": "Teachers need to decide whether a role fits, prepare their information, and follow an application. Recruiters need to define a role, compare candidates, and manage decisions.\n\nThe complexity was in the transitions: an incomplete profile before applying, a long form before publishing, and a candidate list before a detailed review.\n\nI designed separate working spaces, connected through the same posting and application journey.",
+        "layout": "stacked",
+        "tone": "plain",
+        "navLabel": "The challenge",
+        "facts": [
+          "2 audiences",
+          "4 posting steps",
+          "Desktop + mobile"
+        ]
+      },
+      {
+        "_type": "statementChapter",
+        "heading": "Work through the paths and their exceptions",
+        "lead": "The portal grew out of the wider platform requirements and my review of local education and job websites.\n\nI mapped the applicant journey from search to submission, including saved jobs, incomplete profiles, and withdrawal. For recruiters, I worked through posting, requirements, matching setup, and review.\n\nI prototyped the complete experience so handoff could communicate the states between the main steps.",
+        "layout": "stacked",
+        "tone": "plain",
+        "navLabel": "Approach"
+      },
+      {
+        "_type": "flowChapter",
+        "variant": "flow",
+        "heading": "The applicant journey",
+        "steps": [
+          {
+            "label": "Search"
+          },
+          {
+            "label": "Review role"
+          },
+          {
+            "label": "Apply"
+          },
+          {
+            "label": "Track"
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Extend the shared system around hiring",
+        "lead": "I built the wider platform’s design system first, then extended it for recruitment.\n\nJob-card variants cover featured and standard listings, plus default and applied states on desktop and mobile. A reusable step component distinguishes not-started, active, and completed steps. Shared form and table patterns support the longer workflows.",
+        "images": [
+          {
+            "file": "figma/featured/system-job-card-states.png",
+            "alt": "Job-card variants for featured and standard listings in default and applied states",
+            "presentation": "detail",
+            "previewAspect": 0.45,
+            "caption": "One job-card pattern supports listing and application states.",
+            "displayWidth": 1741.0
+          },
+          {
+            "file": "figma/featured/system-step-states.png",
+            "alt": "Job-posting step component in not-started, active, and completed states",
+            "presentation": "detail",
+            "maxWidth": 900,
+            "caption": "The step pattern makes workflow progress visible.",
+            "displayWidth": 728.0
+          }
+        ],
+        "navLabel": "The system"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Help teachers judge the role before opening it",
+        "lead": "Search supports job titles, keywords, schools, and location, with filters for experience, employment type, work arrangement, and salary.\n\nResult cards bring requirements and deadlines into the list. Teachers can save an opportunity or open the details for responsibilities, qualifications, skills, and school information.",
+        "images": [
+          {
+            "file": "figma/featured/jobs-search.png",
+            "alt": "Teaching-job search with filters and result cards showing requirements and deadlines",
+            "presentation": "screen",
+            "previewAspect": 0.7,
+            "label": "Search",
+            "displayWidth": 1600.0
+          },
+          {
+            "file": "figma/featured/jobs-details.png",
+            "alt": "Teaching-role details with qualifications, responsibilities, skills, and institute information",
+            "presentation": "screen",
+            "previewAspect": 0.65,
+            "label": "Review the role",
+            "displayWidth": 1600.0
+          }
+        ],
+        "navLabel": "Search and apply"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Make profile readiness actionable",
+        "lead": "An incomplete profile needed more than a percentage. I showed readiness on the dashboard and again during the application.\n\nThe warning names the missing sections and gives a direct action to complete the profile. The form also shows the application allowance and collects expected salary, turning readiness into a specific task.",
+        "images": [
+          {
+            "file": "figma/featured/jobs-profile-readiness.png",
+            "alt": "Profile warning naming missing training, accomplishments, and references with a Complete Profile action",
+            "presentation": "detail",
+            "maxWidth": 816,
+            "caption": "Name what is missing, then give a direct next step.",
+            "displayWidth": 816.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Confirm submission and explain withdrawal",
+        "lead": "The completion screen confirms submission and explains the next steps, with routes back to the dashboard or more jobs.\n\nI also designed a confirmed undo action. Its message explains that withdrawing means applying again. Applied, in-review, and saved jobs remain distinct on the dashboard.",
+        "images": [
+          {
+            "file": "figma/featured/jobs-confirmation.png",
+            "alt": "Application submission confirmation with next steps and navigation actions",
+            "presentation": "screen",
+            "previewAspect": 0.65,
+            "caption": "Submission has a clear completion state.",
+            "displayWidth": 1600.0
+          },
+          {
+            "file": "figma/featured/jobs-undo.png",
+            "alt": "Confirmation modal explaining that withdrawing an application requires reapplying",
+            "presentation": "detail",
+            "maxWidth": 640,
+            "caption": "Withdrawal is deliberate, with its consequence explained.",
+            "displayWidth": 640.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Give a long posting form a clear structure",
+        "lead": "I divided posting into four steps: job details, candidate requirements, matching and restrictions, and payment and billing.\n\nThe step indicator keeps the sequence visible. Previous-step and save-for-later actions support review or a pause.",
+        "images": [
+          {
+            "file": "figma/featured/jobs-post-step-2.png",
+            "alt": "Candidate requirements step with education, experience, skills, and badge criteria",
+            "presentation": "screen",
+            "previewAspect": 0.8,
+            "caption": "Group candidate requirements into a dedicated step.",
+            "displayWidth": 1600.0
+          }
+        ],
+        "navLabel": "Recruiter tools"
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Make missing criteria visible before publishing",
+        "lead": "The matching view distinguishes supplied and missing criteria. A missing skill criterion has its own action to add it, so the recruiter can address the gap within the flow.",
+        "images": [
+          {
+            "file": "figma/featured/jobs-post-step-3.png",
+            "alt": "Matching setup identifying supplied criteria and a missing skill criterion",
+            "presentation": "screen",
+            "previewAspect": 0.75,
+            "caption": "Incomplete setup becomes a visible action.",
+            "displayWidth": 1600.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Move from the list to an informed review",
+        "lead": "The recruiter dashboard separates active, pending-approval, and rejected posts. Each job opens its own context and applicants.\n\nI separated shortlisted candidates from the complete list, with search, filters, match scores, and status labels. A profile then reveals the detailed information behind the row before accept or reject actions.",
+        "images": [
+          {
+            "file": "figma/featured/jobs-recruiter-dashboard.png",
+            "alt": "Recruiter dashboard with job-posting counts and active, pending, and rejected status tabs",
+            "presentation": "screen",
+            "previewAspect": 0.75,
+            "caption": "Job-posting states and applicant counts stay connected.",
+            "displayWidth": 1600.0
+          },
+          {
+            "file": "figma/featured/jobs-review-summary.png",
+            "alt": "Recruiter job summary showing applicant count, days remaining, and average match score",
+            "presentation": "detail",
+            "caption": "Review begins with the context of the job.",
+            "displayWidth": 1200.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Reusable sections organize the candidate record",
+        "lead": "Consistent profile sections give education, experience, training, and skills a shared structure. The list supports comparison; the profile supports a closer decision.",
+        "images": [
+          {
+            "file": "figma/featured/system-profile-sections.png",
+            "alt": "Reusable profile-summary component patterns with headings and labelled information",
+            "presentation": "detail",
+            "maxWidth": 700,
+            "previewAspect": 0.75,
+            "caption": "Profile-section patterns used to organize candidate information.",
+            "displayWidth": 848.0
+          }
+        ]
+      },
+      {
+        "_type": "mediaChapter",
+        "heading": "Keep the journey usable across layouts",
+        "lead": "The mobile applicant dashboard retains profile completion, application summaries, discovery, and recent applications. Job search has its own mobile design.\n\nI designed and prototyped the full experience, then worked closely with the same two developers on handoff.",
+        "images": [
+          {
+            "file": "figma/featured/jobs-mobile-dashboard.png",
+            "alt": "Mobile applicant dashboard with profile readiness, job summaries, and recent applications",
+            "presentation": "phone",
+            "previewAspect": 2.5,
+            "label": "Dashboard",
+            "displayWidth": 393.0
+          },
+          {
+            "file": "figma/featured/jobs-mobile-search.png",
+            "alt": "Mobile job search with stacked result cards and filters",
+            "presentation": "phone",
+            "previewAspect": 2.5,
+            "label": "Search",
+            "displayWidth": 393.0
+          }
+        ],
+        "navLabel": "Final experience"
+      },
+      {
+        "_type": "statementChapter",
+        "heading": "A live portal within a growing platform",
+        "lead": "The applicant and recruiter experiences are now live. The client loved the delivered experience, and the wider Alokito platform raised funding after development to support further scaling.\n\nMy work covered the connected flows, recruitment components, responsive screens, full prototype, and developer handoff.\n\nThe strongest part of the design was making the transitions clear: from a result to a decision, from missing information to a ready application, and from a candidate list to a detailed review.",
+        "layout": "stacked",
+        "tone": "dark",
+        "navLabel": "Outcome"
+      }
+    ]
+  },
+  {
     "slug": "taxrise",
     "title": "TaxRise",
-    "order": 1,
+    "order": 3,
     "projectType": "Website Redesign",
     "industry": "Fintech / Tax resolution",
     "platform": "Responsive web",
@@ -229,7 +748,7 @@
   {
     "slug": "zo-skin-centre",
     "title": "ZO Skin Centre",
-    "order": 2,
+    "order": 4,
     "summary": "Four locations. Four separate websites. I restructured the platform around what people are deciding — a treatment, a practitioner, a place — not around which clinic owns the page.",
     "projectType": "Website Redesign",
     "industry": "Healthcare / Wellness",
@@ -540,7 +1059,7 @@
   {
     "slug": "ibadat",
     "title": "Ibadat",
-    "order": 3,
+    "order": 5,
     "projectType": "Mobile App Design",
     "industry": "Islamic prayer app",
     "platform": "Mobile app · Android beta",
@@ -776,115 +1295,5 @@
     ],
     "externalLabel": "View Prototype",
     "externalUrl": "https://www.figma.com/proto/rSlXsfvsPDTz0P7m5RLHnK/Islamic-Prayer-App?page-id=1%3A2&node-id=458-5081&p=f&viewport=282%2C362%2C0.02&t=tRp6q0Yvyn8jAbD2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=10%3A29&show-proto-sidebar=1"
-  },
-  {
-    "slug": "alokito-teacher",
-    "title": "Alokito Teacher",
-    "order": 4,
-    "summary": "I redesigned Alokito Teacher and added a job marketplace, giving teachers one place to build skills and find work while schools got a direct hiring path.",
-    "projectType": "Website Redesign + Job Portal",
-    "industry": "Edtech",
-    "platform": "Desktop & Mobile",
-    "year": "2024",
-    "duration": "4 months",
-    "externalLabel": "Visit Website",
-    "goal": "The product had to do two connected jobs: help teachers choose and buy courses, and help institutions hire them. The redesign needed to make both paths clear without turning the site into two separate products.",
-    "targetUsers": [
-      {
-        "label": "Teachers",
-        "description": "Need a clear way to compare courses, understand pricing and move from learning to job opportunities."
-      },
-      {
-        "label": "Institutions and schools",
-        "description": "Need a focused way to publish roles and review applicants with relevant training."
-      }
-    ],
-    "discoveryNote": "The client brief brought two experiences together: an education business selling courses and a new marketplace connecting teachers with schools. The information architecture had to make that relationship understandable.",
-    "insights": [
-      "Course discovery, pricing and job search needed to feel connected because the same teachers moved between them.",
-      "The job marketplace needed distinct paths for teachers and institutions.",
-      "Individual courses and higher-value packages needed to be easy to compare without crowding the homepage."
-    ],
-    "competitorAnalysis": [
-      "The comparison focused on how education platforms organise course discovery and how job portals separate search, application and hiring tasks."
-    ],
-    "userFlows": [
-      {
-        "name": "Choose a Course",
-        "steps": "Homepage → Browse courses → Compare details and price → Enrol"
-      },
-      {
-        "name": "Find and Apply for Work",
-        "steps": "Job marketplace → Search and filter → Review role → Apply"
-      },
-      {
-        "name": "Hire a Teacher",
-        "steps": "Institution portal → Publish role → Review applicants → Manage applications"
-      }
-    ],
-    "wireframes": [
-      "Used low-fidelity layouts to connect the homepage, course catalogue, pricing and job marketplace.",
-      "Refined the high-fidelity prototype with direct client feedback."
-    ],
-    "visualDirection": [
-      "Balanced an energetic education brand with clear type, controlled colour and predictable page patterns.",
-      "Designed the main teacher journeys mobile-first."
-    ],
-    "keyScreens": [
-      {
-        "name": "One path from learning to work",
-        "description": "Connected course discovery, pricing and job opportunities instead of presenting them as unrelated destinations."
-      },
-      {
-        "name": "Faster job search for teachers",
-        "description": "Designed search, filters and application steps around the information a teacher needs to decide whether a role fits."
-      },
-      {
-        "name": "A separate hiring path for institutions",
-        "description": "Gave schools a focused route to publish jobs and manage applicants without mixing those actions into the teacher experience."
-      }
-    ],
-    "coverAlt": "Three Alokito Teachers screens on a maroon field — job search with live vacancy counts, the join-us homepage, and the employer hiring page",
-    "galleryAlt": [
-      "Alokito Teacher homepage showing courses, the job platform for teachers and recruiters, badges, and pricing plans",
-      "Before and after comparison of the Alokito Teacher homepage — the old illustration-led layout beside the redesigned version with photography and course cards",
-      "Alokito Teacher homepage on mobile, beside the Job Platform page explaining benefits for teachers and recruiters",
-      "Job search screen with keyword and location filters and live job counts, beside a course detail page for Inquiry-based learning with pricing",
-      "Angled view of mobile screens — homepage, course listing, course detail, and job search"
-    ],
-    "externalUrl": "https://www.alokitoteachers.com/",
-    "galleryCaption": [
-      "Homepage — courses and job platform",
-      "Before and after — homepage",
-      "Homepage and job platform",
-      "Job search and course detail",
-      "Mobile flow"
-    ],
-    "role": "Sole UI/UX Designer",
-    "galleryAnnotations": [
-      [
-        {
-          "label": "Courses lead the page",
-          "note": "The clearest first action for teachers",
-          "tone": "positive",
-          "x": 22,
-          "y": 56
-        },
-        {
-          "label": "Job portal — new feature",
-          "note": "Connects teachers and schools in one product",
-          "tone": "positive",
-          "x": 78,
-          "y": 29
-        },
-        {
-          "label": "Bundles made visible",
-          "note": "Plans are easier to find and compare",
-          "tone": "neutral",
-          "x": 78,
-          "y": 78
-        }
-      ]
-    ]
   }
 ]

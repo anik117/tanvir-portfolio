@@ -129,6 +129,7 @@ const MAX_FIGURE_HEIGHT = 1250;
 const PHONE_WIDTH = 600;
 
 function isPhone(image: ChapterImage) {
+  if (image.presentation) return image.presentation === "phone";
   const size = imageDimensions(image);
   return Boolean(size && (image.displayWidth ?? size.width) <= PHONE_WIDTH);
 }
@@ -160,6 +161,7 @@ function Figure({
   // the whole sheet is still one click away.
   const ratio = image.previewAspect ?? (size ? size.height / size.width : 0);
   const caps = [
+    image.maxWidth,
     image.displayWidth ?? size?.width,
     ratio > 1.25 && !isPhone(image) ? Math.round(MAX_FIGURE_HEIGHT / ratio) : undefined,
   ].filter((n): n is number => typeof n === "number" && n < width);
@@ -329,7 +331,19 @@ function Media({ c }: { c: MediaChapter }) {
       {c.facts?.length ? <Facts items={c.facts} /> : null}
 
       <div className={`space-y-12 ${hasHead || c.facts?.length ? "mt-10" : ""}`}>
-        {rows.map((row, i) =>
+        {c.layout === "grid" ? (
+          <div className="grid items-start gap-8 sm:grid-cols-2">
+            {images.map((image, i) => (
+              <Reveal key={i} amount={0.12}>
+                <Figure
+                  image={image}
+                  width={900}
+                  sizes="(max-width: 640px) 100vw, 540px"
+                />
+              </Reveal>
+            ))}
+          </div>
+        ) : rows.map((row, i) =>
           row.length > 1 || isPhone(row[0]) ? (
             <Reveal key={i} delay={i * 60} amount={0.12}>
               <div className="flex flex-wrap gap-5 sm:gap-6">

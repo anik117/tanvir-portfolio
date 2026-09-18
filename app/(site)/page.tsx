@@ -162,7 +162,7 @@ export default async function HomePage() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="section-title">Selected work.</h2>
             <p className="mx-auto mt-5 max-w-lg text-[18px] text-muted-strong sm:text-[20px]">
-              Four case studies showing the problem, the process, and the reasoning behind the interface.
+              Five case studies showing the problem, the process, and the reasoning behind the interface.
             </p>
             <Link href="/work" className="group btn btn-soft mt-7">
               Explore all projects

@@ -54,7 +54,12 @@ type ChapterHead = {
   lead?: string;
 };
 
-export type ChapterImage = SanityImage & { label?: string; previewAspect?: number };
+export type ChapterImage = SanityImage & {
+  label?: string;
+  previewAspect?: number;
+  presentation?: "screen" | "phone" | "detail";
+  maxWidth?: number;
+};
 
 export type StatementChapter = ChapterHead & {
   _type: "statementChapter";
@@ -73,6 +78,7 @@ export type CardsChapter = ChapterHead & {
 
 export type MediaChapter = ChapterHead & {
   _type: "mediaChapter";
+  layout?: "stack" | "grid";
   feature?: ChapterImage[];
   featurePending?: string;
   facts?: string[];

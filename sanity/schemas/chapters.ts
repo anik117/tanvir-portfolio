@@ -68,6 +68,23 @@ export const chapterImage = defineType({
       description: "Original Figma width before export scaling. Keeps high-resolution screens at their intended size and delivers them as lossless PNGs. Leave empty for photographs.",
       validation: (r) => r.min(200).max(2400),
     }),
+    defineField({
+      name: "presentation",
+      title: "Image kind",
+      type: "string",
+      options: { list: [
+        { title: "Desktop screen", value: "screen" },
+        { title: "Phone screen", value: "phone" },
+        { title: "Component or detail", value: "detail" },
+      ] },
+      description: "Keeps narrow components from being laid out as phone screens.",
+    }),
+    defineField({
+      name: "maxWidth",
+      title: "Maximum inline width",
+      type: "number",
+      validation: (r) => r.min(200).max(1600),
+    }),
     annotations,
   ],
 });
@@ -161,6 +178,14 @@ export const mediaChapter = defineType({
   type: "object",
   fields: [
     ...head(),
+    defineField({
+      name: "layout",
+      type: "string",
+      options: { list: [
+        { title: "Stacked figures", value: "stack" },
+        { title: "Two columns", value: "grid" },
+      ] },
+    }),
     defineField({
       name: "feature",
       title: "Feature image",
