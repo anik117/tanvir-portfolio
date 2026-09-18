@@ -1,7 +1,7 @@
 [
   {
     "slug": "alokito-teacher",
-    "title": "Alokito Teacher",
+    "title": "Alokito Teacher Core",
     "order": 1,
     "projectType": "Training Platform + Website",
     "industry": "Edtech",
@@ -15,15 +15,7 @@
     "externalUrl": "https://www.alokitoteachers.com/",
     "headline": "Designing a training platform for four different roles",
     "summary": "I redesigned Alokito Teacher’s website and training experience, bringing teacher learning, institute enrollment, and training management into one shared design system.",
-    "coverFile": "figma/featured/training-progress.png",
-    "coverDisplayWidth": 1600,
-    "coverCrop": {
-      "top": 0,
-      "bottom": 0.25,
-      "left": 0,
-      "right": 0
-    },
-    "coverAlt": "Alokito Teacher training dashboard with learning resources, course progress, and four phases",
+    "coverAlt": "Three Alokito Teachers screens on a maroon field — job search with live vacancy counts, the join-us homepage, and the employer hiring page",
     "galleryAlt": [],
     "chapters": [
       {
