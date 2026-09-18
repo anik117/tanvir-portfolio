@@ -313,12 +313,32 @@ a:hover > .arrow-up {
   transform: translate(3px, -3px);
 }
 
-/* Screenshots sit straight on the page: no card, no border, no resting
-   shadow. Hover is the only hint that there is more inside. */
+/* A quiet presentation surface separates exported UI from the page.
+   Padding keeps the frame's corners away from the original screen edges. */
 .img-plain {
+  --media-padding: clamp(12px, 2vw, 24px);
+  padding: var(--media-padding);
+  border: 1px solid #e8e8eb;
   border-radius: 20px;
   overflow: hidden;
+  background-color: #fafafa;
+  background-image: radial-gradient(circle, rgb(100 116 139 / 0.28) 1px, transparent 1.1px);
+  background-size: 16px 16px;
   transition: box-shadow 420ms var(--ease);
+}
+
+/* Screens keep their own geometry, including any baked-in UI corners. */
+.img-plain .cover-img,
+.group:hover .img-plain .cover-img,
+.img-plain.group:hover .cover-img {
+  border-radius: 0;
+  transform: none;
+}
+
+.img-plain > .pointer-events-none {
+  left: var(--media-padding);
+  right: var(--media-padding);
+  bottom: var(--media-padding);
 }
 
 .img-plain:hover {

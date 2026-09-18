@@ -73,13 +73,15 @@ export function ZoomableImage({
               className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent"
             />
           )}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/[0.06] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-black/75 text-white shadow-sm">
+              <Maximize2 size={18} strokeWidth={1.75} />
+            </span>
+          </span>
         </div>
-        <span
-          aria-hidden
-          className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-dark text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        >
-          <Maximize2 size={15} />
-        </span>
       </button>
 
       <dialog
@@ -97,9 +99,9 @@ export function ZoomableImage({
         }}
       >
         <div className="relative">
-          {/* The picture fills the frame edge to edge. max-height is only a
-              guard for an image whose dimensions we could not read. */}
-          <div className="no-scrollbar max-h-[90vh] overflow-y-auto rounded-2xl bg-white shadow-2xl">
+          {/* The same padded surface protects the original screen edges
+              when the full-resolution image is enlarged. */}
+          <div className="img-plain no-scrollbar max-h-[90vh] overflow-y-auto shadow-2xl">
             {loaded && (
               <SanityImage
                 image={image}

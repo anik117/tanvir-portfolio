@@ -134,7 +134,7 @@ export function AnnotatedImage({
   return (
     <div className={className}>
       <div className="relative">
-        <div className="overflow-hidden rounded-xl border border-border bg-white">
+        <div className="bg-white">
           <SanityImage
             image={image}
             width={width}
